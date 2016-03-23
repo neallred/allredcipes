@@ -1,0 +1,48 @@
+/* GENERAL */
+body { background: rgba(128,128,128,1); }
+
+div#my-app{ margin-top:1em; }
+
+div.recipe {
+  background: rgba(220,220,220,1);
+  border-radius: 1.5em;
+  max-width: 30em;
+  padding: 2em;
+  margin: 1em;
+}
+
+h3 {
+  font-size: 2em;
+  margin-top: -0.4em;
+}
+
+.btn-danger {
+  margin-top: -0.5em;
+}
+
+p {
+  margin-left: 0px;
+  text-align: left;
+}
+
+
+ul { list-style: none; }
+
+.text-glow:hover, .text-glow:focus, .text-glow:active {
+  -webkit-stroke-width: 5.3px;
+  -webkit-stroke-color: #FFFFFF;
+  -webkit-fill-color: #FFFFFF;
+  text-shadow: 1px 0px 20px #AAFFCC;
+  -webkit-transition: width 0.3s; /*Safari & Chrome*/
+  transition: width 0.3s;
+  -moz-transition: width 0.3s; /* Firefox 4 */
+  -o-transition: width 0.3s; /* Opera */
+}
+
+.text-glow a {
+  -webkit-transition: all 0.3s ease-in; /*Safari & Chrome*/
+  transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in; /* Firefox 4 */
+  -o-transition: all 0.3s ease-in; /* Opera */
+  text-decoration:none;
+}

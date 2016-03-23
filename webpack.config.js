@@ -17,12 +17,11 @@ var config = {
 		loaders: [
 			{ test: /\.js(x)?$/, loader: 'babel-loader', exclude: /node_modules/ },
 			{ test: /\.html$/, loader: 'raw' },
-			{ test: /\.less$/, loaders: [
-				'style-loader',
-				'css-loader',
-				'less-loader?cleancss'
-			]},
+      { test: /\.css$/, loaders: ['style', 'css'] },
+      { test: /\.scss$/, loader: 'style!css!sass?sourceMap' },
 			{ test: /\.png$/, loader: 'url-loader?limit=100000&mimetype=image/png' },
+			{ test: /\.jpeg$/, loader: 'url-loader?limit=100000&mimetype=image/jpeg' },
+      { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, loader : 'file-loader'},
 			{ test: /\.woff2$/, loader: 'url-loader' }
 		]
 	}
