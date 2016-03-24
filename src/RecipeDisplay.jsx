@@ -8,6 +8,9 @@ export class RecipeDisplay extends React.Component{
       data: window.localStorage
     }
   }
+  showIngredients () {
+    console.log('show the ingredients now');
+  }
   render () {
     console.log(this.state.data);
     return <div>

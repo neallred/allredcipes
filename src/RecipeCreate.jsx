@@ -14,10 +14,11 @@ export class RecipeCreate extends React.Component {
     }
   };
 
-  store() {
+  store(e) {
     if(!this.state.recipe.name || !this.state.recipe.ingredients){
       return;
     }
+    e.stopPropagation();
     let id = this.state.currentId;
     let recipe = JSON.stringify(this.state.recipe);
     let nextNumber = localStorage.getItem('nextRecipeId');
@@ -58,11 +59,11 @@ export class RecipeCreate extends React.Component {
       <input type='text'
         placeholder='Recipe name'
         onChange={this.handleNameChange.bind(this)}
-      />
+      /><br/>
       <input type='text'
         placeholder='ingredients (comma separated)'
         onChange={this.handleIngredientsChange.bind(this)}
-      />
+      /><br/>
       <button type='submit' onClick={this.store.bind(this)}>Submit</button>
     </form>
   }
