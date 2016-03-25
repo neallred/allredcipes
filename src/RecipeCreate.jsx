@@ -10,12 +10,13 @@ export class RecipeCreate extends React.Component {
       recipe: {
         name: '',
         ingredients: [],
+        instructions: ''
       }
     }
   };
 
   store(e) {
-    if(!this.state.recipe.name || !this.state.recipe.ingredients){
+    if(this.state.recipe.name === '' || this.state.recipe.ingredients === [] ){
       return;
     }
     e.stopPropagation();
@@ -26,9 +27,6 @@ export class RecipeCreate extends React.Component {
     localStorage.setItem(id, recipe);
     localStorage.setItem('nextRecipeId', 'recipe_'+ (parseInt(nextNumber) + 1));
     this.setState({currentId: localStorage.getItem('nextRecipeId')});
-  };
-  updateTemporaryVar () {
-    this.setState({recipes: 'abba2'});
   };
   handleNameChange (e) {
     let newName = update(this.state.recipe, {
@@ -41,6 +39,12 @@ export class RecipeCreate extends React.Component {
       ingredients: {$set: e.target.value.split(',')}
     });
     this.setState({recipe: newIngredients});
+  };
+  handleInstructionsChange (e) {
+    let newInstructions = update(this.state.recipe, {
+      instructions: {$set: e.target.value}
+    });
+    this.setState({recipe: newInstructions});
   };
   handleSubmit (e) {
     e.preventDefault();
@@ -55,17 +59,24 @@ export class RecipeCreate extends React.Component {
 
 
   render () {
-    return <form>
-      <input type='text'
-        placeholder='Recipe name'
-        onChange={this.handleNameChange.bind(this)}
-      /><br/>
-      <input type='text'
-        placeholder='ingredients (comma separated)'
-        onChange={this.handleIngredientsChange.bind(this)}
-      /><br/>
-      <button type='submit' onClick={this.store.bind(this)}>Submit</button>
-    </form>
+    return <div>
+      <h2 className='add-recipes'>Add recipes here!</h2>
+      <form className='container'>
+        <input type='text'
+          placeholder='Recipe name'
+          onChange={this.handleNameChange.bind(this)}
+        /><br/>
+        <input type='text'
+          placeholder='Ingredients (comma separated)'
+          onChange={this.handleIngredientsChange.bind(this)}
+        /><br/>
+        <textarea 
+          placeholder='Instructions'
+          onChange={this.handleInstructionsChange.bind(this)}
+        /><br/>
+        <button type='submit' onClick={this.store.bind(this)}>Submit</button>
+      </form>
+    </div>
   }
 }
 

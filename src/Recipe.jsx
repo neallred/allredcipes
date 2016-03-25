@@ -11,8 +11,9 @@ export class Recipe extends React.Component {
     e.stopPropagation();
     let data = window.localStorage;
     data.removeItem(this.props.value);
-    this.forceUpdate();
-    this.setState({updated: true});
+    let toRemove = e.currentTarget.parentNode.parentNode.parentNode;
+    console.log(toRemove);
+    toRemove.parentNode.removeChild(toRemove);
   }
   toggleIngredients (e) {
     var nodeListForEach = function (array, callback, scope) {
@@ -36,7 +37,7 @@ export class Recipe extends React.Component {
     let value = this.props.value;
     let key = this.props.key;
     return <div className='recipe' key={key} onClick={this.toggleIngredients.bind(this)}>
-      <div className='row'>
+      <div className='row heading'>
         <div className='col-lg-8 col-md-8 col-sm-8 col-xs-8'>
           <h3>{JSON.parse(data[value]).name}</h3>
         </div>
@@ -49,13 +50,22 @@ export class Recipe extends React.Component {
       </div>
       <div className='ingredients hide-ingredients'>
         <div className='col-lg-12'>
-          <p>Ingredients:</p>
+          <p className='ingredient-list'><strong>Ingredients:</strong></p>
         </div>
-        <ul key={key}>
-          {JSON.parse(data[value]).ingredients.map(function(value2, key2){
-            return <li className='ingredient' key={key2}>{value2}</li> 
-          })}
-        </ul>
+        <div className='col-lg-12'>
+          <ul key={key}>
+            {JSON.parse(data[value]).ingredients.map(function(value2, key2){
+              return <li className='ingredient' key={key2}>{value2}</li> 
+            })}
+          </ul>
+        </div>
+        <div className='col-lg-12'>
+          <p className='instructions heading'><strong>Instructions:</strong></p>
+        </div>
+        <div className='col-lg-12'>
+          <p className='instructions'>{JSON.parse(data[value]).instructions}</p>
+        </div>
+        <li className='btn btn-warning edit'>Edit</li>
       </div>
     </div>
   }

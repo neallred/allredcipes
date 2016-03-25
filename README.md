@@ -1,7 +1,6 @@
-Webpack - React + Redux starter
+Recipe Box App
 ==============================
-Simple starting point using React with redux.  Using webpack + babel 6+ 
-as the build system. 
+A Recipe Box built with Webpack, Babel, React, and Sass
 
 Getting started
 ------------------------------
@@ -23,8 +22,7 @@ without having to refresh.
 
 TODO
 -----------
-* Axios for HTTP
-* Less examples
-* Unit testing
-    * Enzyme
-* Flow type?
+* Add editing capability
+* Change ingredient input so that you add an additional input for each ingredient you want
+* Improve styling
+  * Fix ingredients so that when it is full screen the background-color doesn't 'pop up' and look goofy
