@@ -1,24 +1,32 @@
 import React from 'react';
 import {Recipe} from './Recipe.jsx';
+import {FixturesRecipes} from './FixturesRecipes.jsx';
 
 export class RecipeDisplay extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      data: window.localStorage
+      recipeStore: window.localStorage
     }
   }
-  showIngredients () {
-    console.log('show the ingredients now');
+  showPresetRecipes () {
+    window.localStorage.clear();
+    Object.keys(FixturesRecipes).map(function(recipeId, key) {
+      let recipeObject = FixturesRecipes[recipeId];
+      if(typeof recipeObject !== 'string'){recipeObject = JSON.stringify(recipeObject);}
+      window.localStorage.setItem(recipeId, recipeObject);
+    });
+    this.setState({recipeStore: window.localStorage});
+    
   }
   render () {
-    console.log(this.state.data);
     return <div>
-      {Object.keys(this.state.data).map(function(value, key) {
-        {if(value.indexOf('recipe') !== -1){
-          return <Recipe key={key} value={value}/>
+      {Object.keys(this.state.recipeStore).map(function(recipe_id, key) {
+        {if(recipe_id.indexOf('recipe') !== -1){
+          return <Recipe key={key} recipe_id={recipe_id}/>
         }}
-      })}  
+      })}
+      <button className='btn btn-success' onClick={this.showPresetRecipes.bind(this)}>Reset Recipes</button>
     </div>
   }
 }
