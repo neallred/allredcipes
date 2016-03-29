@@ -1,5 +1,6 @@
 {
-  "name": "webpack-react-starter",
+  "name": "recipe-box",
+  "description": "React Recipe Box by Nathaniel Allred",
   "version": "0.0.1",
   "devDependencies": {
     "babel-core": "^6.5.2",

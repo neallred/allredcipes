@@ -26,7 +26,7 @@ export class RecipeDisplay extends React.Component{
           return <Recipe key={key} recipe_id={recipe_id}/>
         }}
       })}
-      <button className='btn btn-success' onClick={this.showPresetRecipes.bind(this)}>Reset Recipes</button>
+      <button className='btn btn-success' onClick={this.showPresetRecipes.bind(this)}>(Re)set Recipes</button>
     </div>
   }
 }

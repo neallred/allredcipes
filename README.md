@@ -22,7 +22,8 @@ without having to refresh.
 
 TODO
 -----------
-* Add editing capability
-* Change ingredient input so that you add an additional input for each ingredient you want
-* Improve styling
-  * Fix ingredients so that when it is full screen the background-color doesn't 'pop up' and look goofy
+* Change reset recipe button to show a new page rather than overwriting data.
+  * The other page will not have editing capability.
+  * Could have multiple other pages for 'recipe boxes' of people.
+* Add a filter to only view recipes containing what the user types in.
+  * Have a checkmark box for multiple filters

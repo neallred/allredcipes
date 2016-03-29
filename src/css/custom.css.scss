@@ -1,8 +1,6 @@
 /* GENERAL */
 body {
   overflow: none;
-//  background: linear-gradient(135deg, pink, red, pink, red, pink);
-
 
 background: -webkit-linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), -webkit-linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), rgb(255, 255, 255);
 background: -moz-linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), -moz-linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), rgb(255, 255, 255);
@@ -27,8 +25,6 @@ transform: none;
 transform-origin: 50% 50% 0;
 
 }
-
-
 
 div.heading {
   border-bottom: 1px solid pink;
@@ -60,9 +56,6 @@ p {
   text-align: left;
 }
 
-p.instructions {
-}
-
 p.instructions.heading {
   border-bottom: 1px solid skyblue;
   margin-left: -1em;
@@ -90,9 +83,7 @@ div.hide-ingredients{
   opacity: 0;
   transition: max-height 0s, opacity 0s ease-in;
 
-  li.ingredient, p.instructions, li.edit, ul, button, li {
-    height:0px;
-  }
+  div { display: none; }
 }
 
 div.show-ingredients{
@@ -101,15 +92,17 @@ div.show-ingredients{
   opacity: 1;
   transition: max-height 0.6s, opacity 0.5s ease-out;
 
-  li.ingredient, p.instructions, li.edit, ul, button, li {
-    height:auto;
-  }
+  div { display: block; }
+
   li.edit {
     margin-top: 0.9em;
   }
 
 }
 
+button.btn.btn-success {
+  margin-top: 4em;
+}
 .text-glow:hover, .text-glow:focus, .text-glow:active {
   -webkit-stroke-width: 5.3px;
   -webkit-stroke-color: #FFFFFF;
@@ -134,7 +127,7 @@ h2.add-recipes {
 }
 
 form {
-  margin-top: 40px;
+  margin-top: 10px;
   textarea, input, button {
     border-radius: 7px;
     margin-bottom: 3px;
@@ -144,11 +137,42 @@ form {
     box-shadow: 2px 2px black;
   }
   textarea {
-    height: 15em;
+    height: 10em;
   }
 
 }
 
+.modalDialog {
+  position: fixed;
+  top: -2em;;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 3;
+  opacity: 0;
+  -webkit-transition: opacity 150ms ease-in;
+  -moz-transition: opacity 150ms ease-in;
+  transition: opacity 150ms ease-in;
+  pointer-events: none;
+}
+
+.modalDialog.opened {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modalDialog > div {
+  width: 500px;
+  position: relative;
+  margin: 10% auto;
+  padding: 5px 20px 13px 20px;
+  border-radius: 10px;
+  background: #fff;
+  background: -moz-linear-gradient(#fff, #999);
+  background: -webkit-linear-gradient(#fff, #999);
+  background: -o-linear-gradient(#fff, #999);
+}
 .close-edit-box {
   background: #606061;
   color: #FFFFFF;
