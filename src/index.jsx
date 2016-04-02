@@ -3,10 +3,16 @@ import ReactDOM from 'react-dom';
 import './css/bootstrap.min.css';
 import './css/custom.css.scss';
 
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { App } from './App';
-//import { RecipeCreate } from './RecipeCreate.jsx';
+import { OwnRecipes } from './OwnRecipes';
+import { OtherRecipes } from './OtherRecipes';
 
-ReactDOM.render(
-	<App />,
-	document.getElementById('my-app')
-);
+ReactDOM.render((
+  <Router history={browserHistory}>
+    <Route path='/' component={App}>
+      <IndexRoute component={OwnRecipes}/>
+      <Route path='/other-recipes' component={OtherRecipes}/>
+    </Route>
+  </Router>
+), document.getElementById('my-app'));

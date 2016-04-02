@@ -1,5 +1,5 @@
 const FixturesRecipes = {
-  nextRecipeId: 'recipe_017',
+  nextRecipeId: 'recipe_018',
   recipe_001:{
     name: 'Bubbly Pies',
     ingredients: 'CRUST: \n 1/2 cup butter or margarine \n 2 tablespoons granulated sweetening \n 2 1/2 cups flour \n 1/2 teaspoon salt \n 1/2 cup ice water \n \n FILLING: \n 5 cups blueberries (or one 20-ounce package, frozen) \n 1 cup granulated sweetening \n 1/4 teaspoon powdered klah bark (cinnamon) \n 2 teaspoon citrus juice \n 1-2 tablespoons butter or margerine',
@@ -79,6 +79,11 @@ const FixturesRecipes = {
     name: 'Biscuits',
     ingredients: '2 cups flour \n 1 tablespoon baking powder \n 1 teaspoon (or less) salt \n 1/4 cup margarine or butter, or 3 tablespoons oil \n 2/3 cup milk',
     instructions: '1. Mix the dry ingredients. \n 2. Cut in or mash in with a spoon the butter or oil. \n 3. Stir in the milk. \n 4. Knead the dough on a floured surface. \n 5. Roll or pat it out about 3/4 inch thick. Cut it into biscuits. \n 6. You can use an official cutter, or a tomato sauce or mushroom or green chile can works well for a cutter. \n 7. Bake at 400 for about 10 minutes, but watch it the first few times until you know what your oven does.'
+  },
+  recipe_017:{
+    name: 'Bread pudding',
+    ingredients:'1 loaf of French bread \n 1 quart of milk \n 3 eggs, beaten \n 2 cups of sugar \n 2 tablespoons of vanilla \n 1 teaspoon of cinnamon \n 3 tablespoons of butter \n SAUCE: 1 stick of butter \n 1 cup of sugar \n 1 egg, beaten \n 1/4 cup Bourbon (optional) \n PRALINE SAUCE: \n 1 1/4 cups light brown sugar \n 3/4 cup evaporated milk \n 1 tablespoon butter \n 1/2 teaspoon vanilla \n 1/4 cup chopped pecans',
+    instructions:'1. In a large bowl, break bread into bite-size pieces. \n 2. Cover with milk and soak one hour. \n 3. Mix well. \n 4. Add eggs and sugar. \n 5. Stir in vanilla, cinnamon. \n 6. Melt butter and pour in baking dish, tilting to coat all sides. \n Pour in pudding and bake one hour. \n SAUCE: \n 1. Melt butter and sugar. \n Gradually whisk egg. \n 3. Cool slightly. \n 4. Add bourbon (optional). \n PRALINE SAUCE: \n 1. In a small saucepan over low heat combine brown sugar, evaporated milk, an dbutter. \n 2. Cook and stir praline sauce until sauce is smooth and syrupy, about 5 minutes. \n 3. Stir in vanilla extract and pecans. \n 4. Serve praline sauce warm over ice cream. (Makes about 1 1/4 cups of praline sauce.'
   }
 }
 
