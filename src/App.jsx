@@ -1,8 +1,19 @@
 import React from 'react';
-import { Header } from './Header.jsx';
-import { OwnRecipes } from './OwnRecipes.jsx';
-import { OtherRecipes } from './OtherRecipes.jsx';
 
+
+export class App extends React.Component {
+  render () {
+    return <div className='container'>
+        <div className='col-lg-9 col-lg-offset-3'>
+          <div>{this.props.children}</div>
+        </div>
+      </div>
+  }
+}
+
+
+
+/*
 export class App extends React.Component {
   constructor(props) {
     super(props);
@@ -35,3 +46,4 @@ export class App extends React.Component {
     </div>
   }
 }
+*/

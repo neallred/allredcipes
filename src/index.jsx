@@ -5,14 +5,12 @@ import './css/custom.css.scss';
 
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { App } from './App';
-import { OwnRecipes } from './OwnRecipes';
-import { OtherRecipes } from './OtherRecipes';
+import { FirstRedux } from './components/FirstRedux';
 
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path='/' component={App}>
-      <IndexRoute component={OwnRecipes}/>
-      <Route path='/other-recipes' component={OtherRecipes}/>
+      <IndexRoute component={FirstRedux}/>
     </Route>
   </Router>
 ), document.getElementById('my-app'));

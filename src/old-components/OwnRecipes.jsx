@@ -12,7 +12,6 @@ export class OwnRecipes extends React.Component {
       <RecipeEdit
         recipe_id={this.props.recipe_id}
         saved_recipe={this.props.saved_recipe}/>
-      {console.log(this.props.stored_recipes)}
     </div>
   }
 }
