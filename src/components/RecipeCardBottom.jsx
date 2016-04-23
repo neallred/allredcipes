@@ -31,6 +31,17 @@ export const RecipeCardBottom = ({onClick, id, hideIngredients, name, ingredient
           '</li></ul>'}}
       />
     </div>
-    <li className='btn btn-warning edit' id={'edit-'+id}>Edit</li>
+    <div className='col-lg-12'>
+      <p className='instructions heading'><strong>Author:</strong></p>
+    </div>
+    <div className='col-lg-12'>
+      <p className='author'
+        dangerouslySetInnerHTML={{__html: '<ul><li class="ingredient">' +
+          author
+            .replace(/[<>]/g, '')
+            .replace(/(?:\r\n|\r|\n)/g, '</li><li class="ingredient">') +
+          '</li></ul>'}}
+      />
+    </div>
   </div>
 )

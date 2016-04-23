@@ -28,30 +28,32 @@ div.heading {
   border-bottom: 1px solid pink;
 }
 
+div.recipe-button-container {
+  margin-bottom: 0.5em;
+}
+
 div#my-app{ margin-top:1em; margin-bottom: 1em;}
 
 div.recipe {
   background: rgba(240,240,240,1);
   border-radius: 1.5em;
   max-width: 30em;
-  padding: 2em;
-  margin: 1em;
+  padding: 0em 2em 2em 2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
   box-shadow: 2px 2px black;
 }
 
 h3 {
   font-size: 2em;
-  margin-top: -0.4em;
-}
-
-.btn-danger {
-  margin-top: -1em;
-  margin-left: 3em;
 }
 
 p {
-  margin-left: 0px;
   text-align: left;
+}
+
+p.footer {
+  text-align: center;
 }
 
 p.instructions.heading {
@@ -92,15 +94,8 @@ div.show-ingredients{
 
   div { display: block; }
 
-  li.edit {
-    margin-top: 0.9em;
-  }
-
 }
 
-button.btn.btn-success {
-  margin-top: 4em;
-}
 .text-glow:hover, .text-glow:focus, .text-glow:active {
   -webkit-stroke-width: 5.3px;
   -webkit-stroke-color: #FFFFFF;
@@ -121,7 +116,7 @@ button.btn.btn-success {
 }
 h2.add-recipes {
   margin-top: 40px;
-  margin-left: 3.5em;
+  text-align: center;
 }
 
 form {
@@ -130,14 +125,12 @@ form {
     border-radius: 7px;
     margin-bottom: 3px;
     margin-top: 3px;
-    margin-left: 2.5em;
-    width: 25em;
+    min-width: 25em;
     box-shadow: 2px 2px black;
   }
   textarea {
     height: 10em;
   }
-
 }
 
 .modalDialog {

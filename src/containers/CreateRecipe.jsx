@@ -7,10 +7,9 @@ let CreateRecipe = ({ dispatch }) => {
   let inputIngredients
   let inputInstructions
   let inputAuthor
-  return <div>
+  return <div className='center-block text-center'>
     <h2 className='add-recipes'>Add recipes here!</h2>
     <form
-      className='container'
       onSubmit={e => {
         e.preventDefault()
         if(!inputName.value.trim()){

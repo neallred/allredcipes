@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react'
 import { RecipeCard } from './RecipeCard'
 
 const RecipeList = ({ recipes, onRecipeClick }) => (
-  <div>
+  <div className='center-block'>
     {recipes.map(recipe =>
       <RecipeCard
         key={recipe.id}

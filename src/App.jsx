@@ -3,11 +3,7 @@ import React from 'react';
 
 export class App extends React.Component {
   render () {
-    return <div className='container'>
-        <div className='col-lg-9 col-lg-offset-3'>
-          <div>{this.props.children}</div>
-        </div>
-      </div>
+    return <div>{this.props.children}</div>
   }
 }
 
