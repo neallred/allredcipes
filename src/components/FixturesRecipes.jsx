@@ -154,9 +154,9 @@ export const FixturesRecipes = [
   {
     id: 19,
     hideIngredients: true,
-    name: 'Bread pudding',
-    ingredients:'1 loaf of French bread \n 1 quart of milk \n 3 eggs, beaten \n 2 cups of sugar \n 2 tablespoons of vanilla \n 1 teaspoon of cinnamon \n 3 tablespoons of butter \n SAUCE: 1 stick of butter \n 1 cup of sugar \n 1 egg, beaten \n 1/4 cup Bourbon (optional) \n PRALINE SAUCE: \n 1 1/4 cups light brown sugar \n 3/4 cup evaporated milk \n 1 tablespoon butter \n 1/2 teaspoon vanilla \n 1/4 cup chopped pecans',
-    instructions:'1. In a large bowl, break bread into bite-size pieces. \n 2. Cover with milk and soak one hour. \n 3. Mix well. \n 4. Add eggs and sugar. \n 5. Stir in vanilla, cinnamon. \n 6. Melt butter and pour in baking dish, tilting to coat all sides. \n Pour in pudding and bake one hour. \n SAUCE: \n 1. Melt butter and sugar. \n Gradually whisk egg. \n 3. Cool slightly. \n 4. Add bourbon (optional). \n PRALINE SAUCE: \n 1. In a small saucepan over low heat combine brown sugar, evaporated milk, an dbutter. \n 2. Cook and stir praline sauce until sauce is smooth and syrupy, about 5 minutes. \n 3. Stir in vanilla extract and pecans. \n 4. Serve praline sauce warm over ice cream. (Makes about 1 1/4 cups of praline sauce.',
-    author: 'neallred'
+    name: 'Hamburger chow mein',
+    ingredients:'1 lb. hamburger \n 2 onions \n 1 can cream of chicken \n 1 can cream of mushroom \n 1/2 c. rice (uncooked) \n 1 1/2 c. water \n 1 Tbsp. soy sauce \ 1/4 tsp. black pepper',
+    instructions:'1. Mix all ingredients. \n 2. Bake at 350 for 30 minutes covered, and an additional 30 minutes uncovered. \n 3. Sprinkle dried chow-mein noodles on top and serve.',
+    author: 'kate'
   }
 ]

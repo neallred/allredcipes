@@ -51,8 +51,6 @@ TODO
 * Add recipes
   * Cadbury egg cookies
     * Authors Sara Wells and Kate Jones
-  * pancakes
-  * butter syrup
   * zucchini bread
   * no bake cookies
   * Sausage potato soup
