@@ -56,5 +56,5 @@ TODO
   * zucchini bread
   * no bake cookies
   * sausage potato soup
-  * chocolate cheese cake
+  * Chocolate cheese cake
 
