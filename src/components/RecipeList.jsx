@@ -1,16 +1,16 @@
-import {React}, PropTypes from 'react'
-import Recipe form './Recipes'
+import React, {PropTypes} from 'react'
+import { RecipeCard } from './RecipeCard'
 
 const RecipeList = ({ recipes, onRecipeClick }) => (
-  <ul>
+  <div>
     {recipes.map(recipe =>
-      <Todo
-        key={todo.id}
-        {...todo}
+      <RecipeCard
+        key={recipe.id}
+        {...recipe}
         onClick={() => onRecipeClick(recipe.id)}
       />
     )}
-  </ul>
+  </div>
 )
 
 RecipeList.propTypes = {
@@ -21,6 +21,7 @@ RecipeList.propTypes = {
     instructions: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired
   }).isRequired).isRequired,
+  onRecipeClick: PropTypes.func.isRequired
 }
 
 export {RecipeList}

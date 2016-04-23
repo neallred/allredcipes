@@ -1,13 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import { recipeApp } from './reducers'
+import { App } from './App'
+import { Home } from './components/Home'
+import { FixturesRecipes } from './components/FixturesRecipes'
 import './css/bootstrap.min.css';
 import './css/custom.css.scss';
-
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import { App } from './App';
-import { createStore } from 'redux'
-import { recipeApp } from './reducers';
-import { FixturesRecipes } from './components/FixturesRecipes';
 
 
 const initialState = {
@@ -31,13 +32,22 @@ store.dispatch(createRecipe('Jellyfish', 'jelly, fish', 'jelly your fish, and sp
 
 unsubscribe()
 
+  /*
+   * writing test files 
+   * sqlite, could use that. a DB in one file
+   * if need SQL
+   * if don't need SQL, ongo or couchdb
+   *
+   */
 /**********************/
 
 
 ReactDOM.render((
-  <Router history={browserHistory}>
-    <Route path='/' component={App}>
-      <IndexRoute component={App}/>
-    </Route>
-  </Router>
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path='/' component={App}>
+        <IndexRoute component={Home}/>
+      </Route>
+    </Router>
+  </Provider>
 ), document.getElementById('my-app'));

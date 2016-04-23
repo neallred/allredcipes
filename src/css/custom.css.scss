@@ -1,29 +1,27 @@
 /* GENERAL */
 body {
   overflow: none;
-
-background: -webkit-linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), -webkit-linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), rgb(255, 255, 255);
-background: -moz-linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), -moz-linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), rgb(255, 255, 255);
-background: linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), rgb(255, 255, 255);
-background-position: 0 0, 40px 40px;
--webkit-background-origin: padding-box;
-background-origin: padding-box;
--webkit-background-clip: border-box;
-background-clip: border-box;
--webkit-background-size: 80px 80px;
-background-size: 80px 80px;
--webkit-box-shadow: none;
-box-shadow: none;
-text-shadow: none;
--webkit-transition: none;
--moz-transition: none;
--o-transition: none;
-transition: none;
--webkit-transform: none;
-transform: none;
--webkit-transform-origin: 50% 50% 0;
-transform-origin: 50% 50% 0;
-
+  background: -webkit-linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), -webkit-linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), rgb(255, 255, 255);
+  background: -moz-linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), -moz-linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), rgb(255, 255, 255);
+  background: linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), rgb(255, 255, 255);
+  background-position: 0 0, 40px 40px;
+  -webkit-background-origin: padding-box;
+  background-origin: padding-box;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-size: 80px 80px;
+  background-size: 80px 80px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  text-shadow: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+  -webkit-transform: none;
+  transform: none;
+  -webkit-transform-origin: 50% 50% 0;
+  transform-origin: 50% 50% 0;
 }
 
 div.heading {

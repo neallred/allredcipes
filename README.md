@@ -1,6 +1,6 @@
 Recipe Box App
 ==============================
-A Recipe Box built with Webpack, Babel, React, and Sass
+A Recipe Box built with Webpack, Babel, React, Redux, and Sass
 
 Getting started
 ------------------------------
@@ -15,15 +15,36 @@ Server
 The go to [localhost:8080](http://localhost:8080)
 
 This will start up a webpack-dev-server that had hot module
-replacement.  Just change a file and save and see the results
+replacement. Just change a file and save and see the results
 without having to refresh.
 
-
+Structure
+------------------------------
+Presentational (or Stateless, Functionless Components) are
+in src/components. Components that subscribe to the Redux
+store are located in src/containers.
 
 TODO
------------
-* Change reset recipe button to show a new page rather than overwriting data.
-  * The other page will not have editing capability.
-  * Could have multiple other pages for 'recipe boxes' of people.
-* Add a filter to only view recipes containing what the user types in.
-  * Have a checkmark box for multiple filters
+------------------------------
+* Create filter capability
+* Connect pieces of editing capability
+  * action
+  * reducer
+  * container components
+  * modal 
+* Migrate from plain text fixture file to SQLite DB.
+* Create user system.
+  * Sendgrid email service
+  * username,email,password
+  * Ideate user data table
+    * Authentication Tokens?
+    * Activation Tokens?
+    * Password Reset Tokens?
+  * Permissions system
+    * *anonymous*
+      * read all
+      * edit/delete none
+    * *authenticated*
+    * edit/delete own
+    * *admin*
+      * can edit all
