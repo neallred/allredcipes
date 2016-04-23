@@ -4,7 +4,7 @@ import { destroyRecipe } from '../actions'
 import { toggleRecipe } from '../actions'
 import { updateRecipe } from '../actions'
 export const RecipeCardTop = ({id, name}) => (
-  <div className='row heading'>
+  <div className='heading'>
     <div className='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
       <h3>{name}</h3>
     </div>

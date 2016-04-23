@@ -5,8 +5,9 @@ import { VisibleRecipeList } from '../containers/VisibleRecipeList.jsx'
 
 export const Home = () => (
   <div>
-    <CreateRecipe />
+    <h1 className='center-block'>Open Source Recipe Box</h1>
     <VisibleRecipeList />
+    <CreateRecipe />
     <Footer />
   </div>
 )

@@ -32,58 +32,46 @@ div.recipe-button-container {
   margin-bottom: 0.5em;
 }
 
-div#my-app{ margin-top:1em; margin-bottom: 1em;}
 
 div.recipe {
   background: rgba(240,240,240,1);
   border-radius: 1.5em;
-  max-width: 30em;
-  padding: 0em 2em 2em 2em;
+  max-width: 40em;
+  padding: 0em 2em 3em 2em;
   margin-top: 1em;
   margin-bottom: 1em;
   box-shadow: 2px 2px black;
+
+  h3 {
+    font-size: 2em;
+    text-align: center;
+  }
+
 }
 
-h3 {
-  font-size: 2em;
-}
-
-p {
-  text-align: left;
-}
 
 p.footer {
   text-align: center;
 }
 
-p.instructions.heading {
-  border-bottom: 1px solid skyblue;
-  margin-left: -1em;
-}
-
-p.ingredient-list {
-  margin-left: -1em;
+p.recipe-subsection-heading {
   margin-top: 0.3em;
+  margin-left: -1em;
   border-bottom: 1px solid skyblue;
 }
 
 ul {
   list-style: none;
-
-  li {
-    margin-left: -3em;
-  }
-  li.ingredient {
+  li.item {
     border-bottom: 1px solid skyblue;
+    margin-left: -1.5em;
   }
 }
-
+/*
 div.hide-ingredients{
   max-height: 0px;
   opacity: 0;
   transition: max-height 0s, opacity 0s ease-in;
-
-  div { display: none; }
 }
 
 div.show-ingredients{
@@ -91,10 +79,8 @@ div.show-ingredients{
   max-height: 1800px;
   opacity: 1;
   transition: max-height 0.6s, opacity 0.5s ease-out;
-
-  div { display: block; }
-
 }
+*/
 
 .text-glow:hover, .text-glow:focus, .text-glow:active {
   -webkit-stroke-width: 5.3px;
@@ -114,6 +100,12 @@ div.show-ingredients{
   -o-transition: all 0.3s ease-in; /* Opera */
   text-decoration:none;
 }
+
+h1 {
+  text-align: center;
+  font-size: 4em;
+}
+
 h2.add-recipes {
   margin-top: 40px;
   text-align: center;
@@ -125,12 +117,60 @@ form {
     border-radius: 7px;
     margin-bottom: 3px;
     margin-top: 3px;
-    min-width: 25em;
+    max-width: 40em;
     box-shadow: 2px 2px black;
   }
   textarea {
     height: 10em;
   }
+}
+
+@media screen and (max-width: 230px) {
+  form textarea { min-width: 1em; }
+  form input { min-width: 1em; }
+  form button { min-width: 1em; }
+}
+
+@media screen and (min-width: 231px) and (max-width: 300px) {
+  form textarea { min-width: 14em; }
+  form input { min-width: 14em; }
+  form button { min-width: 14em; }
+}
+
+@media screen and (min-width: 301px) and (max-width: 400px) {
+  form textarea { min-width: 19em; }
+  form input { min-width: 19em; }
+  form button { min-width: 19em; }
+}
+
+@media screen and (min-width: 301px) and (max-width: 400px) {
+  form textarea { min-width: 19em; }
+  form input { min-width: 19em; }
+  form button { min-width: 19em; }
+}
+
+@media screen and (min-width: 401px) and (max-width: 500px) {
+  form textarea { min-width: 25em; }
+  form input { min-width: 25em; }
+  form button { min-width: 25em; }
+}
+
+@media screen and (min-width: 501px) and (max-width: 600px) {
+  form textarea { min-width: 30em; }
+  form input { min-width: 30em; }
+  form button { min-width: 30em; }
+}
+
+@media screen and (min-width: 601px) and (max-width: 700px) {
+  form textarea { min-width: 35em; }
+  form input { min-width: 35em; }
+  form button { min-width: 35em; }
+}
+
+@media screen and (min-width: 701px) {
+  form textarea { min-width: 40em; }
+  form input { min-width: 40em; }
+  form button { min-width: 40em; }
 }
 
 .modalDialog {

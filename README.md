@@ -48,3 +48,13 @@ TODO
     * edit/delete own
     * *admin*
       * can edit all
+* Add recipes
+  * Cadbury egg cookies
+    * Authors Sara Wells and Kate Jones
+  * pancakes
+  * butter syrup
+  * zucchini bread
+  * no bake cookies
+  * sausage potato soup
+  * chocolate cheese cake
+
