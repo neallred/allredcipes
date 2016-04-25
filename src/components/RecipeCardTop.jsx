@@ -1,6 +1,5 @@
 import React from 'react'
 import { RecipeButton } from '../containers/RecipeButton'
-import { RecipeButtonEdit } from '../containers/RecipeButtonEdit'
 import { destroyRecipe } from '../actions'
 import { toggleRecipe } from '../actions'
 import { updateRecipe } from '../actions'
