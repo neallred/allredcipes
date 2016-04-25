@@ -1,8 +1,10 @@
 import React from 'react'
 import { RecipeButton } from '../containers/RecipeButton'
+import { RecipeButtonEdit } from '../containers/RecipeButtonEdit'
 import { destroyRecipe } from '../actions'
 import { toggleRecipe } from '../actions'
 import { updateRecipe } from '../actions'
+import { openModal } from '../actions'
 export const RecipeCardTop = ({id, name, hideIngredients}) => (
   <div className='heading'>
     <div className='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
@@ -12,7 +14,7 @@ export const RecipeCardTop = ({id, name, hideIngredients}) => (
       <RecipeButton
         id={'edit-'+id}
         columnSize={'3'}
-        dispatchType={updateRecipe}
+        dispatchType={openModal}
         buttonLabel={'Edit'}
         buttonClass={'warning'}
       />

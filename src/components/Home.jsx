@@ -1,6 +1,7 @@
 import React from 'react'
 import { Footer } from './Footer'
 import { CreateRecipe } from '../containers/CreateRecipe'
+import { UpdateRecipe } from '../containers/UpdateRecipe.jsx'
 import { VisibleRecipeList } from '../containers/VisibleRecipeList.jsx'
 
 export const Home = () => (
@@ -9,5 +10,6 @@ export const Home = () => (
     <VisibleRecipeList />
     <CreateRecipe />
     <Footer />
+    <UpdateRecipe />
   </div>
 )

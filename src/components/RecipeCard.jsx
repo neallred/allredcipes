@@ -1,11 +1,12 @@
 import React, {PropTypes} from 'react'
 import { RecipeCardBottom } from './RecipeCardBottom'
 import { RecipeCardTop } from './RecipeCardTop'
-const RecipeCard = ({ onClick, id, hideIngredients, name, ingredients, instructions, author}) => (
+const RecipeCard = ({ onClick, id, openModal, hideIngredients, name, ingredients, instructions, author}) => (
   <div className='recipe center-block'>
     <RecipeCardTop
       id={id}
       name={name}
+      openModal={openModal}
       hideIngredients={hideIngredients}
     />
     <RecipeCardBottom

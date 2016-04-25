@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { CREATE_RECIPE, UPDATE_RECIPE, DESTROY_RECIPE, TOGGLE_RECIPE, SET_VISIBILITY_FILTER, VisibilityFilters } from './actions'
+import { CREATE_RECIPE, UPDATE_RECIPE, DESTROY_RECIPE, TOGGLE_RECIPE, OPEN_MODAL, SET_VISIBILITY_FILTER, VisibilityFilters } from './actions'
 const { SHOW_ALL } = VisibilityFilters
 import { FixturesRecipes } from './components/FixturesRecipes'; 
 
@@ -87,9 +87,23 @@ const recipes = (state = [], action) => {
   }
 }
 
+const openModal = (state = [], action) => {
+  console.log(state.openModal);
+  switch (action.type) {
+    case 'OPEN_MODAL':
+      return Object.assign({}, state, {
+        openModal: !state.openModal
+      })
+    default:
+      return state
+  }
+}
+
+
 const recipeApp = combineReducers({
   visibilityFilter,
-  recipes
+  recipes,
+  openModal
 })
 
 export { recipeApp }

@@ -13,6 +13,7 @@ import './css/custom.css.scss';
 
 const initialState = {
   visibilityFilter: 'SHOW_ALL',
+  openModal: false,
   recipes: FixturesRecipes
 }
 
@@ -35,6 +36,9 @@ unsubscribe()
    * if need SQL
    * if don't need SQL, ongo or couchdb
    *
+        {console.log(store)}
+        {console.log(store.getState().openModal)}
+        {console.log(Object.keys(store).length)}
    */
 /**********************/
 
@@ -43,7 +47,9 @@ ReactDOM.render((
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path='/' component={App}>
-        <IndexRoute component={Home}/>
+        <IndexRoute 
+          component={Home}
+        />
       </Route>
     </Router>
   </Provider>

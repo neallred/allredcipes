@@ -2,6 +2,7 @@ export const CREATE_RECIPE = 'CREATE_RECIPE'
 export const UPDATE_RECIPE = 'UPDATE_RECIPE'
 export const DESTROY_RECIPE = 'DESTROY_RECIPE'
 export const TOGGLE_RECIPE = 'TOGGLE_RECIPE'
+export const OPEN_MODAL = 'OPEN_MODAL'
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
 
 export const VisibilityFilters = {
@@ -37,7 +38,7 @@ export function updateRecipe(id, hideIngredients, name, ingredients, instruction
 }
 
 
-/*the action only one reducer per state tree*/
+/*this is an action. There is only one reducer per state tree*/
 export function destroyRecipe (recipeId) {
   return {
     type: DESTROY_RECIPE,
@@ -57,5 +58,11 @@ export const toggleRecipe = (id) => {
   return {
     type: TOGGLE_RECIPE,
     id
+  }
+}
+
+export const openModal = (id) => {
+  return {
+    type: OPEN_MODAL
   }
 }
