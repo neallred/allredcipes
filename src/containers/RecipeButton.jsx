@@ -10,7 +10,6 @@ let RecipeButton = ({dispatch, id, columnSize, dispatchType, buttonLabel, button
       onClick={e => {
         let storedRecipeId=parseInt(e.currentTarget.id.match(/(\d+)$/)[0], 10)
         e.preventDefault()
-        console.log(typeof dispatchType)
         dispatch(dispatchType(storedRecipeId))
       }}
     >

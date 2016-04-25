@@ -79,7 +79,6 @@ const recipes = (state = [], action) => {
       ]
       console.log('I am the reducer case for updating recipes!');
     case TOGGLE_RECIPE:
-      console.log('I am the reducer case for toggling recipes!');
       return state.map(r =>
         recipe(r, action)
       )

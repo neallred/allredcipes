@@ -1,7 +1,11 @@
 import React from 'react'
 import { RecipeSubsection } from './RecipeSubsection'
 export const RecipeCardBottom = ({onClick, id, hideIngredients, name, ingredients, instructions, author}) => {
-  return <div>
+  return <div
+    className={
+      hideIngredients ? 'recipe-bottom hide' : 'recipe-bottom show'
+    }
+  >
     <RecipeSubsection
       dataToSanitize={ingredients}
       sectionTitle='Ingredients'

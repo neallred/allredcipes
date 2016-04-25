@@ -3,7 +3,7 @@ import { RecipeButton } from '../containers/RecipeButton'
 import { destroyRecipe } from '../actions'
 import { toggleRecipe } from '../actions'
 import { updateRecipe } from '../actions'
-export const RecipeCardTop = ({id, name}) => (
+export const RecipeCardTop = ({id, name, hideIngredients}) => (
   <div className='heading'>
     <div className='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
       <h3>{name}</h3>
@@ -20,7 +20,7 @@ export const RecipeCardTop = ({id, name}) => (
         id={'toggle-'+id}
         columnSize={'6'}
         dispatchType={toggleRecipe}
-        buttonLabel={'Hide Recipe'}
+        buttonLabel={hideIngredients ? 'Show Recipe' : 'Hide Recipe'}
         buttonClass={'success'}
       />
       <RecipeButton

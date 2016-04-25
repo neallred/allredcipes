@@ -21,10 +21,7 @@ let store = createStore(recipeApp, initialState);
 /*FOR TESTING PURPOSES*/
 import { createRecipe, destroyRecipe, setVisibilityFilter, VisibilityFilters } from './actions'
 
-console.log(store.getState())
-let unsubscribe = store.subscribe(() =>
-  console.log(store.getState())
-)
+let unsubscribe = store.subscribe(() => {})
 
 store.dispatch(createRecipe('Spaghetti', 'noodles, meat, sauce', 'boil noodles. brown meat. mix and add sauce.', 'Toricelli'))
 store.dispatch(createRecipe('Meatballs', 'meat', 'scoop into balls and bake', 'meathead'))

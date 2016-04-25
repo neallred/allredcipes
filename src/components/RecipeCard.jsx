@@ -6,11 +6,9 @@ const RecipeCard = ({ onClick, id, hideIngredients, name, ingredients, instructi
     <RecipeCardTop
       id={id}
       name={name}
+      hideIngredients={hideIngredients}
     />
     <RecipeCardBottom
-      style={{
-        textDecoration: hideIngredients ? 'line-through' : 'none'
-      }}
       onClick={onClick}
       id={id}
       hideIngredients={hideIngredients}
