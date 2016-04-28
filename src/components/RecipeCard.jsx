@@ -4,7 +4,7 @@ import { RecipeCardTop } from './RecipeCardTop'
 const RecipeCard = ({ onClick, id, openModal, hideIngredients, name, ingredients, instructions, author}) => (
   <div className='recipe center-block'>
     <RecipeCardTop
-      id={id}
+      recipeId={id}
       name={name}
       openModal={openModal}
       hideIngredients={hideIngredients}

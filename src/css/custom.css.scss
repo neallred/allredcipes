@@ -67,13 +67,12 @@ ul {
     margin-left: -1.5em;
   }
 }
-div.recipe-bottom.hide * {
+div.recipe-bottom-hide, div.recipe-bottom-hide * {
   max-height: 0px;
   opacity: 0;
   transition: max-height 0.3s, opacity 0.3s ease-in;
 }
-
-div.recipe-bottom.show 8 {
+div.recipe-bottom-show, div.recipe-bottom-show * {
   height: auto;
   max-height: 1800px;
   opacity: 1;

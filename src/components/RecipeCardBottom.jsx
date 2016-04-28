@@ -3,7 +3,7 @@ import { RecipeSubsection } from './RecipeSubsection'
 export const RecipeCardBottom = ({onClick, id, hideIngredients, name, ingredients, instructions, author}) => {
   return <div
     className={
-      hideIngredients ? 'recipe-bottom hide' : 'recipe-bottom show'
+      hideIngredients ? 'recipe-bottom-hide' : 'recipe-bottom-show'
     }
   >
     <RecipeSubsection
