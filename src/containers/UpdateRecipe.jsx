@@ -9,8 +9,8 @@ let UpdateRecipe = ({ dispatch}) => {
   let newIngredients
   let newInstructions
   let newAuthor
-  //const {store} = this.context;
-  //const state = store.getState();
+  // const {store} = this.context;
+  // const state = store.getState();
   return <div
     className={''
       //openModal ?

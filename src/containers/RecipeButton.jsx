@@ -11,7 +11,6 @@ let RecipeButton = ({dispatch, recipeId, columnSize, dispatchType, buttonLabel, 
         e.preventDefault()
         dispatch(dispatchType(recipeId))
         document.querySelector('div#dialog form input').value='Edit recipe of id '+recipeId;
-        //console.log(e.currentTarget.parentNode.parentNode.parentNode.parentNode);
       }}
     >
       {buttonLabel}

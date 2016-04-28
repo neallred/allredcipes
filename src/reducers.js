@@ -88,7 +88,7 @@ const recipes = (state = [], action) => {
 }
 
 const openModal = (state = [], action) => {
-  console.log(state.openModal);
+  console.log(state);
   switch (action.type) {
     case 'OPEN_MODAL':
       return Object.assign({}, state, {
