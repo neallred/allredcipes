@@ -2,7 +2,7 @@ export const CREATE_RECIPE = 'CREATE_RECIPE'
 export const UPDATE_RECIPE = 'UPDATE_RECIPE'
 export const DESTROY_RECIPE = 'DESTROY_RECIPE'
 export const TOGGLE_RECIPE = 'TOGGLE_RECIPE'
-export const OPEN_MODAL = 'OPEN_MODAL'
+export const IS_EDITING = 'IS_EDITING'
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
 
 export const VisibilityFilters = {
@@ -13,7 +13,7 @@ export const VisibilityFilters = {
   SHOW_AUTHOR: 'SHOW_AUTHOR'
 }
 
-let nextRecipeId = 20
+let nextRecipeId = 21
 export function createRecipe(name, ingredients, instructions, author) {
   return {
     type: CREATE_RECIPE,
@@ -62,8 +62,9 @@ export const toggleRecipe = (id) => {
   }
 }
 
-export const openModal = (id) => {
+export const isEditing = (id) => {
   return {
-    type: OPEN_MODAL
+    type: IS_EDITING,
+    id
   }
 }

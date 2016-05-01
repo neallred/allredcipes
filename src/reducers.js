@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { CREATE_RECIPE, UPDATE_RECIPE, DESTROY_RECIPE, TOGGLE_RECIPE, OPEN_MODAL, SET_VISIBILITY_FILTER, VisibilityFilters } from './actions'
+import { CREATE_RECIPE, UPDATE_RECIPE, DESTROY_RECIPE, TOGGLE_RECIPE, IS_EDITING, SET_VISIBILITY_FILTER, VisibilityFilters } from './actions'
 const { SHOW_ALL } = VisibilityFilters
 import { FixturesRecipes } from './components/FixturesRecipes'; 
 
@@ -77,7 +77,6 @@ const recipes = (state = [], action) => {
         },
         ...state.slice(indexUpdate + 1)
       ]
-      console.log('I am the reducer case for updating recipes!');
     case TOGGLE_RECIPE:
       return state.map(r =>
         recipe(r, action)
@@ -87,23 +86,37 @@ const recipes = (state = [], action) => {
   }
 }
 
-const openModal = (state = [], action) => {
-  console.log(state);
+const isEditing = (state = [], action) => {
   switch (action.type) {
-    case 'OPEN_MODAL':
+    case 'IS_EDITING':
       return Object.assign({}, state, {
-        openModal: !state.openModal
+        isEditing: !state.isEditing
       })
     default:
       return state
   }
 }
 
+const recipeToEdit = (state = [], action) => {
+  switch (action.type) {
+    case 'UPDATE_RECIPE':
+      return state
+    default:
+      return state
+  }
+}
+/*
+      return Object.assign({}, state, {
+        isEditing: !state.isEditing
+      })
+     */
+
 
 const recipeApp = combineReducers({
   visibilityFilter,
   recipes,
-  openModal
+  isEditing,
+  recipeToEdit
 })
 
 export { recipeApp }

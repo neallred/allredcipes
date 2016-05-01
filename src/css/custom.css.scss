@@ -183,11 +183,19 @@ form {
   -moz-transition: opacity 150ms ease-in;
   transition: opacity 150ms ease-in;
   pointer-events: none;
+  h2 {
+    color: white;
+  }
+}
+.modalDialog.closed {
+  display: none;
+  opacity: 0;
 }
 
 .modalDialog.opened {
   opacity: 1;
   pointer-events: auto;
+  display: auto;
 }
 
 .modalDialog > div {

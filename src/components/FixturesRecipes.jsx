@@ -158,5 +158,12 @@ export const FixturesRecipes = [
     ingredients:'1 lb. hamburger \n 2 onions \n 1 can cream of chicken \n 1 can cream of mushroom \n 1/2 c. rice (uncooked) \n 1 1/2 c. water \n 1 Tbsp. soy sauce \ 1/4 tsp. black pepper',
     instructions:'1. Mix all ingredients. \n 2. Bake at 350 for 30 minutes covered, and an additional 30 minutes uncovered. \n 3. Sprinkle dried chow-mein noodles on top and serve.',
     author: 'kate'
+  },
+  { id: 20,
+    hideIngredients: true,
+    name: 'Cookie Grasshopper Pie',
+    ingredients: '1 Oreo cookie Crust \n 6 oz of Cool Whip \n 16 Grasshopper Cookies (crushed) \n 14 ounce can Sweetened Condensed Milk \n 8 oz of light Cream Cheese',
+    instructions: 'With beaters cream the Cream Cheese, Condensed milk and color with 3 drops of green coloring. \n Fold in cool-whip and crushed cookies. Pour it into crust. \n Garnish with more crushed cookies and freeze for at least 5 hours or overnight.',
+    author: 'six_sisters_stuff'
   }
 ]

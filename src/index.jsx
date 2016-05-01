@@ -13,8 +13,15 @@ import './css/custom.css.scss';
 
 const initialState = {
   visibilityFilter: 'SHOW_ALL',
-  openModal: false,
-  recipes: FixturesRecipes
+  isEditing: false,
+  recipes: FixturesRecipes,
+  recipeToEdit: {
+    id: null,
+    hideIngredients: true,
+    name: '',
+    ingredients: '',
+    author: ''
+  }
 }
 
 let store = createStore(recipeApp, initialState);
