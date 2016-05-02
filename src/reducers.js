@@ -45,29 +45,21 @@ const recipes = (state = [], action) => {
         ...state,
         recipe(undefined, action)
       ]
-    case DESTROY_RECIPE:
-      let indexDestroy, iDestroy
-        for(iDestroy=0;iDestroy<state.length;iDestroy++){
-          state[iDestroy];
-          if(state[iDestroy].id === action.recipeId){
-            indexDestroy = iDestroy;
-          }
-        }
-      return [
-        ...state.slice(0, indexDestroy),
-        ...state.slice(indexDestroy + 1)
-      ]
-    case UPDATE_RECIPE:
+    case 'UPDATE_RECIPE':
+      console.log(state)
+      console.log(action)
+      console.log(action.id)
       let indexUpdate, iUpdate
         for(iUpdate=0;iUpdate<state.length;iUpdate++){
           state[iUpdate];
           if(state[iUpdate].id === action.recipeId){
-            index = iUpdate;
+            indexUpdate = iUpdate;
+            console.log(reassign);
           }
         }
       return [
-        ...state.slice(0, indexUpdate),
-        ...{
+        ...state.slice(0, action.id),
+        {
           id: action.id,
           hideIngredients: action.hideIngredients,
           name: action.name,
@@ -75,7 +67,18 @@ const recipes = (state = [], action) => {
           instructions: action.instructions,
           author: action.author
         },
-        ...state.slice(indexUpdate + 1)
+        ...state.slice(action.id + 1)
+      ]
+    case DESTROY_RECIPE:
+      let indexDestroy, iDestroy
+        for(iDestroy=0;iDestroy<state.length;iDestroy++){
+          if(state[iDestroy].id === action.recipeId){
+            indexDestroy = iDestroy;
+          }
+        }
+      return [
+        ...state.slice(0, indexDestroy),
+        ...state.slice(indexDestroy + 1)
       ]
     case TOGGLE_RECIPE:
       return state.map(r =>
@@ -90,7 +93,11 @@ const isEditing = (state = [], action) => {
   switch (action.type) {
     case 'IS_EDITING':
       return Object.assign({}, state, {
-        isEditing: !state.isEditing
+        isEditing: !state.isEditing,
+        recipeToEdit: {
+          id: action.id,
+          name: action.name
+        }
       })
     default:
       return state
@@ -105,12 +112,6 @@ const recipeToEdit = (state = [], action) => {
       return state
   }
 }
-/*
-      return Object.assign({}, state, {
-        isEditing: !state.isEditing
-      })
-     */
-
 
 const recipeApp = combineReducers({
   visibilityFilter,

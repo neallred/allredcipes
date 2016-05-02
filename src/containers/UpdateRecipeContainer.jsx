@@ -4,8 +4,10 @@ import { updateRecipe } from '../actions'
 import { UpdateRecipe } from '../components/UpdateRecipe'
 
 const mapStateToProps = (state, ownProps) => {
-  return { isEditing: state.isEditing,
-           recipeToEdit: state.isEditing ? state.recipes[4] : null
+  let toEditId = state.isEditing ? state.isEditing.recipeToEdit.id : null
+  return {
+    isEditing: state.isEditing,
+    recipeToEdit: state.recipes[toEditId]
   }
 }
 
@@ -17,7 +19,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         dispatch(isEditing())
       }
       else if (e.currentTarget.className ==='submit-edit') {
-        dispatch(updateRecipe(4, 'inputName.value', 'inputIngredients.value', 'inputInstructions.value', 'inputAuthor.value', 'adsf'))
+        dispatch(updateRecipe(0, 'newHideIngredients.value', 'newName.value', 'newIngredients.value', 'newInstructions.value', 'newAuthor.value'))
+        dispatch(isEditing())
       }
     }
   }
@@ -30,21 +33,16 @@ export const UpdateRecipeContainer = connect(
   mapDispatchToProps
 )(UpdateRecipe)
 
-
 /*
-        dispatch(updateRecipe(inputName.value, inputIngredients.value, inputInstructions.value, inputAuthor.value))
-  dispatch(updateRecipe(ownProps.filter))
+if(!newName.value.trim()){
+  return
+}
+dispatch(updateRecipe(newName.value, newIngredients.value, newInstructions.value, newAuthor.value))
+newId.value = ''
+newHideIngredients.value = ''
+newName.value = ''
+newIngredients.value = ''
+newInstructions.value = ''
+newAuthor.value = ''
+  //dispatch(isEditing())
 */
-      /*
-      if(!newName.value.trim()){
-        return
-      }
-      dispatch(updateRecipe(newName.value, newIngredients.value, newInstructions.value, newAuthor.value))
-      newId.value = ''
-      newHideIngredients.value = ''
-      newName.value = ''
-      newIngredients.value = ''
-      newInstructions.value = ''
-      newAuthor.value = ''
-        //dispatch(isEditing())
-      */

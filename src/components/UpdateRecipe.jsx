@@ -14,21 +14,37 @@ const UpdateRecipe = ({isEditing, onClick, dispatch, ownProps, recipeToEdit}) =>
     <p className='close-edit-box'>X</p>
     <h2 className='add-recipes'>Edit</h2>
     <form className='container'>
-      <input type='text'
+      <input
+        type='hidden'
+        ref={node => { newId = node }}
+        value={recipeToEdit ? recipeToEdit.id : null}
+      />
+      <input
+        type='hidden'
+        ref={node => { newHideIngredients = node }}
+        value={recipeToEdit ? recipeToEdit.hideIngredients : null}
+      />
+      <input
+        type='text'
         placeholder='Recipe name'
         ref={node => { newName = node }}
-      /><br/>
+        value={recipeToEdit ? recipeToEdit.name : null}
+      >
+      </input><br/>
       <textarea
         placeholder='Ingredients'
         ref={node => { newIngredients = node }}
+        value={recipeToEdit ? recipeToEdit.ingredients : null}
       /><br/>
       <textarea 
         placeholder='Instructions'
         ref={node => { newInstructions = node }}
+        value={recipeToEdit ? recipeToEdit.instructions : null}
       /><br/>
       <input type='text'
         placeholder='Recipe author'
         ref={node => { newAuthor = node }}
+        value={recipeToEdit ? recipeToEdit.author : null}
       /><br/>
       <button
         type='button'
@@ -42,7 +58,7 @@ const UpdateRecipe = ({isEditing, onClick, dispatch, ownProps, recipeToEdit}) =>
         onClick={onClick}
         className='submit-edit'
       >
-        Save recipe{console.log(recipeToEdit)}
+        Save recipe
       </button>
     </form>
   </div>
@@ -50,6 +66,4 @@ const UpdateRecipe = ({isEditing, onClick, dispatch, ownProps, recipeToEdit}) =>
 UpdateRecipe.propTypes = {
   onClick: PropTypes.func.isRequired
 }
-/*have this container receive data as props from edit button,
-* or at least as result of pushing that button*/
 export {UpdateRecipe} 

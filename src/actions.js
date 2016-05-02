@@ -13,7 +13,7 @@ export const VisibilityFilters = {
   SHOW_AUTHOR: 'SHOW_AUTHOR'
 }
 
-let nextRecipeId = 21
+let nextRecipeId = 22
 export function createRecipe(name, ingredients, instructions, author) {
   return {
     type: CREATE_RECIPE,
@@ -38,8 +38,6 @@ export function updateRecipe(id, hideIngredients, name, ingredients, instruction
   }
 }
 
-
-/*this is an action. There is only one reducer per state tree*/
 export function destroyRecipe (recipeId) {
   return {
     type: DESTROY_RECIPE,
@@ -47,7 +45,6 @@ export function destroyRecipe (recipeId) {
   }
 }
 
-/* reducer that listens to action and updates the state */
 export function setVisibilityFilter(filter) {
   return {
     type: SET_VISIBILITY_FILTER,
@@ -62,9 +59,10 @@ export const toggleRecipe = (id) => {
   }
 }
 
-export const isEditing = (id) => {
+export const isEditing = (id, name) => {
   return {
     type: IS_EDITING,
-    id
+    id,
+    name
   }
 }

@@ -165,5 +165,13 @@ export const FixturesRecipes = [
     ingredients: '1 Oreo cookie Crust \n 6 oz of Cool Whip \n 16 Grasshopper Cookies (crushed) \n 14 ounce can Sweetened Condensed Milk \n 8 oz of light Cream Cheese',
     instructions: 'With beaters cream the Cream Cheese, Condensed milk and color with 3 drops of green coloring. \n Fold in cool-whip and crushed cookies. Pour it into crust. \n Garnish with more crushed cookies and freeze for at least 5 hours or overnight.',
     author: 'six_sisters_stuff'
+  },
+  {
+    id: 21,
+    hideIngredients: true,
+    name: 'Chocolate Mousse',
+    ingredients: '4 egg yolks \n 1/4 cup sugar \n 1 cup whipping (heavy) cream \n 1 package (6 ounces) semisweet chocolate chips (1 cup) \n 1 1/2 cups whipping (heavy) cream',
+    instructions: '1. Beat egg yolks in small bowl with electric mixer on high speed about 3 minutes or until thick and lemon colored. Gradually beat in sugar. \n 2. Heat 1 cup whipping cream in 2-quart saucepan over medium heat until hot. Gradually stir at least half of the hot whipping cream into egg yolk mixture; stir back into hot cream in saucepan. Cook over low heat about 5 minutes, stirring constantly, until mixture thickens (do not boil). Stir in chocolate chips until melted. Cover and refrigerate about 2 hours, stirring occasionally, just until chilled. \n 3. Beat 1 1/2 cups whipping cream in chilled medium bowl with electric mixer on high speed until stiff. Fold chocolate mixture into whipped cream. Pipe or spoon mixture into serving bowls. Immediately refrigerate any remaining dessert after serving.',
+    author: 'betty_crocker'
   }
 ]

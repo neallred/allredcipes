@@ -20,6 +20,7 @@ const initialState = {
     hideIngredients: true,
     name: '',
     ingredients: '',
+    instructions: '',
     author: ''
   }
 }
@@ -36,6 +37,14 @@ store.dispatch(createRecipe('Meatballs', 'meat', 'scoop into balls and bake', 'm
 store.dispatch(createRecipe('Jellyfish', 'jelly, fish', 'jelly your fish, and spread jelly on it', 'cowz'))
 
 unsubscribe()
+/*
+state.recipes[id].id
+state.recipes[id].hideIngredients
+state.recipes[id].name
+state.recipes[id].ingredients
+state.recipes[id].instructions
+state.recipes[id].author
+*/
 
   /*
    * writing test files 

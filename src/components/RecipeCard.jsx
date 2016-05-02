@@ -21,7 +21,7 @@ const RecipeCard = ({ onClick, id, openModal, hideIngredients, name, ingredients
 )
 
 /* Recipe.propTypes is development version only*/
-/* as of develpotime. this prop is a number and it is required. it trhows a warning. nathan doesn t use, uses a tyep system called flow. and its at compile time, nto run time. Flow type is done by Facebook, but don't worry about*/
+/* as of develpotime. this prop is a number and it is required. it trhows a warning. consider using a type system called flow. and its at compile time, not run time. Flow type is done by Facebook.*/
 RecipeCard.PropTypes = {
   onClick: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,

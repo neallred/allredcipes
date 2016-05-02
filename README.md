@@ -20,18 +20,15 @@ without having to refresh.
 
 Structure
 ------------------------------
-Presentational (or Stateless, Functionless Components) are
+Presentational/dumb/stateless&functionless components are
 in src/components. Components that subscribe to the Redux
 store are located in src/containers.
 
 TODO
 ------------------------------
 * Create filter capability
-* Connect pieces of editing capability
-  * action
-  * reducer
-  * container components
-  * modal 
+* set inputs and then let them change
+  * How? immediate access to state seems like too much.
 * Migrate from plain text fixture file to SQLite DB.
 * Create user system.
   * Sendgrid email service
@@ -55,4 +52,3 @@ TODO
   * no bake cookies
   * Sausage potato soup
   * Chocolate cheese cake
-
