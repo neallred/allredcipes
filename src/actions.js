@@ -13,7 +13,7 @@ export const VisibilityFilters = {
   SHOW_AUTHOR: 'SHOW_AUTHOR'
 }
 
-let nextRecipeId = 22
+let nextRecipeId = 23
 export function createRecipe(name, ingredients, instructions, author) {
   return {
     type: CREATE_RECIPE,

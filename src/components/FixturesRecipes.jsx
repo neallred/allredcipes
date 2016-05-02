@@ -173,5 +173,13 @@ export const FixturesRecipes = [
     ingredients: '4 egg yolks\n1/4 cup sugar\n1 cup whipping (heavy) cream\n1 package (6 ounces) semisweet chocolate chips (1 cup)\n1 1/2 cups whipping (heavy) cream',
     instructions: '1. Beat egg yolks in small bowl with electric mixer on high speed about 3 minutes or until thick and lemon colored. Gradually beat in sugar.\n2. Heat 1 cup whipping cream in 2-quart saucepan over medium heat until hot. Gradually stir at least half of the hot whipping cream into egg yolk mixture; stir back into hot cream in saucepan. Cook over low heat about 5 minutes, stirring constantly, until mixture thickens (do not boil). Stir in chocolate chips until melted. Cover and refrigerate about 2 hours, stirring occasionally, just until chilled.\n3. Beat 1 1/2 cups whipping cream in chilled medium bowl with electric mixer on high speed until stiff. Fold chocolate mixture into whipped cream. Pipe or spoon mixture into serving bowls. Immediately refrigerate any remaining dessert after serving.',
     author: 'betty_crocker'
+  },
+  {
+    id: 22,
+    hideIngredients: true,
+    name: 'Whole Wheat Bread',
+    ingredients: 'LIQUIDS:\n8c. hot water\n2 spoons yeast\n1/2c. sugar\ndollop of molasses\ndollop of oil\nSOLIDS:\n10 c. white flour\n10 c. wheat flour\n4c. oats\n1/8c. salt',
+    instructions: '1. Mix water, yeast, sugar, molasses and oil. Let sit 2 minutes.\n2. Pour in white and wheat flour, oats, and salt. Mix dry ingredients together and then knead into dough by hand. This can take half an hour but it will all knead in.\n3. Preheat oven to 170 deg F and turn off as soon as temperature attained. Cover bread dough bowl and put in oven to raise for 1 hour.\n4. Take out dough, scrape it onto counter, and cut in 1/8 wedges of circles. Roll each 1/8th intoa loaf, place in pans, and bake at 375 deg F for 40 minutes.',
+    author: 'lemuel'
   }
 ]
