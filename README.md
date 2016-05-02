@@ -27,8 +27,6 @@ store are located in src/containers.
 TODO
 ------------------------------
 * Create filter capability
-* set inputs and then let them change
-  * How? immediate access to state seems like too much.
 * Migrate from plain text fixture file to SQLite DB.
 * Create user system.
   * Sendgrid email service

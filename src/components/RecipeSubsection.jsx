@@ -3,14 +3,15 @@ export const RecipeSubsection = ({ingredients, instructions, author, dataToSanit
   let sanitizeData = (data) => {
     return data
       .replace(/[<>]/g, '')
-      .replace(/(?:\r\n|\r|\n)/g, '</li><li class="item">')
+  }
+  let listifyString = (string) => {
+    return string.replace(/(?:\r\n|\r|\n)/g, '</li><li class="item">')
+  }
+  let listWrapper = (htmlBlob) => {
+    return "<li class='item'>"+htmlBlob+"</li>"
   }
   return <div>
     <p className='recipe-subsection-heading'><strong>{sectionTitle}:</strong></p>
-    <ul>
-      <li
-        className='item'
-        dangerouslySetInnerHTML={{__html: sanitizeData(dataToSanitize)}}/>
-    </ul>
+    <ul dangerouslySetInnerHTML={{__html: listWrapper(listifyString(sanitizeData(dataToSanitize)))}}/>
   </div>
 }
