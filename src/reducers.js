@@ -46,19 +46,15 @@ const recipes = (state = [], action) => {
         recipe(undefined, action)
       ]
     case 'UPDATE_RECIPE':
-      console.log(state)
-      console.log(action)
-      console.log(action.id)
       let indexUpdate, iUpdate
         for(iUpdate=0;iUpdate<state.length;iUpdate++){
           state[iUpdate];
-          if(state[iUpdate].id === action.recipeId){
+          if(state[iUpdate].id === action.id){
             indexUpdate = iUpdate;
-            console.log(reassign);
           }
         }
       return [
-        ...state.slice(0, action.id),
+        ...state.slice(0, indexUpdate),
         {
           id: action.id,
           hideIngredients: action.hideIngredients,
@@ -67,7 +63,7 @@ const recipes = (state = [], action) => {
           instructions: action.instructions,
           author: action.author
         },
-        ...state.slice(action.id + 1)
+        ...state.slice(indexUpdate + 1)
       ]
     case DESTROY_RECIPE:
       let indexDestroy, iDestroy

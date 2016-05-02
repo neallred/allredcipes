@@ -1,11 +1,11 @@
 import React, {PropTypes} from 'react';
 const UpdateRecipe = ({isEditing, onClick, dispatch, ownProps, recipeToEdit}) => {
-  let newId
-  let newHideIngredients
-  let newName
-  let newIngredients
-  let newInstructions
-  let newAuthor
+  let newId = recipeToEdit ? recipeToEdit.id : null
+  let newHideIngredients = recipeToEdit ? recipeToEdit.hideIngredients : null
+  let newName = recipeToEdit ? recipeToEdit.name : null
+  let newIngredients = recipeToEdit ? recipeToEdit.ingredients : null
+  let newInstructions = recipeToEdit ? recipeToEdit.instructions : null
+  let newAuthor = recipeToEdit ? recipeToEdit.author : null
   return <div
     className={
       isEditing.isEditing ?  'modalDialog opened center-block text-center' : 'modalDialog closed center-block text-center'
@@ -15,36 +15,36 @@ const UpdateRecipe = ({isEditing, onClick, dispatch, ownProps, recipeToEdit}) =>
     <h2 className='add-recipes'>Edit</h2>
     <form className='container'>
       <input
+        id='updateId'
         type='hidden'
         ref={node => { newId = node }}
-        value={recipeToEdit ? recipeToEdit.id : null}
       />
       <input
+        id='updateHideIngredients'
         type='hidden'
         ref={node => { newHideIngredients = node }}
-        value={recipeToEdit ? recipeToEdit.hideIngredients : null}
       />
       <input
+        id='updateName'
         type='text'
         placeholder='Recipe name'
         ref={node => { newName = node }}
-        value={recipeToEdit ? recipeToEdit.name : null}
-      >
-      </input><br/>
+      />
+      <br/>
       <textarea
+        id='updateIngredients'
         placeholder='Ingredients'
         ref={node => { newIngredients = node }}
-        value={recipeToEdit ? recipeToEdit.ingredients : null}
       /><br/>
       <textarea 
+        id='updateInstructions'
         placeholder='Instructions'
         ref={node => { newInstructions = node }}
-        value={recipeToEdit ? recipeToEdit.instructions : null}
       /><br/>
       <input type='text'
+        id='updateAuthor'
         placeholder='Recipe author'
         ref={node => { newAuthor = node }}
-        value={recipeToEdit ? recipeToEdit.author : null}
       /><br/>
       <button
         type='button'
@@ -61,6 +61,12 @@ const UpdateRecipe = ({isEditing, onClick, dispatch, ownProps, recipeToEdit}) =>
         Save recipe
       </button>
     </form>
+    {document.getElementById('updateId') ? document.getElementById('updateId').value=newId : null }
+    {document.getElementById('updatehideIngredients') ? document.getElementById('updateHideIngredients').value=newHideIngredients : null }
+    {document.getElementById('updateName') ? document.getElementById('updateName').value=newName : null }
+    {document.getElementById('updateIngredients') ? document.getElementById('updateIngredients').value=newIngredients : null }
+    {document.getElementById('updateInstructions') ? document.getElementById('updateInstructions').value=newInstructions : null }
+    {document.getElementById('updateAuthor') ? document.getElementById('updateAuthor').value=newAuthor : null }
   </div>
 }
 UpdateRecipe.propTypes = {

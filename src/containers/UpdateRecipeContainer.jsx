@@ -19,7 +19,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         dispatch(isEditing())
       }
       else if (e.currentTarget.className ==='submit-edit') {
-        dispatch(updateRecipe(0, 'newHideIngredients.value', 'newName.value', 'newIngredients.value', 'newInstructions.value', 'newAuthor.value'))
+        let newId = parseInt(document.getElementById('updateId').value,10)
+        let newHideIngredients = document.getElementById('updateHideIngredients').value
+        let newName = document.getElementById('updateName').value
+        let newIngredients = document.getElementById('updateIngredients').value
+        let newInstructions = document.getElementById('updateInstructions').value
+        let newAuthor = document.getElementById('updateAuthor').value
+        dispatch(updateRecipe(newId, newHideIngredients, newName, newIngredients, newInstructions, newAuthor))
         dispatch(isEditing())
       }
     }
