@@ -181,5 +181,24 @@ export const FixturesRecipes = [
     ingredients: 'LIQUIDS:\n8c. hot water\n2 spoons yeast\n1/2c. sugar\ndollop of molasses\ndollop of oil\nSOLIDS:\n10 c. white flour\n10 c. wheat flour\n4c. oats\n1/8c. salt',
     instructions: '1. Mix water, yeast, sugar, molasses and oil. Let sit 2 minutes.\n2. Pour in white and wheat flour, oats, and salt. Mix dry ingredients together and then knead into dough by hand. This can take half an hour but it will all knead in.\n3. Preheat oven to 170 deg F and turn off as soon as temperature attained. Cover bread dough bowl and put in oven to raise for 1 hour.\n4. Take out dough, scrape it onto counter, and cut in 1/8 wedges of circles. Roll each 1/8th intoa loaf, place in pans, and bake at 375 deg F for 40 minutes.',
     author: 'lemuel'
+  },
+  {
+    id: 23,
+    hideIngredients: true,
+    name: 'Zupa\'s Toscana (Sausage Potato) Soup',
+    ingredients: '1/4 c. bacon, cooked and chopped\n1 lb. italian sausage, spicy\n2 tbsp. garlic\n1/2 bunch kale\n1 onion\n4 russet potatoes\n32 oz. chicken broth\n1 tsp cayenne pepper\n2 tbsp flour\n1 tsp salt\n1 tsp pepper\n1 c. heavy whipping cream',
+    instructions: '1. Brown sausage with garlic and onion.\n2. Mix in onion, potatoes, and broth. If necessary, add water until potatoes and meat are just barely covered.\n3. Cook on high for 3-4 hours until potatoes are soft.\n4. 30 minutes before serving, mix flour into cream, removing lumps.\n5. Add cream and kale to crockpot and stir.\n6. Cook on high for 30 minutes or until broth thickens slightly.\n7. Add salt, cayenne, and pepper to taste.\n8. Top with bacon immediately before serving.',
+    author: 'violet2flame'
+  },
+  {
+    id: 24,
+    hideIngredients: true,
+    name: 'Cadbury Egg Cookies',
+    ingredients: '1/2 C Crisco (I use butter flavored)\n1/2 C Butter\n1 C brown sugar\n1 C white sugar\n2 Eggs\n1 1/2 t vanilla\n1 t baking powder\n1 t baking soda\n1/2 t salt\n2 1/2 C flour\n6T unsweetened cocoa powder\n1 10 oz bag Cadbury Mini-Eggs*',
+    instructions: '1. Preheat oven to 350.\n2. Chop up Cadbury Eggs (put in ziplock bag and bang on them with a marble rolling pin until crushed).\n3. Cream together the butter, crisco, brown sugar and white sugar.\n4. Add in eggs one at at a time and the vanilla.\n5. In a separate bowl whisk together the flour, soda, baking powder, salt, and cocoa powder.\n6. Add dry ingredients to the liquid mixture and then mix the eggs in.\n7. Drop onto a cookie sheet and cook for about 8-10 minutes.',
+    author: 'kate_jones_n_sara_wells'
   }
 ]
+
+
+
