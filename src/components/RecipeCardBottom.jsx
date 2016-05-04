@@ -16,7 +16,7 @@ export const RecipeCardBottom = ({onClick, id, hideIngredients, name, ingredient
     />
     <RecipeSubsection
       dataToSanitize={author}
-      sectionTitle='Author'
+      sectionTitle='Author/Contributor:'
     />
   </div>
 }
