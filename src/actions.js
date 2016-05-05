@@ -23,7 +23,7 @@ export const SearchFilters = {
   BY_AUTHOR: 'BY_AUTHOR'
 }
 
-let nextRecipeId = 34
+let nextRecipeId = 33
 export function createRecipe(name, ingredients, instructions, author) {
   return {
     type: CREATE_RECIPE,
@@ -85,8 +85,6 @@ export const setSearchFilters = (filter) => {
 }
 
 export const setSearchTerms = (terms) => {
-  console.log('setting terms:')
-  console.log(terms)
   return {
     type: SET_SEARCH_TERMS,
     terms

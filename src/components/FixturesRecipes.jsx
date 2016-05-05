@@ -209,21 +209,13 @@ export const FixturesRecipes = [
   {
     id: 26,
     hideIngredients: true,
-    name: 'Lemon Bars',
-    ingredients: 'CRUST:\n1 cup butter, softened\n1/2 cup white sugar\n2 cups all-purpose flour\nCUSTARD:\n4 eggs\n1 1/2 cups white sugar\n1/4 cup all-purpose flour\n2 lemons, juiced (or 1 c. lemon juice)',
-    instructions:'1. Preheat oven to 350 degrees F (175 degrees C).\n2. In a medium bowl, blend together softened butter, 2 cups flour and 1/2 cup sugar. Press into the bottom of an ungreased 9x13 inch pan.\n3. Bake for 15 to 20 minutes, or until firm and golden. In another bowl, whisk together the remaining 1 1/2 cups sugar and 1/4 cup flour. Whisk in the eggs and lemon juice. Pour over the baked crust.\n4. Bake for an additional 20 minutes in the preheated oven. The bars will firm up as they cool. For a festive tray, make another pan using limes instead of lemons and adding a drop of green food coloring to give a very pale green. After both pans have cooled, cut into uniform 2 inch squares and arrange in a checker board fashion.',
-    author: 'neallred'
-  },
-  {
-    id: 27,
-    hideIngredients: true,
     name: 'Green Onion Pancakes',
     ingredients: '3 cups bread flour\n1 1/4 cups boiling water\n2 tablespoons vegetable oil\nsalt and pepper to taste\n1 bunch green onions, finely chopped\n2 teaspoons vegetable oil',
     instructions: '1. Use a fork to mix flour and boiling water in a large bowl. Knead dough into a ball. Cover bowl with plastic wrap; let dough rest for 30 to 60 minutes.\n2. Evenly divide dough into 16 pieces. Roll each piece into a 1/4 inch thick circle. Brush each circle with oil, season with salt and pepper, and sprinkle with about 1 teaspoon of green onions. Roll up, cigar style, and pinch open ends together to form a circle. Roll each circle flat to 1/4 inch.\n3. Heat 2 teaspoons oil in a large skillet. Fry pancakes until golden brown, about 2 minutes on each side. Makes 16 pancakes.',
     author: 'neallred'
   },
   {
-    id: 28,
+    id: 27,
     hideIngredients: true,
     name: 'No Bake Cookies',
     ingredients: 'WET INGREDIENTS:\n2 cups sugar\n4 tablespoons cocoa\n1 stick butter\n1/2 cup milk\nDRY INGREDIENTS:\n1 cup peanut butter\n1 tablespoon vanilla\n3 cups oatmeal\nWaxed paper',
@@ -231,7 +223,7 @@ export const FixturesRecipes = [
     author: 'sam_song'
   },
   {
-    id: 29,
+    id: 28,
     hideIngredients: true,
     name: 'Puppy Chow',
     ingredients: '9 c. rice krispie squares (rice chex)\n0.5 c. peanut butter\n1 c. chocolate chip\n1.5 c. powdered sugar',
@@ -239,7 +231,7 @@ export const FixturesRecipes = [
     author: 'neallred'
   },
   {
-    id: 30,
+    id: 29,
     hideIngredients: true,
     name: 'Rice Krispies',
     ingredients: '1/4 c. butter\n1 10. oz pkg regular marshmallows, or 3 c. miniature marshmallows\n6 c. rice krispies cereal',
@@ -247,7 +239,7 @@ export const FixturesRecipes = [
     author: 'neallred'
   },
   {
-    id: 31,
+    id: 30,
     hideIngredients: true,
     name: 'Rice Pudding',
     ingredients: '3/4 c. uncooked white rice\n2 c. milk\n1/3 c. white sugar\n1/4 teaspoon salt\n1 egg, beaten\n2/3 c. raisin\n1 tbsp butter\n1/2 teaspoon vanilla',
@@ -255,7 +247,7 @@ export const FixturesRecipes = [
     author: 'neallred'
   },
   {
-    id: 32,
+    id: 31,
     hideIngredients: true,
     name: 'Potato Herb Bread Recipe',
     ingredients: '2 packages (1/4 ounce each) active dry yeast\n2 tablespoons plus 1 teaspoon sugar, divided\n1/2 cup warm water (110° to 115°)\n1 can (10-3/4 ounces) condensed cream of potato soup, undiluted\n1 cup hot water\n1/2 cup nonfat dry milk powder\n1/2 cup sour cream\n1/2 cup minced chives\n2 tablespoons butter, melted\n2 teaspoons salt\n1 teaspoon dried tarragon, crushed\n6 to 6 1/2 cups all-purpose flour',
@@ -263,7 +255,7 @@ export const FixturesRecipes = [
     author: 'neallred'
   },
   {
-    id: 33,
+    id: 32,
     hideIngredients: true,
     name: 'Chocolate Cheesecake',
     ingredients: '18 oz. triple chocolate cookie dough\n8 oz. milk chocolate toffee bits\n9 1/2 oz Dove dark chocolate candies\n3 packages cream cheese (8 oz each)\n1 can (14 oz) sweetened condensed milk\n3/4 c. (6oz) vanilla yogurt\n4 eggs, lightly beaten\n1 tsp vanilla\nwhipped cream',

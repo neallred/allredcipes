@@ -23,7 +23,7 @@ const initialState = {
     author: ''
   },
   setSearchFilters: [],
-  setSearchTerms: ['otato']
+  setSearchTerms: []
 }
 
 let store = createStore(recipeApp, initialState);

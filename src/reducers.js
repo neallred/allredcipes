@@ -137,7 +137,7 @@ const setSearchFilters = (state = [], action) => {
 const setSearchTerms = (state = [], action) => {
   switch (action.type) {
     case 'SET_SEARCH_TERMS':
-      return action.terms.split(' ')
+      return action.terms.toLowerCase().split(' ')
     default:
       return state
   }
