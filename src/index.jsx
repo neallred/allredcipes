@@ -11,9 +11,9 @@ import './css/bootstrap.min.css';
 import './css/custom.css.scss';
 
 const initialState = {
-  visibilityFilter: 'SHOW_ALL',
-  isEditing: false,
   recipes: FixturesRecipes,
+  visibilityFilter: 'BY_ALL',
+  isEditing: false,
   recipeToEdit: {
     id: null,
     hideIngredients: true,
@@ -21,19 +21,20 @@ const initialState = {
     ingredients: '',
     instructions: '',
     author: ''
-  }
+  },
+  setSearchFilters: [],
+  setSearchTerms: ['otato']
 }
 
 let store = createStore(recipeApp, initialState);
 
 /*FOR TESTING PURPOSES*/
-import { createRecipe, destroyRecipe, setVisibilityFilter, VisibilityFilters } from './actions'
+import { createRecipe, destroyRecipe, setVisibilityFilter, VisibilityFilters, setSearchFilters, setSearchTerms } from './actions'
 let unsubscribe = store.subscribe(() => {})
 /*
 store.dispatch(createRecipe('Meatballs', 'meat', 'scoop into balls and bake', 'meathead'))
 store.dispatch(createRecipe('Jellyfish', 'jelly, fish', 'jelly your fish, and spread jelly on it', 'cowz'))
 */
-
 unsubscribe()
 
 ReactDOM.render((

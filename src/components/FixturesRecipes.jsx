@@ -261,6 +261,14 @@ export const FixturesRecipes = [
     ingredients: '2 packages (1/4 ounce each) active dry yeast\n2 tablespoons plus 1 teaspoon sugar, divided\n1/2 cup warm water (110° to 115°)\n1 can (10-3/4 ounces) condensed cream of potato soup, undiluted\n1 cup hot water\n1/2 cup nonfat dry milk powder\n1/2 cup sour cream\n1/2 cup minced chives\n2 tablespoons butter, melted\n2 teaspoons salt\n1 teaspoon dried tarragon, crushed\n6 to 6 1/2 cups all-purpose flour',
     instructions: '1. In a large bowl, dissolve yeast and 1 teaspoon sugar in warm water. Let stand for 5 minutes.\n2. Add soup, hot water, milk powder, sour cream, chives, butter, salt, tarragon, remaining sugar and 5 cups flour. Beat until smooth.\n3. Stir in enough remaining flour to form a stiff dough.\n4. Turn onto a floured surface; knead until smooth and elastic, about 6-8 minutes.\n5. Place in a greased bowl, turning once to grease the top. Cover and let rise in a warm place until doubled, about 1 hour.\n6. Punch dough down. Divide in half. Shape in two loaves and place in greased 9-in. x 5-in. loaf pans. Cover and let rise until doubled, about 30 minutes.\n7. Bake at 400° for 30 minutes or until golden. Makes 2 loaves (16 slices each).',
     author: 'neallred'
+  },
+  {
+    id: 33,
+    hideIngredients: true,
+    name: 'Chocolate Cheesecake',
+    ingredients: '18 oz. triple chocolate cookie dough\n8 oz. milk chocolate toffee bits\n9 1/2 oz Dove dark chocolate candies\n3 packages cream cheese (8 oz each)\n1 can (14 oz) sweetened condensed milk\n3/4 c. (6oz) vanilla yogurt\n4 eggs, lightly beaten\n1 tsp vanilla\nwhipped cream',
+    instructions: '1. Press dough into ungreased 9x13 pan. Set 2 tbsp toffee bits for garnish, and sprinkle the rest over dough.\n2. Melt candies in microwave and stir until smooth. Mix in cream cheese, milk and yogurt until smooth. Add eggs and mix until just combined. Pour over crust.\n3. Bake at 350 deg F for 40-45 minutes or until middle almost set. Refrigerate for 4+ hours. Garnish with whipped cream and toffee bits.',
+    author: 'violet2flame'
   }
 ]
 

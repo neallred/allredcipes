@@ -1,13 +1,12 @@
 import React, {PropTypes} from 'react'
 import { RecipeCard } from './RecipeCard'
 
-const RecipeList = ({ recipes, onRecipeClick }) => (
+const RecipeList = ({ recipes }) => (
   <div className='center-block'>
     {recipes.map(recipe =>
       <RecipeCard
         key={recipe.id}
         {...recipe}
-        onClick={() => onRecipeClick(recipe.id)}
       />
     )}
   </div>

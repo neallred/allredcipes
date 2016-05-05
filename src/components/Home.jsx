@@ -1,5 +1,5 @@
 import React from 'react'
-import { Footer } from './Footer'
+import { SearchRecipes } from './SearchRecipes'
 import { CreateRecipe } from '../containers/CreateRecipe'
 import { UpdateRecipeContainer } from '../containers/UpdateRecipeContainer.jsx'
 import { VisibleRecipeList } from '../containers/VisibleRecipeList.jsx'
@@ -7,9 +7,9 @@ import { VisibleRecipeList } from '../containers/VisibleRecipeList.jsx'
 export const Home = () => (
   <div>
     <h1 className='center-block'>Open Source Recipe Box</h1>
+    <SearchRecipes />
     <VisibleRecipeList />
     <CreateRecipe />
-    <Footer />
     <UpdateRecipeContainer />
   </div>
 )

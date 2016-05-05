@@ -8,7 +8,7 @@ let CreateRecipe = ({ dispatch }) => {
   let inputInstructions
   let inputAuthor
   return <div className='center-block text-center'>
-    <h2 className='add-recipes'>Add recipes here!</h2>
+    <h2>Add recipes here!</h2>
     <form
       onSubmit={e => {
         e.preventDefault()
