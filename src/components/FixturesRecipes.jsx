@@ -3,15 +3,15 @@ export const FixturesRecipes = [
     id: 0,
     hideIngredients: true,
     name: 'Bubbly Pies',
-    ingredients: 'CRUST:\n1/2 cup butter or margarine\n2 tablespoons granulated sweetening\n2 1/2 cups flour\n1/2 teaspoon salt\n1/2 cup ice water\n\n FILLING:\n5 cups blueberries (or one 20-ounce package, frozen)\n1 cup granulated sweetening\n1/4 teaspoon powdered klah bark (cinnamon)\n2 teaspoon citrus juice\n1-2 tablespoons butter or margerine',
-    instructions: 'Cut the butter into chunks.\nCombine the dry ingredients into a bowl.\nWork the butter gently into the dry mixture with a fork until pieces thesize of peas form.\nSprinkle the water over and work in. (do not overwork the dough).\nForm the dough into a ball.\n\n Gently toss berries with sweetening and klah bark in a large bowl.\nSprinkle citrus juice over mixture.\nSpoon berries into crust and dot with butter.\n\n Bake in oven at 350 degrees for 30 minutes \n\n Makes 1 Bubbly Pie :)',
+    ingredients: 'CRUST:\n1/2 c. butter or margarine\n2 tablespoons granulated sweetening\n2 1/2 c. flour\n1/2 teaspoon salt\n1/2 c. ice water\n\n FILLING:\n5 c. blueberries (or one 20-ounce package, frozen)\n1 c. granulated sweetening\n1/4 teaspoon powdered klah bark (cinnamon)\n2 teaspoon citrus juice\n1-2 tablespoons butter or margerine',
+    instructions: 'Cut the butter into chunks.\nCombine the dry ingredients into a bowl.\nWork the butter gently into the dry mixture with a fork until pieces the size of peas form.\nSprinkle the water over and work in. (do not overwork the dough).\nForm the dough into a ball.\n\n Gently toss berries with sweetening and klah bark in a large bowl.\nSprinkle citrus juice over mixture.\nSpoon berries into crust and dot with butter.\n\n Bake in oven at 350 degrees for 30 minutes \n\n Makes 1 Bubbly Pie :)',
     author: 'violet2flame'
   },
   {
     id: 1,
     hideIngredients: true,
     name: 'Noquis',
-    ingredients: '2 lbs. baking potatoes (about 6)\n2 tbsp salt\n2 eggs\n1 cup fresh, good quality ricotta cheese\n2-3 cups flour, plus more for dusting',
+    ingredients: '2 lbs. baking potatoes (about 6)\n2 tbsp salt\n2 eggs\n1 c. fresh, good quality ricotta cheese\n2-3 c. flour, plus more for dusting',
     instructions: '1. Peel and quarter the potatoes, putting them in a medium stock pot with enough water to cover the potatoes with one inch of water. \n 2. Add a scant handful of salt. \n 3. Put the potatoes to boil until they are tender when pierced with a fork , but not mushy.\n4. Drain the potatoes.\n5. Put the potatoes through a food mill or potato ricer. \n 6 In a large bowl, combine the potatoes, eggs, and ricotta, and mix well using your hands or a fork until a consistent dough is formed.  Be careful not to overmix. \n 7.  Add the flour a half cup at a time, mixing each time by hand until there is a soft, pliable dough.  The dough should not be sticky, and it should not be hard.  If it\'s too sticky or soft, the gnocchi will be mushy, but if there\'s too much flour, the gnocchi will be chewy and tough.  (This is the challenging part!).\n8.  Knead the dough a few times until uniform, and divide the dough in half. \n 9. Flour a work area, and roll the dough out into a long thin roll about 3/4 inch thick. \n 10.  Cut these tubes of dough into sections about 1 inch long. \n 11.  Meanwhile, bring a stock pot of water to a boil. \n 12.  There are a variety of ways to \'mark\' the gnocchi-all just a style choice, since at this point, they are more or less done.  Here are some suggestions:  Mark an indentation in the center of each gnocchi with your index finger; or roll over the side of a cheese grater to make patterned indentations; or roll over the backside of a fork, or roll over the center of a wooden gnocchi tool. At this point, the gnocchi can be frozen laid out on a baking sheet lined with wax paper.  After they are frozen, they can be stored in a freezer bag.   Frozen gnocchi are just put into the boiling water like the unfrozen ones.\n14. Throw the gnocchi one at a time into the boiling water. They are cooked when they rise to the top. \n 15. Collect with a slotted spoon and transfer to a plate. \n 16. Serve with the sauce of your choice.  (Some nice choices are walnut Gorgonzola, tomato or white sauce.)',
     author: 'neallred'
   },
@@ -27,7 +27,7 @@ export const FixturesRecipes = [
     id: 3,
     hideIngredients: true,
     name: 'Chocolate Chip Blond Brownies',
-    ingredients: '3 cups flour\n1 tablespoon baking powder\n1 teaspoon salt\n2 cups sugar\n2/3 c. oil\n6 egg whites\n2 cups (12 oz.) chocolate chips\n2 tsp vanilla',
+    ingredients: '3 c. flour\n1 tablespoon baking powder\n1 teaspoon salt\n2 c. sugar\n2/3 c. oil\n6 egg whites\n2 c. (12 oz.) chocolate chips\n2 tsp vanilla',
     instructions: '1. Preheat oven to 350 degrees.\n2. Line a 10 x 15 pan with 2 lagers of waxed paper.\n3. Oil top of waxed paper.\n4. Stir together the flour, baking powder, salt, and sugar.\n5. Add the oil, egg whites, vanilla, and beat until thoroughly combined. Mixture will be stiff.\n6. Stir in the chocolate chips.\n7. Scrape the dough into the prepared pan, flattening the dough in the pan.\n8. Bake for about 30 minutes at 350 degrees fahrenheit. Cool in the pan and then cut into squares, 2" x 2".',
     author: 'neallred'
   },
@@ -51,7 +51,7 @@ export const FixturesRecipes = [
     id: 6,
     hideIngredients: true,
     name: 'Molasses Softies',
-    ingredients: '2 cups margarine\n2 2/3 cups sugar\n2 eggs\n2/3 cups molasses\n6 tablespoons corn syrup\n1/4 cup milk\n\n8 cups flour\n4 teaspoons baking soda\n4 teaspoons cinnamon\n3 teaspoons ginger\n3 teaspoons allspice\nsugar to roll cookies in',
+    ingredients: '2 c. margarine\n2 2/3 c. sugar\n2 eggs\n2/3 c. molasses\n6 tablespoons corn syrup\n1/4 c. milk\n\n8 c. flour\n4 teaspoons baking soda\n4 teaspoons cinnamon\n3 teaspoons ginger\n3 teaspoons allspice\nsugar to roll cookies in',
     instructions: '1. Mix margarine, sugar, eggs, molasses, corn syrup, and milk.\n2. Add flour, baking soda, cinnamon, ginger, and allspice and mix well.\n3. Roll dough into 1 1/4" balls and roll balls in granulated sugar.\n4. Place on ungreased cookie sheets.\n5. Bake at 350 degrees fahrenheit for 11-12 minutes.',
     author: 'neallred'
   },
@@ -67,7 +67,7 @@ export const FixturesRecipes = [
     id: 8,
     hideIngredients: true,
     name: 'Vanilla Egg Bread',
-    ingredients: '1 cup water (warm)\n1/2 tsp yeast\n1 TBSP sugar\n4+ cups white flour\n1/8 cup oil\n½ cup whole milk\n1 & 1/2 tsp salt\n1 egg',
+    ingredients: '1 c. water (warm)\n1/2 tsp yeast\n1 TBSP sugar\n4+ c. white flour\n1/8 c. oil\n½ c. whole milk\n1 & 1/2 tsp salt\n1 egg',
     instructions: '1. Sprinkle yeast and sugar over water in mixing bowl. Let sit for 3 minutes.\n2. Add and mix the rest of the ingredients to the bowl, except for one cup of the flour.\n3. Add remaining flour ½ cup at a time and kneed until dough is sticky, but pulls away from hands easily.\n4. Preheat oven to 170 deg F, and turn off hit when 170 deg F is reached.\n5. Form a dough ball, cover with cloth in the bowl, and let it raise in the heated oven for at least 1 hour.\n6. Remove dough, form into an oval shape, heat oven to 350-375 deg F, grease desired pan, place oval inside, score the top, and bake for at least 30 minutes.',
     author: 'lemuel'
   },
