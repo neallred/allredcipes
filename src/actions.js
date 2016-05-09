@@ -23,7 +23,7 @@ export const SearchFilters = {
   BY_AUTHOR: 'BY_AUTHOR'
 }
 
-let nextRecipeId = 33
+let nextRecipeId = 60
 export function createRecipe(name, ingredients, instructions, author) {
   return {
     type: CREATE_RECIPE,
