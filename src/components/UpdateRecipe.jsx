@@ -49,14 +49,16 @@ const UpdateRecipe = ({isEditing, onClick, dispatch, ownProps, recipeToEdit}) =>
       <button
         type='button'
         onClick={onClick}
-        className='cancel-edit'
+        className='btn btn-primary'
+        id='cancel-edit'
       >
         Cancel edit
       </button><br/>
       <button
         type='submit'
         onClick={onClick}
-        className='submit-edit'
+        className='btn btn-success'
+        id='submit-edit'
       >
         Save recipe
       </button>

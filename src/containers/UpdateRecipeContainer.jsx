@@ -15,10 +15,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onClick: (e) => {
       e.preventDefault()
-      if (e.currentTarget.className ==='cancel-edit') {
+      if (e.currentTarget.id ==='cancel-edit') {
         dispatch(isEditing())
       }
-      else if (e.currentTarget.className ==='submit-edit') {
+      else if (e.currentTarget.id ==='submit-edit') {
         let newId = parseInt(document.getElementById('updateId').value,10)
         let newHideIngredients = document.getElementById('updateHideIngredients').value
         let newName = document.getElementById('updateName').value

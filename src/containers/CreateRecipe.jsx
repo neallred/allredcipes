@@ -38,7 +38,10 @@ let CreateRecipe = ({ dispatch }) => {
         placeholder='Recipe author'
         ref={node => { inputAuthor = node }}
       /><br/>
-      <button type='submit'>
+      <button
+        type='submit'
+        className='btn btn-success'
+      >
         Create Recipe
       </button>
     </form>
