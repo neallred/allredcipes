@@ -11,8 +11,7 @@ const UpdateRecipe = ({isEditing, onClick, dispatch, ownProps, recipeToEdit}) =>
       isEditing.isEditing ?  'modalDialog opened center-block text-center' : 'modalDialog closed center-block text-center'
     }
     id='dialog'>
-    <p className='close-edit-box'>X</p>
-    <h2 className='add-recipes'>Edit</h2>
+    <h2 className='add-recipes'>Edit {newName}</h2>
     <form className='container'>
       <input
         id='updateId'

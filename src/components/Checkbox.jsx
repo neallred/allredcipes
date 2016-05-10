@@ -9,17 +9,3 @@ Checkbox.propTypes = {
 }
 
 export { Checkbox }
-
-/*
-  return (
-    <a href='#'
-      onClick={e => {
-        e.preventDefault()
-        onClick()
-      }}
-    >
-      {children}
-    </a>
-  )
-}
-*/

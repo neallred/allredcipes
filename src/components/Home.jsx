@@ -1,6 +1,6 @@
 import React from 'react'
 import { SearchRecipes } from './SearchRecipes'
-import { CreateRecipe } from '../containers/CreateRecipe'
+import { CreateRecipeContainer } from '../containers/CreateRecipeContainer'
 import { UpdateRecipeContainer } from '../containers/UpdateRecipeContainer.jsx'
 import { MatchedRecipeList } from '../containers/MatchedRecipeList.jsx'
 
@@ -9,7 +9,7 @@ export const Home = () => (
     <h1 className='center-block'>Allred Recipe Box</h1>
     <SearchRecipes />
     <MatchedRecipeList />
-    <CreateRecipe />
+    <CreateRecipeContainer />
     <UpdateRecipeContainer />
     <br/>
   </div>

@@ -32,23 +32,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-
-
 export const UpdateRecipeContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(UpdateRecipe)
-
-/*
-if(!newName.value.trim()){
-  return
-}
-dispatch(updateRecipe(newName.value, newIngredients.value, newInstructions.value, newAuthor.value))
-newId.value = ''
-newHideIngredients.value = ''
-newName.value = ''
-newIngredients.value = ''
-newInstructions.value = ''
-newAuthor.value = ''
-  //dispatch(isEditing())
-*/

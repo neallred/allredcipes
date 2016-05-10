@@ -16,7 +16,6 @@ function visibilityFilter(state = SHOW_ALL, action) {
 const recipe = (state, action) => {
   switch (action.type) {
     case 'CREATE_RECIPE':
-      console.log(state)
       return {
         id: action.id,
         hideIngredients: action.hideIngredients,
@@ -56,7 +55,6 @@ const recipes = (state = [], action) => {
         recipe(undefined, action)
       ]
     case 'UPDATE_RECIPE':
-      console.log(action)
       let indexUpdate, iUpdate
         for(iUpdate=0;iUpdate<state.length;iUpdate++){
           state[iUpdate];

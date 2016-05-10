@@ -217,25 +217,6 @@ form {
   background: -webkit-linear-gradient(#fff, #999);
   background: -o-linear-gradient(#fff, #999);
 }
-.close-edit-box {
-  background: #606061;
-  color: #FFFFFF;
-  line-height: 25px;
-  position: fixed;
-  right: 12px;
-  text-align: center;
-  top: 10px;
-  width: 24px;
-  text-decoration: none;
-  font-weight: bold;
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
-  border-radius: 12px;
-  -moz-box-shadow: 1px 1px 3px #000;
-  -webkit-box-shadow: 1px 1px 3px #000;
-  box-shadow: 1px 1px 3px #000;
-}
-.close-edit-box:hover { background: #00d9ff; }
 
 form.search-form {
   input[type='checkbox'] {
