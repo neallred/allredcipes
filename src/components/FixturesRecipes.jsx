@@ -3,8 +3,8 @@ export const FixturesRecipes = [
     id: 0,
     hideIngredients: true,
     name: 'Bubbly Pies',
-    ingredients: 'CRUST:\n1/2 c. butter or margarine\n2 Tbsp. granulated sweetening\n2 1/2 c. flour\n1/2 teaspoon salt\n1/2 c. ice water\n\n FILLING:\n5 c. blueberries (or one 20-ounce package, frozen)\n1 c. granulated sweetening\n1/4 teaspoon powdered klah bark (cinnamon)\n2 tsp. citrus juice\n1-2 Tbsp. butter or margerine',
-    instructions: 'Cut the butter into chunks.\nCombine the dry ingredients into a bowl.\nWork the butter gently into the dry mixture with a fork until pieces the size of peas form.\nSprinkle the water over and work in. (do not overwork the dough).\nForm the dough into a ball.\n\nGently toss berries with sweetening and klah bark in a large bowl.\nSprinkle citrus juice over mixture.\nSpoon berries into crust and dot with butter.\n\nBake in oven at 350 degrees for 30 minutes.\nMakes 1 Bubbly Pie :)',
+    ingredients: 'CRUST:\n1/2 c. butter or margarine\n2 Tbsp. granulated sweetening\n2 1/2 c. flour\n1/2 teaspoon salt\n1/2 c. ice water\n FILLING:\n5 c. blueberries (or one 20-ounce package, frozen)\n1 c. granulated sweetening\n1/4 teaspoon powdered klah bark (cinnamon)\n2 tsp. citrus juice\n1-2 Tbsp. butter or margerine',
+    instructions: 'Cut the butter into chunks.\nCombine the dry ingredients into a bowl.\nWork the butter gently into the dry mixture with a fork until pieces the size of peas form.\nSprinkle the water over and work in. (do not overwork the dough).\nForm the dough into a ball.\nGently toss berries with sweetening and klah bark in a large bowl.\nSprinkle citrus juice over mixture.\nSpoon berries into crust and dot with butter.\nBake in oven at 350 degrees for 30 minutes.\nMakes 1 Bubbly Pie :)',
     author: 'violet2flame'
   },
   {
@@ -51,7 +51,7 @@ export const FixturesRecipes = [
     id: 6,
     hideIngredients: true,
     name: 'Molasses Softies',
-    ingredients: '2 c. margarine\n2 2/3 c. sugar\n2 eggs\n2/3 c. molasses\n6 Tbsp. corn syrup\n1/4 c. milk\n\n8 c. flour\n4 tsp. baking soda\n4 tsp. cinnamon\n3 tsp. ginger\n3 tsp. allspice\nsugar to roll cookies in',
+    ingredients: '2 c. margarine\n2 2/3 c. sugar\n2 eggs\n2/3 c. molasses\n6 Tbsp. corn syrup\n1/4 c. milk\n8 c. flour\n4 tsp. baking soda\n4 tsp. cinnamon\n3 tsp. ginger\n3 tsp. allspice\nsugar to roll cookies in',
     instructions: '1. Mix margarine, sugar, eggs, molasses, corn syrup, and milk.\n2. Add flour, baking soda, cinnamon, ginger, and allspice and mix well.\n3. Roll dough into 1 1/4" balls and roll balls in granulated sugar.\n4. Place on ungreased cookie sheets.\n5. Bake at 350 deg F for 11-12 minutes.',
     author: 'neallred'
   },
@@ -59,7 +59,7 @@ export const FixturesRecipes = [
     id: 7,
     hideIngredients: true,
     name: 'Peanut Butter Oatmeal Cookies',
-    ingredients: '2 c. sugar\n1 Tbsp. molasses\n1/2 c. oil\n1 c. peanut butter\n1 tsp. butter flavor\n1 tsp. vanilla\n3 large eggs\n\n2 1/2 c. flour\n1 c. oatmeal\n1 1/2 tsp. baking soda\n1 tsp. baking powder\n1/2 tsp. salt\ngranulated sugar',
+    ingredients: '2 c. sugar\n1 Tbsp. molasses\n1/2 c. oil\n1 c. peanut butter\n1 tsp. butter flavor\n1 tsp. vanilla\n3 large eggs\n2 1/2 c. flour\n1 c. oatmeal\n1 1/2 tsp. baking soda\n1 tsp. baking powder\n1/2 tsp. salt\ngranulated sugar',
     instructions: '1. Mix together: sugar, molasses, oil, peanut butter, butter flavor, vanilla, eggs.\n2. Mix in: flour, oatmeal, baking soda, baking powder, salt.\n3. Roll into 1 1/4" balls.\n4. Roll balls in sugar and place on baking sheet. Flatten with fork or bottom of cup.\n5. Bake at 375 deg F for 8-9 minutes.',
     author: 'neallred'
   },
@@ -130,7 +130,7 @@ export const FixturesRecipes = [
   {
     id: 16,
     hideIngredients: true,
-    name: 'Bread pudding',
+    name: 'Bread Pudding',
     ingredients:'1 loaf of French bread\n4 c. milk\n3 eggs, beaten\n2 c. of sugar\n2 Tbsp. of vanilla\n1 tsp. cinnamon\n3 Tbsp. butter\nSAUCE:\n1/2 c. butter\n1 c. sugar\n1 egg, beaten\n1/4 c. Bourbon (optional)\nPRALINE SAUCE:\n1 1/4 c. light brown sugar\n3/4 c. evaporated milk\n1 Tbsp. butter\n1/2 tsp. vanilla\n1/4 c. chopped pecans',
     instructions:'1. In a large bowl, break bread into bite-size pieces.\n2. Cover with milk and soak one hour.\n3. Mix well.\n4. Add eggs and sugar.\n5. Stir in vanilla, cinnamon.\n6. Melt butter and pour in baking dish, tilting to coat all sides.\n7. Pour in pudding and bake one hour.\nSAUCE:\n1. Melt butter and sugar.\n2. Gradually whisk in egg.\n3. Cool slightly.\n4. Add bourbon (optional).\nPRALINE SAUCE:\n1. In a small saucepan over low heat combine brown sugar, evaporated milk, and butter.\n2. Cook and stir praline sauce until sauce is smooth and syrupy, about 5 min.\n3. Stir in vanilla extract and pecans.\n4. Serve praline sauce warm over ice cream. (Makes about 1 1/4 c. of praline sauce)',
     author: 'neallred'
@@ -322,7 +322,7 @@ export const FixturesRecipes = [
   {
     id: 40,
     hideIngredients: true,
-    name: 'Fruit dip',
+    name: 'Fruit Dip',
     ingredients: '1 pkg. lemon instant pudding\n1 Tbsp. lemon juice\n1/2 c. sugar\n1 1/2c. pineapple juice\n8 oz. cool whip',
     instructions: '1. Mix all ingredients except cool whip together.\n2. Mix ingredient mixture into cool whip. Serve over fruit.',
     author: 'samashby'
@@ -346,7 +346,7 @@ export const FixturesRecipes = [
   {
     id: 43,
     hideIngredients: true,
-    name: 'Fresh salsa',
+    name: 'Fresh Salsa',
     ingredients: '1 1/2 lb. pounds fresh tomatoes\n2 Anaheim chilies\n1 yellow wax pepper\n1 small onion\n1 tsp. garlic powder\n1/2 tsp. pepper\n1/2 tsp. salt\ncilantro',
     instructions: '1. Dice tomatoes and oinoins.\n2. Chop chilies, peppers and cilantro.\n3. In a bowl, mix tomatoes, onions, chilies, peppers, salt, garlic powder and pepper. Add cilantro to taste. Serve with corn chips.',
     author: 'samashby'
@@ -386,7 +386,7 @@ export const FixturesRecipes = [
   {
     id: 48,
     hideIngredients: true,
-    name: 'Blueberry muffins',
+    name: 'Blueberry Muffins',
     ingredients: '1/4 c. soft butter\n1 grated apple\n1 c. sugar\n(2/3 c. brown 1/3 c. sugar)\n2 beaten eggs\n1/2c. milk\n2 c. flour\n2 tsp. baking powder\n1/2 tsp. salt\n1 tsp. cinnamon\n1/4 tsp. nutmeg\n2 c. fresh blueberries\nSTREUSEL:\n2 Tbsp. sugar\n2 Tbsp. butter\ncinnamon and nutmeg\noats',
     instructions: '1. Cream butter, grated apple, and brown and white sugar.\n2. Add eggs.\n3. Add milk.\n4. Mix in flour, baking powder, salt, cinnamon, and nutmeg.\n5. Mix in fresh blueberries and pour into muffin tin.\n6. Mix struesel ingredients, pour on muffins.\n7. Bake 375 deg F for 20 minutes, or 35 minutes if in cake form.',
     author: 'violet2flame'
@@ -468,7 +468,7 @@ export const FixturesRecipes = [
     hideIngredients: true,
     name: 'Peggy\'s Bread or Rolls',
     ingredients: '4 c. warm water\n2/3 c. sugar or honey\n4 Tbsp. yeast\n2/3 c. oil\n4 eggs\n5 tsp. salt\n10 c. LEHI flour for rolls, or 12 c. for bread.',
-    instructions: '1. Mix water, sugar/honey, yeast, oil, eggs, and salt.\n2. Add flour.\n3. Let raise to double.\n4. Roll into rolls (40-50 rolls on large cookie sheet and one loaf of bread) or makes 4 loaves of bread.\n Bake at 350 deg F for XX min. for rolls, or 30-35 min. for bread.',
+    instructions: '1. Mix water, sugar/honey, yeast, oil, eggs, and salt.\n2. Add flour.\n3. Let raise to double.\n4. Roll into rolls (40-50 rolls on large cookie sheet and one loaf of bread) or makes 4 loaves of bread.\n Bake at 350 deg F for 15-20 min. for rolls, or 30-35 min. for bread.',
     author: 'peggywhitehead'
   },
   {
@@ -478,9 +478,102 @@ export const FixturesRecipes = [
     ingredients: '1/2 c. shortening\n1 c. sugar\n2 eggs\n1 3/4 c. flour\n1 tsp. baking soda\n1/2 tsp. nutmeg\n1/4 tsp. ginger\n1/4 tsp. cloves\n1/2 tsp. salt\n1 tsp. cinnamon\n3/4 c. pumpkin puree\n3/4 c. chocolate chips',
     instructions: '1. Cream shortening and sugar.\n2. Add eggs and beat.\n3. Add rest of ingredients and beat.\n4. Pour into greased loaf pan and bake at 350 deg F for 50-60 min.',
     author: 'samashby'
+  },
+  {
+    id: 60,
+    hideIngredients: true,
+    name: 'Lemon Bread',
+    ingredients: '1 1/2 c. sugar\n6 Tbsp. shortening\n2 eggs\nGrated rind & juice of 1 lemon\n1/2 c. milk\n1 1/2 c. flour\n1 tsp. baking powder\n1/2 tsp. salt',
+    instructions: '1. Blend 1 cup sugar, shortening and eggs. Mix in lemon rind and milk.\n2. Add dry ingredients.\n3. Bake at 350 deg F for 1 hour\n4. Combine remaining sugar and lemon juice and pour over bread.',
+    author: 'samashby'
+  },
+  {
+    id: 61,
+    hideIngredients: true,
+    name: 'Orange Syrup',
+    ingredients: '1 c. sugar\n2 Tbsp. cornstarch\n1/4 c. butter or margarine\n1/4 tsp. each cinnamon and nutmeg or 1/2 tsp. pumpkin pie spice\n2 c. orange juice\n2 Tbsp. lemon juice',
+    instructions: '1. Mix sugar, cornstarch, cinnamon and nutmeg in a saucepan.\n2. Stir in orange juice and lemon juice.\n3. Cook, stirring constantly, until mixture thickens and boils. Then boil and stir for one minute more.\n4. Remove from heat; stir in butter.',
+    author: 'samashby'
+  },
+  {
+    id: 62,
+    hideIngredients: true,
+    name: 'Apple Oatmeal Bake',
+    ingredients: '2 apples\n3 1/4 c. oats\n1 lg. egg\n 1/2 c. brown sugar\n1/2 c. applesauce\n1/2 Tbsp. cinnamon\n2 tsp. baking powder\n1 tsp. salt\n3/4 c. water\n1/2 c. milk\n2 Tbsp. melted butter\n1/2 Tbsp. lemon juice.',
+    instructions: 'Combine all ingredients in 9x13 pan and bake at 350 deg F for 20 min. covered and 10-15 min. uncovered.',
+    author: 'breananorton'
+  },
+  {
+    id: 63,
+    hideIngredients: true,
+    name: 'Parmesan Potato Wedges',
+    ingredients: '3 medium potatoes\n1 green bell pepper\n1/4 c. grated Parmesan cheese\nolive oil\n1 red bell pepper',
+    instructions: '1. Cut potatoes into 1" wedges, coat with 1 Tbsp. olive oil.\n2. Sprinkle with grated Parmesan cheese; toss and place on nonstick baking sheet.\n3. Bake in 350 deg F oven for 15 min.\n4. Meanwhile, seed and cut one each red and green bell peppers into 1" strips. Toss in bowl with 1 tsp. olive oil.\n5. Place among potato wedges on baking sheet. Roast an additional 10-15 min., or until potatoes and peppers are tender.',
+    author: 'samashby'
+  },
+  {
+    id: 64,
+    hideIngredients: true,
+    name: 'Taco Soup',
+    ingredients: 'SOUP:\n1 lb. hamburger, browned\n1/2 c. chopped onion\n3 c. water\n4 Tbsp. Taco seasoning (1 pkg)\n2 26 oz. cans stewed tomatoes\n2 26 oz. cans black beans\nGARNISH:\ngrated cheese\ntaco chips\nsour cream\ngreen onions\ntomatoes',
+    instructions: '1. Mix soup ingredients together and simmer 15 min. Serve with garnishes.',
+    author: 'coletteashby'
+  },
+  {
+    id: 65,
+    hideIngredients: true,
+    name: 'Lion House Hearty Chicken Noodle Soup',
+    ingredients: '2 tsp. chicken base (or 2 chicken bullion cubes)\n3 c. chicken stock\n2 c. chopped carrots\n2 c. chopped celery\n3/4 c. chopped onion\n2 cans cream of chicken soup\n1/4 c. evaporated milk (or 1/2 c. whole milk)\nroux\n2 c. cooked diced chicken\nabout 4 c. cooked noodles\nsalt and pepper to taste',
+    instructions: '1. Heat chicken soup base and stock together.\n2. Add carrots, celery and onions.\n3. Simmer until vegetables are tender.\n4. Add cream of chicken soup and milk.\n5. Thicken with roux as desired, then add cooked chicken and noodles. Add salt and pepper to taste.\nNote: Sam Ashby likes to add potatoes and the noodles (about 2 cups) uncooked. This helps make the soup thicker instead of using the roux.',
+    author: 'samashby'
+  },
+  {
+    id: 66,
+    hideIngredients: true,
+    name: 'Boston Potato Chowder',
+    ingredients: '1 c. chopped onion\n1 c. diced celery\n2 c. chopped carrots\n2-5 c. chopped potatoes\n3/4 c. butter\n3/4 c. flour\n1 qt. half and half\n1 1/2 tsp. salt\ndash of pepper\n1/2 tsp. sugar',
+    instructions: '1. Cover vegetables with water, simmer 20 min.\n2. Melt butter, add flour and mix well.\n3. Add half and half and cook until thick.\n4. Stir in veggies with water.',
+    author: 'theresachipman'
+  },
+  {
+    id: 67,
+    hideIngredients: true,
+    name: 'Broccoli Cheese Soup',
+    ingredients: '1 small pkg frozen corn\n1 c. sliced carrots\n1 c. broccoli\n2 cans cream of potato soup\n1/2 c. grated Parmesan cheese\n2 c. milk\ncheddar cheese to taste',
+    instructions: '1. Cook corn, carrots, and broccoli together.\n2. Add remaining ingredients and simmer until warmed through.',
+    author: 'meganashby'
+  },
+  {
+    id: 68,
+    hideIngredients: true,
+    name: 'White Bean and Chicken Chili',
+    ingredients: '3 skinless, boneless chicken breasts\n1 tsp. olive oil\n1 c. chopped onion\n1 Tbsp. bottled minced garlic\n1 can (15 oz.) Great Northern white beans\n1 can (19 oz.) Cannellini beans\n1 can (4.5 oz.) chopped green chilies\n1 1/2 tsp. ground cumin\n1 tsp. pepper, preferably white\n1/8 tsp. cayenne pepper\n1 can (14.5 oz.) fat-free chicken broth\n2 Tbsp. cornstarch\n2 Tbsp. water\n1/2 c. Monterey Jack cheese (optional)\n1/4 c. reduced-fat sour cream (optional)',
+    instructions: '1. Heat oil on medium in 4 1/2 qt. Dutch oven or soup pot.\n2. Peel and coarsely chop onion, adding to pot as chopped. Stir occasionally to prevent sticking.\n3. Cut chicken in bite size chunks, add to pot and stir occasionally.\n4. Add garlic and continue to cook.\n5. Rinse and drain beans and chilies and add to pot along with cumin, white pepper and cayenne.\n6. Raise heat to high and add broth and drained beans.\n7. Cover and cook to boil.\n8. Meanwhile, combine cornstarch and water in a small container that has a lid. Shake well.\n9. When chili boils, the chicken should be cooked through. Add cornstarch mixture a little at a time, stirring constantly.\n10. Continue to boil until the chili reaches the desired thickness.\n11. Garnish with cheese and sour cream if desired.',
+    author: 'faytruman'
+  },
+  {
+    id: 69,
+    hideIngredients: true,
+    name: 'Cheesy Dutch Oven Potatoes',
+    ingredients: '2 bags hash browns\n1 lb. bacon\n1 large onion, chopped\n1 dozen eggs\ngrated cheese\nseasonings to taste',
+    instructions: '1. Cook bacon and onion in Dutch oven.\n2. Break up bacon pieces and add hash browns. Stir in and season.\n3. Add eggs and cook until done.\n4. Top with grated cheese and cook unitl cheese is melted.',
+    author: 'lesliewoodward'
+  },
+  {
+    id: 70,
+    hideIngredients: true,
+    name: 'Cheesy Hot Potatoes',
+    ingredients: '1 large bag frozen hash browns\n1 can cream of mushroom soup\n1 can cream of chicken soup\ndiced onion (optional)\n1 c. sour cream\n1 c. shredded cheese\n garlic salt to tast\nonion salt to taste',
+    instructions: '1. Mix soups, sour cream, shredded cheese, and seasonings.\n2. Fold in the hash browns.\n3. Spray 9x13 pan with cooking spray. Put potatoes in pan. Top with cheese, crushed potato chips, or crushed corn flakes with melted butter.\n4. Bake at 350 deg F for 1 hour.',
+    author: 'peggywhitehead'
+  },
+  {
+    id: 71,
+    hideIngredients: true,
+    name: 'Baked Asparagus',
+    ingredients: 'ASPARAGUS:\nasparagus\ncooking spray\nsalt and pepper to taste\nBUTTER SAUCE:\n2 Tbsp. butter, melted\n1 Tbsp. soy sauce\n1 tsp. balsamic vinegar',
+    instructions: '1. Lay asparagus on tray, spray with cooking spray and salt and pepper to taste.\n2. Bake for 12 min at 400 deg F.\n3. After baked (not before!), mix butter sauce ingredients and drizzle over asparagus. Serve immediately.',
+    author: 'barbaraalldredge'
   }
 ]
-
-/*
- * ON: PUPPY CHOW
- */
+/* start on main dishes section */

@@ -1,0 +1,65 @@
+export const FixturesRecipes = [
+  {
+    id: 0,
+    hideIngredients: true,
+    name: 'Bubbly Pies',
+    ingredients: 'CRUST:\n1/2 c. butter or margarine\n2 Tbsp. granulated sweetening\n2 1/2 c. flour\n1/2 teaspoon salt\n1/2 c. ice water\n\n FILLING:\n5 c. blueberries (or one 20-ounce package, frozen)\n1 c. granulated sweetening\n1/4 teaspoon powdered klah bark (cinnamon)\n2 tsp. citrus juice\n1-2 Tbsp. butter or margerine',
+    instructions: 'Cut the butter into chunks.\nCombine the dry ingredients into a bowl.\nWork the butter gently into the dry mixture with a fork until pieces the size of peas form.\nSprinkle the water over and work in. (do not overwork the dough).\nForm the dough into a ball.\n\nGently toss berries with sweetening and klah bark in a large bowl.\nSprinkle citrus juice over mixture.\nSpoon berries into crust and dot with butter.\n\nBake in oven at 350 degrees for 30 minutes.\nMakes 1 Bubbly Pie :)',
+    author: 'violet2flame'
+  },
+  {
+    id: 1,
+    hideIngredients: true,
+    name: 'Noquis',
+    ingredients: '2 lbs. baking potatoes (about 6)\n2 Tbsp. salt\n2 eggs\n1 c. fresh, good quality ricotta cheese\n2-3 c. flour, plus more for dusting',
+    instructions: '1. Peel and quarter the potatoes, putting them in a medium stock pot with enough water to cover the potatoes with one inch of water. \n 2. Add a scant handful of salt. \n 3. Put the potatoes to boil until they are tender when pierced with a fork , but not mushy.\n4. Drain the potatoes.\n5. Put the potatoes through a food mill or potato ricer. \n 6 In a large bowl, combine the potatoes, eggs, and ricotta, and mix well using your hands or a fork until a consistent dough is formed.  Be careful not to overmix. \n 7.  Add the flour a half cup at a time, mixing each time by hand until there is a soft, pliable dough.  The dough should not be sticky, and it should not be hard.  If it\'s too sticky or soft, the gnocchi will be mushy, but if there\'s too much flour, the gnocchi will be chewy and tough.  (This is the challenging part!).\n8.  Knead the dough a few times until uniform, and divide the dough in half. \n 9. Flour a work area, and roll the dough out into a long thin roll about 3/4 inch thick. \n 10.  Cut these tubes of dough into sections about 1 inch long. \n 11.  Meanwhile, bring a stock pot of water to a boil. \n 12.  There are a variety of ways to \'mark\' the gnocchi-all just a style choice, since at this point, they are more or less done.  Here are some suggestions:  Mark an indentation in the center of each gnocchi with your index finger; or roll over the side of a cheese grater to make patterned indentations; or roll over the backside of a fork, or roll over the center of a wooden gnocchi tool. At this point, the gnocchi can be frozen laid out on a baking sheet lined with wax paper.  After they are frozen, they can be stored in a freezer bag.   Frozen gnocchi are just put into the boiling water like the unfrozen ones.\n14. Throw the gnocchi one at a time into the boiling water. They are cooked when they rise to the top. \n 15. Collect with a slotted spoon and transfer to a plate. \n 16. Serve with the sauce of your choice.  (Some nice choices are walnut Gorgonzola, tomato or white sauce.)',
+    author: 'neallred'
+  },
+  {
+    id: 2,
+    hideIngredients: true,
+    name: 'Cheerful Morning Apple Coffee Cake',
+    ingredients: '2/3 c. sugar\n1/4 c. margarine\n1 egg\n1/2 c. milk\n1 1/2 c. flour\n2 tsp. baking powder\n1/2 tsp. salt\n1/2 c. packed brown sugar\n2 Tbsp. flour\n2 Tbsp. melted butter\n2 tsp. cinnamon\nchopped nuts\n1/2 tsp. nutmeg\napple slices (about 2 large apples)',
+    instructions: '1. Mix together sugar, margarine, and egg.\n2. Stir in milk.\n3. Add flour, baking powder, and salt.\n4. Mix well and spread half of dough in 9 x 9 pan.\n5. Mix streusel mixture by combining remaining ingredients.\n6. Cover with apple slices and streusel mixture, top with other half of dough, and bake at 375 degrees for 25-35 minutes.',
+    author: 'neallred'
+  },
+  {
+    id: 3,
+    hideIngredients: true,
+    name: 'Chocolate Chip Blond Brownies',
+    ingredients: '3 c. flour\n1 Tbsp. baking powder\n1 tsp. salt\n2 c. sugar\n2/3 c. oil\n6 egg whites\n2 c. (12 oz.) chocolate chips\n2 tsp. vanilla',
+    instructions: '1. Preheat oven to 350 degrees.\n2. Line a 10 x 15 pan with 2 layers of waxed paper.\n3. Oil top of waxed paper.\n4. Stir together the flour, baking powder, salt, and sugar.\n5. Add the oil, egg whites, vanilla, and beat until thoroughly combined. Mixture will be stiff.\n6. Stir in the chocolate chips.\n7. Scrape the dough into the prepared pan, flattening the dough in the pan.\n8. Bake for about 30 minutes at 350 deg F. Cool in the pan and then cut into squares, 2" x 2".',
+    author: 'neallred'
+  },
+  {
+    id: 4,
+    hideIngredients: true,
+    name: 'Chocolate Chip Cookies',
+    ingredients: '3 1/2 c. sugar\n1 c. margarine\n1-2 Tbsp. molasses\n2/3 c. water\n3 eggs\n1 Tbsp. vanilla\n6 c. flour\n1 Tbsp. baking soda\n2 tsp. salt\n3 c. chocolate chips',
+    instructions: '1. Cream sugar and margarine together.\n2. Add water, eggs, vanilla, and flour to mixture.\n3. Add flour, baking soda, and salt.\n4. Add chocolate chips.\n5. Drop spoons of batter onto greased cookie sheets.\n6. Bake at 350 deg F for 11-12 minutes.',
+    author: 'neallred'
+  },
+  {
+    id: 5,
+    hideIngredients: true,
+    name: 'Chocolate Softies',
+    ingredients: '3/4 c. oil\n1 1/3 c. sugar\n2 egg whites\n1/2 c. molasses\n1/4 c. apple sauce\n2 tsp. vanilla\n3 1/4 c. flour\n3/4 c. cocoa\n2 tsp. baking soda\n2 teaspoons salt\nsugar to roll cookies in',
+    instructions: '1. Mix oil, sugar, egg whites, molasses, apple sauce, and vanilla.\n2. Add flour, cocoa, baking soda, and salt and mix well.\n3. Roll dough into 1 1/4" balls and roll balls in granulated sugar.\n4. Place on ungreased cookie sheets.\n5. Bake at 350 deg F for 11-12 minutes.',
+    author: 'neallred'
+  },
+  {
+    id: 6,
+    hideIngredients: true,
+    name: 'Molasses Softies',
+    ingredients: '2 c. margarine\n2 2/3 c. sugar\n2 eggs\n2/3 c. molasses\n6 Tbsp. corn syrup\n1/4 c. milk\n\n8 c. flour\n4 tsp. baking soda\n4 tsp. cinnamon\n3 tsp. ginger\n3 tsp. allspice\nsugar to roll cookies in',
+    instructions: '1. Mix margarine, sugar, eggs, molasses, corn syrup, and milk.\n2. Add flour, baking soda, cinnamon, ginger, and allspice and mix well.\n3. Roll dough into 1 1/4" balls and roll balls in granulated sugar.\n4. Place on ungreased cookie sheets.\n5. Bake at 350 deg F for 11-12 minutes.',
+    author: 'neallred'
+  },
+  {
+    id: 7,
+    hideIngredients: true,
+    name: 'Peanut Butter Oatmeal Cookies',
+    ingredients: '2 c. sugar\n1 Tbsp. molasses\n1/2 c. oil\n1 c. peanut butter\n1 tsp. butter flavor\n1 tsp. vanilla\n3 large eggs\n\n2 1/2 c. flour\n1 c. oatmeal\n1 1/2 tsp. baking soda\n1 tsp. baking powder\n1/2 tsp. salt\ngranulated sugar',
+    instructions: '1. Mix together: sugar, molasses, oil, peanut butter, butter flavor, vanilla, eggs.\n2. Mix in: flour, oatmeal, baking soda, baking powder, salt.\n3. Roll into 1 1/4" balls.\n4. Roll balls in sugar and place on baking sheet. Flatten with fork or bottom of cup.\n5. Bake at 375 deg F for 8-9 minutes.',
+    author: 'neallred'
+  },

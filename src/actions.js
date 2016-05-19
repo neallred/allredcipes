@@ -1,3 +1,5 @@
+import {badWords} from './badwords.js'
+import {abbreviations} from './abbreviations.js'
 export const CREATE_RECIPE = 'CREATE_RECIPE'
 export const UPDATE_RECIPE = 'UPDATE_RECIPE'
 export const DESTROY_RECIPE = 'DESTROY_RECIPE'
@@ -23,28 +25,57 @@ export const SearchFilters = {
   BY_AUTHOR: 'BY_AUTHOR'
 }
 
-let nextRecipeId = 60
+let nextRecipeId = 72
+
+var regexer = function(pattern){
+  return new RegExp(pattern, "gi");
+}
+
+var filterInput = function(string, filterObject, replacementPattern){
+  var newString = string;
+  if(Array.isArray(filterObject)){
+    for(var i=0;i<filterObject.length;i++){
+      newString = newString.replace(regexer(filterObject[i]), replacementPattern);
+    }
+  } else if (typeof filterObject === 'object'){
+      var hashKeys = Object.keys(filterObject)
+    for(var i=0;i<hashKeys.length;i++){
+      newString = newString.replace(regexer(hashKeys[i]), filterObject[hashKeys[i]]);
+    }
+  }
+  return newString
+}
+
 export function createRecipe(name, ingredients, instructions, author) {
+
+  var nameFiltered = filterInput(name, badWords, '***')
+  var ingredientsFiltered = filterInput(filterInput(ingredients, abbreviations), badWords, '***')
+  var instructionsFiltered = filterInput(instructions, badWords, '***')
+  var authorFiltered = filterInput(author, badWords, '***')
   return {
     type: CREATE_RECIPE,
     id: nextRecipeId++,
     hideIngredients: true,
-    name,
-    ingredients,
-    instructions,
-    author
+    name: nameFiltered,
+    ingredients: ingredientsFiltered,
+    instructions: instructionsFiltered,
+    author: authorFiltered
   }
 }
 
 export function updateRecipe(id, hideIngredients, name, ingredients, instructions, author) {
+  var nameFiltered = filterInput(name, badWords, '***')
+  var ingredientsFiltered = filterInput(filterInput(ingredients, abbreviations), badWords, '***')
+  var instructionsFiltered = filterInput(instructions, badWords, '***')
+  var authorFiltered = filterInput(author, badWords, '***')
   return {
     type: UPDATE_RECIPE,
     id,
     hideIngredients,
-    name,
-    ingredients,
-    instructions,
-    author
+    name: nameFiltered,
+    ingredients: ingredientsFiltered,
+    instructions: instructionsFiltered,
+    author: authorFiltered
   }
 }
 
