@@ -24,6 +24,13 @@ body {
   transform-origin: 50% 50% 0;
 }
 
+div.banner {
+  background: rgba(240,240,240,0.9);
+  border-radius: 10px;
+  box-shadow : 2px 2px 2px black;
+  max-width: 41em;
+}
+
 div.heading {
   border-bottom: 1px solid pink;
 }

@@ -6,8 +6,10 @@ import { MatchedRecipeList } from '../containers/MatchedRecipeList.jsx'
 
 export const Home = () => (
   <div>
-    <h1 className='center-block'>Allred Recipe Box</h1>
-    <SearchRecipes />
+    <div className='banner center-block'>
+      <h1 className='center-block'>Allred Recipe Box</h1>
+      <SearchRecipes />
+    </div>
     <MatchedRecipeList />
     <CreateRecipeContainer />
     <UpdateRecipeContainer />
