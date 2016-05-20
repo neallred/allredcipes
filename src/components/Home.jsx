@@ -1,6 +1,6 @@
 import React from 'react'
 import { SearchRecipes } from './SearchRecipes'
-import { CreateRecipeContainer } from '../containers/CreateRecipeContainer'
+import { CreateRecipe } from '../components/CreateRecipe'
 import { UpdateRecipeContainer } from '../containers/UpdateRecipeContainer.jsx'
 import { MatchedRecipeList } from '../containers/MatchedRecipeList.jsx'
 
@@ -11,7 +11,9 @@ export const Home = () => (
       <SearchRecipes />
     </div>
     <MatchedRecipeList />
-    <CreateRecipeContainer />
+    <CreateRecipe
+      onSubmit={(formValues) => console.log(formValues)}
+    />
     <UpdateRecipeContainer />
     <br/>
   </div>

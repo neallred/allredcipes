@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import {reducer as formReducer} from 'redux-form';
 import { CREATE_RECIPE, UPDATE_RECIPE, DESTROY_RECIPE, TOGGLE_RECIPE, IS_EDITING, SET_VISIBILITY_FILTER, SET_SEARCH_FILTERS, SET_SEARCH_TERMS, VisibilityFilters, SearchFilters } from './actions'
 const { SHOW_ALL } = VisibilityFilters
 import { FixturesRecipes } from './components/FixturesRecipes'; 
@@ -148,7 +149,8 @@ const recipeApp = combineReducers({
   isEditing,
   recipeToEdit,
   setSearchFilters,
-  setSearchTerms
+  setSearchTerms,
+  form: formReducer
 })
 
 export { recipeApp }

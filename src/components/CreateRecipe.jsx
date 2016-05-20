@@ -1,41 +1,56 @@
 import React, {PropTypes} from 'react'
 import { connect } from 'react-redux'
 import { createRecipe } from '../actions'
+import { reduxForm } from 'redux-form'
 
-let CreateRecipe = ({onSubmit}) => (
+let CreateRecipe = ({
+  fields: {name, ingredients, instructions, author},
+  handleSubmit
+}) => (
   <div className='center-block text-center'>
     <h2>Add recipes here!</h2>
-    <form
-      onSubmit={onSubmit}
-    >
+    <form onSubmit={handleSubmit}>
       <input type='text'
         placeholder='Recipe name'
-        id='inputName'
+        {...name}
       /><br/>
       <textarea
         placeholder='Ingredients'
-        id='inputIngredients'
+        {...ingredients}
       /><br/>
       <textarea 
         placeholder='Instructions'
-        id='inputInstructions'
+        {...instructions}
       /><br/>
       <input type='text'
         placeholder='Recipe author'
-        id='inputAuthor'
+        {...author}
       /><br/>
-      <button
-        type='submit'
-        className='btn btn-success'
-      >
-        Create Recipe
-      </button>
+      <button type='submit' className='btn btn-success'>Create Recipe</button>
     </form>
   </div>
 )
+
 CreateRecipe.propTypes = {
-  onSubmit: PropTypes.func.isRequired
+  handleSubmit: PropTypes.func.isRequired
 }
 
-export { CreateRecipe }
+CreateRecipe = reduxForm(
+  {
+  form: 'createRecipe',
+  fields: ['name', 'ingredients', 'instructions', 'author']
+  },
+  (state, ownProps) => {
+    return {
+    }
+  },
+  (dispatch, ownProps) => {
+    return {
+      onSubmit: (values) => {
+        dispatch(createRecipe(values.name, values.ingredients, values.instructions, values.author))
+      }
+    }
+  }
+)(CreateRecipe);
 
+export { CreateRecipe }

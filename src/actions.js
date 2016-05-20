@@ -31,23 +31,22 @@ var regexer = function(pattern){
   return new RegExp(pattern, "gi");
 }
 
-var filterInput = function(string, filterObject, replacementPattern){
-  var newString = string;
+var filterInput = function(recipePiece, filterObject, replacementPattern){
+  var newString = recipePiece;
   if(Array.isArray(filterObject)){
     for(var i=0;i<filterObject.length;i++){
-      newString = newString.replace(regexer(filterObject[i]), replacementPattern);
+      newString = newString ? newString.replace(regexer(filterObject[i]),replacementPattern): '';
     }
   } else if (typeof filterObject === 'object'){
       var hashKeys = Object.keys(filterObject)
     for(var i=0;i<hashKeys.length;i++){
-      newString = newString.replace(regexer(hashKeys[i]), filterObject[hashKeys[i]]);
+      newString = newString ? newString.replace(regexer(hashKeys[i]), filterObject[hashKeys[i]]): '';
     }
   }
   return newString
 }
 
 export function createRecipe(name, ingredients, instructions, author) {
-
   var nameFiltered = filterInput(name, badWords, '***')
   var ingredientsFiltered = filterInput(filterInput(ingredients, abbreviations), badWords, '***')
   var instructionsFiltered = filterInput(instructions, badWords, '***')
