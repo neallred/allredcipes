@@ -1,7 +1,5 @@
 import React, {PropTypes} from 'react'
-import { connect } from 'react-redux'
 import { createRecipe } from '../actions'
-import { reduxForm } from 'redux-form'
 
 let CreateRecipe = ({
   fields: {name, ingredients, instructions, author},
@@ -34,23 +32,4 @@ let CreateRecipe = ({
 CreateRecipe.propTypes = {
   handleSubmit: PropTypes.func.isRequired
 }
-
-CreateRecipe = reduxForm(
-  {
-  form: 'createRecipe',
-  fields: ['name', 'ingredients', 'instructions', 'author']
-  },
-  (state, ownProps) => {
-    return {
-    }
-  },
-  (dispatch, ownProps) => {
-    return {
-      onSubmit: (values) => {
-        dispatch(createRecipe(values.name, values.ingredients, values.instructions, values.author))
-      }
-    }
-  }
-)(CreateRecipe);
-
 export { CreateRecipe }

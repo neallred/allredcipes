@@ -1,32 +1,33 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import { createRecipe } from '../actions'
 import { CreateRecipe } from '../components/CreateRecipe'
+import { reduxForm, reset } from 'redux-form'
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-  }
-}
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    onSubmit: (e) => {
-      e.preventDefault()
-      let inputName = document.getElementById('inputName')
-      let inputIngredients = document.getElementById('inputIngredients')
-      let inputInstructions = document.getElementById('inputInstructions')
-      let inputAuthor = document.getElementById('inputAuthor')
-      if(!inputName.value.trim()){ return }
-      dispatch(createRecipe(inputName.value, inputIngredients.value, inputInstructions.value, inputAuthor.value))
-      inputName.value = ''
-      inputIngredients.value = ''
-      inputInstructions.value = ''
-      inputAuthor.value = ''
+const CreateRecipeContainer = reduxForm(
+  {
+    form: 'createRecipe',
+    fields: ['name', 'ingredients', 'instructions', 'author']
+  },
+  (state, ownProps) => {
+    return {
+      //this anonymous function is mapStateToProps
+    }
+  },
+  (dispatch, ownProps) => {
+    return {
+      //this anonymous function is mapDispatchToProps
+      onSubmit: (values) => {
+        if(!values.name.trim()){return}
+        dispatch(createRecipe(
+          values.name,
+          values.ingredients,
+          values.instructions,
+          values.author
+        ))
+        dispatch(reset('createRecipe'))
+      }
     }
   }
-}
-
-export const CreateRecipeContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CreateRecipe)
+)(CreateRecipe);
+export{CreateRecipeContainer}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { SearchRecipes } from './SearchRecipes'
-import { CreateRecipe } from '../components/CreateRecipe'
-import { UpdateRecipeContainer } from '../containers/UpdateRecipeContainer.jsx'
+import { CreateRecipeContainer } from '../containers/CreateRecipeContainer'
+import { UpdateRecipeContainer } from '../containers/UpdateRecipeContainer'
 import { MatchedRecipeList } from '../containers/MatchedRecipeList.jsx'
 
 export const Home = () => (
@@ -11,10 +11,12 @@ export const Home = () => (
       <SearchRecipes />
     </div>
     <MatchedRecipeList />
-    <CreateRecipe
+    <CreateRecipeContainer
       onSubmit={(formValues) => console.log(formValues)}
     />
-    <UpdateRecipeContainer />
+    <UpdateRecipeContainer
+      onSubmit={(formValues) => console.log(formValues)}
+    />
     <br/>
   </div>
 )

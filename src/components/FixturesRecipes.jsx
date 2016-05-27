@@ -20,7 +20,7 @@ export const FixturesRecipes = [
     hideIngredients: true,
     name: 'Cheerful Morning Apple Coffee Cake',
     ingredients: '2/3 c. sugar\n1/4 c. margarine\n1 egg\n1/2 c. milk\n1 1/2 c. flour\n2 tsp. baking powder\n1/2 tsp. salt\n1/2 c. packed brown sugar\n2 Tbsp. flour\n2 Tbsp. melted butter\n2 tsp. cinnamon\nchopped nuts\n1/2 tsp. nutmeg\napple slices (about 2 large apples)',
-    instructions: '1. Mix together sugar, margarine, and egg.\n2. Stir in milk.\n3. Add flour, baking powder, and salt.\n4. Mix well and spread half of dough in 9 x 9 pan.\n5. Mix streusel mixture by combining remaining ingredients.\n6. Cover with apple slices and streusel mixture, top with other half of dough, and bake at 375 degrees for 25-35 minutes.',
+    instructions: '1. Mix together sugar, margarine, and egg.\n2. Stir in milk.\n3. Add flour, baking powder, and salt.\n4. Mix well and spread half of dough in 9 x 9 pan.\n5. Mix streusel mixture by combining remaining ingredients.\n6. Cover with apple slices and streusel mixture, top with other half of dough, and bake at 375 deg. F. for 25-35 minutes.',
     author: 'neallred'
   },
   {
@@ -28,7 +28,7 @@ export const FixturesRecipes = [
     hideIngredients: true,
     name: 'Chocolate Chip Blond Brownies',
     ingredients: '3 c. flour\n1 Tbsp. baking powder\n1 tsp. salt\n2 c. sugar\n2/3 c. oil\n6 egg whites\n2 c. (12 oz.) chocolate chips\n2 tsp. vanilla',
-    instructions: '1. Preheat oven to 350 degrees.\n2. Line a 10 x 15 pan with 2 layers of waxed paper.\n3. Oil top of waxed paper.\n4. Stir together the flour, baking powder, salt, and sugar.\n5. Add the oil, egg whites, vanilla, and beat until thoroughly combined. Mixture will be stiff.\n6. Stir in the chocolate chips.\n7. Scrape the dough into the prepared pan, flattening the dough in the pan.\n8. Bake for about 30 minutes at 350 deg. F. Cool in the pan and then cut into squares, 2" x 2".',
+    instructions: '1. Preheat oven to 350 deg. F.\n2. Line a 10 x 15 pan with 2 layers of waxed paper.\n3. Oil top of waxed paper.\n4. Stir together the flour, baking powder, salt, and sugar.\n5. Add the oil, egg whites, vanilla, and beat until thoroughly combined. Mixture will be stiff.\n6. Stir in the chocolate chips.\n7. Scrape the dough into the prepared pan, flattening the dough in the pan.\n8. Bake for about 30 minutes at 350 deg. F. Cool in the pan and then cut into squares, 2" x 2".',
     author: 'neallred'
   },
   {
@@ -92,7 +92,7 @@ export const FixturesRecipes = [
     hideIngredients: true,
     name: 'Kennedy Center Lasagna',
     ingredients: 'LASAGNA:\n9-12 Lasagna noodles\n8 oz. Parmesan cheese, grated or dry\nRED SAUCE:\n1/2 lb. ground beef\n1/4 c. olive oil\n1/2 onion; finely chopped\n2 garlic cloves; minced\n1 28 oz. can crushed tomatoes\n1 8 oz. can tomato sauce\n1 Tbsp. sugar\n2 bay leaves\n1 tsp. celery seed\n1 tsp. salt\n1 tsp. basil\n1 tsp. oregano\n1/8 tsp. pepper\nWHITE SAUCE:\n1 cube margarine\n1/2 c. flour\n1/2 tsp. salt\n3 c. milk',
-    instructions: 'RED SAUCE:\n1. In 4-6 qt pot, brown hamburger, onion, and garlic in olive oil.\n2. Add all spices, tomato sauce, and crushed tomatoes.\n3. Simmer 20-30 min.\nWHITE SAUCE:\n1. In sauce pan, melt margarine.\n2. Add flour and salt to make paste.\n3. Add the milk all at once.\n4. cook and stir over medium heat until sauce is thick and bubbly\nNOODLES:\n1. Cook 1 large package of lasagna noodles according to directions (9 or 12 noodles).\n2. Drain and rinse on cool water\nLASAGNA:\n1. In 9x13 pan, assemble lasagna in following order at least three times: Noodles, red sauce, white sauce, sprinkle with parmesan cheese.\n2. Bake at 350 degrees for 40-45 min. Allow 10-15 min to cool.',
+    instructions: 'RED SAUCE:\n1. In 4-6 qt pot, brown hamburger, onion, and garlic in olive oil.\n2. Add all spices, tomato sauce, and crushed tomatoes.\n3. Simmer 20-30 min.\nWHITE SAUCE:\n1. In sauce pan, melt margarine.\n2. Add flour and salt to make paste.\n3. Add the milk all at once.\n4. cook and stir over medium heat until sauce is thick and bubbly\nNOODLES:\n1. Cook 1 large package of lasagna noodles according to directions (9 or 12 noodles).\n2. Drain and rinse on cool water\nLASAGNA:\n1. In 9x13 pan, assemble lasagna in following order at least three times: Noodles, red sauce, white sauce, sprinkle with parmesan cheese.\n2. Bake at 350 deg. F. for 40-45 min. Allow 10-15 min to cool.',
     author: 'lemuel'
   },
   {
@@ -157,7 +157,7 @@ export const FixturesRecipes = [
     name: 'Hamburger Chow Mein',
     ingredients:'1 lb. hamburger\n2 onions\n1 can cream of chicken\n1 can cream of mushroom\n1/2 c. rice (uncooked)\n1 1/2 c. water\n1 Tbsp. soy sauce\n1/4 tsp. black pepper',
     instructions:'1. Mix all ingredients.\n2. Bake at 350 for 30 min. covered, and an additional 30 min. uncovered.\n3. Sprinkle dried chow-mein noodles on top and serve.',
-    author: 'kate'
+    author: 'samashby'
   },
   {
     id: 20,
@@ -428,7 +428,7 @@ export const FixturesRecipes = [
     hideIngredients: true,
     name: 'Banana Bread',
     ingredients: '1/2 c. butter\n1 1/2 c. brown sugar\n2 1/2 c. flour\n1/2 tsp. salt\n1 1/3 c. mashed bananas (3 large)\n1/4 c. milk\n1 tsp. vanilla\n3 eggs\n1 tsp. baking powder\n1 tsp. baking soda',
-    instructions: '1. Blend all, grease and flour pan.\n2. Bake at 375 degrees for 40 minutes. Cool 10 minutes.',
+    instructions: '1. Blend all, grease and flour pan.\n2. Bake at 375 deg. F. for 40 minutes. Cool 10 minutes.',
     author: 'anikaashby'
   },
   {
@@ -574,6 +574,192 @@ export const FixturesRecipes = [
     ingredients: 'ASPARAGUS:\nasparagus\ncooking spray\nsalt and pepper to taste\nBUTTER SAUCE:\n2 Tbsp. butter, melted\n1 Tbsp. soy sauce\n1 tsp. balsamic vinegar',
     instructions: '1. Lay asparagus on tray, spray with cooking spray and salt and pepper to taste.\n2. Bake for 12 min at 400 deg. F.\n3. After baked (not before!), mix butter sauce ingredients and drizzle over asparagus. Serve immediately.',
     author: 'barbaraalldredge'
+  },
+  {
+    id: 72,
+    hideIngredients: true,
+    name: 'Spencer\'s Chicken Sandwich',
+    ingredients: 'Chicken\nMayonnaise\nKetchup\nSalami\nBroccoli\nDark Bread',
+    instructions: '1. Put chicken in bread.\n2. Put mayonnaise on chicken.\n3. Put ketchup on mayonnaise.\n4. Put four pieces of broccoli on.\n5. Put on salami.\n6. Put dark bread on top.',
+    author: 'spencerashby'
+  },
+  {
+    id: 73,
+    hideIngredients: true,
+    name: 'Hungry Jack Biscuit Barbecups',
+    ingredients: '1 lb. ground beef\n1/2 c. prepared barbecue sauce\n1 Tbsp. instant minced onion or 1/4 c. chopped onion\n1-2 Tbsp. brown sugar\n1 10 oz. can Hungry Jack Biscuits\n1/2 c. shredded cheddar cheese',
+    instructions: '1. Heat oven to 400 deg. F. Grease 10 muffin cups.\n2. Brown ground beef in large skillet, drain.\n3. Stir in barbecue sauce, onion and brown sugar. Cook 1 minute to blend flavors, stirring constantly.\n4. Separate dough into 10 biscuits. Place 1 biscuit in each greased muffin cup, firmly press in bottom and up sides, forming 1/4 inch rim. Spoon about 1/4 c. meat mixture into each biscuit-lined cup. Sprinkle with cheese.\n5. Bake for 10-12 min. or until edges of biscuits are golden brown.',
+    author: 'samashby'
+  },
+  {
+    id: 74,
+    hideIngredients: true,
+    name: 'Chicken Enchiladas',
+    ingredients: '12 tortilla shells (corn or flour)\n2 Tbsp. butter\n1/2 c. chopped onions\n3 Tbsp. flour\n4 cloves garlic minced (or 1 tsp. bottled crushed garlic)\n8 oz. sour cream\n2 c. chicken broth\n1 tsp. coriander (optional)\n4 oz. can diced green chilies, drained\n1/4 tsp. pepper\n1 c. Monterey Jack cheese\n1 chicken bouillon cube\n2 c. cooked chicken\ngreen onions, olives, tomatoes for garnish',
+    instructions: 'SAUCE:\n1. In saucepan, cook onion, garlic, coriander, pepper and chicken bouillon in butter until tender.\n2. Stir flour into sour cream, and add to onion mixture.\n3. Stir in broth and chili peppers all at once. Cook and stir until thickened and bubbly. Remove from heat and add in 1/2 c. cheese.\nFILLING:\n1. Stir in 1/2 - 1 c. sauce into shredded chicken. Place about 1/4 c. filling on top of each tortilla shell that has been warmed in microwave for 10 seconds each, and roll up.\n2. Place rolls, seam side down, in a lightly greased baking dish. Top with remaining sauce (if sauce becomes too thick, add a litle broth or water).\n3. Bake at 350 deg. F for 35 min. or until heated through.\n4. Sprinkle with remaining chese. Bake 5 min. more to melt cheese. Sprinkle green onions, olives, and tomatoes on top.',
+    author: 'samashby'
+  },
+  {
+    id: 75,
+    hideIngredients: true,
+    name: 'Pizza dough',
+    ingredients: '2 c. warm water\n2 tsp. yeast\n1 tsp. salt\n1 tsp. sugar\n1/3 c. vegetable oil\n5 c. flour',
+    instructions: '1. Let rise for 30-60 min.\n2. Spread on sheet and top with tomato sauce, hamburger, cheese, pepperoni, sausage, etc.\n3. Bake for 10-15 min. at 425 deg. F. Makes 2 cookie sheets.',
+    author: 'samashby'
+  },
+  {
+    id: 76,
+    hideIngredients: true,
+    name: 'Fried Chicken with Cream Gravy',
+    ingredients: '6 medium chicken breasts, skinned\n1/4 c. flour\n1/2 tsp. salt\n1/2 tsp. paprika\n1/8-1/4 tsp. pepper\n2 Tbsp. cooking oil\n1/2 c. evaporated skim milk\n1/2 c. chicken broth',
+    instructions: '1. In a plastic bag combine flour, salt, paprika, and pepper.\n2. Shake chicken breasts in sack, shaking off excess coating in bag. Reserve remaining flour mixture.\n3. Cook chicken in heated cooking oil for 10-15 min, turning to brown.\n4. Reduce heat, cover, cook 30 min. Drain chicken on paper towels.\nGRAVY:\n1. In small bowl, stir milk into reserved flour mixture. Stir in chicken broth.\n2. Add to skillet. Cook and stir until thickened. Makes 6 servings.',
+    author: 'samashby'
+  },
+  {
+    id: 77,
+    hideIngredients: true,
+    name: 'Ratatouille',
+    ingredients: '18 oz. tray of Pasta Prima Grilled Chicken and Mozzarella Ravioli\n3/4 c. olive oil\n2 onions, cut 1/2 inch dice\n5 cloves garlic, minced\n1 1/2 c. red/yellow peppers, cut 1/2 inch dice\n1 1/2 c. eggplant, cut 1/2 inch dice\n1 1/2 c. zucchini, cut 1/2 inch dice\n20 oz. can plum tomatoes, chopped\n1/2 c. grated parmesan cheese\nsalt and pepper to taste',
+    instructions: '1. Heat a large skillet over high heat. Add in 1/4 c. olive oil, then onions and garlic; cook until the onions are tender. Add in peppers, and cook until the peppers are tender. Season with salt and black pepper. Remove and keep warm.\n2. Return the pan over high heat, add in 1/4 c. olive oil and saute the zucchini until tender. Remove from pan and add to the onions and peppers mixture.\n3. Return the pan to high heat, add in the remaining olive oil and saute the eggplant until browned and softened. Add the tomatoes and bring to a boil. Reduce to a simmer; add the onions, pepper, and zucchini mixture. Blend together well, mixing with a wooden spatula, and continue to simmer for 3 min.\n4. Serve over cooked Pasta Prima Grilled Chicken & Mozzarella Ravioli (following its cooking instructions) and then top with parmesan cheese.',
+    author: 'samashby'
+  },
+  {
+    id: 78,
+    hideIngredients: true,
+    name: 'Turkey or Chicken Marinate',
+    ingredients: '1 c. (cooking) oil\n1 c. soy sauce\n2 c. Sprite\n1 tsp. Worcestershire sauce\n1/2 tsp. garlic powder\n3 Tbsp. lemon juice\n1/s tsp. horseradish sauce',
+    instructions: '1. Mix all ingredients. Soak boneless chicken or turkey (not frozen) overnight. Grill.',
+    author: 'samashby'
+  },
+  {
+    id: 79,
+    hideIngredients: true,
+    name: 'Texas Brisket',
+    ingredients: '1 large brisquit cut meat\nlemon pepper\ngarlic powder\ngarlic salt\nseasoning salt',
+    instructions: '1. Rub mixture into meat. Wrap in foil. Bake several hours in 250 deg. F. oven.',
+    author: 'billgibson'
+  },
+  {
+    id: 80,
+    hideIngredients: true,
+    name: 'Easy Oven Stew',
+    ingredients: '2 lbs. stew meat\n4 carrots\nsalt and pepper\n1 can cream of celery soup\n1 package onion soup mix or cream of mushroom\n6 potatoes\n1 1/2 c. water',
+    instructions: '1. Place meat in heavy casserole. Sprinkle onion soup mix and salt and pepper. Add potatoes and carrots.\n2. Combine celery soup and water. Pour over meat and vegetables.\n3. Cover and bake at 300 deg. F. for 5 hours or 250 deg. F. for 6-7 hours.\nIt turns out well in a crock pot-cook on high for 4-5 hours and on low for 7-8 hours. Also consider adding 1 can of tomato sauce with the soup and water.',
+    author: 'samashby'
+  },
+  {
+    id: 81,
+    hideIngredients: true,
+    name: 'Boneless Barbecue Ribs',
+    ingredients: 'ribs\nbarbecue sauce',
+    instructions: '1. Place ribs in crock pot - frozen or thawed. Cook on high for 4-5 hours or on low about 8 hours.\n2. One hour before serving, drain and pour barbecue sauce over meat.\nVariation: Use boneless chicken breasts',
+    author: 'samashby'
+  },
+  {
+    id: 82,
+    hideIngredients: true,
+    name: 'Spanish Casserole',
+    ingredients: '2 cans chili\n1 can corn-drained\n1 can tomatoes\n2 c. cheese\ncorn chips and cheese for topping\nnote: cans are all the same size',
+    instructions: '1. Mix chili, corn, tomatoes, and 2 c. cheese in 9x13 pan. Top with chips and cheese.\n2. Bake for 20 min. at 350 deg. F.\n3. Add more cheese and bake for another 5 min.',
+    author: 'barbaraalldredge'
+  },
+  {
+    id: 83,
+    hideIngredients: true,
+    name: 'Norway\'s Best Pepper Cookies',
+    ingredients: '1 1/8 c. butter\n1 c. sugar\n1/4 c. heavy whipping cream\n1 tsp. baking soda\n3 1/4 c. all-purpose flour\n1 tsp. ground cinnamon\n1 tsp. ground black pepper\n1 1/2 tsp. ground cardamom\n1 tsp. baking powder',
+    instructions: '1. Cream together the butter and the sugar until light and fluffy. Stir in the cream. Add the baking soda and little water (no more than 2 Tbsp.) to the butter mixture.\n2. Sift the spices, baking powder and flour into the butter mixture. Blend until a nice dough is formed. Roll dough into sausages about 2-1/2 inches in diameter, wrap tightly and let dough chill thoroughly.\n3. Preheat oven to 375 deg. F. (190 deg. C). Remove chilled dough and cut into thin slices. Bake on a lightly greased cookie sheet for 6-8 min. Let cookies cool on wire rack.',
+    author: 'violet2flame'
+  },
+  {
+    id: 84,
+    hideIngredients: true,
+    name: 'Mormon Muffins',
+    ingredients: '2 c. boiling water\n5 tsp. baking soda\n5 c. all-purpose flour\n1 quart buttermilk\n4 c. bran cereal (such as Kellogg\'s All-Bran)\n2 c. bran flakes cereal\n1 c. chopped walnuts\n1 c. white sugar\n1/2 c. vegetable oil\n1/2 c. butter, melted\n4 eggs, beaten\n2 tsp. ground cinnamon\n1 tsp. salt\n1/2 tsp. ground ginger\n1/2 tsp. nutmeg',
+    instructions: '1. Combine boiling water and baking soda together in a large bowl. Let cool slightly.\n2. Stir flour, buttermilk, bran cereal, bran flakes, walnuts, sugar, oil, butter, eggs, cinnamon, salt, ginger, and nutmeg into water-baking soda mixture until just combined. Cover bowl with plastic wrap and refrigerate muffin batter for at least 8 hours or overnight.\n3. Preheat oven to 375 deg. F. (190 deg. C). Grease 60 muffin cups or line with paper muffin liners.\n4. Pour batter into prepared muffin cups 1/2 full.\n5. Bake muffins in the preheated oven until the tops spring back when lightly pressed, about 20 minutes.',
+    author: 'violet2flame'
+  },
+  {
+    id: 85,
+    hideIngredients: true,
+    name: 'Slow Cooker Dressing',
+    ingredients: '1 c. butter, melted\n2 c. onion, chopped\n2 c. celery, chopped\n1 carrot, shredded\n8 oz. can mushrooms\n8 oz. can water chestnuts\n2 c. broth\n2 eggs, well beaten\n12-13 c. dry bread crumbs\n1/2 tsp. marjoram\n1 tsp. poultry seasoning\n1 1/2 tsp. salt\n1 1/2 tsp. sage\n1 tsp. thyme\n1/2 tsp pepper',
+    instructions: 'Mix all ingredients and put in slow cooker on low for 6-8 hours',
+    author: 'faytruman'
+  },
+  {
+    id: 86,
+    hideIngredients: true,
+    name: 'Sweet and Sour Sauce',
+    ingredients: '1 1/2 c. brown sugar\n3/4 c. BBQ sauce\n3/4 c. vinegar\n3 tsp. Worcestershire sauce\n3 tsp. prepared mustard',
+    instructions: 'Blend thoroughly. Heat and pour over meat. For meatballs bake 30 min. for 350 deg. F. For chicken, bake 1 hour.',
+    author: 'polleeashby'
+  },
+  {
+    id: 87,
+    hideIngredients: true,
+    name: 'Crock Pot Chicken and Pasta',
+    ingredients: '3-6 chicken breasts\n1 can chicken broth\n1 can cream of chicken soup\n8 oz. cream cheese\n1 package Italian salad dressing mix',
+    instructions: '1. Cook chicken in crock pot.\n2. One hour before serving, shred chicken and remove fat from bottom of pot. Add remaining ingredients. Serve over pasta.',
+    author: 'samashby'
+  },
+  {
+    id: 88,
+    hideIngredients: true,
+    name: 'Bloomin\' Lasagna',
+    ingredients: '12 lasagna noodles\n4 c. leaf spinach\n2 c. ricotta cheese\n1 c. grated mozzarella\n1/2 c. Ranch dressing\n1/2 tsp. salt\n1/3 tsp. pepper\n1/4 tsp. nutmeg\n1 jar (26 oz.) pasta sauce',
+    instructions: '1. Cook lasagna noodles.\n2. Mix spinach, cheese, 1/4 c. Ranch and seasonings.\n3. Set 1/2 c. pasta sauce aside, pour remaining sauce into greased dish.\n4. Spread 2-3 Tbsp. of cheese mixture on each noodle and roll up. Place flowers curly side up in dish.\n5. Mix remaining Ranch with pasta sauce.\n6. Drizzle over each flower.\n6. Cover and bake for 30 min. in 350 deg. F. oven until heated through.',
+    author: 'breananorton'
+  },
+  {
+    id: 89,
+    hideIngredients: true,
+    name: 'Manicotti',
+    ingredients: '1 lb. Ricotta cheese\n1/4 lb. Mozzarella cheese (1 c. shredded)\n1 egg\n18 jumbo pasta shells\n1 Tbsp. chopped parsley\nsalt and pepper to taste\n1/3 c. Parmesan cheese\n1 jar spaghetti sauce',
+    instructions: '1. Mix Ricotta, Mozzarrella, egg, Parmesan, parsley, and salt and pepper.\n2. Cook jumbo pasta shells according to directions. Drain and cool.\n3. Fill shells with cheese mixture.\n3. Put 2/3 spaghetti sauce in pan, put filled shells in and cover with remaining sauce.\n4. Bake at 350 deg. F. for 25 min, covered.\n5. Sprinkle extra Mozzarella cheese on top and bake an additional 5 min.',
+    author: 'samashby'
+  },
+  {
+    id: 90,
+    hideIngredients: true,
+    name: 'Everyone\'s Favorite Meatballs',
+    ingredients: '1 c. water\n1 c. brown sugar\n15 oz. can sauerkraut\n16 oz. can jellied cranberry sauce\n12 oz. jar chili sauce\n1 c. crushed pineapple\n1 c. pineapple juice',
+    instructions: '1. In large pot, mix all the sauce ingredients and simmer on medium to medium high for 15-20 min. until blended.\n2. Add sauce to meatballs. Simmer on low for 30 min. to 1 hour.',
+    author: 'meganashby'
+  },
+  {
+    id: 91,
+    hideIngredients: true,
+    name: 'Chicken Rice Casserole',
+    ingredients: '1 can cream of celery soup\n1 can cream of mushroom soup\n1 chicken, cut up\n1/4-1/2 can water\n1 package dry onion soup mix\n1 c. uncooked rice',
+    instructions: '1. Put half of soup mixture in casserole. Sprinkle with half of rice, put chicken in layer over rice, then add rest of rice.\n2. Pour rest of soup mixture over top.\n3. Bake covered in 350 deg. F. oven about 1 hour until done.',
+    author: 'jaceeashby'
+  },
+  {
+    id: 92,
+    hideIngredients: true,
+    name: 'Swedish Meatballs',
+    ingredients: '1 1/2 lb. hamburger\n1 pint IMO sour cream\n1 package dry onion soup mix\n1 egg\n1/2 c. soft bread crumbs\n1 c. water\n1 c. flour',
+    instructions: '1. Mix California dip:IMO sour cream and onion soup mix.\n2. Beat egg and mix with bread crumbs, meat and 1/2 of the California dip.\n3. Roll into 1 inch balls. Roll in flour, brown in 2 Tbsp. Butter.\n4. Mix other half of dip with water and let it warm up while browning meatballs.\n5. Pour over meatballs and simmer till serving. Can serve over noodles or rice.',
+    author: 'samashby'
+  },
+  {
+    id: 93,
+    hideIngredients: true,
+    name: 'El Dorado Beef and Cheese Casserole',
+    ingredients: '1 lb. ground beef, turkey, or chicken\n1 Tbsp. dried, minced onion\n1/2 tsp. garlic salt\n2 cans tomato sauce\n1 c. chopped olives\n2 c. cheddar or Monterey jack cheese, grated\n1 c. sour cream\n1 c. cottage cheese or 1 can cream of mushroom soup\n1 can (4oz) green chilies, diced\n1 package (8 oz.) tortilla chips',
+    instructions: 'Brown meat; drain and add garlic salt, tomato sauce, onions and olives.\n2. In a separate bowl, combine sour cream, cottage cheese and green chilies.\n3. Layer half of chips, meat mixture, sour cream mixture and cheese.\n4. Repeat layers, ending with cheese.\n5. Cover and bake at 350 deg. F. for 35 min.',
+    author: 'samashby'
+  },
+  {
+    id: 94,
+    hideIngredients: true,
+    name: 'Chili',
+    ingredients: '2 lb. ground beef\n2 large cans chili beans\n2 14 1/2 oz. cans diced tomatoes\n2 medium onions, chopped\n2 cloves crushed garlic or 2 tsp. minced garlic\nsalt to taste\n1-2 Tbsp. chili powder\n1 tsp. pepper\n1 tsp. cumin\n2/3 cans tomato sauce',
+    instructions: '1. Brown ground beef.\nAdd all ingredients and cook in crock pot on low all day or on high for 3-4 hours.',
+    author: 'samashby'
   }
 ]
 /* start on main dishes section */
+// norways best pepper cookies
+// mormon muffins

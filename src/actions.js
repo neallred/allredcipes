@@ -25,7 +25,7 @@ export const SearchFilters = {
   BY_AUTHOR: 'BY_AUTHOR'
 }
 
-let nextRecipeId = 72
+let nextRecipeId = 95
 
 var regexer = function(pattern){
   return new RegExp(pattern, "gi");

@@ -57,7 +57,7 @@ const recipes = (state = [], action) => {
       ]
     case 'UPDATE_RECIPE':
       let indexUpdate, iUpdate
-        for(iUpdate=0;iUpdate<state.length;iUpdate++){
+        for(var iUpdate=0;iUpdate<state.length;iUpdate++){
           state[iUpdate];
           if(state[iUpdate].id === action.id){
             indexUpdate = iUpdate;
@@ -91,12 +91,17 @@ const recipes = (state = [], action) => {
 const isEditing = (state = [], action) => {
   switch (action.type) {
     case 'IS_EDITING':
+      const recipeToChange = FixturesRecipes[action.id];
       return Object.assign({}, state, {
         isEditing: !state.isEditing,
-        recipeToEdit: {
-          id: action.id,
-          name: action.name
-        }
+        recipeToEdit: recipeToChange? {
+          id: recipeToChange.id,
+          hideIngredients: recipeToChange.hideIngredients,
+          name: recipeToChange.name,
+          ingredients: recipeToChange.ingredients,
+          instructions: recipeToChange.instructions,
+          author: recipeToChange.author
+        } : null
       })
     default:
       return state
