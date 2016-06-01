@@ -25,7 +25,7 @@ export const SearchFilters = {
   BY_AUTHOR: 'BY_AUTHOR'
 }
 
-let nextRecipeId = 95
+let nextRecipeId = 125
 
 var regexer = function(pattern){
   return new RegExp(pattern, "gi");
@@ -62,14 +62,14 @@ export function createRecipe(name, ingredients, instructions, author) {
   }
 }
 
-export function updateRecipe(id, hideIngredients, name, ingredients, instructions, author) {
+export function updateRecipe(recipeId, hideIngredients, name, ingredients, instructions, author) {
   var nameFiltered = filterInput(name, badWords, '***')
   var ingredientsFiltered = filterInput(filterInput(ingredients, abbreviations), badWords, '***')
   var instructionsFiltered = filterInput(instructions, badWords, '***')
   var authorFiltered = filterInput(author, badWords, '***')
   return {
     type: UPDATE_RECIPE,
-    id,
+    recipeId,
     hideIngredients,
     name: nameFiltered,
     ingredients: ingredientsFiltered,

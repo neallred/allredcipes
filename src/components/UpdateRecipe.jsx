@@ -41,7 +41,7 @@ let UpdateRecipe = ({
         {...author}
       /><br/>
       <button type='button' onClick={onClick} className='btn btn-primary' id='cancel-edit' >Cancel edit</button><br/>
-      <button type='submit' className='btn btn-success'>Create Recipe</button>
+      <button type='submit' className='btn btn-success'>Update Recipe</button>
     </form>
   </div>
 )

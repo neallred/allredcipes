@@ -758,8 +758,245 @@ export const FixturesRecipes = [
     ingredients: '2 lb. ground beef\n2 large cans chili beans\n2 14 1/2 oz. cans diced tomatoes\n2 medium onions, chopped\n2 cloves crushed garlic or 2 tsp. minced garlic\nsalt to taste\n1-2 Tbsp. chili powder\n1 tsp. pepper\n1 tsp. cumin\n2/3 cans tomato sauce',
     instructions: '1. Brown ground beef.\nAdd all ingredients and cook in crock pot on low all day or on high for 3-4 hours.',
     author: 'samashby'
+  },
+  {
+    id: 95,
+    hideIngredients: true,
+    name: 'Pumpkin Cake',
+    ingredients: '1 package white (or yellow) cake mix\n1 cube butter/margarine\n3 c. pumpkin or squash\n1 1/2 c. sugar\n2 beaten eggs\n1 tall can evaporated milk\n1 tsp. salt\n 1 large tsp. cinnamon\n1/2 tsp. cloves\n1 tsp. ginger',
+    instructions: '1. Mix cake mix and cube of butter. Pour 1/2 cake mix into greased 9x13 pan.\n2. Mix remaining ingredients together and pour over cake mix in 9x13.\n3. Pour remaining cake mix on top; bake at 350 deg. F. for 1 hour. Serve warm or cold with either whipped cream or ice cream.',
+    author: 'samashby'
+  },
+  {
+    id: 96,
+    hideIngredients: true,
+    name: 'Honey Ginger Cookies',
+    ingredients: 'LIQUID INGREDIENTS:\n1 c. melted shortening (still warm)\n1 c. melted honey\n1 c. boiling water\n1 c. sugar (dissolved in water)\nDRY INGREDIENTS:\n4 1/2-5 c. white flour\n2 tsp. baking soda\n1 tsp. salt\n1/2 tsp. ginger',
+    instructions: '1. Sift dry ingredients.\n2. Gradually add to the liquid mixture.\n3. Stir until smooth.\n3. Let sit for 2 hours or overnight in refrigerator.\n4. Roll into balls and press with fork. Bake 10-12 min. at 350 deg. F.',
+    author: 'mabelpickupashby'
+  },
+  {
+    id: 97,
+    hideIngredients: true,
+    name: 'Favorite Chocolate Cake',
+    ingredients: 'DRY INGREDIENTS:\n2 3/4 c. flour\n2 c. sugar\n2 tsp. baking soda\n1/2 c. cocoa\n1 tsp. salt\nLIQUID INGREDIENTS:\n2 eggs\n3/4 c. oil\n1 c. sour cream\n1 Tbsp. vanilla\n1 c. boiling water',
+    instructions: '1. Mix dry ingredients\n2. Add all liquid ingredients, except boiling water. Boil 1 c. water, add immediately, and mix all ingredients immediately.\n3. Bake at 350 deg. F. for 35-40 min. (or 20-25 min. for cupcakes).',
+    author: 'samashby'
+  },
+  {
+    id: 98,
+    hideIngredients: true,
+    name: 'Apple Crisp',
+    ingredients: '4 c. sliced apples\n1 Tbsp. lemon juice\n1/3 c. flour\n1 c. oats\n1/2 c. brown sugar\n1 tsp. cinnamon\n1/2 tsp. salt\n1/3 c. melted butter',
+    instructions: '1. Put apples in 9x13 pan. Sprinkle lemon juice over top of apples.\n2. Mix dry ingredients, add melted butter and mix well.\n3. Spread on top of apples and bake at 375 deg. F. for 30 min.',
+    author: 'samashby'
+  },
+  {
+    id: 99,
+    hideIngredients: true,
+    name: 'Peanut Butter Cookies',
+    ingredients: '2 c. brown sugar\n1 1/2 c. white sugar\n2 c. shortening\n4 eggs\n4 c. flour\n1 tsp. salt\n4 tsp. baking soda\n2 c. oatmeal',
+    instructions: '1. Cream shortening and sugars; blend in eggs and peanut butter.\n2. Fold in salt, soda, and flour\n3. Roll into medium-size balls.\n4. Place on ungreased baking sheet; mash with fork dipped in water.\n5. Bake at 350 deg. F. about 7 min.',
+    author: 'samashby'
+  },
+  {
+    id: 100,
+    hideIngredients: true,
+    name: 'Brownie Pudding',
+    ingredients: '2 c. flour\n1 1/2 c. sugar\n1/4 c. cocoa\n4 tsp. baking powder\n1 tsp. salt\n1/2 c. cocoa\n1 c. milk\n1/4 c. salad oil\n2 tsp. vanilla\nchopped nuts (opt.)\n1 1/2 c. brown sugar\n3 1/2 c. hot water',
+    instructions: '1. Sift together dry ingredients; add milk, oil, and vanilla; mix till smooth.\n2. Stir in nuts.\n3. Pour into greased 9x13 pan.\n4. Combine brown sugar and cocoa. Sprinkle over batter.\n5. Slowly pour hot water over top.\n6. Bake at 350 deg. F. about 45 min.\nNote: Double recipe if cooking in 14 inch Dutch Oven',
+    author: 'samashby'
+  },
+  {
+    id: 101,
+    hideIngredients: true,
+    name: 'Chocolate Crinkle Cookies',
+    ingredients: '2 c. sugar\n3/4 c. vegetable oil\n3/4 c. cocoa\n4 eggs\npowdered sugar\n2 tsp. vanilla\n2 1/3 c. flour\n2 tsp. baking powder\n1/2 tsp. salt',
+    instructions: '1. Combine sugar and vegetable oil in large mixing bowl. Add cocoa; blend well.\n2. Beat in eggs and vanilla.\n3. Combine flour, baking powder and salt; add to cocoa mixture, blending well.\n4. Cover, chill for several hours or overnight. Shape dough into 2-inch balls. Roll in powdered sugar.\n5. Place about 3 inches apart on greased cookie sheet.\n6. Bake at 350 deg. F. for 16-18 min. or until almost no indentation remains when touched.',
+    author: 'samashby'
+  },
+  {
+    id: 102,
+    hideIngredients: true,
+    name: 'Oatmeal Cookies',
+    ingredients: '1/2 c. granulated sugar\n1/2 c. brown sugar\n1/4 c. margarine or butter\n1/4 c. shortening\n1/2 tsp. baking soda\n1/2 tsp. cinnamon\n1/2 tsp. vanilla\n1/4 tsp. baking powder\n1/4 tsp. salt\n1 egg\n1 1/2 c. quick oats\n1 c. flour',
+    instructions: '1. Heat oven to 375 deg. F.\n2. Mix all ingredients except oats, flour and raisins or chocolate chips, etc.\n3. Stir oats, flour, raisins etc.\n4. Drop by rounded teaspoon 2 inches apart on ungreased cookie sheet.\n5. Bake about 10 min.',
+    author: 'kyleashby'
+  },
+  {
+    id: 103,
+    hideIngredients: true,
+    name: 'Snickerdoodles',
+    ingredients: '1/2 c. butter, softened\n1 c. sugar\n1 egg\n1/2 tsp. vanilla\n1 1/2 c. flour\n1/4 tsp. baking soda\n1/4 tsp. cream of tartar',
+    instructions: '1. Mix all ingredients. Chill 1 hour. Bake at 375 deg. F. for 10 min.',
+    author: 'breananorton'
+  },
+  {
+    id: 104,
+    hideIngredients: true,
+    name: 'Pumpkin Chocolate Chip Cookies',
+    ingredients: 'LIQUID INGREDIENTS:\n1 c. butter or shortening\n1 c. sugar\n1 tsp. vanilla\n1 c. cooked pumpkin\n1 egg\nDRY INGREDIENTS:\n2 c. flour\n1 tsp. baking powder\n1/2 tsp. baking soda\n1/2 tsp. salt\n1 tsp. cinnamon\n1/2 tsp. allspice\n1 1/4 c. chocolate chips',
+    instructions: '1. Mix all ingredients. Bake at 375 deg. F. for about 13 min.',
+    author: 'samashby'
+  },
+  {
+    id: 105,
+    hideIngredients: true,
+    name: 'Basic Dessert Crepes',
+    ingredients: '4 eggs\n1 c. flour\n1/2 c. milk\n1/2 c. water\n1/2 tsp. salt\n2 Tbsp. melted margarine or butter\n2 tsp. sugar\n1 tsp. vanilla',
+    instructions: '1. Blend well and let sit for 30 min.\n2. Pour batter in pie pan and cook with crepe maker. Fill with choice of dessert filling.',
+    author: 'samashby'
+  },
+  {
+    id: 106,
+    hideIngredients: true,
+    name: 'Molten Lava Cake',
+    ingredients: '6 (1 oz.) bittersweet chocolate squares\n2 (1 oz.) semi-sweet chocolate baking squares\n10 Tbsp. butter\n1/2 c. flour\n2 Tbsp. orange juice and 1/2 tsp. orange extract\n3 large eggs\n3 large yolks\n1 Tbsp. vanilla\n2 Tbsp. Grand Marnier (or 1 1/2 c. powdered sugar)',
+    instructions: '1. Preheat oven to 425 deg. F.\n2. Grease 6 (6 oz.) custard cups.\n3. Melt chocolates and butter in the microwave or in a double boiler.\n4. Add flour and sugar to chocolate mixture.\n5. Stir in eggs until smooth.\n6. Stir in vanilla and Grand Marnier.\n7. Divide batter evenly among custard cups.\n8. Bake for 14 min. Edges should be firm but the center will be runny.\n9. Run a knife around the edge to loosen and invert into dessert plate. Top with vanillla ice cream or raspberry sauce (optional).',
+    author: 'pauladeen'
+  },
+  {
+    id: 107,
+    hideIngredients: true,
+    name: 'Luscious Lemon Ice Cream',
+    ingredients: '1 can (14 1/2 oz.) evaporated milk\n2 c. cream\n4 c. sugar\n1 1/2 tsp. lemon extract\n1 c. lemon juice, fresh is best (about 6 lemons)\nwhole milk to fill line',
+    instructions: '1. Mix all ingredients well and pour into canister.\n2. Freeze according to manufacturer\'s directions.\n3. It is best to freeze this recipe 2-3 hours in advance and allow to ripen before serving. Makes about 5 quarts.',
+    author: 'samashby'
+  },
+  {
+    id: 108,
+    hideIngredients: true,
+    name: 'Chocolate Eclair Dessert',
+    ingredients: 'CRUST:\n1 c. water\n1/2 c. butter\n1/4 tsp. salt\n4 eggs\n1 c. flour\nFILLING:\n3 c. milk\n2 small packages instant vanilla pudding\n8 oz. cream cheese at room temperature.',
+    instructions: 'CRUST:\n1. Boil water, butter and salt. Add flour, remove from heat and cool slightly.\n2. Add eggs one at a time. Beat.\n3. Spray jelly roll pan, spread crust in pan.\n4. Bake at 400 deg. F. for 15 min. Cool slightly and flatten crust with hand. Cool Completely.\nFILLING:\n1. Mix milk, instant vanilla pudding, and cream cheese.\n2. Spreat on crust and top with 12 oz. cool whip. Drizzle with chocolate syrup.',
+    author: 'samashby'
+  },
+  {
+    id: 109,
+    hideIngredients: true,
+    name: 'Cinnamon Pull Aparts',
+    ingredients: '18-20 Rhodes rolls\n3 oz. package dry butterscotch pudding\ncinnamon\n1 1/2 stick butter\n2 c. brown sugar',
+    instructions: '1. Place Rhodes rolls in one large pan or two bundt pans.\n2. Sprinkle butterscotch pudding mix over rolls, and cinnamon also. Let stand overnight.\n3. Melt butter and mix with brown sugar. Pour over raised rolls.\n4. Bake at 350 deg. F. for 30 min.',
+    author: 'samashby'
+  },
+  {
+    id: 110,
+    hideIngredients: true,
+    name: 'Vanilla Ice Cream',
+    ingredients: '4 eggs\n2 1/2 c. sugar\n7 c. milk\n3 c. whipping cream\n2 1/2 Tbsp. vanilla\n1/2 tsp. salt',
+    instructions: '1. Beat eggs till light.\n2. Add sugar gradually, beating till thick.\n3. Add remaining ingredients; mix well.\n4. Freeze in a 5-quart ice cream freezer. Makes 1 gal.',
+    author: 'samashby'
+  },
+  {
+    id: 111,
+    hideIngredients: true,
+    name: 'Hot Fudge Sauce',
+    ingredients: '2 c. sugar\n4 Tbsp. cocoa\n4 Tbsp. flour\n1 can evaporated milk\n4 Tbsp. butter\n2 tsp. vanilla',
+    instructions: '1. Combine sugar, cocoa and flour.\n2. Slowly add can of evaporated milk and cook over medium heat, stirring constantly until thick.\n3. Cool slightly. Add butter and vanilla.',
+    author: 'cindeemay'
+  },
+  {
+    id: 112,
+    hideIngredients: true,
+    name: 'Peanut Blossom Cookies',
+    ingredients: 'LIQUID INGREDIENTS:\n1/2 c. butter\n1/2 c. peanut butter\n1/2 c. sugar\n1/2 c. brown sugar\n1 egg\n1 tsp. vanilla\nDRY INGREDIENTS:\n1 3/4 c. flour\n1/2 tsp. salt\n1 tsp. baking soda\n14 oz. package Hershey Kisses',
+    instructions: '1. Beat liquid ingredients well, and gradually blend in dry ingredient mixture.\n2. Shape into teaspoon balls, roll balls in sugar, and place on cookie sheets.\n3. Bake at 375 deg. F. for 8 min. and take out of oven.\n4. Firmly press Hershey Kiss in middle of balls. Bake 2-5 min. longer.',
+    author: 'samashby'
+  },
+  {
+    id: 113,
+    hideIngredients: true,
+    name: 'Strawberry-Rhubarb Pie',
+    ingredients: '2 c. sliced rhubarb in 1 inch pieces\n2 Tbsp. water\n1 c. sugar\n2 Tbsp. butter\n1/3 c. flour\n2 pints whole strawberries',
+    instructions: '1. Combine rhubarb, sugar, water, flour, and butter together and cook until rhubarb is soft.\n2. Cool about 5 min. and then add strawberries.\n3. Pour into baked pie shell and serve with whipped cream on top.',
+    author: 'samashby'
+  },
+  {
+    id: 114,
+    hideIngredients: true,
+    name: 'Anika\'s Famous Pie Crust',
+    ingredients: '1 c. flour\n1/2 c. shortening\n1/2 restaurant-sized spoon salt\n1/4 c. cold water',
+    instructions: '1. Mix flour, shortening and salt with pastry mixer.\n2. Add water and mix with fork.\n3. Roll into circle and put in pie pan. Makes one pie crust.',
+    author: 'anikaashby'
+  },
+  {
+    id: 115,
+    hideIngredients: true,
+    name: 'Chocolate Ice Cream',
+    ingredients: '2 cans sweetened condensed milk\n1 large instant chocolate pudding\n1 pint cream\n2 Tbsp. vanilla\n1 1/2 c. sugar',
+    instructions: '1. Mix ingredients and pour into container, fill to line with whole milk.\n2. Freeze in 5 quart ice cream freezer.',
+    author: 'samashby'
+  },
+  {
+    id: 116,
+    hideIngredients: true,
+    name: 'Blueberry Pie',
+    ingredients: '1 double 9 inch pie shell\n4-5 c. fresh or frozen blueberries\n1/4 c. cornstarch\n2 Tbsp. flour\n1 1/4 c. sugar\n2 drops vanilla extract\n1 Tbsp. lemon juice\n1 Tbsp. unsalted butter\negg wash (1 egg with a pinch of salt) for glazing',
+    instructions: '1. Line a 9 inch pie pan with pastry dough and preheat oven to 425 deg. F.\n2. In a large bowl, toss blueberries, cornstarch, flour, sugar, vanilla extract and lemon juice.\n3. Spoon or mound into pie shell, and dot with unsalted butter.\n4. Wet pie edges with a bit of water.\n5. Roll remaining pastry to fit top of pie, and place on pie and press securely onto fruit and edges to seal.\n6. Trim edges, crimp, and cut slits for steam to escape.\n7. Brush top of pastry with egg wash.\n8. Place pie on baking sheets and place on lowest rack in oven. Bake for 20 min. at 425 deg. F, then lower to 375 deg. F. and bake until juices begin to bubble through steam slits (about 35-45 min). Cool for 1 hour before serving.\n*Note: You can cook berry mixture on stove before putting in pie shell to thicken filling.',
+    author: 'meganashby'
+  },
+  {
+    id: 117,
+    hideIngredients: true,
+    name: 'Jack-o\'-Lantern Pie',
+    ingredients: '1 4-serving size package of orange gelatin\n1 c. boiling water\n1 pint soft vanilla ice cream\n1 prepared chocolate crumb crust\nwhipped topping\ncandy corn or black licorice',
+    instructions: '1. Dissolve gelatin mix into boiling water, and stir in ice cream. Chill until slightly thickened, about 10 min.\n2. Pour mixture into crust and chill firm, about 2 hours.\n3. Garnish with whipped topping, and use candy corn or black licorice to make a face on top.',
+    author: 'samashby'
+  },
+  {
+    id: 118,
+    hideIngredients: true,
+    name: 'Fruit Leather',
+    ingredients: 'fruit\nwater\n1 Tbsp. honey\n1/2 Tbsp. lemon juice',
+    instructions: '1. Pit fruit.\n2. Fill pan 1/4 full of water and fruit, heat through.\n3. Blend in blender and add honey and lemon juice to every cup of blended fruit.\n4. Damp jelly roll pan around sides and line with handi-wrap.\n5. Pour into pan about 1/8 inches deep. Dry in a car window about 5-6 hours.',
+    author: 'samashby'
+  },
+  {
+    id: 119,
+    hideIngredients: true,
+    name: 'Soft Gingersnaps',
+    ingredients: 'LIQUID INGREDIENTS:\n3/4 c. oil\n1 c. sugar\n1 egg\n1/4 c. molasses\nDRY INGREDIENTS:\n2 c. flour\n1/2 tsp. salt\n1 tsp. cinnamon\n2 tsp. baking soda\n1 tsp. ginger',
+    instructions: '1. Beat liquid ingredients together.\n2. Mix dry ingredients together.\n3. Roll in balls and roll in sugar.\n4. Bake at 350 deg. F. for 8 min.',
+    author: 'samashby'
+  },
+  {
+    id: 120,
+    hideIngredients: true,
+    name: 'Applesauce Cookies',
+    ingredients: '1 c. applesauce\n1 tsp. baking soda\n1 c. sugar\n1/2 c. shortening\n2 eggs\n2 c. flour\n1 c. oatmeal\n1/2 tsp. cinnamon\n1/2 tsp. cloves\n1/2 tsp. nutmeg\n1/2 tsp. salt\n1 c. nuts\n6 oz. chocolate chips',
+    instructions: '1. Mix applesauce and baking soda.\n2. Mix sugar, shortening and eggs. Add to applesauce mixture.\n3. Add flour and spices that have been sifted.\n4. Add nuts and chocolate chips.\n5. Drop by spoonful on greased cookie sheet and bake at 400 deg. F. for 9-12 min.',
+    author: 'samashby'
+  },
+  {
+    id: 121,
+    hideIngredients: true,
+    name: 'Chocolate Sandwich Cookies',
+    ingredients: 'COOKIES:\n2 Devil food cake mixes (can also substitute lemon cake mixes)\n4 eggs\n1 1/2 c. shortening (melted)\nFILLING:\n8 oz. cream cheese (softened)\n4 c. powdered sugar\n1 cube margarine, softened\n1 tsp. vanilla',
+    instructions: 'COOKIES:\n1. Mix cookie ingredients until consistency of cookie dough.\n2. Roll dough into 25-cent sized balls, and space them on cookie sheets; they spread. Bake at 375 deg. F. for 7-10 min. Cool.\nFILLING:\nMix all filling ingredients thoroughly. Frost equal size.',
+    author: 'samashby'
+  },
+  {
+    id: 122,
+    hideIngredients: true,
+    name: 'Chocolate Peanut Butter Fingers',
+    ingredients: '1 1/2 c. butter\n1 1/2 c. brown sugar\n1 1/2 c. sugar\n4 eggs\n1 1/2 c. peanut butter\n3 c. flour\n1 tsp. baking powder\n1 tsp. baking soda\n1/4 tsp. salt\n3 c. rolled oats\n1 tsp. vanilla',
+    instructions: '1. Mix butter, sugar, eggs, and peanut butter. Mix well.\n2. Stir in flour, baking soda, baking powder, salt, rolled oats and vanilla. Spread on buttered sheet.\n3. Bake at 350 deg. F. for 10 min. only.\n4. Remove from oven, cool slightly. Frost with chocolate frosting.',
+    author: 'samashby'
+  },
+  {
+    id: 123,
+    hideIngredients: true,
+    name: 'Zucchini Brownies',
+    ingredients: '2 c. grated zucchini\n2 c. flour\n1 1/4 c. sugar\n1/2 c. chopped nuts\n2 tsp. vanilla\n3/4 tsp. salt\n1 1/2 tsp. baking soda\n1/2 c. cocoa\n1/2 c. oil\n2 beaten eggs.',
+    instructions: '1. Mix well. Spread in 11x15 greased jelly roll pan.\n2. Bake 18-20 min. at 350 deg. F.',
+    author: 'samashby'
+  },
+  {
+    id: 124,
+    hideIngredients: true,
+    name: 'Rice Pudding (Kevin\'s never the same)',
+    ingredients: 'RICE:\n2 "blue" cups rice\n4 "blue" cups water\n1 good slab of butter\nPUDDING:\n1 dozen eggs\n1 can sweetened condensed milk\n1 can evaporated milk\n1/2 c. brown sugar\nabout 6 c. milk\ncinnamon\nnutmeg\npumpkin spice\nvanilla\nginger\nyogurt\nraisins (optional)',
+    instructions: '1. Cook rice in water and butter for about 20 min.\n2. Mix everything but milk for 5 min. with beater until bubbly.\n3. Add milk and beat again.\n4. Pour into large microwave bowl and add rice.\n5. Cook in microwave for 10-15 min, stirring occasionally.',
+    author: 'kevinashby'
   }
 ]
-/* start on main dishes section */
-// norways best pepper cookies
-// mormon muffins

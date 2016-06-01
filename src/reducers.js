@@ -27,7 +27,7 @@ const recipe = (state, action) => {
       }
     case 'UPDATE_RECIPE':
       return {
-        id: action.id,
+        id: action.recipeId,
         hideIngredients: action.hideIngredients,
         name: action.name,
         ingredients: action.ingredients,
@@ -59,7 +59,7 @@ const recipes = (state = [], action) => {
       let indexUpdate, iUpdate
         for(var iUpdate=0;iUpdate<state.length;iUpdate++){
           state[iUpdate];
-          if(state[iUpdate].id === action.id){
+          if(state[iUpdate].id === action.recipeId){
             indexUpdate = iUpdate;
           }
         }
@@ -95,7 +95,7 @@ const isEditing = (state = [], action) => {
       return Object.assign({}, state, {
         isEditing: !state.isEditing,
         recipeToEdit: recipeToChange? {
-          id: recipeToChange.id,
+          recipeId: recipeToChange.id,
           hideIngredients: recipeToChange.hideIngredients,
           name: recipeToChange.name,
           ingredients: recipeToChange.ingredients,

@@ -8,18 +8,19 @@ const UpdateRecipeContainer = reduxForm(
   {
     form: 'updateRecipe',
     fields: ['recipeId', 'hideIngredients', 'name', 'ingredients', 'instructions', 'author'],
-    initialValues: {
-      hideIngredients: 'state.isEditing.hideIngredients',
-      ingredients: 'state.isEditing.ingredients',
-      instructions: 'state.isEditing.instructions',
-      author: 'state.isEditing.author',
-    }
   },
   (state, ownProps) => {
-    //console.log(state)
     return {
       isEditing: state.isEditing,
-      recipeToEdit: state.recipeToEdit
+      recipeToEdit: state.recipeToEdit,
+      initialValues: {
+        recipeId: state.isEditing.recipeToEdit ? state.isEditing.recipeToEdit.recipeId : '',
+        hideIngredients: state.isEditing.recipeToEdit ? state.isEditing.recipeToEdit.hideIngredients : '',
+        name: state.isEditing.recipeToEdit ? state.isEditing.recipeToEdit.name : '',
+        ingredients: state.isEditing.recipeToEdit ? state.isEditing.recipeToEdit.ingredients : '',
+        instructions: state.isEditing.recipeToEdit ? state.isEditing.recipeToEdit.instructions : '',
+        author:  state.isEditing.recipeToEdit ? state.isEditing.recipeToEdit.author : ''
+      }
       //this anonymous function is mapStateToProps
     }
   },
@@ -27,11 +28,9 @@ const UpdateRecipeContainer = reduxForm(
     return {
       //this anonymous function is mapDispatchToProps
       onSubmit: (values) => {
-        console.log(values)
         if(values.name){
           if(!values.name.trim()){return}
           if(values.recipeId === 'undefined'){return}
-          console.log(values.recipeId)
           dispatch(updateRecipe(
             values.recipeId,
             values.hideIngredients,
