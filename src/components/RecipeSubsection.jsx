@@ -1,5 +1,5 @@
 import React from 'react'
-export const RecipeSubsection = ({ingredients, instructions, author, dataToSanitize, sectionTitle}) => {
+export const RecipeSubsection = ({dataToSanitize, sectionTitle}) => {
   let sanitizeData = (data) => {
     return data
       .replace(/[<>]/g, '')

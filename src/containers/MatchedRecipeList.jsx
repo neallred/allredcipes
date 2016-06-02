@@ -13,7 +13,6 @@ const actionToRecipeMap = {
 const getMatchedRecipes = (recipes,filters,searchTerms) => {
   const recipeMatcher = (currentRecipe, currentRecipeIndex, recipesArray) => {
     var recipeMatched = true;
-    var wasFalse = false;
     for(var i=0;i<filters.length;i++){
       for(var j=0;j<searchTerms.length;j++){
         let recipeProperty = actionToRecipeMap[filters[i]]

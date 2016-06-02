@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react'
 
-const Checkbox = ({filter, active, onClick, labelName}) => (
+const Checkbox = ({filter, onClick, labelName}) => (
   <label><input name='search-by' type='checkbox' filter={filter} onClick={onClick}/>{labelName}</label>
 )
 

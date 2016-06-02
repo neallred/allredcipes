@@ -2,7 +2,6 @@ import React from 'react'
 import { RecipeButton } from '../containers/RecipeButton'
 import { destroyRecipe } from '../actions'
 import { toggleRecipe } from '../actions'
-import { updateRecipe } from '../actions'
 import { isEditing } from '../actions'
 export const RecipeCardTop = ({recipeId, name, hideIngredients}) => (
   <div className='heading'>

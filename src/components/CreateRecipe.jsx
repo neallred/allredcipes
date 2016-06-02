@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react'
-import { createRecipe } from '../actions'
 
 let CreateRecipe = ({
   fields: {name, ingredients, instructions, author},
