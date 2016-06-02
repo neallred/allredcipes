@@ -10,13 +10,13 @@ const CreateRecipeContainer = reduxForm(
     fields: ['name', 'ingredients', 'instructions', 'author']
   },
   (state, ownProps) => {
+    //this anonymous function is mapStateToProps
     return {
-      //this anonymous function is mapStateToProps
     }
   },
   (dispatch, ownProps) => {
+    //this anonymous function is mapDispatchToProps
     return {
-      //this anonymous function is mapDispatchToProps
       onSubmit: (values) => {
         if(!values.name.trim()){return}
         dispatch(createRecipe(

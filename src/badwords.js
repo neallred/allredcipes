@@ -312,7 +312,6 @@ export const badWords = [
   'slutbag',
   'smeg',
   'snatch',
-  'spic',
   'spick',
   'splooge',
   'spook',

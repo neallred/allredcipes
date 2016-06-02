@@ -1,0 +1,23 @@
+2016-06-01T14:00:48.610035275 0.090506s notice: Recursively removing directory /home/nathaniel/github/recipe-box/rethinkdb_data/tmp
+2016-06-01T14:00:48.615776873 0.096249s notice: Initializing directory /home/nathaniel/github/recipe-box/rethinkdb_data
+2016-06-01T14:00:48.616031688 0.096502s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/home/nathaniel/github/recipe-box/rethinkdb_data' did not already exist or is empty.)
+2016-06-01T14:00:48.616049023 0.096519s notice: Running rethinkdb 2.3.2~0jessie (GCC 4.9.2)...
+2016-06-01T14:00:48.617464727 0.097936s notice: Running on Linux 3.16.0-4-amd64 x86_64
+2016-06-01T14:00:48.617488589 0.097959s notice: Loading data from directory /home/nathaniel/github/recipe-box/rethinkdb_data
+2016-06-01T14:00:48.657400499 0.137871s info: Automatically using cache size of 14730 MB
+2016-06-01T14:00:48.658685840 0.139156s notice: Listening for intracluster connections on port 29015
+2016-06-01T14:00:48.664164268 0.144634s notice: Listening for client driver connections on port 28015
+2016-06-01T14:00:48.664226628 0.144697s notice: Listening for administrative HTTP connections on port 8080
+2016-06-01T14:00:48.664227080 0.144697s notice: Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+2016-06-01T14:00:48.664228088 0.144698s notice: Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+2016-06-01T14:00:48.664228325 0.144698s notice: Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+2016-06-01T14:00:48.664230592 0.144701s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-06-01T14:00:48.664232828 0.144703s notice: Server ready, "biscuits_aee" 2387163c-4bb7-40d6-bac7-caa32ce6efdf
+2016-06-01T14:01:17.684941996 29.165412s info: Table 6561dadd-105f-4527-9b31-7b058ae67e95: Starting a new Raft election for term 1.
+2016-06-01T14:01:17.686932134 29.167402s info: Table 6561dadd-105f-4527-9b31-7b058ae67e95: Added replica on this server.
+2016-06-01T14:01:17.692112265 29.172582s info: Table 6561dadd-105f-4527-9b31-7b058ae67e95: This server is Raft leader for term 1. Latest log index is 0.
+2016-06-01T14:25:51.633419343 1503.113890s notice: Server got SIGINT from pid 0, uid 0; shutting down...
+2016-06-01T14:25:51.633608786 1503.114080s notice: Shutting down client connections...
+2016-06-01T14:25:51.633777952 1503.114248s notice: All client connections closed.
+2016-06-01T14:25:51.633782473 1503.114253s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-06-01T14:25:51.639569731 1503.120041s notice: Storage engine shut down.

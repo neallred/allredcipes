@@ -2,13 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunkMiddleware from 'redux-thunk';
+import createLogger from 'redux-logger';
 import { recipeApp } from './reducers'
 import { App } from './App'
 import { Home } from './components/Home'
 import { FixturesRecipes } from './components/FixturesRecipes'
 import './css/bootstrap.min.css';
 import './css/custom.css.scss';
+//import initialRecipes from '../loadInitialState';
 
 const initialState = {
   recipes: FixturesRecipes,
@@ -25,17 +28,19 @@ const initialState = {
   setSearchFilters: [],
   setSearchTerms: []
 }
+const loggerMiddleware = createLogger({
+  level: 'error',
+  collapsed: true,
+});
+//applyMiddleware(thunkMiddleware, loggerMiddleware)
+const enhancer = compose(
+  applyMiddleware(thunkMiddleware)
+);
 
-let store = createStore(recipeApp, initialState);
+let store = createStore(recipeApp, initialState, enhancer);
 
-/*FOR TESTING PURPOSES*/
-import { createRecipe, destroyRecipe, setVisibilityFilter, VisibilityFilters, setSearchFilters, setSearchTerms } from './actions'
-let unsubscribe = store.subscribe(() => {})
-/*
-store.dispatch(createRecipe('Meatballs', 'meat', 'scoop into balls and bake', 'meathead'))
-store.dispatch(createRecipe('Jellyfish', 'jelly, fish', 'jelly your fish, and spread jelly on it', 'cowz'))
-*/
-unsubscribe()
+
+
 
 ReactDOM.render((
   <Provider store={store}>

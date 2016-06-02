@@ -7,26 +7,47 @@ import { reduxForm, reset } from 'redux-form'
 const UpdateRecipeContainer = reduxForm(
   {
     form: 'updateRecipe',
-    fields: ['recipeId', 'hideIngredients', 'name', 'ingredients', 'instructions', 'author'],
+    fields: [
+      'recipeId',
+      'hideIngredients',
+      'name',
+      'ingredients',
+      'instructions',
+      'author'
+    ],
   },
   (state, ownProps) => {
-    return {
-      isEditing: state.isEditing,
-      recipeToEdit: state.recipeToEdit,
-      initialValues: {
-        recipeId: state.isEditing.recipeToEdit ? state.isEditing.recipeToEdit.recipeId : '',
-        hideIngredients: state.isEditing.recipeToEdit ? state.isEditing.recipeToEdit.hideIngredients : '',
-        name: state.isEditing.recipeToEdit ? state.isEditing.recipeToEdit.name : '',
-        ingredients: state.isEditing.recipeToEdit ? state.isEditing.recipeToEdit.ingredients : '',
-        instructions: state.isEditing.recipeToEdit ? state.isEditing.recipeToEdit.instructions : '',
-        author:  state.isEditing.recipeToEdit ? state.isEditing.recipeToEdit.author : ''
-      }
       //this anonymous function is mapStateToProps
+    return {
+      recipeEditName: state.isEditing.recipeToEdit ?
+        state.isEditing.recipeToEdit.name :
+        '',
+      isEditing: state.isEditing.isEditing,
+      initialValues: {
+        recipeId: state.isEditing.recipeToEdit ?
+          state.isEditing.recipeToEdit.recipeId :
+          '',
+        hideIngredients: state.isEditing.recipeToEdit ?
+          state.isEditing.recipeToEdit.hideIngredients :
+          '',
+        name: state.isEditing.recipeToEdit ?
+          state.isEditing.recipeToEdit.name :
+          '',
+        ingredients: state.isEditing.recipeToEdit ?
+          state.isEditing.recipeToEdit.ingredients :
+          '',
+        instructions: state.isEditing.recipeToEdit ?
+          state.isEditing.recipeToEdit.instructions :
+          '',
+        author:  state.isEditing.recipeToEdit ?
+          state.isEditing.recipeToEdit.author :
+          ''
+      }
     }
   },
   (dispatch, ownProps) => {
-    return {
       //this anonymous function is mapDispatchToProps
+    return {
       onSubmit: (values) => {
         if(values.name){
           if(!values.name.trim()){return}

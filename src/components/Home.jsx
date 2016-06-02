@@ -11,12 +11,8 @@ export const Home = () => (
       <SearchRecipes />
     </div>
     <MatchedRecipeList />
-    <CreateRecipeContainer
-      onSubmit={(formValues) => console.log(formValues)}
-    />
-    <UpdateRecipeContainer
-      onSubmit={(formValues) => console.log(formValues)}
-    />
+    <CreateRecipeContainer />
+    <UpdateRecipeContainer />
     <br/>
   </div>
 )
