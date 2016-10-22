@@ -26,19 +26,18 @@ store are located in src/containers.
 
 TODO
 ------------------------------
-* Create filter capability
-* Migrate from plain text fixture file to SQLite DB. Or to RethinkDB?
+* Migrate to RethinkDB.
 * Create user system.
-  * Sendgrid email service
-  * username,email,password
-  * Ideate user data table
-    * Authentication Tokens?
-    * Activation Tokens?
-    * Password Reset Tokens?
-  * Permissions system
-    * **anonymous**
-      * read all
-      * edit/delete none
+    * Sendgrid email service
+    * username,email,password
+    * Ideate user data table
+        * Authentication Tokens?
+        * Activation Tokens?
+        * Password Reset Tokens?
+    * Permissions system
+        * **anonymous**
+        * read all
+        * edit/delete none
     * **authenticated**
     * edit/delete own
     * **admin**

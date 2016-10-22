@@ -1,23 +1,19 @@
 {
   "name": "recipe-box",
-  "description": "React Recipe Box by Nathaniel Allred",
+  "description": "Allred recipe box by Nathaniel Allred",
   "version": "0.0.1",
   "engines": {
-    "node": "6.1.0"
+    "node": "^6.1.0"
   },
   "dependencies": {
-    "babel-core": "^6.5.2",
-    "babel-loader": "^6.2.3",
-    "babel-plugin-transform-react-jsx": "^6.5.2",
-    "babel-preset-es2015": "^6.5.0",
-    "babel-preset-react": "^6.5.0",
-    "babel-preset-stage-0": "^6.5.0",
+    "axios": "^0.15.2",
     "compress": "^0.99.0",
     "compression": "^1.6.1",
     "compression-webpack-plugin": "^0.3.1",
     "css-loader": "^0.23.1",
     "express": "^4.13.4",
     "file-loader": "^0.8.5",
+    "lodash": "^4.16.4",
     "path": "^0.12.7",
     "raw-loader": "^0.5.1",
     "react": "^0.14.3",
@@ -34,6 +30,12 @@
     "url-loader": "^0.5.7"
   },
   "devDependencies": {
+    "babel-core": "^6.5.2",
+    "babel-loader": "^6.2.3",
+    "babel-plugin-transform-react-jsx": "^6.5.2",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
     "enzyme": "^2.0.0",
     "file-loader": "^0.8.5",
     "node-sass": "^3.4.2",
@@ -50,6 +52,7 @@
   "scripts": {
     "postinstall": "webpack --config ./webpack-production.config.js --progress --colors",
     "server": "webpack-dev-server --host=0.0.0.0 --port 8000 --content-base=dist/",
-    "start": "webpack -p && node server.js"
+    "start": "webpack -p && node server.js",
+    "start-watch": "webpack -dw & node server.js"
   }
 }
