@@ -7,7 +7,10 @@ const PATHS = {
 
 var config = {
 	context: __dirname,
-	entry: { app: './src/index.jsx'},
+	entry: {
+		app: './src/index.jsx',
+		js: ['babel-polyfill']
+	},
 	output: {
 		libraryTarget: 'umd',
 		path: path.join(__dirname, 'dist'),

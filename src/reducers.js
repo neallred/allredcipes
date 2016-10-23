@@ -1,9 +1,21 @@
 import { combineReducers } from 'redux';
-import find from 'lodash/find';
+import _ from 'lodash';
 import {reducer as formReducer} from 'redux-form';
-import { CREATE_RECIPE, UPDATE_RECIPE, DESTROY_RECIPE, TOGGLE_RECIPE, IS_EDITING, SET_VISIBILITY_FILTER, SET_SEARCH_FILTERS, SET_SEARCH_TERMS, VisibilityFilters, SearchFilters } from './actions';
+import {
+	RECIPES_SUCCESS,
+	CREATE_RECIPE,
+	UPDATE_RECIPE,
+	DESTROY_RECIPE,
+	TOGGLE_RECIPE,
+	IS_EDITING,
+	SET_VISIBILITY_FILTER,
+	SET_SEARCH_FILTERS,
+	SET_SEARCH_TERMS,
+	VisibilityFilters,
+	SearchFilters
+} from './actions';
 const { SHOW_ALL } = VisibilityFilters;
-
+const { BY_ALL, BY_NAME, BY_INGREDIENTS, BY_INSTRUCTIONS, BY_AUTHOR } = SearchFilters;
 
 function visibilityFilter(state = SHOW_ALL, action) {
 	switch (action.type) {
@@ -16,7 +28,7 @@ function visibilityFilter(state = SHOW_ALL, action) {
 
 const recipe = (state, action) => {
 	switch (action.type) {
-		case 'CREATE_RECIPE':
+		case CREATE_RECIPE:
 			return {
 				id: action.id,
 				hideIngredients: action.hideIngredients,
@@ -25,7 +37,7 @@ const recipe = (state, action) => {
 				instructions: action.instructions,
 				author: action.author
 			}
-		case 'UPDATE_RECIPE':
+		case UPDATE_RECIPE:
 			return {
 				id: action.recipeId,
 				hideIngredients: action.hideIngredients,
@@ -34,7 +46,7 @@ const recipe = (state, action) => {
 				instructions: action.instructions,
 				author: action.author
 			}
-		case 'TOGGLE_RECIPE':
+		case TOGGLE_RECIPE:
 			if (state.id !== action.id) {
 				return state
 			}
@@ -50,12 +62,14 @@ const recipe = (state, action) => {
 
 const recipes = (state = [], action) => {
 	switch (action.type) {
+		case RECIPES_SUCCESS:
+			return _.union(...state, action.recipes);
 		case CREATE_RECIPE:
 			return [
 				...state,
 				recipe(undefined, action)
 			]
-		case 'UPDATE_RECIPE':
+		case UPDATE_RECIPE:
 			let indexUpdate, iUpdate
 			for(var iUpdate=0;iUpdate<state.length;iUpdate++){
 				state[iUpdate];
@@ -91,7 +105,7 @@ const recipes = (state = [], action) => {
 const isEditing = (state = [], action) => {
 	switch (action.type) {
 		case 'IS_EDITING':
-			const recipeToChange = find(state.recipes, ['id', action.id]);
+			const recipeToChange = _.find(state.recipes, ['id', action.id]);
 			return Object.assign({}, state, {
 				isEditing: !state.isEditing,
 				recipeToEdit: recipeToChange? {
@@ -110,7 +124,7 @@ const isEditing = (state = [], action) => {
 
 const recipeToEdit = (state = [], action) => {
 	switch (action.type) {
-		case 'UPDATE_RECIPE':
+		case UPDATE_RECIPE:
 			return state
 		default:
 			return state
@@ -119,11 +133,11 @@ const recipeToEdit = (state = [], action) => {
 
 const setSearchFilters = (state = [], action) => {
 	switch (action.filter) {
-		case 'BY_ALL':
-		case 'BY_NAME':
-		case 'BY_INGREDIENTS':
-		case 'BY_INSTRUCTIONS':
-		case 'BY_AUTHOR':
+		case BY_ALL:
+		case BY_NAME:
+		case BY_INGREDIENTS:
+		case BY_INSTRUCTIONS:
+		case BY_AUTHOR:
 			if(state.indexOf(action.filter) === -1){
 				return [...state, action.filter]
 			} else {
@@ -140,7 +154,7 @@ const setSearchFilters = (state = [], action) => {
 
 const setSearchTerms = (state = [], action) => {
 	switch (action.type) {
-		case 'SET_SEARCH_TERMS':
+		case SET_SEARCH_TERMS:
 			return action.terms.toLowerCase().split(' ')
 		default:
 			return state

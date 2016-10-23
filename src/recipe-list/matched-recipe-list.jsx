@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-import { toggleRecipe } from '../actions'
+import { toggleRecipe, fetchRecipes } from '../actions'
+import { RECIPES_REQUEST } from '../actions'
 import { RecipeList } from './recipe-list'
 
 const actionToRecipeMap = {
@@ -37,6 +38,9 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		onRecipeClick: (id) => {
 			dispatch(toggleRecipe(id))
+		},
+		fetchRecipes: () => {
+			dispatch(fetchRecipes())
 		}
 	}
 }

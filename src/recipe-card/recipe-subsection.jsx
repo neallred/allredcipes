@@ -5,6 +5,6 @@ export const RecipeSubsection = ({dataToSanitize, sectionTitle}) => {
 	const listWrapper = htmlBlob => { return `<li class='item'>${htmlBlob}</li>` };
 	return <div>
 		<p className='recipe-subsection-heading'><strong>{sectionTitle}:</strong></p>
-		<ul dangerouslySetInnerHTML={{__html: listWrapper(listifyString(sanitizeData(dataToSanitize)))}}/>
+		<ul>{listWrapper(listifyString(sanitizeData((dataToSanitize || []))))}</ul>
 	</div>
 }

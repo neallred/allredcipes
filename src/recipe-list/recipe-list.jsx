@@ -1,11 +1,10 @@
 import React, {PropTypes} from 'react'
 import { RecipeCard } from '../recipe-card/recipe-card'
-import axios from 'axios';
 
 class RecipeList extends React.Component {
 
 	componentWillMount() {
-		axios.get('/recipes')
+		this.props.fetchRecipes();
 	}
 
 	render() {

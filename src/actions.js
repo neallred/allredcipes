@@ -1,5 +1,8 @@
 import {badWords} from './badwords.js'
 import {abbreviations} from './abbreviations.js'
+export const RECIPES_REQUEST = 'RECIPES_REQUEST'
+export const RECIPES_SUCCESS = 'RECIPES_SUCCESS'
+export const RECIPES_FAILURE = 'RECIPES_FAILURE'
 export const CREATE_RECIPE = 'CREATE_RECIPE'
 export const UPDATE_RECIPE = 'UPDATE_RECIPE'
 export const DESTROY_RECIPE = 'DESTROY_RECIPE'
@@ -118,5 +121,11 @@ export const setSearchTerms = (terms) => {
 	return {
 		type: SET_SEARCH_TERMS,
 		terms
+	}
+}
+
+export const fetchRecipes = () => {
+	return {
+		type: RECIPES_REQUEST
 	}
 }

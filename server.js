@@ -8,7 +8,10 @@ app.use(compress());
 var isDevelopment = (process.env.NODE_ENV !== 'production')
 var static_path = path.join(__dirname, 'dist');
 
-
+var sys = require('sys')
+var exec = require('child_process').exec;
+function puts(error, stdout, stderr) { sys.puts(stdout) }
+exec("rethinkdb", puts);
 
 
 var r = require('rethinkdb');
