@@ -17,11 +17,11 @@ class RecipeList extends React.Component {
 
 RecipeList.propTypes = {
 	recipes: PropTypes.arrayOf(PropTypes.shape({
-		id: PropTypes.number.isRequired,
+		id: PropTypes.any.isRequired,
 		name: PropTypes.string.isRequired,
-		ingredients: PropTypes.string.isRequired,
-		instructions: PropTypes.string.isRequired,
-		author: PropTypes.string.isRequired
+		ingredients: PropTypes.string,
+		instructions: PropTypes.string,
+		author: PropTypes.string
 	}).isRequired).isRequired,
 	onRecipeClick: PropTypes.func.isRequired
 }

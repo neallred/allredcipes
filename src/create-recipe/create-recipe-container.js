@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import { createRecipe } from '../actions'
-import { CreateRecipe } from './create-recipe'
-import { reduxForm, reset } from 'redux-form'
+import { createRecipe } from './sagas';
+import { CreateRecipe } from './create-recipe';
+import { reduxForm, reset } from 'redux-form';
+import { RECIPE_CREATE_REQUEST } from '../action-types';
 
 const CreateRecipeContainer = reduxForm(
 	{
@@ -17,15 +18,16 @@ const CreateRecipeContainer = reduxForm(
 	(dispatch, ownProps) => {
 		//this anonymous function is mapDispatchToProps
 		return {
-			onSubmit: (values) => {
-				if(!values.name.trim()){return}
-				dispatch(createRecipe(
-					values.name,
-					values.ingredients,
-					values.instructions,
-					values.author
-				))
-				dispatch(reset('createRecipe'))
+			onSubmit: (values = {}) => {
+				const { name, ingredients, instructions, author } = values;
+				if( !name || (typeof name !== 'string') || !name.trim()){
+					return false;
+				}
+				dispatch({
+					type: RECIPE_CREATE_REQUEST,
+					value: {name, ingredients, instructions, author, hideIngredients: true}
+				});
+				//dispatch(reset('createRecipe'))
 			}
 		}
 	}

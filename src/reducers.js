@@ -3,19 +3,29 @@ import _ from 'lodash';
 import {reducer as formReducer} from 'redux-form';
 import {
 	RECIPES_SUCCESS,
+
+	RECIPE_CREATE_SUCCESS,
+
+	RECIPE_UPDATE_SUCCESS,
+
 	CREATE_RECIPE,
-	UPDATE_RECIPE,
+
 	DESTROY_RECIPE,
 	TOGGLE_RECIPE,
 	IS_EDITING,
+
 	SET_VISIBILITY_FILTER,
 	SET_SEARCH_FILTERS,
 	SET_SEARCH_TERMS,
-	VisibilityFilters,
-	SearchFilters
-} from './actions';
-const { SHOW_ALL } = VisibilityFilters;
-const { BY_ALL, BY_NAME, BY_INGREDIENTS, BY_INSTRUCTIONS, BY_AUTHOR } = SearchFilters;
+
+	SHOW_ALL,
+
+	BY_ALL,
+	BY_NAME,
+	BY_INGREDIENTS,
+	BY_INSTRUCTIONS,
+	BY_AUTHOR 
+} from './action-types';
 
 function visibilityFilter(state = SHOW_ALL, action) {
 	switch (action.type) {
@@ -26,26 +36,13 @@ function visibilityFilter(state = SHOW_ALL, action) {
 	}
 }
 
-const recipe = (state, action) => {
+const recipe = (state = {}, action) => {
 	switch (action.type) {
-		case CREATE_RECIPE:
-			return {
-				id: action.id,
-				hideIngredients: action.hideIngredients,
-				name: action.name,
-				ingredients: action.ingredients,
-				instructions: action.instructions,
-				author: action.author
+		case RECIPE_UPDATE_SUCCESS:
+			if (state.id !== action.recipe.id) {
+				return state
 			}
-		case UPDATE_RECIPE:
-			return {
-				id: action.recipeId,
-				hideIngredients: action.hideIngredients,
-				name: action.name,
-				ingredients: action.ingredients,
-				instructions: action.instructions,
-				author: action.author
-			}
+			return Object.assign({}, state, action.recipe);
 		case TOGGLE_RECIPE:
 			if (state.id !== action.id) {
 				return state
@@ -53,7 +50,7 @@ const recipe = (state, action) => {
 
 			return Object.assign({}, state, {
 				hideIngredients: !state.hideIngredients
-			})
+			});
 
 		default:
 			return state
@@ -69,19 +66,21 @@ const recipes = (state = [], action) => {
 				...state,
 				recipe(undefined, action)
 			]
-		case UPDATE_RECIPE:
-			let indexUpdate, iUpdate
-			for(var iUpdate=0;iUpdate<state.length;iUpdate++){
-				state[iUpdate];
-				if(state[iUpdate].id === action.recipeId){
-					indexUpdate = iUpdate;
-				}
+		case RECIPE_CREATE_SUCCESS:
+			const newlyFetchedRecipe = action && action.recipe;
+			const newRecipe = {
+				id: newlyFetchedRecipe.id,
+				hideIngredients: true,
+				name: newlyFetchedRecipe.name,
+				ingredients: newlyFetchedRecipe.ingredients || '',
+				instructions: newlyFetchedRecipe.instructions || '',
+				author: newlyFetchedRecipe.author || ''
 			}
-			return [
-				...state.slice(0, indexUpdate),
-				recipe(undefined, action),
-				...state.slice(indexUpdate + 1)
-			]
+			return [...state, newRecipe]
+		case RECIPE_UPDATE_SUCCESS:
+			return state.map(r =>
+					recipe(r, action)
+			);
 		case DESTROY_RECIPE:
 			let indexDestroy, iDestroy
 			for(iDestroy=0;iDestroy<state.length;iDestroy++){
@@ -102,30 +101,14 @@ const recipes = (state = [], action) => {
 	}
 }
 
-const isEditing = (state = [], action) => {
+const isEditing = (state = {}, action) => {
 	switch (action.type) {
-		case 'IS_EDITING':
-			const recipeToChange = _.find(state.recipes, ['id', action.id]);
+		case IS_EDITING:
+			const isEditingState = !state.flag;
 			return Object.assign({}, state, {
-				isEditing: !state.isEditing,
-				recipeToEdit: recipeToChange? {
-					recipeId: recipeToChange.id,
-					hideIngredients: recipeToChange.hideIngredients,
-					name: recipeToChange.name,
-					ingredients: recipeToChange.ingredients,
-					instructions: recipeToChange.instructions,
-					author: recipeToChange.author
-				} : null
-			})
-		default:
-			return state
-	}
-}
-
-const recipeToEdit = (state = [], action) => {
-	switch (action.type) {
-		case UPDATE_RECIPE:
-			return state
+				flag: isEditingState,
+				id: isEditingState ? action.id : null
+			});
 		default:
 			return state
 	}
@@ -133,6 +116,7 @@ const recipeToEdit = (state = [], action) => {
 
 const setSearchFilters = (state = [], action) => {
 	switch (action.filter) {
+		//Intentional fall through
 		case BY_ALL:
 		case BY_NAME:
 		case BY_INGREDIENTS:
@@ -166,7 +150,6 @@ const recipeApp = combineReducers({
 	visibilityFilter,
 	recipes,
 	isEditing,
-	recipeToEdit,
 	setSearchFilters,
 	setSearchTerms,
 	form: formReducer

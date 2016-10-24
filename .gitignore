@@ -1,5 +1,6 @@
 node_modules/
 dist/*.js
 dist/*.map
+dist/*.gz
 rethinkdb_data/
 npm-debug.log

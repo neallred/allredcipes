@@ -16,14 +16,9 @@ import './css/custom.css.scss';
 const initialState = {
 	recipes: [],
 	visibilityFilter: 'BY_ALL',
-	isEditing: false,
-	recipeToEdit: {
-		id: null,
-		hideIngredients: true,
-		name: '',
-		ingredients: '',
-		instructions: '',
-		author: ''
+	isEditing: {
+		flag: false,
+		id: null
 	},
 	setSearchFilters: [],
 	setSearchTerms: []

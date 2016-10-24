@@ -1,19 +1,15 @@
-import 'babel-polyfill'
-import { takeEvery, delay } from 'redux-saga'
-import { call, put } from 'redux-saga/effects'
-import axios from 'axios';
+import 'babel-polyfill';
 
-function *fetchRecipes() {
-	const recipes = yield call(axios.get, '/recipes');
-	yield put({type: 'RECIPES_SUCCESS', recipes: recipes.data});
-}
-
-function *watchFetchRecipes() {
-	yield takeEvery('RECIPES_REQUEST', fetchRecipes)
-}
+import { watchCreateRecipe } from './create-recipe/sagas';
+import { watchFetchRecipes } from './recipe-list/sagas';
+import { watchDeleteRecipe } from './recipe-card/sagas';
+import { watchUpdateRecipe } from './update-recipe/sagas';
 
 export function *rootSaga() {
 	yield [
-		watchFetchRecipes()
+		watchFetchRecipes(),
+		watchCreateRecipe(),
+		watchDeleteRecipe(),
+		watchUpdateRecipe()
 	]
 }

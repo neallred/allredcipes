@@ -4,7 +4,9 @@ import { CreateRecipeContainer } from '../create-recipe/create-recipe-container'
 import { UpdateRecipeContainer } from '../update-recipe/update-recipe-container'
 import { MatchedRecipeList } from '../recipe-list/matched-recipe-list'
 
-export const Home = () => (
+export const Home = ({
+	updateFields
+}) => (
 	<div>
 		<div className='banner center-block'>
 			<h1 className='center-block'>Allred Recipe Box</h1>
@@ -12,7 +14,7 @@ export const Home = () => (
 		</div>
 		<MatchedRecipeList />
 		<CreateRecipeContainer />
-		<UpdateRecipeContainer />
+		<UpdateRecipeContainer updateFields={updateFields}/>
 		<br/>
 	</div>
 )

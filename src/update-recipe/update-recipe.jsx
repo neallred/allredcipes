@@ -11,12 +11,14 @@ let UpdateRecipe = ({
 		author
 	},
 	recipeEditName,
-	onClick,
+	onCancel,
+	onSubmit,
 	handleSubmit,
-	isEditing
+	isEditingFlag,
+	initialValues
 }) => (
-	<div className={`modalDialog center-block text-center ${isEditing ? 'opened' : 'closed'}`} id='dialog'>
-		<h2 className='add-recipes'>Edit {recipeEditName}</h2>
+	<div className={`modalDialog center-block text-center ${isEditingFlag ? 'opened' : 'closed'}`} id='dialog'>
+		<h2 className='add-recipes'>Edit {recipeEditName} {initialValues}</h2>
 		<form className='container' onSubmit={handleSubmit}>
 			<input type='hidden' {...recipeId} /><br/>
 			<input type='hidden' {...hideIngredients} /><br/>
@@ -25,12 +27,12 @@ let UpdateRecipe = ({
 			<textarea            {...instructions} placeholder='Instructions' /><br/>
 			<input type='text'   {...author} placeholder='Recipe author' /><br/>
 			<button type='button'
-				onClick={onClick}
+				onClick={onCancel}
 				className='btn btn-primary'
 				id='cancel-edit' >
 				Cancel edit
 			</button><br/>
-			<button type='submit' className='btn btn-success' >
+			<button type='submit' className='btn btn-success' onSubmit={onSubmit}>
 				Update Recipe
 			</button>
 		</form>
