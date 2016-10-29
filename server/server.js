@@ -167,15 +167,17 @@ author: ${author}
 app.delete('/recipes/:id', function deleteRecipe(req, res, next) {
 	const { params = {} } = req;
 	const {id} = params;
-	console.log(`delete request for recipe of id ${id}`);
 	c((conn) => {
-		r.table('recipes').
-			run(conn, function(err, cursor) {
+		r.table("recipes").get(id).delete()
+			.run(conn, function(err, result) {
 				if (err) throw err;
-				cursor.toArray(function(err, result) {
-					if (err) throw err;
-					return res.send(`You tried to delete recipe of id ${id}`);
-				});
+				console.log(result);
+				if (result.deleted) {
+					return res.send({message: `You deleted recipe of id ${id}`, id});
+				}
+				else if (!result.deleted && result.skipped) {
+					return res.send({message: `Unable to delete recipe of id ${id}`});
+				}
 			});
 	});
 });

@@ -27,7 +27,6 @@ export const RecipeCardTop = ({recipeId, name, hideIngredients}) => (
 			<RecipeButton recipeId={recipeId}
 				          columnSize={'3'}
 						  dispatchType={(id) => {
-							  console.log(`create a recipe delete request with id ${recipeId}`);
 							  return {type: RECIPE_DELETE_REQUEST, value: id};
 						  }}
 				          buttonLabel={'X'}

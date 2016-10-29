@@ -11,7 +11,9 @@ import {
 function *deleteRecipe(action) {
 	if (!action.value) { return }
 	const recipes = yield call(axios.delete, `/recipes/${action.value}`);
-	yield put({type: RECIPE_DELETE_SUCCESS, recipes: recipes.data});
+	console.log(recipes);
+	const recipeIdToDelete = recipes && recipes.data && recipes.data.id
+	yield put({type: RECIPE_DELETE_SUCCESS, recipeIdToDelete});
 }
 
 export function *watchDeleteRecipe() {

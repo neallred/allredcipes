@@ -8,9 +8,10 @@ import {
 
 	RECIPE_UPDATE_SUCCESS,
 
+	RECIPE_DELETE_SUCCESS,
+
 	CREATE_RECIPE,
 
-	DESTROY_RECIPE,
 	TOGGLE_RECIPE,
 	IS_EDITING,
 
@@ -81,16 +82,13 @@ const recipes = (state = [], action) => {
 			return state.map(r =>
 					recipe(r, action)
 			);
-		case DESTROY_RECIPE:
-			let indexDestroy, iDestroy
-			for(iDestroy=0;iDestroy<state.length;iDestroy++){
-				if(state[iDestroy].id === action.recipeId){
-					indexDestroy = iDestroy;
-				}
-			}
+		case RECIPE_DELETE_SUCCESS:
+			const recipeToDelete = _.findIndex(state, (recipe) => {
+				return (recipe.id + '') === (action.recipeIdToDelete + '')
+			});
 			return [
-				...state.slice(0, indexDestroy),
-				...state.slice(indexDestroy + 1)
+				...state.slice(0, recipeToDelete),
+				...state.slice(recipeToDelete + 1)
 			]
 		case TOGGLE_RECIPE:
 			return state.map(r =>

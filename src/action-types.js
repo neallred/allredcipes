@@ -16,7 +16,6 @@ export const RECIPES_FAILURE = 'RECIPES_FAILURE';
 
 export const CREATE_RECIPE = 'CREATE_RECIPE';
 export const UPDATE_RECIPE = 'UPDATE_RECIPE';
-export const DESTROY_RECIPE = 'DESTROY_RECIPE';
 export const TOGGLE_RECIPE = 'TOGGLE_RECIPE';
 
 export const IS_EDITING = 'IS_EDITING';
