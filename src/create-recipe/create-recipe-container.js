@@ -25,9 +25,15 @@ const CreateRecipeContainer = reduxForm(
 				}
 				dispatch({
 					type: RECIPE_CREATE_REQUEST,
-					value: {name, ingredients, instructions, author, hideIngredients: true}
+					value: {
+						name,
+						ingredients,
+						instructions,
+						author,
+						hideIngredients: true
+					}
 				});
-				//dispatch(reset('createRecipe'))
+				dispatch(reset('createRecipe'));
 			}
 		}
 	}

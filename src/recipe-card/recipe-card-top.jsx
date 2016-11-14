@@ -6,31 +6,31 @@ import { isEditing } from '../actions'
 
 import { RECIPE_DELETE_REQUEST } from '../action-types'
 
-export const RecipeCardTop = ({recipeId, name, hideIngredients}) => (
+export const RecipeCardTop = ({recipeId, name, hideIngredients, isLoggedIn}) => (
 	<div className='heading'>
 		<div className='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 			<h3>{name}</h3>
 		</div>
 		<div className='row'>
-			<RecipeButton recipeId={recipeId}
+			{isLoggedIn && <RecipeButton recipeId={recipeId}
 				          columnSize={'3'}
 				          dispatchType={isEditing}
 				          buttonLabel={'Edit'}
-				          buttonClass={'warning'} />
+				          buttonClass={'warning'} />}
 
 			<RecipeButton recipeId={recipeId}
-				          columnSize={'6'}
+				          columnSize={isLoggedIn ? '6': '12'}
 				          dispatchType={toggleRecipe}
 				          buttonLabel={hideIngredients ? 'Show Recipe' : 'Hide Recipe'}
 				          buttonClass={'success'} />
 
-			<RecipeButton recipeId={recipeId}
+			{isLoggedIn && <RecipeButton recipeId={recipeId}
 				          columnSize={'3'}
 						  dispatchType={(id) => {
 							  return {type: RECIPE_DELETE_REQUEST, value: id};
 						  }}
 				          buttonLabel={'X'}
-				          buttonClass={'danger'} />
+				          buttonClass={'danger'} />}
 		</div>
 	</div>
 );

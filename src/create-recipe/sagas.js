@@ -2,7 +2,7 @@ import 'babel-polyfill';
 import _ from 'lodash';
 import { takeEvery, delay } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
-import axios from 'axios';
+import axiosInstance from '../axiosInstance';
 import {
 	RECIPE_CREATE_REQUEST,
 	RECIPE_CREATE_SUCCESS,
@@ -10,7 +10,7 @@ import {
 } from '../action-types';
 
 function *createRecipe(action) {
-	const recipe = yield call(axios.post, '/recipes', action.value);
+	const recipe = yield call(axiosInstance.post, '/recipes', action.value);
 	yield put({type: RECIPE_CREATE_SUCCESS, recipe: recipe.data});
 }
 

@@ -30,7 +30,8 @@ const getMatchedRecipes = (recipes,filters,searchTerms) => {
 
 const mapStateToProps = (state) => {
 	return {
-		recipes: getMatchedRecipes(state.recipes, state.setSearchFilters, state.setSearchTerms)
+		recipes: getMatchedRecipes(state.recipes, state.setSearchFilters, state.setSearchTerms),
+		session: state.session
 	}
 }
 

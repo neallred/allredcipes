@@ -1,6 +1,7 @@
-import { combineReducers } from 'redux';
-import _ from 'lodash';
-import {reducer as formReducer} from 'redux-form';
+import { combineReducers } from 'redux'
+import _ from 'lodash'
+import {reducer as formReducer} from 'redux-form'
+import { session } from './header/ducks'
 import {
 	RECIPES_SUCCESS,
 
@@ -26,9 +27,9 @@ import {
 	BY_INGREDIENTS,
 	BY_INSTRUCTIONS,
 	BY_AUTHOR 
-} from './action-types';
+} from './action-types'
 
-function visibilityFilter(state = SHOW_ALL, action) {
+const visibilityFilter = (state = SHOW_ALL, action) => {
 	switch (action.type) {
 		case SET_VISIBILITY_FILTER:
 			return action.filter
@@ -43,7 +44,7 @@ const recipe = (state = {}, action) => {
 			if (state.id !== action.recipe.id) {
 				return state
 			}
-			return Object.assign({}, state, action.recipe);
+			return Object.assign({}, state, action.recipe)
 		case TOGGLE_RECIPE:
 			if (state.id !== action.id) {
 				return state
@@ -51,7 +52,7 @@ const recipe = (state = {}, action) => {
 
 			return Object.assign({}, state, {
 				hideIngredients: !state.hideIngredients
-			});
+			})
 
 		default:
 			return state
@@ -61,31 +62,35 @@ const recipe = (state = {}, action) => {
 const recipes = (state = [], action) => {
 	switch (action.type) {
 		case RECIPES_SUCCESS:
-			return _.union(...state, action.recipes);
+			return _.union(...state, action.recipes)
 		case CREATE_RECIPE:
 			return [
 				...state,
 				recipe(undefined, action)
 			]
 		case RECIPE_CREATE_SUCCESS:
-			const newlyFetchedRecipe = action && action.recipe;
+			const newlyFetchedRecipe = action && action.recipe || {}
+			const { id, name, ingredients, instructions, author } = newlyFetchedRecipe
 			const newRecipe = {
-				id: newlyFetchedRecipe.id,
+				id,
 				hideIngredients: true,
-				name: newlyFetchedRecipe.name,
-				ingredients: newlyFetchedRecipe.ingredients || '',
-				instructions: newlyFetchedRecipe.instructions || '',
-				author: newlyFetchedRecipe.author || ''
+				name,
+				ingredients,
+				instructions,
+				author
 			}
 			return [...state, newRecipe]
 		case RECIPE_UPDATE_SUCCESS:
 			return state.map(r =>
 					recipe(r, action)
-			);
+			)
 		case RECIPE_DELETE_SUCCESS:
 			const recipeToDelete = _.findIndex(state, (recipe) => {
 				return (recipe.id + '') === (action.recipeIdToDelete + '')
-			});
+			})
+			if (recipeToDelete === -1) {
+				return state
+			}
 			return [
 				...state.slice(0, recipeToDelete),
 				...state.slice(recipeToDelete + 1)
@@ -102,11 +107,11 @@ const recipes = (state = [], action) => {
 const isEditing = (state = {}, action) => {
 	switch (action.type) {
 		case IS_EDITING:
-			const isEditingState = !state.flag;
+			const isEditingState = !state.flag
 			return Object.assign({}, state, {
 				flag: isEditingState,
 				id: isEditingState ? action.id : null
-			});
+			})
 		default:
 			return state
 	}
@@ -145,12 +150,13 @@ const setSearchTerms = (state = [], action) => {
 
 
 const recipeApp = combineReducers({
-	visibilityFilter,
-	recipes,
+	form: formReducer,
 	isEditing,
+	recipes,
+	session,
 	setSearchFilters,
 	setSearchTerms,
-	form: formReducer
+	visibilityFilter
 })
 
 export { recipeApp }

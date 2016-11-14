@@ -10,7 +10,7 @@ class RecipeList extends React.Component {
 	render() {
 		const {recipes} = this.props;
 		return <div className='center-block'>
-			{recipes.map(recipe => <RecipeCard key={recipe.id} {...recipe} />)}
+			{recipes.map(recipe => <RecipeCard key={recipe.id} {...recipe} isLoggedIn={this.props.session && this.props.session.isLoggedIn} />)}
 		</div>
 	}
 }
