@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux'
 import _ from 'lodash'
 import {reducer as formReducer} from 'redux-form'
-import { session } from './header/ducks'
+import { session } from './session/ducks'
+import { header } from './header/ducks'
+
 import {
 	RECIPES_SUCCESS,
 
@@ -44,13 +46,13 @@ const recipe = (state = {}, action) => {
 			if (state.id !== action.recipe.id) {
 				return state
 			}
-			return Object.assign({}, state, action.recipe)
+			return _.assign({}, state, action.recipe)
 		case TOGGLE_RECIPE:
 			if (state.id !== action.id) {
 				return state
 			}
 
-			return Object.assign({}, state, {
+			return _.assign({}, state, {
 				hideIngredients: !state.hideIngredients
 			})
 
@@ -108,7 +110,7 @@ const isEditing = (state = {}, action) => {
 	switch (action.type) {
 		case IS_EDITING:
 			const isEditingState = !state.flag
-			return Object.assign({}, state, {
+			return _.assign({}, state, {
 				flag: isEditingState,
 				id: isEditingState ? action.id : null
 			})
@@ -153,6 +155,7 @@ const recipeApp = combineReducers({
 	form: formReducer,
 	isEditing,
 	recipes,
+	header,
 	session,
 	setSearchFilters,
 	setSearchTerms,

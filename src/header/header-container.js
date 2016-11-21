@@ -1,12 +1,20 @@
 import { connect } from 'react-redux'
 import { Header } from './header'
-import { deleteSession, createSession } from './ducks'
+import { headerButtonSelect } from './ducks'
+import { deleteSession, createSession } from '../session/ducks'
 
 const mapStateToProps = (state, ownProps) => {
+	const {session, header} = state
+
 	return {
-		session: state.session,
+		//actions
 		deleteSession,
-		createSession
+		createSession,
+		headerButtonSelect,
+
+		//state
+		session,
+		buttonSelected: header.buttonSelected
 	}
 }
 

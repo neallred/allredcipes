@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import { takeEvery, delay } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
-import axiosInstance from '../axiosInstance';
+import { axiosInstance } from '../axiosInstance';
 import {
 	RECIPE_DELETE_REQUEST,
 	RECIPE_DELETE_SUCCESS,

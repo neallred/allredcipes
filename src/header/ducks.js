@@ -1,34 +1,25 @@
 import _ from 'lodash'
 import {
-	SESSION_CREATE_REQUEST,
-	SESSION_CREATE_SUCCESS,
-	SESSION_CREATE_FAILURE,
-
-	SESSION_DELETE_REQUEST,
-	SESSION_DELETE_SUCCESS,
-	SESSION_DELETE_FAILURE
+	HEADER_BUTTON_SELECT
 } from '../action-types'
 
-export const session = (state = {}, action) => {
+export const defaultStateHeader = {
+	buttonSelected: 'login'
+};
+
+export const header = (state = defaultStateHeader, action) => {
 	switch (action.type) {
-		case SESSION_CREATE_SUCCESS:
-			return _.assign({}, state, {isLoggedIn: true})
-		case SESSION_DELETE_SUCCESS:
-			return _.assign({}, state, {isLoggedIn: false})
+		case HEADER_BUTTON_SELECT:
+			return _.assign({}, state, {buttonSelected: action.value})
+
 		default:
 			return state
 	}
 }
 
-export const createSession = (username, password) => {
+export const headerButtonSelect = (value) => {
 	return {
-		type: SESSION_CREATE_REQUEST,
-		username,
-		password
-	}
-}
-export const deleteSession = () => {
-	return {
-		type: SESSION_DELETE_REQUEST
+		type: HEADER_BUTTON_SELECT,
+		value
 	}
 }

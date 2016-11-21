@@ -1,0 +1,70 @@
+@import '../css/colors';
+
+ .header {
+
+	&__wrapper {
+		display: inline;
+	}
+	&__header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		padding: 0.2em;
+		background-color: $gray-dark;
+		z-index: 2;
+	}
+
+	&__input {
+		border-radius: 0.5em;
+		border-style: none;
+		display: inline-block;
+		margin-left: 0.2em;
+		outline: none;
+		padding-left: 0.2em;
+		padding-right: 0.2em;
+		width: 11em;
+	}
+	
+	&__button {
+		border-radius: 0.5em;
+		border: 0px solid;
+		box-shadow:inset 0;
+		-moz-box-shadow:inset 0;
+		display: inline-block;
+		margin: auto;
+		width: 11em;
+
+		&:focus {
+			outline: 0
+		}
+
+		&__login {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+			width: 5em;
+
+			&--selected {
+				background-color: black;
+			}
+		}
+
+		&__signup {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			width: 5em;
+
+			&--selected {
+				background-color: black;
+			}
+		}
+
+		&__do {
+			width: 5em;
+		}
+
+		&__new-recipe {
+			float: right;
+		}
+	}
+}

@@ -25,18 +25,18 @@ export const SET_SEARCH_FILTERS = 'SET_SEARCH_FILTERS'
 export const SET_SEARCH_TERMS = 'SET_SEARCH_TERMS'
 
 //show recipe action types
-export const SHOW_ALL =  'SHOW_ALL'
-export const SHOW_NAME =  'SHOW_NAME'
-export const SHOW_INGREDIENTS =  'SHOW_INGREDIENTS'
-export const SHOW_INSTRUCTIONS =  'SHOW_INSTRUCTIONS'
-export const SHOW_AUTHOR =  'SHOW_AUTHOR'
+export const SHOW_ALL = 'SHOW_ALL'
+export const SHOW_NAME = 'SHOW_NAME'
+export const SHOW_INGREDIENTS = 'SHOW_INGREDIENTS'
+export const SHOW_INSTRUCTIONS = 'SHOW_INSTRUCTIONS'
+export const SHOW_AUTHOR = 'SHOW_AUTHOR'
 
 //search filter action types
-export const BY_ALL =  'BY_ALL'
-export const BY_NAME =  'BY_NAME'
-export const BY_INGREDIENTS =  'BY_INGREDIENTS'
-export const BY_INSTRUCTIONS =  'BY_INSTRUCTIONS'
-export const BY_AUTHOR =  'BY_AUTHOR'
+export const BY_ALL = 'BY_ALL'
+export const BY_NAME = 'BY_NAME'
+export const BY_INGREDIENTS = 'BY_INGREDIENTS'
+export const BY_INSTRUCTIONS = 'BY_INSTRUCTIONS'
+export const BY_AUTHOR = 'BY_AUTHOR'
 
 export const SESSION_CREATE_REQUEST = 'SESSION_CREATE_REQUEST'
 export const SESSION_CREATE_SUCCESS = 'SESSION_CREATE_SUCCESS'
@@ -45,3 +45,6 @@ export const SESSION_CREATE_FAILURE = 'SESSION_CREATE_FAILURE'
 export const SESSION_DELETE_REQUEST = 'SESSION_DELETE_REQUEST'
 export const SESSION_DELETE_SUCCESS = 'SESSION_DELETE_SUCCESS'
 export const SESSION_DELETE_FAILURE = 'SESSION_DELETE_FAILURE'
+
+//header state
+export const HEADER_BUTTON_SELECT = 'HEADER_BUTTON_SELECT'
