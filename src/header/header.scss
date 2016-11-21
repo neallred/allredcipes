@@ -1,4 +1,5 @@
 @import '../css/colors';
+$button-group-radius: 2em;
 
  .header {
 
@@ -20,6 +21,7 @@
 		border-style: none;
 		display: inline-block;
 		margin-left: 0.2em;
+		margin-right: 0.2em;
 		outline: none;
 		padding-left: 0.2em;
 		padding-right: 0.2em;
@@ -40,27 +42,40 @@
 		}
 
 		&__login {
+			border-top-left-radius: $button-group-radius;
+			border-bottom-left-radius: $button-group-radius;
 			border-top-right-radius: 0;
 			border-bottom-right-radius: 0;
 			width: 5em;
 
 			&--selected {
-				background-color: black;
+				background-color: $red-40;
+				border-color: $red-40;
 			}
 		}
 
 		&__signup {
 			border-top-left-radius: 0;
 			border-bottom-left-radius: 0;
+			border-top-right-radius: $button-group-radius;
+			border-bottom-right-radius: $button-group-radius;
 			width: 5em;
 
 			&--selected {
-				background-color: black;
+				background-color: $red-40;
+				border-color: $red-40;
 			}
 		}
 
 		&__do {
 			width: 5em;
+			background-color: $green-success;
+			border-color: $green-success;
+
+			&--disabled {
+				background-color: $red-danger;
+				border-color: $red-danger;
+			}
 		}
 
 		&__new-recipe {

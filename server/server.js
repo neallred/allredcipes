@@ -48,7 +48,7 @@ app.use(compress())
 
 	
 //GET RECIPES ENDPOINT
-app.get('/recipes', authenticationMiddleware, function getRecipes(req, res, next) {
+app.get('/recipes', function getRecipes(req, res, next) {
 	c((conn) => {
 		r.table('recipes').
 			run(conn, function(err, cursor) {
@@ -198,7 +198,7 @@ app.delete('/session', sessionMiddleware, function deleteSession(req, res, next)
 
 
 
-function authenticationMiddleware(req, res, next) {
+function authenticateRequests(req, res, next) {
 	const cookie = req && req.cookies && req.cookies.session
 
 	console.log(cookie);
