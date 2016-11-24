@@ -13,9 +13,10 @@ const util = require('util')
 const exec = require('child_process').exec
 
 //start and configure rethinkdb
+exec("pkill -9 rethinkdb", (error, stdout, stderr) => {console.log(stdout)})
 exec("rethinkdb", (error, stdout, stderr) => {console.log(stdout)})
 
-var r = require('rethinkdb')
+const r = require('rethinkdb')
 
 // Create a connection.
 const connectionConfig = {
@@ -151,10 +152,8 @@ app.delete('/recipes/:id', isLoggedIn, function deleteRecipe(req, res, next) {
 app.post('/session', sessionMiddleware, function createSession(req, res, next) {
 	const { params = {} } = req
 	const {id} = params
+	res.send({message: 'Good job bubs, you got a valid login!', loggedIn: true})
 
-	res.send({
-		message: 'You tried to create a session cookie.'
-	})
 	//c((conn) => {
 	//	r.table("recipes").get(id).delete()
 	//		.run(conn, function(err, result) {
@@ -200,6 +199,22 @@ app.delete('/session', sessionMiddleware, function deleteSession(req, res, next)
 
 function authenticateRequests(req, res, next) {
 	const cookie = req && req.cookies && req.cookies.session
+	const {username, password, passwordConfirm, requestType} = req.body;
+
+	let user = null
+	c((conn) => {
+		r.table("users").get(username).delete()
+			.run(conn, function(err, result) {
+				if (err) { throw err }
+				console.log(result)
+				if (result.deleted) {
+					//return res.send({message: `You deleted recipe of id ${id}`, id})
+				}
+				else if (!result.deleted && result.skipped) {
+					//return res.send({message: `Unable to delete recipe of id ${id}`})
+				}
+			})
+	})
 
 	console.log(cookie);
 	if ( cookie ) {
@@ -210,20 +225,76 @@ function authenticateRequests(req, res, next) {
 
 function sessionMiddleware(req, res, next) {
 	const cookie = req && req.cookies && req.cookies.session
+	const {username, password, requestType} = req.body
+	console.log(username, password, requestType)
 
-	if (req.method === 'POST') {
-		if (cookie === undefined) {
-			const randomNumber = Math.floor((Math.random() * 1000000)).toString()
-			res.cookie('session','userSession'+randomNumber, { maxAge: 9000000, httpOnly: true })
-		} 
-		else {
-			console.log('cookie exists', cookie)
-		} 
+	let queriedUser = null
+
+	if (requestType === 'login') {
+		c((conn) => {
+			r.table('users').filter(r.row('username').eq(username)).
+				run(conn, function(err, cursor) {
+					if (err) throw err
+					cursor.toArray(function(err, result) {
+						if (err) throw err
+						queriedUser = result[0]
+						if (!queriedUser) {
+							return res.send({message: 'Wrong username or password', loggedIn: false})
+						}
+						else if (queriedUser.password === password) {
+							return next()
+						}
+						else {
+							return res.send({message: 'Wrong username or password', loggedIn: false})
+						}
+					});
+				});
+		})
 	}
-	else if (req.method === 'DELETE') {
-		res.cookie('session', '', { expires: new Date() })
+	else if (requestType === 'signup') {
+		res.send({message: 'Signup functionality to be added soon'}).end();
 	}
-	next()
+	//else if (requestType === 'signup') {
+	//	c((conn) => {
+	//		r.table('users').filter(r.row('username').eq(username)).
+	//			run(conn, function(err, cursor) {
+	//				if (err) throw err
+	//				cursor.toArray(function(err, usersWithRequestedUsername) {
+	//					if (err) throw err
+	//					if (!usersWithRequestedUsername.length) {
+	//	r.table('recipes').insert(insertObject)
+	//		.run(conn, function(err, result) {
+	//			if (err) { throw err }
+	//			const newId = result && result.generated_keys && result.generated_keys[0]
+	//			console.log(newId)
+	//			r.table('recipes').get(newId).run(conn, function(err, resultFetch) {
+	//				if (err) { throw err }
+	//				console.log('new recipe:')
+	//				console.log(JSON.stringify(resultFetch))
+	//				const newRecipe = _.merge({}, resultFetch, {id: newId})
+	//				return res.send(JSON.stringify(newRecipe))
+	//			})
+	//		})
+	//					}
+	//					queriedUser = result[0]
+	//					if (!queriedUser) {
+	//						return res.send({message: 'Wrong username or password'})
+	//					}
+	//					else if (queriedUser.password === password) {
+	//						return next()
+	//					}
+	//					else {
+	//						return res.send({message: 'Wrong username or password'})
+	//					}
+	//				});
+	//			});
+	//	})
+	//}
+	else {
+		res.send({message: 'Unknown request type, nothing doing'}).end();
+	}
+
+
 }
 
 

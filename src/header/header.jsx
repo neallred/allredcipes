@@ -4,8 +4,8 @@ import './header.scss'
 
 export const Header = ({
 	//actions
-	createSession,
-	deleteSession,
+	sessionLogin,
+	sessionLogout,
 	headerButtonSelect,
 	headerHandleInput,
 
@@ -50,10 +50,10 @@ export const Header = ({
 				                                   onChange={(e) => {dispatch(headerHandleInput({input: e.target.value, inputField: 'passwordConfirm'}))}} />}
 			<button className={`header__button header__button__do header__button__do${enableSubmit() ? '' : '--disabled'}`}
 				    disabled={!enableSubmit()}
-				    onClick={() => {dispatch(createSession())}}>Enter</button>
+				    onClick={() => {dispatch(sessionLogin({username, password, requestType: buttonSelected}))}}>Enter</button>
 		</div>}
 		{session.isLoggedIn && <div className='header__wrapper'>
-			<button className="header__button" onClick={() => {dispatch(deleteSession())}}>Logout</button>
+			<button className="header__button" onClick={() => {dispatch(sessionLogout())}}>Logout</button>
 			<button className="header__button header__button__new-recipe">New Recipe</button>
 		</div>}
 	</header>
