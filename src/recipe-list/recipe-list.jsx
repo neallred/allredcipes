@@ -4,7 +4,8 @@ import { RecipeCard } from '../recipe-card/recipe-card'
 class RecipeList extends React.Component {
 
 	componentWillMount() {
-		this.props.fetchRecipes();
+		this.props.fetchRecipes()
+		this.props.sessionCheckStatus()
 	}
 
 	render() {

@@ -1,3 +1,8 @@
+const bcrypt = require('bcrypt')
+
+//example cookie:
+//{ sessionId: 'username:ff:sessionId:$2a$10$Q8FNLyHN0ztlcTKxMRX1.uBligrQYQa53wK3LKt1A2WaP8vD3BM8K' }
+
 const _ = require('lodash')
 const express = require('express')
 const path = require('path')
@@ -24,6 +29,9 @@ const connectionConfig = {
 	port: 28015
 }
 
+const sessionsTable = {
+}
+
 const c = (callback) => { r.connect(connectionConfig, (err, conn) => { callback(conn) }) }
 
 const app = express()
@@ -43,7 +51,6 @@ app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(compress())
-//app.use(cookieMiddleware)
 //app.use is global? And to use middleware just on one endpoint, just apply it as an argument there?
 
 
@@ -64,7 +71,7 @@ app.get('/recipes', function getRecipes(req, res, next) {
 })
 
 //CREATE RECIPE ENDPOINT
-app.post('/recipes', function createRecipe(req, res, next) {
+app.post('/recipes', isLoggedIn, function createRecipe(req, res, next) {
 	const { body = {}, params = {} } = req
 	const { name, ingredients, instructions, author } = body
 	const { id } = params
@@ -98,7 +105,7 @@ app.post('/recipes', function createRecipe(req, res, next) {
 })
 
 //UPDATE RECIPE
-app.put('/recipes/:id', function updateRecipe(req, res, next) {
+app.put('/recipes/:id', isLoggedIn, function updateRecipe(req, res, next) {
 	const { body = {}, params = {} } = req
 	const {id} = params
 	const { name, ingredients, instructions, author } = body
@@ -147,159 +154,122 @@ app.delete('/recipes/:id', isLoggedIn, function deleteRecipe(req, res, next) {
 				}
 			})
 	})
+
+})
+
+app.get('/session', function createSession(req, res, next) {
+	const sessionCookie = req && req.cookies && req.cookies.sessionId
+	if (!sessionCookie) {
+		res.send({message: 'No valid sessionId found with that username', isLoggedIn: false})
+	}
+	const cookieParts = sessionCookie.split(':')
+
+	if(sessionsTable[cookieParts[1]] && cookieParts[3] === sessionsTable[cookieParts[1]]) {
+		res.send({message: 'Good job bubs, you already have a valid login!', isLoggedIn: true})
+	}
 })
 
 app.post('/session', sessionMiddleware, function createSession(req, res, next) {
-	const { params = {} } = req
-	const {id} = params
-	res.send({message: 'Good job bubs, you got a valid login!', loggedIn: true})
+	const { username, password } = req.body
 
-	//c((conn) => {
-	//	r.table("recipes").get(id).delete()
-	//		.run(conn, function(err, result) {
-	//			if (err) { throw err }
-	//			console.log(result)
-	//			if (result.deleted) {
-	//				return res.send({message: `You deleted recipe of id ${id}`, id})
-	//			}
-	//			else if (!result.deleted && result.skipped) {
-	//				return res.send({message: `Unable to delete recipe of id ${id}`})
-	//			}
-	//		})
-	//})
+	const saltRounds = 10
+
+	bcrypt.hash(password, saltRounds, function(err, hash) {
+		sessionsTable[username] = hash
+		res.cookie('sessionId',`username:${username}:sessionId:${hash}`, { maxAge: (90 * 60 * 1000), httpOnly: true })
+		res.send({message: 'Good job bubs, you got a valid login!', isLoggedIn: true})
+	})
 })
 
-app.delete('/session', sessionMiddleware, function deleteSession(req, res, next) {
-	const { params = {} } = req
-	const {id} = params
+app.delete('/session', function deleteSession(req, res, next) {
+	const sessionCookie = req.cookies.sessionId
+	const cookieParts = sessionCookie.split(':')
 
-	res.send({
-		message: 'You tried to delete a session cookie.'
-	})
-	//c((conn) => {
-	//	r.table("recipes").get(id).delete()
-	//		.run(conn, function(err, result) {
-	//			if (err) { throw err }
-	//			console.log(result)
-	//			if (result.deleted) {
-	//				return res.send({message: `You deleted recipe of id ${id}`, id})
-	//			}
-	//			else if (!result.deleted && result.skipped) {
-	//				return res.send({message: `Unable to delete recipe of id ${id}`})
-	//			}
-	//		})
-	//})
+	delete sessionsTable[cookieParts[1]]
+	res.cookie('sessionId', '', { expires: new Date() })
+	res.send({ message: 'You deleted your session cookie.', isLoggedIn: false })
 })
 
-
-
-
-
-
-
-function authenticateRequests(req, res, next) {
-	const cookie = req && req.cookies && req.cookies.session
-	const {username, password, passwordConfirm, requestType} = req.body;
-
-	let user = null
-	c((conn) => {
-		r.table("users").get(username).delete()
-			.run(conn, function(err, result) {
-				if (err) { throw err }
-				console.log(result)
-				if (result.deleted) {
-					//return res.send({message: `You deleted recipe of id ${id}`, id})
-				}
-				else if (!result.deleted && result.skipped) {
-					//return res.send({message: `Unable to delete recipe of id ${id}`})
-				}
-			})
+const loginCallback = (err, cursor, serverStuff) => {
+	const {req, res, next} = serverStuff
+	const {username, password, requestType} = req.body
+	if (err) throw err
+	cursor.toArray(function(err, result) {
+		if (err) throw err
+		queriedUser = result[0]
+		if (!queriedUser) {
+			return res.send({message: 'Wrong username or password', isLoggedIn: false})
+		}
+		else if (queriedUser.password === password) {
+			return next()
+		}
+		else {
+			return res.send({message: 'Wrong username or password', isLoggedIn: false})
+		}
 	})
-
-	console.log(cookie);
-	if ( cookie ) {
-		return next();
-	}
 }
-
 
 function sessionMiddleware(req, res, next) {
 	const cookie = req && req.cookies && req.cookies.session
 	const {username, password, requestType} = req.body
 	console.log(username, password, requestType)
+	const serverStuff = {req, res, next}
 
 	let queriedUser = null
 
 	if (requestType === 'login') {
 		c((conn) => {
 			r.table('users').filter(r.row('username').eq(username)).
-				run(conn, function(err, cursor) {
-					if (err) throw err
-					cursor.toArray(function(err, result) {
-						if (err) throw err
-						queriedUser = result[0]
-						if (!queriedUser) {
-							return res.send({message: 'Wrong username or password', loggedIn: false})
-						}
-						else if (queriedUser.password === password) {
-							return next()
-						}
-						else {
-							return res.send({message: 'Wrong username or password', loggedIn: false})
-						}
-					});
-				});
+				run(conn, function(err, cursor) {loginCallback(err, cursor, serverStuff)})
 		})
 	}
 	else if (requestType === 'signup') {
-		res.send({message: 'Signup functionality to be added soon'}).end();
+		c((conn) => {
+			r.table('users').filter(r.row('username').eq(username)).
+				run(conn, function(err, cursor) {
+					if (err) throw err
+					cursor.toArray(function(err, usersWithRequestedUsername) {
+						if (usersWithRequestedUsername.length) {
+							console.log('USER ALREADY EXISTS', usersWithRequestedUsername)
+							return res.send({message: 'User already exists, please pick a different name'}).end()
+						}
+						else {
+							console.log('CREATING USER WITH', req.body)
+							createUser(conn, res, req.body)
+						}
+					})
+				})
+		})
 	}
-	//else if (requestType === 'signup') {
-	//	c((conn) => {
-	//		r.table('users').filter(r.row('username').eq(username)).
-	//			run(conn, function(err, cursor) {
-	//				if (err) throw err
-	//				cursor.toArray(function(err, usersWithRequestedUsername) {
-	//					if (err) throw err
-	//					if (!usersWithRequestedUsername.length) {
-	//	r.table('recipes').insert(insertObject)
-	//		.run(conn, function(err, result) {
-	//			if (err) { throw err }
-	//			const newId = result && result.generated_keys && result.generated_keys[0]
-	//			console.log(newId)
-	//			r.table('recipes').get(newId).run(conn, function(err, resultFetch) {
-	//				if (err) { throw err }
-	//				console.log('new recipe:')
-	//				console.log(JSON.stringify(resultFetch))
-	//				const newRecipe = _.merge({}, resultFetch, {id: newId})
-	//				return res.send(JSON.stringify(newRecipe))
-	//			})
-	//		})
-	//					}
-	//					queriedUser = result[0]
-	//					if (!queriedUser) {
-	//						return res.send({message: 'Wrong username or password'})
-	//					}
-	//					else if (queriedUser.password === password) {
-	//						return next()
-	//					}
-	//					else {
-	//						return res.send({message: 'Wrong username or password'})
-	//					}
-	//				});
-	//			});
-	//	})
-	//}
 	else {
-		res.send({message: 'Unknown request type, nothing doing'}).end();
+		res.send({message: 'Unknown request type, nothing doing'}).end()
 	}
-
-
 }
 
-
+const createUser = (conn, res, userData) => {
+	const {username, password} = userData
+	r.table('users').insert(userData)
+		.run(conn, function(err, result) {
+			if (err) { throw err }
+			const newId = result && result.generated_keys && result.generated_keys[0]
+			r.table('users').get(newId).run(conn, function(err, resultFetch) {
+				if (err) { throw err }
+				console.log('New user created:')
+				console.log(JSON.stringify(resultFetch))
+				const newUser = _.merge({}, resultFetch, {id: newId})
+				return res.send(JSON.stringify(newUser))
+			})
+		})
+}
 
 function isLoggedIn(req, res, next) {
-	if (req.isAuthenticated) { return next(); }
-	res.send('Nice try, bubs');
+	const sessionCookie = req.cookies && req.cookies.sessionId
+	const cookieParts = sessionCookie.split(':')
+
+	if(sessionsTable[cookieParts[1]] && cookieParts[3] === sessionsTable[cookieParts[1]]) {
+		return next()
+	}
+	else {
+		res.send('Nice try, bubs').end()
+	}
 }

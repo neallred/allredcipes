@@ -27,12 +27,6 @@ const loggerMiddleware = createLogger({
 	level: 'error',
 	collapsed: true,
 });
-//applyMiddleware(thunkMiddleware, loggerMiddleware)
-//const enhancer = compose(
-//	applyMiddleware(sagaMiddleware)
-//);
-
-//const store = createStore(recipeApp, initialState, enhancer);
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(

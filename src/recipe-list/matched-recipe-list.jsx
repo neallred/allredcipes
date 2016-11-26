@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import { toggleRecipe, fetchRecipes } from '../actions'
 import { RECIPES_REQUEST } from '../actions'
 import { RecipeList } from './recipe-list'
+import { sessionCheckStatus } from '../session/ducks'
 
 const actionToRecipeMap = {
   BY_ALL: 'all',
@@ -42,6 +43,9 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		fetchRecipes: () => {
 			dispatch(fetchRecipes())
+		},
+		sessionCheckStatus: () => {
+			dispatch(sessionCheckStatus())
 		}
 	}
 }
