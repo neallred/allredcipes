@@ -29,6 +29,8 @@ const connectionConfig = {
 	port: 28015
 }
 
+const saltRounds = 10
+
 const sessionsTable = {
 }
 
@@ -160,19 +162,17 @@ app.delete('/recipes/:id', isLoggedIn, function deleteRecipe(req, res, next) {
 app.get('/session', function createSession(req, res, next) {
 	const sessionCookie = req && req.cookies && req.cookies.sessionId
 	if (!sessionCookie) {
-		res.send({message: 'No valid sessionId found with that username', isLoggedIn: false})
+		return res.send({message: 'No valid sessionId found with that username', isLoggedIn: false})
 	}
 	const cookieParts = sessionCookie.split(':')
 
 	if(sessionsTable[cookieParts[1]] && cookieParts[3] === sessionsTable[cookieParts[1]]) {
-		res.send({message: 'Good job bubs, you already have a valid login!', isLoggedIn: true})
+		return res.send({message: 'Good job bubs, you already have a valid login!', isLoggedIn: true})
 	}
 })
 
 app.post('/session', sessionMiddleware, function createSession(req, res, next) {
-	const { username, password } = req.body
-
-	const saltRounds = 10
+	const { username, password, email } = req.body
 
 	bcrypt.hash(password, saltRounds, function(err, hash) {
 		sessionsTable[username] = hash
@@ -211,8 +211,8 @@ const loginCallback = (err, cursor, serverStuff) => {
 
 function sessionMiddleware(req, res, next) {
 	const cookie = req && req.cookies && req.cookies.session
-	const {username, password, requestType} = req.body
-	console.log(username, password, requestType)
+	const {username, password, email, requestType} = req.body
+	console.log(username, password, email, requestType)
 	const serverStuff = {req, res, next}
 
 	let queriedUser = null
@@ -247,7 +247,13 @@ function sessionMiddleware(req, res, next) {
 }
 
 const createUser = (conn, res, userData) => {
-	const {username, password} = userData
+	//TODO: START HERE, FIND A WAY TO GENERATE A SALT BASED ON A RANDOM NUMBER AND A FIXED SALT
+	//bcrypt.hash(password, saltRounds, function(err, hash) {
+	//	sessionsTable[username] = hash
+	//	res.cookie('sessionId',`username:${username}:sessionId:${hash}`, { maxAge: (90 * 60 * 1000), httpOnly: true })
+	//	res.send({message: 'Good job bubs, you got a valid login!', isLoggedIn: true})
+	//})
+	const {username, password, email } = userData
 	r.table('users').insert(userData)
 		.run(conn, function(err, result) {
 			if (err) { throw err }

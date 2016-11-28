@@ -5,6 +5,7 @@ import { sessionLogin, sessionLogout } from '../session/ducks'
 
 const mapStateToProps = (state, ownProps) => {
 	const {session, header} = state
+	const { buttonSelected, email, username, password, passwordConfirm } = header
 
 	return {
 		//actions
@@ -15,10 +16,13 @@ const mapStateToProps = (state, ownProps) => {
 
 		//state
 		session,
-		buttonSelected: header.buttonSelected,
-		username: header.username,
-		password: header.password,
-		passwordConfirm: header.passwordConfirm
+
+		//form values
+		buttonSelected,
+		email,
+		username,
+		password,
+		passwordConfirm
 	}
 }
 

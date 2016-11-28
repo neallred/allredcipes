@@ -1,6 +1,8 @@
 import _ from 'lodash'
 import {
-	SESSION_CREATE_SUCCESS,
+	SESSION_LOGIN_SUCCESS,
+	SESSION_LOGOUT_SUCCESS,
+	SESSION_CHECK_STATUS_SUCCESS,
 
 	HEADER_BUTTON_SELECT,
 	HEADER_HANDLE_INPUT
@@ -8,6 +10,7 @@ import {
 
 export const defaultStateHeader = {
 	buttonSelected: 'login',
+	email: '',
 	username: '',
 	password: '',
 	passwordConfirm: ''
@@ -21,8 +24,14 @@ export const header = (state = defaultStateHeader, action) => {
 		case HEADER_HANDLE_INPUT:
 			return _.assign({}, state, {[action.value.inputField]: action.value.input})
 
-		case SESSION_CREATE_SUCCESS:
-			return _.assign({}, state, {username: '', password: '', passwordConfirm: ''})
+		case SESSION_LOGIN_SUCCESS:
+			return _.assign({}, state, defaultStateHeader)
+
+		case SESSION_LOGOUT_SUCCESS:
+			return _.assign({}, state, defaultStateHeader)
+
+		case SESSION_CHECK_STATUS_SUCCESS:
+			return _.assign({}, state, defaultStateHeader)
 
 		default:
 			return state
