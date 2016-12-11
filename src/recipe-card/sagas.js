@@ -6,7 +6,7 @@ import {
 	RECIPE_DELETE_REQUEST,
 	RECIPE_DELETE_SUCCESS,
 	RECIPE_DELETE_FAILURE
-} from '../action-types';
+} from '../constants/action-types';
 
 function *deleteRecipe(action) {
 	if (!action.value) { return }

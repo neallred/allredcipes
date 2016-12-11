@@ -6,7 +6,7 @@ import {
 	RECIPES_REQUEST,
 	RECIPES_SUCCESS,
 	RECIPES_FAILURE
-} from '../action-types';
+} from '../constants/action-types';
 
 function *fetchRecipes() {
 	const recipes = yield call(axios.get, '/recipes');

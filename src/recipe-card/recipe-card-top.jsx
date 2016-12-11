@@ -4,7 +4,7 @@ import { destroyRecipe } from '../actions'
 import { toggleRecipe } from '../actions'
 import { isEditing } from '../actions'
 
-import { RECIPE_DELETE_REQUEST } from '../action-types'
+import { RECIPE_DELETE_REQUEST } from '../constants/action-types'
 
 export const RecipeCardTop = ({recipeId, name, hideIngredients, isLoggedIn}) => (
 	<div className='heading'>

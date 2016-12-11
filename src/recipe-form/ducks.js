@@ -8,7 +8,7 @@ import {
 	HEADER_HANDLE_INPUT
 } from '../constants/action-types'
 
-export const defaultStateHeader = {
+export const defaultState = {
 	buttonSelected: 'login',
 	email: '',
 	username: '',
@@ -16,22 +16,10 @@ export const defaultStateHeader = {
 	passwordConfirm: ''
 };
 
-export const header = (state = defaultStateHeader, action) => {
+export const recipeFormReducer = (state = defaultState, action) => {
 	switch (action.type) {
 		case HEADER_BUTTON_SELECT:
 			return _.assign({}, state, {buttonSelected: action.value})
-
-		case HEADER_HANDLE_INPUT:
-			return _.assign({}, state, {[action.value.inputField]: action.value.input})
-
-		case SESSION_LOGIN_SUCCESS:
-			return _.assign({}, state, defaultStateHeader)
-
-		case SESSION_LOGOUT_SUCCESS:
-			return _.assign({}, state, defaultStateHeader)
-
-		case SESSION_CHECK_STATUS_SUCCESS:
-			return _.assign({}, state, defaultStateHeader)
 
 		default:
 			return state
@@ -51,3 +39,4 @@ export const headerHandleInput = (dataObject) => {
 		value: dataObject
 	}
 }
+

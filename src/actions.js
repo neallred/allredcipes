@@ -1,5 +1,5 @@
-import {badWords} from './badwords';
-import {abbreviations} from './abbreviations';
+import {badWords} from './constants/badwords';
+import {abbreviations} from './constants/abbreviations';
 import {
 	CREATE_RECIPE,
 	UPDATE_RECIPE,
@@ -10,7 +10,7 @@ import {
 	SET_SEARCH_FILTERS,
 	SET_SEARCH_TERMS,
 	RECIPES_REQUEST
-} from './action-types';
+} from './constants/action-types';
 
 let nextRecipeId = 125
 

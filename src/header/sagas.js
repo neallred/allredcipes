@@ -11,7 +11,7 @@ import {
 	SESSION_DELETE_REQUEST,
 	SESSION_DELETE_SUCCESS,
 	SESSION_DELETE_FAILURE
-} from '../action-types';
+} from '../constants/action-types';
 
 function *createSession(action) {
 	const session = yield call(axiosInstance.post, '/session', {username: action.username, password: action.password});

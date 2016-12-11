@@ -11,7 +11,7 @@ import {
 	SESSION_LOGOUT_REQUEST,
 	SESSION_LOGOUT_SUCCESS,
 	SESSION_LOGOUT_FAILURE
-} from '../action-types'
+} from '../constants/action-types'
 
 const defaultState = {
 	isLoggedIn: false,

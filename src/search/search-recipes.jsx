@@ -9,7 +9,7 @@ export const SearchRecipes = () => (
 			<FilterCheckbox filter='BY_NAME' labelName='Name'/>
 			<FilterCheckbox filter='BY_INGREDIENTS' labelName='Ingredients'/>
 			<FilterCheckbox filter='BY_INSTRUCTIONS' labelName='Instructions'/>
-			<FilterCheckbox filter='BY_AUTHOR' labelName='Author/Contributor'/><br/>
+			<FilterCheckbox filter='BY_AUTHOR' labelName='Contributor'/><br/>
 			<UpdateSearchTerms/>
 		</form>
 	</div>

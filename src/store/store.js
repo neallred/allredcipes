@@ -1,9 +1,15 @@
-import { combineReducers } from 'redux'
-import _ from 'lodash'
-import {reducer as formReducer} from 'redux-form'
-import { session } from './session/ducks'
-import { header } from './header/ducks'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
+import createSagaMiddleware from 'redux-saga'
+import { rootSaga } from './sagas'
 
+import _ from 'lodash'
+
+//DUCKS
+import { session } from '../session/ducks'
+import { header } from '../header/ducks'
+import { recipeFormReducer as recipeForm } from '../recipe-form/ducks'
+
+//CONSTANTS
 import {
 	RECIPES_SUCCESS,
 
@@ -29,7 +35,7 @@ import {
 	BY_INGREDIENTS,
 	BY_INSTRUCTIONS,
 	BY_AUTHOR 
-} from './action-types'
+} from '../constants/action-types'
 
 const visibilityFilter = (state = SHOW_ALL, action) => {
 	switch (action.type) {
@@ -106,19 +112,6 @@ const recipes = (state = [], action) => {
 	}
 }
 
-const isEditing = (state = {}, action) => {
-	switch (action.type) {
-		case IS_EDITING:
-			const isEditingState = !state.flag
-			return _.assign({}, state, {
-				flag: isEditingState,
-				id: isEditingState ? action.id : null
-			})
-		default:
-			return state
-	}
-}
-
 const setSearchFilters = (state = [], action) => {
 	switch (action.filter) {
 		//Intentional fall through
@@ -151,9 +144,8 @@ const setSearchTerms = (state = [], action) => {
 }
 
 
-const recipeApp = combineReducers({
-	form: formReducer,
-	isEditing,
+const reducers = combineReducers({
+	recipeForm,
 	recipes,
 	header,
 	session,
@@ -162,4 +154,30 @@ const recipeApp = combineReducers({
 	visibilityFilter
 })
 
-export { recipeApp }
+
+const initialState = {
+	recipes: [],
+	visibilityFilter: 'BY_ALL',
+	recipeForm: {
+		id: '',
+		name: '',
+		author: '',
+		recipes: '',
+		ingredients: '',
+		isVisible: false,
+		isNewRecipe: true
+	},
+	setSearchFilters: [],
+	setSearchTerms: []
+}
+
+const sagaMiddleware = createSagaMiddleware()
+const store = createStore(
+	reducers,
+	initialState,
+	applyMiddleware(sagaMiddleware)
+)
+
+sagaMiddleware.run(rootSaga)
+
+export { store }

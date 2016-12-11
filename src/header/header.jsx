@@ -42,7 +42,7 @@ export const Header = ({
 			<button className={`header__button header__button__login header__button__login${buttonSelected === 'login' ? '--selected' : ''}`}
 				    onClick={() => {dispatch(headerButtonSelect('login'))}}>Login</button>
 			<button className={`header__button header__button__forgot header__button__forgot${buttonSelected === 'forgot' ? '--selected' : ''}`}
-				    onClick={() => {dispatch(headerButtonSelect('forgot'))}}>Forgot User/Pass?</button>
+				    onClick={() => {dispatch(headerButtonSelect('forgot'))}}>Lost User/Pass?</button>
 			<button className={`header__button header__button__signup header__button__signup${buttonSelected === 'signup' ? '--selected' : ''}`}
 				    onClick={() => {dispatch(headerButtonSelect('signup'))}}>Sign up</button>
 			{buttonSelected !== 'login' && <input className="header__input"

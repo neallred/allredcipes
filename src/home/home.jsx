@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { SearchRecipes } from '../search/search-recipes'
-import { CreateRecipeContainer } from '../create-recipe/create-recipe-container'
-import { UpdateRecipeContainer } from '../update-recipe/update-recipe-container'
+//import { SearchRecipes } from '../search/search-recipes'
+import { SearchContainer } from '../search/search-container'
+import { RecipeFormContainer } from '../recipe-form/recipe-form-container'
 import { MatchedRecipeList } from '../recipe-list/matched-recipe-list'
 import { HeaderContainer } from '../header/header-container'
 
@@ -20,11 +20,10 @@ const HomeComponent = ({
 		<HeaderContainer />
 		<div className='banner center-block'>
 			<h1 className='center-block'>Allred Recipe Box</h1>
-			<SearchRecipes />
+			<SearchContainer />
 		</div>
 		<MatchedRecipeList />
-		{session.isLoggedIn && <CreateRecipeContainer />}
-		<UpdateRecipeContainer updateFields={updateFields}/>
+		{session.isLoggedIn && <RecipeFormContainer updateFields={updateFields}/>}
 		<br/>
 	</div>
 )
