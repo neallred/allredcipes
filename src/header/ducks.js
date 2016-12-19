@@ -5,16 +5,18 @@ import {
 	SESSION_CHECK_STATUS_SUCCESS,
 
 	HEADER_BUTTON_SELECT,
-	HEADER_HANDLE_INPUT
+	HEADER_HANDLE_INPUT,
+	HEADER_MEASURE_HEIGHT 
 } from '../constants/action-types'
 
 export const defaultStateHeader = {
 	buttonSelected: 'login',
+	headerHeight: 0,
 	email: '',
 	username: '',
 	password: '',
 	passwordConfirm: ''
-};
+}
 
 export const header = (state = defaultStateHeader, action) => {
 	switch (action.type) {
@@ -23,6 +25,9 @@ export const header = (state = defaultStateHeader, action) => {
 
 		case HEADER_HANDLE_INPUT:
 			return _.assign({}, state, {[action.value.inputField]: action.value.input})
+
+		case HEADER_MEASURE_HEIGHT:
+			return _.assign({}, state, {headerHeight: action.value})
 
 		case SESSION_LOGIN_SUCCESS:
 			return _.assign({}, state, defaultStateHeader)
@@ -38,16 +43,23 @@ export const header = (state = defaultStateHeader, action) => {
 	}
 }
 
-export const headerButtonSelect = (value) => {
+export const headerButtonSelect = value => {
 	return {
 		type: HEADER_BUTTON_SELECT,
 		value
 	}
 }
 
-export const headerHandleInput = (dataObject) => {
+export const headerHandleInput = dataObject => {
 	return {
 		type: HEADER_HANDLE_INPUT,
 		value: dataObject
+	}
+}
+
+export const headerMeasureHeight = value => {
+	return {
+		type: HEADER_MEASURE_HEIGHT,
+		value
 	}
 }

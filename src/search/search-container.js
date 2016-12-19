@@ -10,7 +10,8 @@ import { Search } from './search'
 
 const mapStateToProps = (state) => {
 	return {
-		search: state.search
+		search: state.search,
+		headerHeight: state.header && state.header.headerHeight
 	}
 }
 const mapDispatchToProps = (dispatch) => {

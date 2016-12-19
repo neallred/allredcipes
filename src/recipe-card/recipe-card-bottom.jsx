@@ -7,7 +7,7 @@ export const RecipeCardBottom = ({
 	author
 }) => {
 	const recipeBottomClass =  hideIngredients ? 'recipe__bottom recipe__bottom--hide' : 'recipe__bottom recipe__bottom--show';
-	return <div className={ 'recipe__bottom recipe__bottom--show' || recipeBottomClass}>
+	return <div className={ recipeBottomClass }>
 		<RecipeSubsection dataToSanitize={ingredients} sectionTitle='Ingredients' />
 		<RecipeSubsection dataToSanitize={instructions} sectionTitle='Instructions' />
 		<RecipeSubsection dataToSanitize={author} sectionTitle='Author/Contributor' />

@@ -1,13 +1,13 @@
 /* GENERAL */
 @import './colors';
 $bgSize: 80px 80px;
-
+$checkerGradient: linear-gradient(45deg, $red-40 25%, $black-0 25%, $black-0 75%, $red-40 75%, $red-40 0);
 
 body {
 	overflow: none;
-	background: -webkit-linear-gradient(45deg, $red-40 25%, $black-0 25%, $black-0 75%, $red-40 75%, $red-40 0), -webkit-linear-gradient(45deg, $red-40 25%, $black-0 25%, $black-0 75%, $red-40 75%, $red-40 0), $white;
-	background: -moz-linear-gradient(45deg, $red-40 25%, $black-0 25%, $black-0 75%, $red-40 75%, $red-40 0), -moz-linear-gradient(45deg, $red-40 25%, $black-0 25%, $black-0 75%, $red-40 75%, $red-40 0), $white;
-	background: linear-gradient(45deg, $red-40 25%, $black-0 25%, $black-0 75%, $red-40 75%, $red-40 0), linear-gradient(45deg, $red-40 25%, $black-0 25%, $black-0 75%, $red-40 75%, $red-40 0), $white;
+	background: -webkit-$checkerGradient, -webkit-$checkerGradient, $white;
+	background: -moz-$checkerGradient, -moz-$checkerGradient, $white;
+	background: $checkerGradient, $checkerGradient, $white;
 	background-position: 0 0, 40px 40px;
 	-webkit-background-origin: padding-box;
 	background-origin: padding-box;
@@ -27,63 +27,6 @@ body {
 	transform-origin: 50% 50% 0;
 }
 
-//div.banner {
-//}
-//
-//div.heading {
-//	border-bottom: 1px solid $pink;
-//}
-//
-//div.recipe-button-container {
-//	margin-bottom: 0.5em;
-//}
-//p.footer {
-//	text-align: center;
-//}
-//
-//p.recipe-subsection-heading {
-//	margin-top: 0.3em;
-//	border-bottom: 1px solid $sky-blue;
-//}
-//
-//ul {
-//	list-style: none;
-//	li.item {
-//		border-bottom: 1px solid $sky-blue;
-//		margin-left: -1.5em;
-//	}
-//}
-//
-//div.recipe-bottom-hide, div.recipe-bottom-hide * {
-//	max-height: 0px;
-//	opacity: 0;
-//	transition: max-height 0.3s, opacity 0.3s ease-in;
-//}
-//div.recipe-bottom-show, div.recipe-bottom-show * {
-//	height: auto;
-//	max-height: 1800px;
-//	opacity: 1;
-//	transition: max-height 0.6s, opacity 0.5s ease-out;
-//}
-//
-//h2 {
-//	margin-top: 40px;
-//	text-align: center;
-//}
-//
-//form {
-//	margin-top: 10px;
-//	textarea, input, button {
-//		border-radius: 7px;
-//		margin-bottom: 3px;
-//		margin-top: 3px;
-//		max-width: 40em;
-//		box-shadow: 2px 2px black;
-//	}
-//	textarea {
-//		height: 10em;
-//	}
-//}
 .modalDialog {
 	position: fixed;
 	top: -2em;;

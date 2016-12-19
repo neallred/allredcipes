@@ -6,10 +6,13 @@ $search-item-padding: 0.4em 0;
 	background: $gray;
 	border-radius: $panel-radius;
 	box-shadow: $shadow;
-	padding: 0.3em;
-	position: relative;
-	margin: 15em auto 0;
+	font-size: 0.8em;
+	margin: 0 auto;
 	max-width: $content-max-width;
+	min-width: 13.9em;
+	padding: $panel-padding;
+	position: relative;
+	width: calc(100% - 4em);
 
 	&__form {
 		display: flex;
@@ -18,7 +21,12 @@ $search-item-padding: 0.4em 0;
 	}
 
 	&__title {
-		font-size: 2em;
+		font-size: 3.2em;
+		text-align: center;
+		padding: 0.2em 0;
+	}
+	&__sub-title {
+		font-size: 1.5em;
 		text-align: center;
 	}
 
@@ -45,7 +53,7 @@ $search-item-padding: 0.4em 0;
 	}
 
 	&__text {
-		width: calc(100% - 9.2em);
+		width: calc(100% - 11.5em);
 		border-radius: $input-radius;
 		border-style: none;
 		outline: none;

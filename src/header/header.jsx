@@ -2,6 +2,14 @@ import React from 'react'
 import './header.scss'
 
 export class Header extends React.Component {
+	componentWillMount() {
+		window.addEventListener('resize', this.measureHeight.bind(this))
+	}
+
+	componentDidMount() {
+		this.measureHeight();
+	}
+
 	render() {
 		const {
 			//actions
@@ -9,6 +17,7 @@ export class Header extends React.Component {
 			sessionLogout,
 			headerButtonSelect,
 			headerHandleInput,
+			headerMeasureHeight,
 
 			//store
 			dispatch,
@@ -38,7 +47,7 @@ export class Header extends React.Component {
 				return regex.test(emailString)
 		}
 
-		const loggedOutHeader = <header className='header__wrapper' refs='header'>
+		const loggedOutHeader = <header className='header__wrapper' ref='header'>
 			<div className="header__button-group">
 				<button className={`header__item header__button header__button__login header__button__login${buttonSelected === 'login' ? '--selected' : ''}` }
 					onClick={() => {dispatch(headerButtonSelect('login'))}}>Login</button>
@@ -75,7 +84,7 @@ export class Header extends React.Component {
 			</form>
 		</header>
 
-			const loggedInHeader =  <header className='header__wrapper' refs='header'>
+			const loggedInHeader =  <header className='header__wrapper' ref='header'>
 				<button className="header__item header__button" onClick={() => {dispatch(sessionLogout())}}>Logout</button>
 				<button className="header__item header__button header__button__new-recipe">New Recipe</button>
 			</header>
@@ -84,5 +93,16 @@ export class Header extends React.Component {
 	}
 
 	componentDidUpdate() {
+		this.measureHeight();
+	}
+
+	measureHeight() {
+		const { dispatch, headerMeasureHeight } = this.props;
+		const height = this.refs.header.offsetHeight;
+		dispatch(headerMeasureHeight(height));
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.measureHeight.bind(this))
 	}
 }

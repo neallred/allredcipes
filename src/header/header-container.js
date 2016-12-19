@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { Header } from './header'
-import { headerButtonSelect, headerHandleInput } from './ducks'
+import { headerButtonSelect, headerHandleInput, headerMeasureHeight } from './ducks'
 import { sessionLogin, sessionLogout } from '../session/ducks'
 
 const mapStateToProps = (state, ownProps) => {
@@ -13,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 		sessionLogout,
 		headerButtonSelect,
 		headerHandleInput,
+		headerMeasureHeight,
 
 		//state
 		session,
