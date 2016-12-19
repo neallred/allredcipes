@@ -1,0 +1,111 @@
+@import '../css/colors';
+@import '../css/constants';
+$recipe-width: calc(100% - 4em);
+
+.recipe {
+	display: flex;
+	flex-direction: column;
+	background: $gray;
+	border-radius: 1.5em;
+	width: $recipe-width;
+	min-width: 13.9em;
+	max-width: $content-max-width;
+	padding: 0em 1.5em 1em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	box-shadow: $shadow;
+	font-size: 0.8em;
+
+	&__header {
+		border-bottom: 2px solid $pink;
+	}
+
+	&__title {
+		font-size: 2.5em;
+		text-align: center;
+		margin-top: 10px;
+	}
+	&__button-group {
+		display: flex;
+		justify-content: space-between;
+		padding: 1em 0 0.5em;
+	}
+
+	&__button {
+		padding: 0.6em;
+		border-radius: $button-radius;
+		border-width: 0;
+		color: $white;
+		min-width: 4em;
+		font-weight: 600;
+
+		&--red {
+			background-color: $red-danger;
+		}
+		&--yellow {
+			background-color: $yellow-warning;
+		}
+		&--green {
+			background-color: $green-success;
+		}
+	}
+
+	&__bottom {
+		&--hide, &--hide * {
+			max-height: 0px;
+			opacity: 0;
+			transition: max-height 0.3s, opacity 0.3s ease-in;
+		}
+
+		&--show, &--show * {
+			height: auto;
+			max-height: 1800px;
+			opacity: 1;
+			transition: max-height 0.6s, opacity 0.5s ease-out;
+		}
+	}
+
+	&__subsection {
+		&__heading {
+			font-weight: 800;
+			padding-top: 0.7em;
+			border-bottom: 1px solid $sky-blue;
+		}
+	}
+
+	&__list {
+		list-style: none;
+		font-weight: 400;
+	}
+
+	&__list-item {
+		border-bottom: 1px solid $sky-blue;
+		padding: 0.2em 0;
+
+		&:last-of-type {
+			border-bottom: 0;
+		}
+	}
+}
+
+
+//div.heading {
+//	
+//}
+//
+//div.recipe-button-container {
+//	margin-bottom: 0.5em;
+//}
+//p.footer {
+//	text-align: center;
+//}
+//
+//p.recipe-subsection-heading {
+//}
+//
+//ul {
+//	
+//	li.item {
+//	}
+//}
+//

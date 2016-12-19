@@ -1,12 +1,18 @@
 @import '../css/colors';
 $button-group-radius: 2em;
+$input-radius: 0.5em;
+$header-item-margin: 0.2em 0;
 
- .header {
+.header {
+	&__item {
+		margin: $header-item-margin;
+		font-size: 1em;
+	}
 
 	&__wrapper {
-		display: inline;
-	}
-	&__header {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -16,25 +22,17 @@ $button-group-radius: 2em;
 		z-index: 2;
 	}
 
-	&__input {
-		border-radius: 0.5em;
-		border-style: none;
-		display: inline-block;
-		margin: 0.2em;
-		outline: none;
-		padding-left: 0.2em;
-		padding-right: 0.2em;
-		width: 11em;
+	&__button-group {
+		display: inline-flex;
+		flex-wrap: wrap;
 	}
-	
+
 	&__button {
-		border-radius: 0.5em;
+		border-radius: $input-radius;
 		border: 0px solid;
 		box-shadow:inset 0;
 		-moz-box-shadow:inset 0;
-		display: inline-block;
-		margin: auto;
-		width: 11em;
+
 
 		&:focus {
 			outline: 0
@@ -78,8 +76,28 @@ $button-group-radius: 2em;
 			}
 		}
 
+		&__new-recipe {
+		}
+	}
+
+	&__form {
+		display: inline-flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+
+	&__input {
+		border-radius: $input-radius;
+		border-style: none;
+		outline: none;
+		padding-left: 0.2em;
+		padding-right: 0.2em;
+		width: 11em;
+		margin-left: 0.1em;
+		margin-right: 0.1em;
+
 		&__do {
-			width: 5em;
+			//flex: 0 1 50%;
 			background-color: $green-success;
 			border-color: $green-success;
 
@@ -88,9 +106,16 @@ $button-group-radius: 2em;
 				border-color: $red-danger;
 			}
 		}
+	}
 
-		&__new-recipe {
-			float: right;
-		}
+}
+
+@media (max-width: 683px) {
+	.header__button-group {
+		flex: 0 1 100%;
+		justify-content: center;
+	}
+	.header__form {
+		flex: 0 1 100%;
 	}
 }

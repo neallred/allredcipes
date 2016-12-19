@@ -1,10 +1,10 @@
 import { connect } from 'react-redux'
 import { searchToggle, searchHandleText } from './ducks'
 import {
-	SEARCH_BY_CONTRIBUTOR,
-	SEARCH_BY_INGREDIENTS,
-	SEARCH_BY_INSTRUCTIONS,
-	SEARCH_BY_NAME
+	SEARCH_CONTRIBUTOR,
+	SEARCH_INGREDIENTS,
+	SEARCH_INSTRUCTIONS,
+	SEARCH_NAME
 } from '../constants/action-types'
 import { Search } from './search'
 

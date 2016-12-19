@@ -1,221 +1,126 @@
 /* GENERAL */
 @import './colors';
+$bgSize: 80px 80px;
+
 
 body {
-  overflow: none;
-  background: -webkit-linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), -webkit-linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), rgb(255, 255, 255);
-  background: -moz-linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), -moz-linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), rgb(255, 255, 255);
-  background: linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), linear-gradient(45deg, rgba(255,0,0,0.4) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,0,0,0.4) 75%, rgba(255,0,0,0.4) 0), rgb(255, 255, 255);
-  background-position: 0 0, 40px 40px;
-  -webkit-background-origin: padding-box;
-  background-origin: padding-box;
-  -webkit-background-clip: border-box;
-  background-clip: border-box;
-  -webkit-background-size: 80px 80px;
-  background-size: 80px 80px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  text-shadow: none;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  transition: none;
-  -webkit-transform: none;
-  transform: none;
-  -webkit-transform-origin: 50% 50% 0;
-  transform-origin: 50% 50% 0;
+	overflow: none;
+	background: -webkit-linear-gradient(45deg, $red-40 25%, $black-0 25%, $black-0 75%, $red-40 75%, $red-40 0), -webkit-linear-gradient(45deg, $red-40 25%, $black-0 25%, $black-0 75%, $red-40 75%, $red-40 0), $white;
+	background: -moz-linear-gradient(45deg, $red-40 25%, $black-0 25%, $black-0 75%, $red-40 75%, $red-40 0), -moz-linear-gradient(45deg, $red-40 25%, $black-0 25%, $black-0 75%, $red-40 75%, $red-40 0), $white;
+	background: linear-gradient(45deg, $red-40 25%, $black-0 25%, $black-0 75%, $red-40 75%, $red-40 0), linear-gradient(45deg, $red-40 25%, $black-0 25%, $black-0 75%, $red-40 75%, $red-40 0), $white;
+	background-position: 0 0, 40px 40px;
+	-webkit-background-origin: padding-box;
+	background-origin: padding-box;
+	-webkit-background-clip: border-box;
+	background-clip: border-box;
+	-webkit-background-size: $bgSize;
+	background-size: $bgSize;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	text-shadow: none;
+	-webkit-transition: none;
+	-moz-transition: none;
+	transition: none;
+	-webkit-transform: none;
+	transform: none;
+	-webkit-transform-origin: 50% 50% 0;
+	transform-origin: 50% 50% 0;
 }
 
-div.banner {
-  background: $gray;
-  border-radius: 10px;
-  box-shadow : 2px 2px 2px black;
-  max-width: 41em;
-  padding-bottom: 0.3em;
-  margin-top: 3.0em;
-}
-
-div.heading {
-  border-bottom: 1px solid $pink;
-}
-
-div.recipe-button-container {
-  margin-bottom: 0.5em;
-}
-
-
-div.recipe {
-  background: $gray;
-  border-radius: 1.5em;
-  max-width: 40em;
-  padding: 0em 1.5em 1em 1.5em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  box-shadow: 2px 2px black;
-
-  h3 {
-    font-size: 2em;
-    text-align: center;
-    margin-top: 10px;
-  }
-
-}
-
-
-p.footer {
-  text-align: center;
-}
-
-p.recipe-subsection-heading {
-  margin-top: 0.3em;
-  border-bottom: 1px solid $sky-blue;
-}
-
-ul {
-  list-style: none;
-  li.item {
-    border-bottom: 1px solid $sky-blue;
-    margin-left: -1.5em;
-  }
-}
-div.recipe-bottom-hide, div.recipe-bottom-hide * {
-  max-height: 0px;
-  opacity: 0;
-  transition: max-height 0.3s, opacity 0.3s ease-in;
-}
-div.recipe-bottom-show, div.recipe-bottom-show * {
-  height: auto;
-  max-height: 1800px;
-  opacity: 1;
-  transition: max-height 0.6s, opacity 0.5s ease-out;
-}
-
-h1 {
-  text-align: center;
-  font-size: 4em;
-}
-
-h2 {
-  margin-top: 40px;
-  text-align: center;
-}
-
-form {
-  margin-top: 10px;
-  textarea, input, button {
-    border-radius: 7px;
-    margin-bottom: 3px;
-    margin-top: 3px;
-    max-width: 40em;
-    box-shadow: 2px 2px black;
-  }
-  textarea {
-    height: 10em;
-  }
-}
-
-@media screen and (max-width: 230px) {
-  form textarea { min-width: 1em; }
-  form input { min-width: 1em; }
-  form button { min-width: 1em; }
-  form input[type='checkbox'] { min-width: 2em; }
-}
-
-@media screen and (min-width: 231px) and (max-width: 300px) {
-  form textarea { min-width: 14em; }
-  form input { min-width: 14em; }
-  form button { min-width: 14em; }
-  form input[type='checkbox'] { min-width: 2em; }
-}
-
-@media screen and (min-width: 301px) and (max-width: 400px) {
-  form textarea { min-width: 19em; }
-  form input { min-width: 19em; }
-  form button { min-width: 19em; }
-  form input[type='checkbox'] { min-width: 2em; }
-}
-
-@media screen and (min-width: 301px) and (max-width: 400px) {
-  form textarea { min-width: 19em; }
-  form input { min-width: 19em; }
-  form button { min-width: 19em; }
-  form input[type='checkbox'] { min-width: 2em; }
-}
-
-@media screen and (min-width: 401px) and (max-width: 500px) {
-  form textarea { min-width: 25em; }
-  form input { min-width: 25em; }
-  form button { min-width: 25em; }
-  form input[type='checkbox'] { min-width: 2em; }
-}
-
-@media screen and (min-width: 501px) and (max-width: 600px) {
-  form textarea { min-width: 30em; }
-  form input { min-width: 30em; }
-  form button { min-width: 30em; }
-  form input[type='checkbox'] { min-width: 2em; }
-}
-
-@media screen and (min-width: 601px) and (max-width: 700px) {
-  form textarea { min-width: 35em; }
-  form input { min-width: 35em; }
-  form button { min-width: 35em; }
-  form input[type='checkbox'] { min-width: 2em; }
-}
-
-@media screen and (min-width: 701px) {
-  form textarea { min-width: 40em; }
-  form input { min-width: 40em; }
-  form button { min-width: 40em; }
-  form input[type='checkbox'] { min-width: 2em; }
-}
-
+//div.banner {
+//}
+//
+//div.heading {
+//	border-bottom: 1px solid $pink;
+//}
+//
+//div.recipe-button-container {
+//	margin-bottom: 0.5em;
+//}
+//p.footer {
+//	text-align: center;
+//}
+//
+//p.recipe-subsection-heading {
+//	margin-top: 0.3em;
+//	border-bottom: 1px solid $sky-blue;
+//}
+//
+//ul {
+//	list-style: none;
+//	li.item {
+//		border-bottom: 1px solid $sky-blue;
+//		margin-left: -1.5em;
+//	}
+//}
+//
+//div.recipe-bottom-hide, div.recipe-bottom-hide * {
+//	max-height: 0px;
+//	opacity: 0;
+//	transition: max-height 0.3s, opacity 0.3s ease-in;
+//}
+//div.recipe-bottom-show, div.recipe-bottom-show * {
+//	height: auto;
+//	max-height: 1800px;
+//	opacity: 1;
+//	transition: max-height 0.6s, opacity 0.5s ease-out;
+//}
+//
+//h2 {
+//	margin-top: 40px;
+//	text-align: center;
+//}
+//
+//form {
+//	margin-top: 10px;
+//	textarea, input, button {
+//		border-radius: 7px;
+//		margin-bottom: 3px;
+//		margin-top: 3px;
+//		max-width: 40em;
+//		box-shadow: 2px 2px black;
+//	}
+//	textarea {
+//		height: 10em;
+//	}
+//}
 .modalDialog {
-  position: fixed;
-  top: -2em;;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(0,0,0,0.8);
-  z-index: 3;
-  opacity: 0;
-  -webkit-transition: opacity 150ms ease-in;
-  -moz-transition: opacity 150ms ease-in;
-  transition: opacity 150ms ease-in;
-  pointer-events: none;
-  h2 {
-    color: white;
-  }
+	position: fixed;
+	top: -2em;;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 3;
+	opacity: 0;
+	-webkit-transition: opacity 150ms ease-in;
+	-moz-transition: opacity 150ms ease-in;
+	transition: opacity 150ms ease-in;
+	pointer-events: none;
+	h2 {
+		color: white;
+	}
 }
+
 .modalDialog.closed {
-  display: none;
-  opacity: 0;
+	display: none;
+	opacity: 0;
 }
 
 .modalDialog.opened {
-  opacity: 1;
-  pointer-events: auto;
-  display: auto;
+	opacity: 1;
+	pointer-events: auto;
+	display: auto;
 }
 
 .modalDialog > div {
-  width: 500px;
-  position: relative;
-  margin: 10% auto;
-  padding: 5px 20px 13px 20px;
-  border-radius: 10px;
-  background: $white;
-  background: -moz-linear-gradient($white, #999);
-  background: -webkit-linear-gradient($white, #999);
-  background: -o-linear-gradient($white, #999);
-}
-
-.search-form {
-  input[type='checkbox'] {
-    box-shadow: none;
-    width: 2em;
-    bottom: 10px;
-  }
-  label span {
-  }
+	width: 500px;
+	position: relative;
+	margin: 10% auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 10px;
+	background: $white;
+	background: -moz-linear-gradient($white, #999);
+	background: -webkit-linear-gradient($white, #999);
+	background: -o-linear-gradient($white, #999);
 }

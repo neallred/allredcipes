@@ -1,6 +1,8 @@
 import React, {PropTypes} from 'react'
 import { RecipeCardBottom } from './recipe-card-bottom'
 import { RecipeCardTop } from './recipe-card-top'
+import './recipe.scss'
+
 const RecipeCard = ({
 	author,
 	hideIngredients,
@@ -12,7 +14,7 @@ const RecipeCard = ({
 	onClick,
 	openModal
 }) => (
-	<div className='recipe center-block'>
+	<div className='recipe'>
 		<RecipeCardTop recipeId={id}
 			           name={name}
 			           openModal={openModal}

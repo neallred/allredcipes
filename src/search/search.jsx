@@ -1,27 +1,38 @@
 import React from 'react'
+import './search.scss';
 
 export const Search = ({
 	searchToggle,
 	searchHandleText,
-	searchBy={
-		SEARCH_BY_CONTRIBUTOR: false,
-		SEARCH_BY_INGREDIENTS: ['baked', 'goods'],
-		SEARCH_BY_INSTRUCTIONS: false,
-		SEARCH_BY_NAME: false //can be false, true, or ['v', 'a', 'l', 'u', 'e', 's']
-	}
+	search={}
 }) => {
-	return <form className="search">
-		{
-			Object.keys(searchBy).map((term) => {
-				const labelName = term.split('_')[2].toLowerCase()
-				const value = (Array.isArray(searchBy && searchBy[term])) ? searchBy[term] : searchBy
-				const inputValue = Array.isArray(value) ? searchBy[term].join(' ') : (searchBy || '')
 
-				return <label key={term} className="search__label">{labelName}
-					<input className="search__checkbox" type="checkbox" onChange={() => {searchToggle(term, )}} name="search-by" checked={searchBy[term]} />
-						{value && <input className="search__text" type='text' onChange={(e) => {onChange(e)}} value={inputValue}/>}
-					</label>
-			})
-		}
-	</form>
+	return 	<div className='search'>
+		<h1 className='search__title'>Allred Recipe Box</h1>
+		<form className="search__form">
+			{
+				Object.keys(search).map((term) => {
+					const searchTermValue = search && (search[term] !== undefined) ? search[term] : ''
+					const inputValue = Array.isArray(searchTermValue) ? search[term].join(' ') : ''
+					const labelName = term.split('_')[1].toLowerCase()
+
+					return <div className="search__line" key={term} >
+						<div className="search__term">
+							<label className="search__label">{labelName}
+								<input className="search__checkbox"
+									type="checkbox"
+									onChange={() => {searchToggle(term, searchTermValue)}}
+									name="search-by"
+									checked={!!search[term]} />
+							</label>
+						</div>
+						{searchTermValue && <input className="search__text"
+							type='text'
+							onChange={(e) => {searchHandleText(term, e.target.value)}}
+							searchTermValue={inputValue}/>}
+					</div>
+				})
+			}
+		</form>
+	</div>
 };

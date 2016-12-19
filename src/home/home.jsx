@@ -18,10 +18,7 @@ const HomeComponent = ({
 }) => (
 	<div>
 		<HeaderContainer />
-		<div className='banner center-block'>
-			<h1 className='center-block'>Allred Recipe Box</h1>
-			<SearchContainer />
-		</div>
+		<SearchContainer />
 		<MatchedRecipeList />
 		{session.isLoggedIn && <RecipeFormContainer updateFields={updateFields}/>}
 		<br/>

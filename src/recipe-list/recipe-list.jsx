@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react'
 import { RecipeCard } from '../recipe-card/recipe-card'
+import './recipe-list.scss'
 
 class RecipeList extends React.Component {
 
@@ -9,9 +10,9 @@ class RecipeList extends React.Component {
 	}
 
 	render() {
-		const {recipes} = this.props;
-		return <div className='center-block'>
-			{recipes.map(recipe => <RecipeCard key={recipe.id} {...recipe} isLoggedIn={this.props.session && this.props.session.isLoggedIn} />)}
+		const {recipes, session} = this.props;
+		return <div className='recipe-list'>
+			{recipes.map(recipe => <RecipeCard key={recipe.id} {...recipe} isLoggedIn={session && session.isLoggedIn} />)}
 		</div>
 	}
 }

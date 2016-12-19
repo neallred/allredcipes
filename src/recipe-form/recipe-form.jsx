@@ -14,7 +14,7 @@ let RecipeForm = ({
 	recipeEditName,
 	recipeId
 }) => (
-	<div className={`modalDialog center-block text-center ${isEditing ? 'opened' : 'closed'}`} id='dialog'>
+	<div className={`modalDialog center-block text-center ${false && (isEditing ? 'opened' : 'closed')}`} id='dialog'>
 		<h2 className='add-recipes'>Edit {recipeEditName} {initialValues}</h2>
 		<form className='container' onSubmit={onSubmit}>
 			<input type='hidden' recipeId={recipeId} /><br/>

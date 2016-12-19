@@ -1,32 +1,32 @@
-import _ from 'lodash'
 import {
-	SEARCH_BY_CONTRIBUTOR,
-	SEARCH_BY_INGREDIENTS,
-	SEARCH_BY_INSTRUCTIONS,
-	SEARCH_BY_NAME
+	SEARCH_CONTRIBUTOR,
+	SEARCH_INGREDIENTS,
+	SEARCH_INSTRUCTIONS,
+	SEARCH_NAME
 } from '../constants/action-types'
 
 export const defaultState = {
 	//key values can be false, true, or ['v', 'a', 'l', 'u', 'e', 's']
-	SEARCH_BY_CONTRIBUTOR: false,
-	SEARCH_BY_INGREDIENTS: false,
-	SEARCH_BY_INSTRUCTIONS: false,
-	SEARCH_BY_NAME: false 
+	SEARCH_CONTRIBUTOR: false,
+	SEARCH_INGREDIENTS: false,
+	SEARCH_INSTRUCTIONS: false,
+	SEARCH_NAME: false 
 }
 
-export const search = (state = defaultState, action) => {
+export const searchReducer = (state = defaultState, action) => {
 	const {type, value} = action
 	switch (action.type) {
-		// Fallthrough is deliberate
-		case SEARCH_BY_CONTRIBUTOR:
-		case SEARCH_BY_INGREDIENTS:
-		case SEARCH_BY_INSTRUCTIONS:
-		case SEARCH_BY_NAME:
-			if (value === 'string') {
-				return _.assign({}, state, {type: value})
+		// Fallthrough is deliberate;
+		case SEARCH_CONTRIBUTOR:
+		case SEARCH_INGREDIENTS:
+		case SEARCH_INSTRUCTIONS:
+		case SEARCH_NAME:
+			if (typeof value === 'string') {
+				const searchTerms = value.split(' ')
+				return Object.assign({}, state, {[type]: searchTerms})
 			}
 			else {
-				return _.assign({}, state, {type: value})
+				return Object.assign({}, state, {[type]: !value})
 			}
 
 		default:

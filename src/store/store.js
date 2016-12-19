@@ -8,6 +8,7 @@ import _ from 'lodash'
 import { session } from '../session/ducks'
 import { header } from '../header/ducks'
 import { recipeFormReducer as recipeForm } from '../recipe-form/ducks'
+import { searchReducer as search } from '../search/ducks'
 
 //CONSTANTS
 import {
@@ -24,17 +25,16 @@ import {
 	TOGGLE_RECIPE,
 	IS_EDITING,
 
+	SEARCH_BY_CONTRIBUTOR,
+	SEARCH_BY_NAME,
+	SEARCH_BY_INGREDIENTS,
+	SEARCH_BY_INSTRUCTIONS,
+
 	SET_VISIBILITY_FILTER,
 	SET_SEARCH_FILTERS,
 	SET_SEARCH_TERMS,
 
-	SHOW_ALL,
-
-	BY_ALL,
-	BY_NAME,
-	BY_INGREDIENTS,
-	BY_INSTRUCTIONS,
-	BY_AUTHOR 
+	SHOW_ALL
 } from '../constants/action-types'
 
 const visibilityFilter = (state = SHOW_ALL, action) => {
@@ -115,11 +115,11 @@ const recipes = (state = [], action) => {
 const setSearchFilters = (state = [], action) => {
 	switch (action.filter) {
 		//Intentional fall through
-		case BY_ALL:
-		case BY_NAME:
-		case BY_INGREDIENTS:
-		case BY_INSTRUCTIONS:
-		case BY_AUTHOR:
+		case 'BY_ALL':
+		case 'BY_NAME':
+		case 'BY_INGREDIENTS':
+		case 'BY_INSTRUCTIONS':
+		case 'BY_AUTHOR':
 			if(state.indexOf(action.filter) === -1){
 				return [...state, action.filter]
 			} else {
@@ -148,6 +148,7 @@ const reducers = combineReducers({
 	recipeForm,
 	recipes,
 	header,
+	search,
 	session,
 	setSearchFilters,
 	setSearchTerms,
@@ -157,7 +158,6 @@ const reducers = combineReducers({
 
 const initialState = {
 	recipes: [],
-	visibilityFilter: 'BY_ALL',
 	recipeForm: {
 		id: '',
 		name: '',
@@ -167,8 +167,12 @@ const initialState = {
 		isVisible: false,
 		isNewRecipe: true
 	},
-	setSearchFilters: [],
-	setSearchTerms: []
+	search: {
+		SEARCH_CONTRIBUTOR: false,
+		SEARCH_NAME: false,
+		SEARCH_INGREDIENTS: false,
+		SEARCH_INSTRUCTIONS: false,
+	}
 }
 
 const sagaMiddleware = createSagaMiddleware()

@@ -1,0 +1,55 @@
+@import '../css/colors';
+@import '../css/constants';
+$search-item-padding: 0.4em 0;
+
+.search {
+	background: $gray;
+	border-radius: $panel-radius;
+	box-shadow: $shadow;
+	padding: 0.3em;
+	position: relative;
+	margin: 15em auto 0;
+	max-width: $content-max-width;
+
+	&__form {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+	}
+
+	&__title {
+		font-size: 2em;
+		text-align: center;
+	}
+
+	&__line {
+		height: 1em;
+		padding: $search-item-padding;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__term {
+	}
+
+	&__label {
+		padding: 0 0.2em;
+	}
+
+	&__checkbox {
+		box-shadow: none;
+		position: absolute;
+		left: 9em;
+	}
+
+	&__text {
+		width: calc(100% - 9.2em);
+		border-radius: $input-radius;
+		border-style: none;
+		outline: none;
+		padding-left: 0.2em;
+		padding-right: 0.2em;
+	}
+}
