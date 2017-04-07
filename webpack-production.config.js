@@ -5,7 +5,7 @@ var CompressionPlugin = require("compression-webpack-plugin");
 module.exports = {
   devtool: 'source-map',
   entry: [
-    './src/index'
+    './src-frontend/index'
   ],
   output: {
   path: path.join(__dirname, 'dist'),
@@ -41,7 +41,7 @@ module.exports = {
     loaders: [
       { test: /\.jsx$/,
         loader: 'babel',
-        include: path.join(__dirname, 'src') },
+        include: path.join(__dirname, 'src-frontend') },
       { test: /\.js$/,
         loader: 'babel',
         exclude: /node_modules/ },

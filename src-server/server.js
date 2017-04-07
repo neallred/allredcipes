@@ -3,10 +3,8 @@ const bcrypt = require('bcrypt')
 //example cookie:
 //{ sessionId: 'username:ff:sessionId:$2a$10$Q8FNLyHN0ztlcTKxMRX1.uBligrQYQa53wK3LKt1A2WaP8vD3BM8K' }
 
-const _ = require('lodash')
 const express = require('express')
 const path = require('path')
-const webpack = require('webpack')
 const compress = require('compression')
 const bodyParser = require('body-parser') 
 const cookieParser = require('cookie-parser')
@@ -14,27 +12,10 @@ const cookieParser = require('cookie-parser')
 const isDevelopment = (process.env.NODE_ENV !== 'production')
 const static_path = path.join(__dirname, '../dist')
 
-const util = require('util')
-const exec = require('child_process').exec
-
-//start and configure rethinkdb
-exec("pkill -9 rethinkdb", (error, stdout, stderr) => {console.log(stdout)})
-exec("rethinkdb", (error, stdout, stderr) => {console.log(stdout)})
-
-const r = require('rethinkdb')
-
-// Create a connection.
-const connectionConfig = {
-	host: 'localhost',
-	port: 28015
-}
-
 const saltRounds = 10
 
 const sessionsTable = {
 }
-
-const c = (callback) => { r.connect(connectionConfig, (err, conn) => { callback(conn) }) }
 
 const app = express()
 
@@ -59,17 +40,6 @@ app.use(compress())
 	
 //GET RECIPES ENDPOINT
 app.get('/recipes', function getRecipes(req, res, next) {
-	c((conn) => {
-		r.table('recipes').
-			run(conn, function(err, cursor) {
-				if (err) { throw err }
-				cursor.toArray(function(err, result) {
-					if (err) { throw err }
-					console.log(JSON.stringify(result[0], null, 2))
-					return res.send(JSON.stringify(result))
-				})
-			})
-	})
 })
 
 //CREATE RECIPE ENDPOINT
@@ -89,21 +59,21 @@ app.post('/recipes', isLoggedIn, function createRecipe(req, res, next) {
 	if (instructions) { insertObject.instructions = instructions}
 	if (author) { insertObject.author = author}
 
-	c((conn) => {
-		r.table('recipes').insert(insertObject)
-			.run(conn, function(err, result) {
-				if (err) { throw err }
-				const newId = result && result.generated_keys && result.generated_keys[0]
-				console.log(newId)
-				r.table('recipes').get(newId).run(conn, function(err, resultFetch) {
-					if (err) { throw err }
-					console.log('new recipe:')
-					console.log(JSON.stringify(resultFetch))
-					const newRecipe = _.merge({}, resultFetch, {id: newId})
-					return res.send(JSON.stringify(newRecipe))
-				})
-			})
-	})
+  //c((conn) => {
+	//	r.table('recipes').insert(insertObject)
+	//		.run(conn, function(err, result) {
+	//			if (err) { throw err }
+	//			const newId = result && result.generated_keys && result.generated_keys[0]
+	//			console.log(newId)
+	//			r.table('recipes').get(newId).run(conn, function(err, resultFetch) {
+	//				if (err) { throw err }
+	//				console.log('new recipe:')
+	//				console.log(JSON.stringify(resultFetch))
+	//				const newRecipe = Object.assign({}, resultFetch, {id: newId})
+	//				return res.send(JSON.stringify(newRecipe))
+	//			})
+	//		})
+	//})
 })
 
 //UPDATE RECIPE
@@ -143,19 +113,19 @@ author: ${author}
 app.delete('/recipes/:id', isLoggedIn, function deleteRecipe(req, res, next) {
 	const { params = {} } = req
 	const {id} = params
-	c((conn) => {
-		r.table("recipes").get(id).delete()
-			.run(conn, function(err, result) {
-				if (err) { throw err }
-				console.log(result)
-				if (result.deleted) {
-					return res.send({message: `You deleted recipe of id ${id}`, id})
-				}
-				else if (!result.deleted && result.skipped) {
-					return res.send({message: `Unable to delete recipe of id ${id}`})
-				}
-			})
-	})
+  //c((conn) => {
+	//	r.table("recipes").get(id).delete()
+	//		.run(conn, function(err, result) {
+	//			if (err) { throw err }
+	//			console.log(result)
+	//			if (result.deleted) {
+	//				return res.send({message: `You deleted recipe of id ${id}`, id})
+	//			}
+	//			else if (!result.deleted && result.skipped) {
+	//				return res.send({message: `Unable to delete recipe of id ${id}`})
+	//			}
+	//		})
+	//})
 
 })
 
@@ -218,28 +188,28 @@ function sessionMiddleware(req, res, next) {
 	let queriedUser = null
 
 	if (requestType === 'login') {
-		c((conn) => {
-			r.table('users').filter(r.row('username').eq(username)).
-				run(conn, function(err, cursor) {loginCallback(err, cursor, serverStuff)})
-		})
+    //		c((conn) => {
+    //			r.table('users').filter(r.row('username').eq(username)).
+    //				run(conn, function(err, cursor) {loginCallback(err, cursor, serverStuff)})
+    //		})
 	}
 	else if (requestType === 'signup') {
-		c((conn) => {
-			r.table('users').filter(r.row('username').eq(username)).
-				run(conn, function(err, cursor) {
-					if (err) throw err
-					cursor.toArray(function(err, usersWithRequestedUsername) {
-						if (usersWithRequestedUsername.length) {
-							console.log('USER ALREADY EXISTS', usersWithRequestedUsername)
-							return res.send({message: 'User already exists, please pick a different name'}).end()
-						}
-						else {
-							console.log('CREATING USER WITH', req.body)
-							createUser(conn, res, req.body)
-						}
-					})
-				})
-		})
+    //		c((conn) => {
+    //			r.table('users').filter(r.row('username').eq(username)).
+    //				run(conn, function(err, cursor) {
+    //					if (err) throw err
+    //					cursor.toArray(function(err, usersWithRequestedUsername) {
+    //						if (usersWithRequestedUsername.length) {
+    //							console.log('USER ALREADY EXISTS', usersWithRequestedUsername)
+    //							return res.send({message: 'User already exists, please pick a different name'}).end()
+    //						}
+    //						else {
+    //							console.log('CREATING USER WITH', req.body)
+    //							createUser(conn, res, req.body)
+    //						}
+    //					})
+    //				})
+    //		})
 	}
 	else {
 		res.send({message: 'Unknown request type, nothing doing'}).end()
@@ -254,18 +224,18 @@ const createUser = (conn, res, userData) => {
 	//	res.send({message: 'Good job bubs, you got a valid login!', isLoggedIn: true})
 	//})
 	const {username, password, email } = userData
-	r.table('users').insert(userData)
-		.run(conn, function(err, result) {
-			if (err) { throw err }
-			const newId = result && result.generated_keys && result.generated_keys[0]
-			r.table('users').get(newId).run(conn, function(err, resultFetch) {
-				if (err) { throw err }
-				console.log('New user created:')
-				console.log(JSON.stringify(resultFetch))
-				const newUser = _.merge({}, resultFetch, {id: newId})
-				return res.send(JSON.stringify(newUser))
-			})
-		})
+  //	r.table('users').insert(userData)
+  //		.run(conn, function(err, result) {
+  //			if (err) { throw err }
+  //			const newId = result && result.generated_keys && result.generated_keys[0]
+  //			r.table('users').get(newId).run(conn, function(err, resultFetch) {
+  //				if (err) { throw err }
+  //				console.log('New user created:')
+  //				console.log(JSON.stringify(resultFetch))
+  //				const newUser = Object.assign({}, resultFetch, {id: newId})
+  //				return res.send(JSON.stringify(newUser))
+  //			})
+  //		})
 }
 
 function isLoggedIn(req, res, next) {

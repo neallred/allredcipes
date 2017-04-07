@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import {
 	SESSION_LOGIN_REQUEST,
 	SESSION_LOGIN_SUCCESS,
@@ -21,11 +20,11 @@ const defaultState = {
 export const session = (state = defaultState, action) => {
 	switch (action.type) {
 		case SESSION_LOGIN_SUCCESS:
-			return _.assign({}, state, {isLoggedIn: true})
+			return Object.assign({}, state, {isLoggedIn: true})
 		case SESSION_LOGOUT_SUCCESS:
-			return _.assign({}, state, {isLoggedIn: false})
+			return Object.assign({}, state, {isLoggedIn: false})
 		case SESSION_CHECK_STATUS_SUCCESS:
-			return _.assign({}, state, {isLoggedIn: true})
+			return Object.assign({}, state, {isLoggedIn: true})
 
 		default:
 			return state

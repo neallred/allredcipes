@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import { connect } from 'react-redux';
 //import { isEditing } from '../actions';
 //import { updateRecipe } from '../actions';
@@ -8,7 +7,7 @@ import { RecipeForm } from './recipe-form';
 
 const mapStateToProps = (state, ownProps) => {
 	const {isEditing = {}} = state
-	const recipeToEdit = _.find(state.recipes, {id: isEditing.id}) || {}
+  const recipeToEdit = state.recipes.find(recipe => recipe.id === isEditing.id) || {}
 
 	const {hideIngredients='', name='', ingredients='', instructions='', author=''} = recipeToEdit
 	const recipeId = recipeToEdit.id

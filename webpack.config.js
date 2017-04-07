@@ -2,13 +2,13 @@
 var path = require('path');
 
 const PATHS = {
-  src: path.join(__dirname, 'src')
+  src: path.join(__dirname, 'src-frontend')
 };
 
 var config = {
 	context: __dirname,
 	entry: {
-		app: './src/index.jsx',
+		app: './src-frontend/index.jsx',
 		js: ['babel-polyfill']
 	},
 	output: {

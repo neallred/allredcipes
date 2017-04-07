@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import {
 	SESSION_LOGIN_SUCCESS,
 	SESSION_LOGOUT_SUCCESS,
@@ -21,22 +20,22 @@ export const defaultStateHeader = {
 export const header = (state = defaultStateHeader, action) => {
 	switch (action.type) {
 		case HEADER_BUTTON_SELECT:
-			return _.assign({}, state, {buttonSelected: action.value})
+			return Object.assign({}, state, {buttonSelected: action.value})
 
 		case HEADER_HANDLE_INPUT:
-			return _.assign({}, state, {[action.value.inputField]: action.value.input})
+			return Object.assign({}, state, {[action.value.inputField]: action.value.input})
 
 		case HEADER_MEASURE_HEIGHT:
-			return _.assign({}, state, {headerHeight: action.value})
+			return Object.assign({}, state, {headerHeight: action.value})
 
 		case SESSION_LOGIN_SUCCESS:
-			return _.assign({}, state, defaultStateHeader)
+			return Object.assign({}, state, defaultStateHeader)
 
 		case SESSION_LOGOUT_SUCCESS:
-			return _.assign({}, state, defaultStateHeader)
+			return Object.assign({}, state, defaultStateHeader)
 
 		case SESSION_CHECK_STATUS_SUCCESS:
-			return _.assign({}, state, defaultStateHeader)
+			return Object.assign({}, state, defaultStateHeader)
 
 		default:
 			return state

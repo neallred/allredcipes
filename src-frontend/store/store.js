@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { rootSaga } from './sagas'
 
-import _ from 'lodash'
+import {union} from 'lodash'
 
 //DUCKS
 import { session } from '../session/ducks'
@@ -52,13 +52,13 @@ const recipe = (state = {}, action) => {
 			if (state.id !== action.recipe.id) {
 				return state
 			}
-			return _.assign({}, state, action.recipe)
+			return Object.assign({}, state, action.recipe)
 		case TOGGLE_RECIPE:
 			if (state.id !== action.id) {
 				return state
 			}
 
-			return _.assign({}, state, {
+			return Object.assign({}, state, {
 				hideIngredients: !state.hideIngredients
 			})
 
@@ -70,7 +70,7 @@ const recipe = (state = {}, action) => {
 const recipes = (state = [], action) => {
 	switch (action.type) {
 		case RECIPES_SUCCESS:
-			return _.union(...state, action.recipes)
+			return union(...state, action.recipes)
 		case CREATE_RECIPE:
 			return [
 				...state,
@@ -93,9 +93,7 @@ const recipes = (state = [], action) => {
 					recipe(r, action)
 			)
 		case RECIPE_DELETE_SUCCESS:
-			const recipeToDelete = _.findIndex(state, (recipe) => {
-				return (recipe.id + '') === (action.recipeIdToDelete + '')
-			})
+			const recipeToDelete = state.findIndex(recipe => ('' + recipe.id) === ('' + action.recipeIdToDelete));
 			if (recipeToDelete === -1) {
 				return state
 			}

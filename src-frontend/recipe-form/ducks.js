@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import {
 	SESSION_LOGIN_SUCCESS,
 	SESSION_LOGOUT_SUCCESS,
@@ -19,7 +18,7 @@ export const defaultState = {
 export const recipeFormReducer = (state = defaultState, action) => {
 	switch (action.type) {
 		case HEADER_BUTTON_SELECT:
-			return _.assign({}, state, {buttonSelected: action.value})
+			return Object.assign({}, state, {buttonSelected: action.value})
 
 		default:
 			return state

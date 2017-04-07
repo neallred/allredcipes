@@ -1,5 +1,4 @@
 import 'babel-polyfill';
-import _ from 'lodash';
 import { takeEvery, delay } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
 import { axiosInstance } from '../axiosInstance';

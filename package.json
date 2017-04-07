@@ -68,8 +68,8 @@
   "scripts": {
     "postinstall": "webpack --config ./webpack-production.config.js --progress --colors",
     "server": "webpack-dev-server --host=0.0.0.0 --port 8000 --content-base=dist/",
-    "start": "webpack -p && node server/server.js",
-    "start-watch": "webpack -dw & nodemon server/server.js",
+    "start": "webpack -p && node src-server/server.js",
+    "start-watch": "webpack -dw & nodemon src-server/server.js",
     "test": "babel-tape-runner src/**/*-tests.js | faucet"
   }
 }
