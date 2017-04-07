@@ -1,6 +1,6 @@
 Recipe Box App
 ==============================
-A Recipe Box built with Webpack, Babel, React, Redux, and Sass
+A Recipe Box built with Node, Mongo, Webpack, Babel, React, Redux, and Sass
 
 Getting started
 ------------------------------
@@ -18,15 +18,9 @@ This will start up a webpack-dev-server that has hot module
 replacement. Just change a file and save and see the results
 without having to refresh.
 
-Structure
-------------------------------
-Presentational/dumb/stateless,functional components are
-in src/components. Components that subscribe to the Redux
-store are located in src/containers.
-
 TODO
 ------------------------------
-* Migrate to RethinkDB.
+* Migrate to MongoDB.
 * Create user system.
     * Sendgrid email service
     * username,email,password
@@ -42,4 +36,3 @@ TODO
     * edit/delete own
     * **admin**
       * can edit all
-* Add recipes in physical box
