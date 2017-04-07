@@ -52,6 +52,7 @@
     "file-loader": "^0.8.5",
     "ignore-styles": "^5.0.1",
     "node-sass": "^3.4.2",
+    "nodemon": "^1.11.0",
     "react": "^0.14.8",
     "react-addons-test-utils": "^0.14.8",
     "react-addons-update": "^0.14.7",
