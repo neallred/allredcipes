@@ -7,6 +7,7 @@ import {
 	SEARCH_NAME
 } from '../constants/action-types'
 import { Search } from './search'
+import debounce from '../utils/debounce';
 
 const mapStateToProps = (state) => {
 	return {
@@ -17,7 +18,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		searchToggle: (type, value) => dispatch(searchToggle(type, value)),
-		searchHandleText: (type, value) => dispatch(searchHandleText(type, value))
+		searchHandleText: debounce((type, value) => dispatch(searchHandleText(type, value)), 200)
 	}
 }
 

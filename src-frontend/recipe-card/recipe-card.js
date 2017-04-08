@@ -1,11 +1,11 @@
 import React, {PropTypes} from 'react'
-import { RecipeCardBottom } from './recipe-card-bottom'
+import RecipeCardBottom from './recipe-card-bottom'
 import { RecipeCardTop } from './recipe-card-top'
 import './recipe.scss'
 
 const RecipeCard = ({
 	author,
-	hideIngredients,
+	showIngredients,
 	id,
 	ingredients,
 	instructions,
@@ -18,11 +18,11 @@ const RecipeCard = ({
 		<RecipeCardTop recipeId={id}
 			           name={name}
 			           openModal={openModal}
-					   isLoggedIn={isLoggedIn}
-			           hideIngredients={hideIngredients} />
+                 isLoggedIn={isLoggedIn}
+			           showIngredients={showIngredients} />
 		<RecipeCardBottom onClick={onClick}
 			              id={id}
-			              hideIngredients={hideIngredients}
+			              showIngredients={showIngredients}
 			              ingredients={ingredients}
 			              instructions={instructions}
 			              author={author} />

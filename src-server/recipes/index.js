@@ -1,59 +1,83 @@
+const Recipe = require('./model');
+const oldRecipes = require('../seed-recipes');
+
 module.exports = function(app) {
   app.get('/test', function(req,res) { res.send('success\n') })
 
   app.get('/recipes', loadRecipes);
 
   app.post('/recipes', /*isLoggedIn,*/ createRecipe )
+  //app.post('/recipes', /*isLoggedIn,*/ seedRecipes )
   app.put('/recipes/:id', /*isLoggedIn,*/ updateRecipe )
   app.delete('/recipes/:id', /*isLoggedIn,*/ deleteRecipe)
-
 }
 
 function loadRecipes(req, res, next) {
-  console.log('loadRecipes reached');
-  res.send('loadRecipes to be implemented\n');
+  const recipeRequestLimit = 200
+  const page = req.query.page && parseInt(req.query.page, 10) || 0;
+
+  Recipe.find({})
+    .sort({name: 1})
+    .skip(page * recipeRequestLimit)
+    .limit(recipeRequestLimit)
+    .exec(function(err, recipes) {
+      if (err) {
+        return next(err);
+      }
+      if (!recipes) {
+        return res.status(404).send('Not found\n')
+      }
+
+      const sortedRecipes = recipes.sort((a, b) => {
+        if(a.name.toLowerCase() > b.name.toLowerCase()) {
+          return 1
+        }
+        else if(a.name.toLowerCase() < b.name.toLowerCase()) {
+          return -1
+        }
+        else {
+          return 0
+        }
+      })
+
+      res.send(sortedRecipes);
+      //next();
+
+    })
   return null;
 }
 
 function createRecipe(req, res, next) {
-  const { body = {}, params = {} } = req
-  const { name, ingredients, instructions, author } = body
-  const { id } = params
-
-  if (!name || !name.trim()) {
-    return res.send('Unable to create recipe, no recipe name was supplied')
+  const { params={} } = req;
+  const { author, name, ingredients, instructions } = params;
+  const newRecipe = {
+    author,
+    name,
+    ingredients,
+    instructions
   }
-  res.send('createRecipe to be implemented\n');
-  return null;
 
-  const insertObject = {}
-  insertObject.hideIngredients = true
-  if (name) { insertObject.name = name}
-  if (ingredients) { insertObject.ingredients = ingredients}
-  if (instructions) { insertObject.instructions = instructions}
-  if (author) { insertObject.author = author}
+  const missingFieldsTemplate = 'Unable to add recipe, these fields are missing:'
+  const missingFieldsError = checkFieldsMissing(newRecipe, missingFieldsTemplate);
+  if (missingFieldsError) { res.send(missingFieldsError); return null }
 
-  //c((conn) => {
-  //	r.table('recipes').insert(insertObject)
-  //		.run(conn, function(err, result) {
-  //			if (err) { throw err }
-  //			const newId = result && result.generated_keys && result.generated_keys[0]
-  //			console.log(newId)
-  //			r.table('recipes').get(newId).run(conn, function(err, resultFetch) {
-  //				if (err) { throw err }
-  //				console.log('new recipe:')
-  //				console.log(JSON.stringify(resultFetch))
-  //				const newRecipe = Object.assign({}, resultFetch, {id: newId})
-  //				return res.send(JSON.stringify(newRecipe))
-  //			})
-  //		})
-  //})
+  Recipe.create(newRecipes, function(err, result) {
+    if (err) { throw err; }
+    else {
+      res.send(result)
+    }
+  })
 }
 
 function updateRecipe(req, res, next) {
   const { body = {}, params = {} } = req
   const {id} = params
-  const { name, ingredients, instructions, author } = body
+  const {
+    name,
+    ingredients,
+    instructions,
+    author
+  } = body
   const requestLogTemplate = `User tried to update recipe of id ${id} with
 name: ${name},
 ingredients: ${ingredients},
@@ -61,28 +85,15 @@ instructions: ${instructions},
 author: ${author}
 `
 
-  const updateObject = {}
-  if (name) { updateObject.name = name}
-  if (ingredients) { updateObject.ingredients = ingredients}
-  if (instructions) { updateObject.instructions = instructions}
-  if (author) { updateObject.author = author}
+  const updatedRecipe = {
+    name,
+    ingredients,
+    instructions,
+    author
+  }
 
   console.log('updateRecipe to be implemented\n');
   return null;
-
-
-  //  c((conn) => {
-  //    r.table('recipes').get(id).update(updateObject)
-  //      .run(conn, function(err, result) {
-  //        if (err) { throw err }
-  //        console.log(result)
-  //        r.table('recipes').get(id).run(conn, function(err, resultFetch) {
-  //          if (err) { throw err }
-  //          console.log(JSON.stringify(resultFetch))
-  //          return res.send(JSON.stringify(resultFetch))
-  //        })
-  //      })
-  //  })
 }
 
 function deleteRecipe(err, req, res, next) {
@@ -107,4 +118,23 @@ function deleteRecipe(err, req, res, next) {
 
 }
 
+function seedRecipes(req, res, next) {
+  Recipe.create(oldRecipes, function(err, newRecipes) {
+    if (err) { console.log(err)}
+    else {
+      console.log(newRecipes)
+      //res.send(newRecipes)
+    }
+  })
+  res.send('')
+}
 
+function checkFieldsMissing(fields, errorTemplate) {
+  const missingFields = Object.keys(fields).filter(fieldName => !newRecipe[field] && fieldName)
+  if ( missingFields.length ) {
+    return missingFields.reduce((accumulator, field) => accumulator + ' ' + field, errorTemplate) + '\n'
+  }
+  else {
+    return null
+  }
+}

@@ -8,7 +8,7 @@ const PATHS = {
 var config = {
 	context: __dirname,
 	entry: {
-		app: './src-frontend/index.jsx',
+		app: './src-frontend/index.js',
 		js: ['babel-polyfill']
 	},
 	output: {

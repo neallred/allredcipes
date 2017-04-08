@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react'
 import { updateRecipe } from '../actions'
+import '../css/modal.css.scss'
 
 let RecipeForm = ({
 	author,

@@ -6,9 +6,19 @@ const compress = require('compression')
 const bodyParser = require('body-parser') 
 const cookieParser = require('cookie-parser')
 
-//const mongoose = require('mongoose')
-//const databaseUrl = 'mongodb://localhost/learn'
-//const database = mongoose.connect(databaseUrl)
+const mongoose = require('mongoose')
+const databaseUrl = 'mongodb://127.0.0.1:27017/allredcipes'
+mongoose.connect(databaseUrl)
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('connected to database');
+});
+
+
+
+
 //const isDevelopment = (process.env.NODE_ENV !== 'production')
 
 

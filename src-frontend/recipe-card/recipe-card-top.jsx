@@ -6,7 +6,7 @@ import { isEditing } from '../actions'
 
 import { RECIPE_DELETE_REQUEST } from '../constants/action-types'
 
-export const RecipeCardTop = ({recipeId, name, hideIngredients, isLoggedIn}) => (
+export const RecipeCardTop = ({recipeId, name, showIngredients, isLoggedIn}) => (
 	<header className="recipe__header">
 		<h3 className="recipe__title">{name}</h3>
 		<div className="recipe__button-group">
@@ -17,7 +17,7 @@ export const RecipeCardTop = ({recipeId, name, hideIngredients, isLoggedIn}) => 
 
 			<RecipeButton recipeId={recipeId}
 				          dispatchType={toggleRecipe}
-				          buttonLabel={hideIngredients ? 'Show Recipe' : 'Hide Recipe'}
+				          buttonLabel={showIngredients ? 'Hide Recipe' : 'Show Recipe'}
 				          buttonClass="green" />
 
 			{isLoggedIn && <RecipeButton recipeId={recipeId}
