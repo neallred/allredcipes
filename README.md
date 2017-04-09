@@ -36,3 +36,5 @@ TODO
     * edit/delete own
     * **admin**
       * can edit all
+
+@~/github/allredcipes $ grep -R "PropTypes" src-frontend/

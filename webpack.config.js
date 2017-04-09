@@ -18,18 +18,17 @@ var config = {
 	},
 	devtool: 'source-map',
 	resolve: {
-		extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx'],
+		extensions: ['.webpack.js', '.web.js', '.js', '.jsx'],
 	},
 	module: {
-		loaders: [
-			{ test: /\.js(x)?$/, loader: 'babel-loader', exclude: /node_modules/ },
-			{ test: /\.html$/, loader: 'raw' },
-      { test: /\.css$/, loaders: ['style', 'css'] },
-      { test: /\.scss$/, loader: 'style!css!sass?sourceMap' },
-			{ test: /\.png$/, loader: 'url-loader?limit=100000&mimetype=image/png' },
-			{ test: /\.jpeg$/, loader: 'url-loader?limit=100000&mimetype=image/jpeg' },
-      { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, loader : 'file-loader'},
-			{ test: /\.woff2$/, loader: 'url-loader' }
+		rules: [
+			{ test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ },
+			{ test: /\.html$/, use: 'raw-loader' },
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader?sourceMap'] },
+			{ test: /\.png$/, use: 'url-loader?limit=100000&mimetype=image/png' },
+			{ test: /\.jpeg$/, use: 'url-loader?limit=100000&mimetype=image/jpeg' },
+      { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, use: 'file-loader'},
 		]
 	}
 };

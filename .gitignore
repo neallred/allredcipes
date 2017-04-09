@@ -1,4 +1,4 @@
 node_modules/
-dist/*
+dist/*.*
 rethinkdb_data/
 npm-debug.log

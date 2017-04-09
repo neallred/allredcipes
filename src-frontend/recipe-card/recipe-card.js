@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react'
+import React from 'react'
+import PropTypes from 'prop-types';
 import RecipeCardBottom from './recipe-card-bottom'
 import { RecipeCardTop } from './recipe-card-top'
 import './recipe.scss'

@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { rootSaga } from './sagas'
 
-import {union} from 'lodash'
+import union from 'lodash.union'
 
 //DUCKS
 import { session } from '../session/ducks'

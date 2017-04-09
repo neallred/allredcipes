@@ -7,6 +7,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 
 const mongoose = require('mongoose')
+mongoose.Promise = require('bluebird');
 const databaseUrl = 'mongodb://127.0.0.1:27017/allredcipes'
 mongoose.connect(databaseUrl)
 

@@ -1,8 +1,12 @@
 import './css/reset.css'
-import './css/custom.css.scss'
+import './css/background.scss'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router, Route, browserHistory } from 'react-router'
+import {
+  BrowserRouter as Router,
+  Route,
+  browserHistory
+} from 'react-router-dom'
 import { Provider } from 'react-redux'
 import Home from './home/home'
 import { store } from './store/store'

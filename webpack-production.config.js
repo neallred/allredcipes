@@ -13,12 +13,8 @@ module.exports = {
   publicPath: 'dist/'
   },
   plugins: [
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
-      minimize: true,
-      compress: {
-        warnings: false
-      }
+      minimize: true
     }),
     new CompressionPlugin({
       asset: "[path].gz[query]",
@@ -32,27 +28,16 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
-  resolveLoader: {
-      root: path.join(__dirname, 'node_modules')
+    extensions: ['.js']
   },
   module: {
-    loaders: [
-      { test: /\.jsx$/,
-        loader: 'babel',
-        include: path.join(__dirname, 'src-frontend') },
-      { test: /\.js$/,
-        loader: 'babel',
-        exclude: /node_modules/ },
-			{ test: /\.html$/, loader: 'raw', exclude: /node_modules/ },
-      { test: /\.css$/, loaders: ['style', 'css'], exclude: /node_modules/ },
-      { test: /\.scss$/, loader: 'style!css!sass?sourceMap', exclude: /node_modules/ },
+    rules: [ { test: /\.js$/, use: 'babel-loader', exclude: /node_modules/, include: path.join(__dirname, 'src-frontend') },
+			{ test: /\.html$/, use: 'raw-loader', exclude: /node_modules/ },
+      { test: /\.css$/, use: ['style-loader', 'css-loader'], exclude: /node_modules/ },
+      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader?sourceMap'], exclude: /node_modules/ },
 			{ test: /\.png$/, loader: 'url-loader?limit=100000&mimetype=image/png', exclude: /node_modules/ },
 			{ test: /\.jpeg$/, loader: 'url-loader?limit=100000&mimetype=image/jpeg', exclude: /node_modules/ },
-      { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, loader : 'file-loader', exclude: /node_modules/},
-      { test: /\.pdf$/, loader: 'file-loader', exclude: /node_modules/},
-			{ test: /\.woff2$/, loader: 'url-loader', exclude: /node_modules/ }
+      { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, loader : 'file-loader', exclude: /node_modules/}
     ]
   }
 }

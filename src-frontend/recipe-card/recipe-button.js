@@ -1,7 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
-let RecipeButton = ({
+export const RecipeButton = ({
 	dispatch,
 	recipeId,
 	columnSize,
@@ -11,12 +10,10 @@ let RecipeButton = ({
 }) => {
 	return <button className={'recipe__button recipe__button--'+buttonClass}
 		           type='submit' 
-		           recipeId={recipeId}
 		           onClick={e => { e.preventDefault(); dispatch(dispatchType(recipeId)) }} >
 		{buttonLabel}
 	</button>
 }
 
-RecipeButton = connect()(RecipeButton)
 
-export { RecipeButton }
+export default RecipeButton
