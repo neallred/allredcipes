@@ -7,6 +7,9 @@ import union from 'lodash.union'
 //DUCKS
 import { session } from '../session/ducks'
 import { header } from '../header/ducks'
+import recipes from '../recipe-list/ducks'
+
+
 import { recipeFormReducer as recipeForm } from '../recipe-form/ducks'
 import { searchReducer as search } from '../search/ducks'
 
@@ -46,69 +49,6 @@ const visibilityFilter = (state = SHOW_ALL, action) => {
 	}
 }
 
-const recipe = (state = {}, action) => {
-	switch (action.type) {
-		case RECIPE_UPDATE_SUCCESS:
-			if (state.id !== action.recipe.id) {
-				return state
-			}
-			return Object.assign({}, state, action.recipe)
-		case TOGGLE_RECIPE:
-			if (state.id !== action.id) {
-				return state
-			}
-
-			return Object.assign({}, state, {
-				hideIngredients: !state.hideIngredients
-			})
-
-		default:
-			return state
-	}
-}
-
-const recipes = (state = [], action) => {
-	switch (action.type) {
-		case RECIPES_SUCCESS:
-			return union(...state, action.recipes)
-		case CREATE_RECIPE:
-			return [
-				...state,
-				recipe(undefined, action)
-			]
-		case RECIPE_CREATE_SUCCESS:
-			const newlyFetchedRecipe = action && action.recipe || {}
-			const { id, name, ingredients, instructions, author } = newlyFetchedRecipe
-			const newRecipe = {
-				id,
-				hideIngredients: true,
-				name,
-				ingredients,
-				instructions,
-				author
-			}
-			return [...state, newRecipe]
-		case RECIPE_UPDATE_SUCCESS:
-			return state.map(r =>
-					recipe(r, action)
-			)
-		case RECIPE_DELETE_SUCCESS:
-			const recipeToDelete = state.findIndex(recipe => ('' + recipe.id) === ('' + action.recipeIdToDelete));
-			if (recipeToDelete === -1) {
-				return state
-			}
-			return [
-				...state.slice(0, recipeToDelete),
-				...state.slice(recipeToDelete + 1)
-			]
-		case TOGGLE_RECIPE:
-			return state.map(r =>
-					recipe(r, action)
-			)
-		default:
-			return state
-	}
-}
 
 const setSearchFilters = (state = [], action) => {
 	switch (action.filter) {
@@ -155,7 +95,9 @@ const reducers = combineReducers({
 
 
 const initialState = {
-	recipes: [],
+  recipes: {
+    list: []
+  },
 	recipeForm: {
 		id: '',
 		name: '',
@@ -176,7 +118,7 @@ const initialState = {
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(
 	reducers,
-	initialState,
+  initialState,
 	applyMiddleware(sagaMiddleware)
 )
 

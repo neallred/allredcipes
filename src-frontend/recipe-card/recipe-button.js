@@ -6,11 +6,16 @@ export const RecipeButton = ({
 	columnSize,
 	dispatchType,
 	buttonLabel,
-	buttonClass
+  buttonClass,
+  onClick
 }) => {
 	return <button className={'recipe__button recipe__button--'+buttonClass}
 		           type='submit' 
-		           onClick={e => { e.preventDefault(); dispatch(dispatchType(recipeId)) }} >
+		           onClick={e => {
+                 //e.preventDefault(); dispatch(dispatchType(recipeId))
+                 console.log(recipeId)
+                 onClick(recipeId)
+		           }} >
 		{buttonLabel}
 	</button>
 }

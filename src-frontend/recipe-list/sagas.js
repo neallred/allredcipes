@@ -1,19 +1,34 @@
 import 'babel-polyfill';
 import { takeLatest, delay } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
-import axios from 'axios';
+import axiosInstance from '../axiosInstance';
 import {
-	RECIPES_REQUEST,
-	RECIPES_SUCCESS,
-	RECIPES_FAILURE
+	RECIPES_GET,
+	RECIPES_GET_SUCCESS,
+	RECIPES_GET_FAILURE,
+
+	RECIPES_DELETE_REQUEST,
+	RECIPES_DELETE_SUCCESS,
+	RECIPES_DELETE_FAILURE,
 } from '../constants/action-types';
 
-function *fetchRecipes() {
-	const recipes = yield call(axios.get, '/recipes');
-	yield put({type: RECIPES_SUCCESS, recipes: recipes.data});
+function *recipesGet() {
+	const recipes = yield call(axiosInstance.get, '/recipes');
+	yield put({type: RECIPES_GET_SUCCESS, value: recipes.data});
 }
 
-export function *watchFetchRecipes() {
-	yield takeLatest(RECIPES_REQUEST, fetchRecipes)
+export function *watchRecipesGet() {
+	yield takeLatest(RECIPES_GET, recipesGet)
 }
 
+function *recipesDelete(action) {
+	if (!action.value) { return }
+	const recipes = yield call(axiosInstance.delete, `/recipes/${action.value}`);
+	console.log(recipes);
+	const recipeIdToDelete = recipes && recipes.data && recipes.data.id
+	yield put({type: RECIPE_DELETE_SUCCESS, recipeIdToDelete});
+}
+
+export function *watchRecipesDelete() {
+	yield takeEvery(RECIPE_DELETE_REQUEST, recipesDelete);
+}

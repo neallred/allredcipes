@@ -4,8 +4,7 @@ import { RecipeCard } from '../recipe-card/recipe-card'
 import './recipe-list.scss'
 
 import { connect } from 'react-redux'
-import { toggleRecipe, fetchRecipes } from '../actions'
-import { RECIPES_REQUEST } from '../actions'
+import * as RecipesActions from './ducks'
 import { sessionCheckStatus } from '../session/ducks'
 
 //const actionToRecipeMap = {
@@ -86,19 +85,17 @@ const matchRecipes = (recipes, searchFilters) => {
 
 const mapStateToProps = (state) => {
 	return {
-		recipes: matchRecipes(state.recipes, state.search),
+		recipeList: matchRecipes(state.recipes.list, state.search),
 		session: state.session
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		onRecipeClick: (id) => {
-			dispatch(toggleRecipe(id))
+		recipesGet: (page) => {
+			dispatch(RecipesActions.recipesGet(page))
 		},
-		fetchRecipes: () => {
-			dispatch(fetchRecipes())
-		},
+    toggleView: (id) => dispatch(RecipesActions.recipesToggleView(id)),
 		sessionCheckStatus: () => {
 			dispatch(sessionCheckStatus())
 		}
@@ -109,27 +106,31 @@ const mapDispatchToProps = (dispatch) => {
 export class RecipeList extends React.Component {
 
 	componentWillMount() {
-		this.props.fetchRecipes()
+		this.props.recipesGet(0)
 		this.props.sessionCheckStatus()
 	}
 
 	render() {
-		const {recipes, session} = this.props;
+		const {recipeList, session} = this.props;
 		return <div className='recipe-list'>
-			{recipes.map(recipe => <RecipeCard key={recipe._id} {...recipe} isLoggedIn={session && session.isLoggedIn} />)}
+      {recipeList && recipeList.map(recipe => <RecipeCard {...recipe}
+        key={recipe._id}
+        recipeId={recipe._id}
+        toggleView={this.props.toggleView}
+        isLoggedIn={session && session.isLoggedIn} />)}
 		</div>
 	}
 }
 
 RecipeList.propTypes = {
-	recipes: PropTypes.arrayOf(PropTypes.shape({
+	recipeList: PropTypes.arrayOf(PropTypes.shape({
 		_id: PropTypes.any.isRequired,
 		name: PropTypes.string.isRequired,
 		ingredients: PropTypes.string,
 		instructions: PropTypes.string,
 		author: PropTypes.string
 	}).isRequired).isRequired,
-	onRecipeClick: PropTypes.func.isRequired
+	recipesGet: PropTypes.func.isRequired
 }
 
 export default connect(

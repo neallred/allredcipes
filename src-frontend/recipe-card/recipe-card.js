@@ -4,25 +4,27 @@ import RecipeCardBottom from './recipe-card-bottom'
 import { RecipeCardTop } from './recipe-card-top'
 import './recipe.scss'
 
-const RecipeCard = ({
+export const RecipeCard = ({
 	author,
-	showIngredients,
-	id,
+  dispatch,
 	ingredients,
 	instructions,
 	isLoggedIn,
 	name,
 	onClick,
-	openModal
+	recipeId,
+  toggleView,
+  showIngredients=false,
 }) => (
 	<div className='recipe'>
-		<RecipeCardTop recipeId={id}
+		<RecipeCardTop recipeId={recipeId}
 			           name={name}
-			           openModal={openModal}
+                 dispatch={dispatch}
                  isLoggedIn={isLoggedIn}
+                 toggleView={toggleView}
 			           showIngredients={showIngredients} />
 		<RecipeCardBottom onClick={onClick}
-			              id={id}
+			              recipeId={recipeId}
 			              showIngredients={showIngredients}
 			              ingredients={ingredients}
 			              instructions={instructions}
@@ -38,4 +40,4 @@ RecipeCard.PropTypes = {
   author: PropTypes.string.isRequired
 }
 
-export {RecipeCard}
+export default RecipeCard

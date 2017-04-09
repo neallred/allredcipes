@@ -37,4 +37,9 @@ TODO
     * **admin**
       * can edit all
 
-@~/github/allredcipes $ grep -R "PropTypes" src-frontend/
+replace singluar RECIPE_...
+src-frontend/recipe-card/recipe-card-top.js:import { RECIPE_DELETE_REQUEST } from '../constants/action-types'
+src-frontend/recipe-card/recipe-card-top.js:                                                      return {type: RECIPE_DELETE_REQUEST, value: id};
+src-frontend/recipe-card/sagas.js:      RECIPE_DELETE_REQUEST,
+src-frontend/recipe-card/sagas.js:      yield takeEvery(RECIPE_DELETE_REQUEST, deleteRecipe);
+

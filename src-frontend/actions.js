@@ -12,42 +12,24 @@ import {
 	RECIPES_REQUEST
 } from './constants/action-types';
 
-let nextRecipeId = 125
-
-var regexer = function(pattern){
+const regexer = function(pattern){
 	return new RegExp(pattern, "gi");
 }
 
-var filterInput = function(recipePiece, filterObject, replacementPattern){
-	var newString = recipePiece;
+const filterInput = function(recipePiece, filterObject, replacementPattern){
+	let newString = recipePiece;
 	if(Array.isArray(filterObject)){
 		for(var i=0;i<filterObject.length;i++){
 			newString = newString ? newString.replace(regexer(filterObject[i]),replacementPattern): '';
 		}
 	} else if (typeof filterObject === 'object'){
-		var hashKeys = Object.keys(filterObject)
+		const hashKeys = Object.keys(filterObject)
 		for(var i=0;i<hashKeys.length;i++){
 			newString = newString ? newString.replace(regexer(hashKeys[i]), filterObject[hashKeys[i]]): '';
 		}
 	}
 	return newString
 }
-
-//export function createRecipe(name, ingredients, instructions, author) {
-//	var nameFiltered = filterInput(name, badWords, '***')
-//	var ingredientsFiltered = filterInput(filterInput(ingredients, abbreviations), badWords, '***')
-//	var instructionsFiltered = filterInput(instructions, badWords, '***')
-//	var authorFiltered = filterInput(author, badWords, '***')
-//	return {
-//		type: CREATE_RECIPE,
-//		id: nextRecipeId++,
-//		hideIngredients: true,
-//		name: nameFiltered,
-//		ingredients: ingredientsFiltered,
-//		instructions: instructionsFiltered,
-//		author: authorFiltered
-//	}
-//}
 
 export function updateRecipe(recipeId, hideIngredients, name, ingredients, instructions, author) {
 	var nameFiltered = filterInput(name, badWords, '***')
