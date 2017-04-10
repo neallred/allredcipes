@@ -1,5 +1,23 @@
-//example cookie:
-//{ sessionId: 'username:ff:sessionId:$2a$10$Q8FNLyHN0ztlcTKxMRX1.uBligrQYQa53wK3LKt1A2WaP8vD3BM8K' }
+
+const jwt = require('jsonwebtoken')
+const crypto = require('crypto')
+const User = require('./model')
+const config = require('../config')
+
+const seconds = 60
+const minutes = 60
+const hours = 3
+
+function generateToken(user) {
+  return jwt.sign(user, config.secret, {
+    expiresIn: seconds * minutes * hours  //seconds
+  })
+}
+
+function setUserInfo(user) {
+  const { _id, username, email, role } = user
+  return { _id, username, email, role }
+}
 
 
 module.exports = function(app) {
@@ -21,9 +39,15 @@ function checkSession(req, res, next) {
 }
 
 function createSession(req, res, next) {
-  const { username, password, email } = req.body
-  res.send('createSession to be implemented\n')
-  return null
+  console.log(req.body)
+  const { username, password, email, _id, role } = req.body
+  const user = { username, password, email, _id, role }
+  const userInfo = setUserInfo(user)
+
+  res.status(200).json({
+    token: 'JWT ' + generateToken(userInfo),
+    user: userInfo
+  })
 }
 
 function deleteSession(req, res, next) {
@@ -44,8 +68,40 @@ function getUser(req, res, next) {
 }
 
 function createUser(req, res, next) {
-  res.send('createUser to be implemented\n')
-  return null
+  const { email, username, password } = req.body //email optional, but password reset won't be an option
+
+  if (!username) {
+    return res.status(422).send({ error: 'You must enter a username.' })
+  }
+
+  if (!password) {
+    return res.status(422).send({ error: 'You must enter a password.' })
+  }
+
+  User.findOne({ username }, function(err, existingUser) {
+    if (err) { return next(err) }
+
+    if (existingUser) {
+      return res.status(422).send({ error: 'That email address is already in use.' })
+    }
+
+    const userDetails = { username, password }
+    if (email) { userDetails.email = email }
+    const user = new User(userDetails)
+
+    user.save(function(err, user) {
+      if (err) { return next(err) }
+
+      //can have email callbacks if succeeded
+
+      const userInfo = setUserInfo(user)
+
+      res.status(201).json({
+        token: 'JWT ' + generateToken(userInfo),
+        user: userInfo
+      })
+    })
+  })
 }
 
 function editUser(req, res, next) {
@@ -68,4 +124,24 @@ const loginCallback = (err, cursor, serverStuff) => {
   const {req, res, next} = serverStuff
   const {username, password, requestType} = req.body
   if (err) throw err
+}
+
+function checkRole(role) {
+  return function(req, res, next) {
+    const user = req.user
+
+    User.findbyId(user._id, function(err, foundUser) {
+      if (err) {
+        res.status(422).json({ error: 'No user was found.' })
+        return next(err)
+      }
+
+      if (foundUser.role === role) {
+        return next()
+      }
+
+      res.status(401).json({ error: 'You are not authorized to view this content.' })
+      return next('Unauthorized')
+    })
+  }
 }

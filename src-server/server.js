@@ -1,15 +1,13 @@
-const bcrypt = require('bcrypt')
-
 const express = require('express')
 const path = require('path')
 const compress = require('compression')
 const bodyParser = require('body-parser') 
 const cookieParser = require('cookie-parser')
+const config = require('./config');
 
 const mongoose = require('mongoose')
 mongoose.Promise = require('bluebird');
-const databaseUrl = 'mongodb://127.0.0.1:27017/allredcipes'
-mongoose.connect(databaseUrl)
+mongoose.connect(config.databaseUrl)
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -32,7 +30,15 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(compress())
 
-app.listen(process.env.PORT || 8000, function (err) {
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials");
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
+
+app.listen(config.port, function (err) {
   if (err) {console.log(err) }
   console.log('Listening at localhost:8000')
 })

@@ -20,7 +20,7 @@ function *sessionLoginRequest(action) {
 	if (!action.value) { return }
 	const session = yield call(axiosInstance.post, `/session`, action.value)
 	console.log(session)
-	if (session.data.isLoggedIn) {
+	if (session.data.token) {
 		yield put({type: SESSION_LOGIN_SUCCESS, session})
 	}
 	else {

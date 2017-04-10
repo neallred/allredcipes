@@ -20,26 +20,14 @@ without having to refresh.
 
 TODO
 ------------------------------
-* Migrate to MongoDB.
-* Create user system.
-    * Sendgrid email service
-    * username,email,password
-    * Ideate user data table
-        * Authentication Tokens?
-        * Activation Tokens?
-        * Password Reset Tokens?
-    * Permissions system
-        * **anonymous**
-        * read all
-        * edit/delete none
-    * **authenticated**
-    * edit/delete own
-    * **admin**
-      * can edit all
+* Refine user system.
+  Current issues:
+    1. login is broken on backend, it always responds with a token and posted details, even if there is no such user.
+    2. refine client side to have sense of user roles (admins can see and edit all recipes, and see/edit/delete all users)
+    3. apply checks for authentication on all editing/creating/deleting
 
-replace singluar RECIPE_...
-src-frontend/recipe-card/recipe-card-top.js:import { RECIPE_DELETE_REQUEST } from '../constants/action-types'
-src-frontend/recipe-card/recipe-card-top.js:                                                      return {type: RECIPE_DELETE_REQUEST, value: id};
-src-frontend/recipe-card/sagas.js:      RECIPE_DELETE_REQUEST,
-src-frontend/recipe-card/sagas.js:      yield takeEvery(RECIPE_DELETE_REQUEST, deleteRecipe);
-
+  See:
+  http://blog.slatepeak.com/refactoring-a-basic-authenticated-api-with-node-express-and-mongo/
+  http://blog.slatepeak.com/creating-a-simple-node-express-api-authentication-system-with-passport-and-jwt/
+  http://blog.slatepeak.com/build-a-react-redux-app-with-json-web-token-jwt-authentication/
+* create Sendgrid email service
