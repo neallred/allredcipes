@@ -107,12 +107,6 @@ const initialState = {
 		isVisible: false,
 		isNewRecipe: true
 	},
-	search: {
-		SEARCH_CONTRIBUTOR: false,
-		SEARCH_NAME: false,
-		SEARCH_INGREDIENTS: false,
-		SEARCH_INSTRUCTIONS: false,
-	}
 }
 
 const sagaMiddleware = createSagaMiddleware()

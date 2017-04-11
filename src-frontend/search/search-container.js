@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { searchToggle, searchHandleText } from './ducks'
+import { searchToggleType, searchUpdateTerms } from './ducks'
 import {
 	SEARCH_CONTRIBUTOR,
 	SEARCH_INGREDIENTS,
@@ -17,8 +17,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
 	return {
-		searchToggle: (type, value) => dispatch(searchToggle(type, value)),
-		searchHandleText: debounce((type, value) => dispatch(searchHandleText(type, value)), 200)
+		searchToggleType: key => dispatch(searchToggleType(key)),
+		searchUpdateTerms: (key, terms) => dispatch(searchUpdateTerms(key, terms))
 	}
 }
 

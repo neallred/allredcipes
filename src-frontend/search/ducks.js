@@ -1,38 +1,51 @@
 import {
-	SEARCH_CONTRIBUTOR,
-	SEARCH_INGREDIENTS,
-	SEARCH_INSTRUCTIONS,
-	SEARCH_NAME
+  SEARCH_UPDATE_TERMS,
+  SEARCH_TOGGLE,
 } from '../constants/action-types'
 
 export const defaultState = {
-	//key values can be false, true, or ['v', 'a', 'l', 'u', 'e', 's']
-	SEARCH_CONTRIBUTOR: false,
-	SEARCH_INGREDIENTS: false,
-	SEARCH_INSTRUCTIONS: false,
-	SEARCH_NAME: false 
+  contributor: {
+    enabled: false,
+    terms: '',
+  },
+  ingredients: {
+    enabled: false,
+    terms: '',
+  },
+  instructions: {
+    enabled: false,
+    terms: '',
+  },
+  name: {
+    enabled: false,
+    terms: '',
+  },
 }
 
 export const searchReducer = (state = defaultState, action) => {
 	const {type, value} = action
 	switch (action.type) {
-		// Fallthrough is deliberate;
-		case SEARCH_CONTRIBUTOR:
-		case SEARCH_INGREDIENTS:
-		case SEARCH_INSTRUCTIONS:
-		case SEARCH_NAME:
-			if (typeof value === 'string') {
-				const searchTerms = value.split(' ')
-				return Object.assign({}, state, {[type]: searchTerms})
-			}
-			else {
-				return Object.assign({}, state, {[type]: !value})
-			}
+		case SEARCH_UPDATE_TERMS:
+      const updatedTerms = Object.assign({}, state[action.value.key], {terms: action.value.terms})
+      return Object.assign({}, state, {[action.value.key]: updatedTerms});
+		case SEARCH_TOGGLE:
+      const toggledTerm = Object.assign({}, state[action.value], {enabled: !state[action.value].enabled});
+      return Object.assign({}, state, {[action.value]: toggledTerm})
 
 		default:
 			return state
 	}
 }
 
-export const searchToggle = (type, value) => { return { type, value } }
-export const searchHandleText = (type, value) => { return { type, value } }
+export const searchToggleType = key => ({
+  type: SEARCH_TOGGLE,
+  value: key
+})
+
+export const searchUpdateTerms = (key, terms) => ({
+  type: SEARCH_UPDATE_TERMS,
+  value: {
+    key,
+    terms
+  }
+})
