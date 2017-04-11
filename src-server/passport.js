@@ -21,7 +21,7 @@ const localLogin = new LocalStrategy({}, function(username, password, done) {
       return done(null, user)
     })
   })
-}
+})
 
 const jwtOptions = {
   jwtFromRequest: ExtractJwt.fromAuthHeader(),
@@ -42,11 +42,16 @@ const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {
   })
 })
 
-passport.use(jwtLogin)
-passport.use(localLogin)
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
 
-const requireAuth = passport.authenticate('jwt')
-const requireLogin = passport.authenticate('login')
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.use('jwt', jwtLogin)
+passport.use('login', localLogin)
 
 const ROLE_ADMIN = 'Admin'
 const ROLE_MEMBER = 'Member'

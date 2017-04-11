@@ -15,6 +15,9 @@ db.once('open', function() {
   console.log('connected to database');
 });
 
+const session = require('express-session');
+const passport = require('passport');
+
 
 
 
@@ -29,6 +32,14 @@ app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(compress())
+
+app.use(session({
+  secret: config.secret,
+  saveUninitialized: false,
+  resave: false,
+}))
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");

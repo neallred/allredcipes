@@ -1,8 +1,10 @@
+const passport = require('passport')
 
 const jwt = require('jsonwebtoken')
 const crypto = require('crypto')
 const User = require('./model')
 const config = require('../config')
+const passportService = require('../passport')
 
 const seconds = 60
 const minutes = 60
@@ -20,9 +22,13 @@ function setUserInfo(user) {
 }
 
 
+
+const requireAuth = passport.authenticate('jwt')
+const requireLogin = passport.authenticate('login')
+
 module.exports = function(app) {
   app.get('/session', checkSession)
-  app.post('/session', /*sessionMiddleware,*/ createSession)
+  app.post('/session', requireLogin, /*sessionMiddleware,*/ createSession)
   app.delete('/session', deleteSession)
 
   app.get('/users', getUsers)
