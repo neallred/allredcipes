@@ -6,15 +6,16 @@ import './recipe.scss'
 
 export const RecipeCard = ({
 	author,
-  dispatch,
 	ingredients,
 	instructions,
 	isLoggedIn,
 	name,
 	onClick,
 	recipeId,
-  toggleView,
+  dispatch,
   showIngredients=false,
+  toggleRecipeEdit,
+  toggleView,
 }) => (
 	<div className='recipe'>
 		<RecipeCardTop recipeId={recipeId}
@@ -22,6 +23,7 @@ export const RecipeCard = ({
                  dispatch={dispatch}
                  isLoggedIn={isLoggedIn}
                  toggleView={toggleView}
+                 toggleRecipeEdit={toggleRecipeEdit}
 			           showIngredients={showIngredients} />
 		<RecipeCardBottom onClick={onClick}
 			              recipeId={recipeId}

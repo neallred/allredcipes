@@ -1,39 +1,33 @@
-import React from 'react';
-import { connect } from 'react-redux';
-//import { isEditing } from '../actions';
-//import { updateRecipe } from '../actions';
-import { RECIPE_UPDATE_REQUEST } from '../constants/action-types';
-import { RecipeForm } from './recipe-form';
+import React from 'react'
+import { connect } from 'react-redux'
+import {
+  RECIPE_UPDATE_REQUEST
+} from '../constants/action-types'
+import { RecipeForm } from './recipe-form'
+import {
+  recipesUpdateRequest,
+  recipesHandleEdit 
+} from '../recipe-list/ducks'
 
 const mapStateToProps = (state, ownProps) => {
-	const {isEditing = {}} = state
-  const recipeToEdit = state.recipes.find(recipe => recipe.id === isEditing.id) || {}
-
-	const {hideIngredients='', name='', ingredients='', instructions='', author=''} = recipeToEdit
-	const recipeId = recipeToEdit.id
 
 	return {
-		author,
-		hideIngredients,
-		ingredients,
-		instructions,
-		isEditing,
-		name,
-		recipeId
+		recipeEdit: state && state.recipes && state.recipes.recipeEdit,
 	}
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
-		onSubmit: (values) => {
+		onSubmit: () => {
 			if(!values.name || !values.name.trim() || values.recipeId === undefined){return}
-			//dispatch({type: RECIPE_UPDATE_REQUEST, value: values});
+			dispatch({type: RECIPE_UPDATE_REQUEST, value: values});
 		},
 		onCancel: (values) => {
 			//dispatch(isEditing())
 		},
-		onChange: (e) => {
-			//dispatch({type: 'nonsense_type'});
+		handleEdit: (e) => {
+      const newField = (e && e.target && e.target.value) ? e.target.value : e
+			dispatch(recipesHandleEdit(newField))
 		}
 	}
 }

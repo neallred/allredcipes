@@ -26,10 +26,18 @@ import {
   stringPropertySort
 } from '../utils/array-sorting'
 
+const initialEditState = {
+  author: '',
+  instructions: '',
+  ingredients: '',
+  name: '',
+  _id: null,
+}
+
 export const recipesInitialState = {
   list: [],
-  recipeEdit: null, //is an object with the 4 recipe keys (plus _id) when in edit mode.
   recipeCreate: null, //is an object with the 4 recipe keys when in create mode.
+  recipeEdit: initialEditState,
   errorGet: null,
   errorCreate: null,
   errorDelete: null,
@@ -84,13 +92,12 @@ export default function recipes(state = recipesInitialState, action) {
       return Object.assign({}, state, {list: listWithToggledView});
 
 		case RECIPES_TOGGLE_EDIT:
-      if (action.value.isStartingEdit) {
-        const recipeToEdit = findRecipe(state.list, action.value.id);
-        const recipeEdit = {...recipeToEdit}
-        return Object.assign({}, state, {recipeEdit})
+      if (state.recipeEdit._id) {
+        return Object.assign({}, state, {recipeEdit: initialEditState})
       }
       else {
-        return Object.assign({}, state, {recipeEdit: null})
+        const recipeToEdit = Object.assign({}, findRecipe(state.list, action.value))
+        return  Object.assign({}, state, {recipeEdit: recipeToEdit})
       }
 
 		case RECIPES_HANDLE_EDIT:
@@ -164,9 +171,9 @@ export const recipesToggleView = id => ({
   value: id
 })
 
-export const recipesToggleEdit = (id, isStartingEdit) => ({
+export const recipesToggleEdit = id  => ({
   type: RECIPES_TOGGLE_EDIT,
-  value: {id, isStartingEdit}
+  value: id
 })
 
 export const recipesHandleEdit = formFields => ({
@@ -188,3 +195,8 @@ export const recipesGet = page => ({
   type: RECIPES_GET,
   value: page
 })
+
+export const recipesUpdateRequest = (recipeToEdit) => ({
+  type: RECIPES_UPDATE_REQUEST,
+  value: recipeToEdit
+});

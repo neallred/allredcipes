@@ -7,31 +7,6 @@ import { connect } from 'react-redux'
 import * as RecipesActions from './ducks'
 import { sessionCheckStatus } from '../session/ducks'
 
-//const actionToRecipeMap = {
-//  BY_ALL: 'all',
-//  BY_NAME: 'name',
-//  BY_INGREDIENTS: 'ingredients',
-//  BY_INSTRUCTIONS: 'instructions',
-//  BY_AUTHOR: 'author'
-//}
-//
-//const getMatchedRecipes = (recipes,filters,searchTerms) => {
-//	const recipeMatcher = (currentRecipe, currentRecipeIndex, recipesArray) => {
-//		let recipeMatched = true;
-//		for(var i=0;i<filters.length;i++){
-//			for(var j=0;j<searchTerms.length;j++){
-//				let recipeProperty = actionToRecipeMap[filters[i]]
-//				recipeMatched = currentRecipe[recipeProperty].toLowerCase().indexOf(searchTerms[j]) !== -1
-//				if(recipeMatched === false){ break; }
-//			}
-//			if(recipeMatched === true){ break; }
-//		}
-//		return recipeMatched
-//	}
-//	return recipes.filter(recipeMatcher)
-//}
-//recipes: getMatchedRecipes(state.recipes, state.setSearchFilters, state.setSearchTerms),
-
 const matchStringInField = (field, string) => field.indexOf(string) !== -1
 
 const matchAnyStringInField = (field, stringsArray) => {
@@ -96,6 +71,7 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch(RecipesActions.recipesGet(page))
 		},
     toggleView: (id) => dispatch(RecipesActions.recipesToggleView(id)),
+    toggleRecipeEdit: (id) => dispatch(RecipesActions.recipesToggleEdit(id)),
 		sessionCheckStatus: () => {
 			dispatch(sessionCheckStatus())
 		}
@@ -117,6 +93,7 @@ export class RecipeList extends React.Component {
         key={recipe._id}
         recipeId={recipe._id}
         toggleView={this.props.toggleView}
+        toggleRecipeEdit={this.props.toggleRecipeEdit}
         isLoggedIn={session && session.isLoggedIn} />)}
 		</div>
 	}

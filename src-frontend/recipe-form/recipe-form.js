@@ -1,31 +1,46 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import { updateRecipe } from '../actions'
-import '../css/modal.css.scss'
+import { addModifier } from '../utils/string-utils'
+import Modal from '../modal/modal'
 
+const baseClass = 'recipe-form'
 let RecipeForm = ({
-	author,
-	hideIngredients,
-	ingredients,
-	initialValues,
-	instructions,
-	isEditing,
-	name,
+  recipeEdit={},
 	onCancel,
 	onSubmit,
-	recipeEditName,
-	recipeId
-}) => (
-	<div className={`modalDialog center-block text-center ${false && (isEditing ? 'opened' : 'closed')}`} id='dialog'>
-		<h2 className='add-recipes'>Edit {recipeEditName} {initialValues}</h2>
-		<form className='container' onSubmit={onSubmit}>
-			<input type='hidden' recipeId={recipeId} /><br/>
-			<input type='hidden' hideIngredients={hideIngredients} /><br/>
-			<input type='text' name={name} placeholder='Recipe name' /><br/>
-			<textarea ingredients={ingredients} placeholder='Ingredients' /><br/>
-			<textarea instructions={instructions} placeholder='Instructions' /><br/>
-			<input type='text' author={author} placeholder='Recipe author' /><br/>
-			<button type='button'
+}) => {
+  const {
+    author,
+    ingredients,
+    instructions,
+    name,
+    _id,
+  } = recipeEdit;
+
+  const isEditing = !!recipeEdit && !!recipeEdit._id
+  return <Modal title={`Edit ${name}`} isOpen={isEditing} >
+		<form className={baseClass} onSubmit={onSubmit}>
+      <input className={`${baseClass}__field`}
+        type='text'
+        value={name}
+        placeholder='Recipe name'
+        onChange={val => handleEdit(val)} />
+      <textarea className={`${baseClass}__field`}
+        value={ingredients}
+        placeholder='Ingredients'
+        onChange={val => handleEdit(val)} />
+      <textarea className={`${baseClass}__field`}
+        value={instructions}
+        placeholder='Instructions'
+        onChange={val => handleEdit(val)} />
+      <input className={`${baseClass}__field`}
+        type='text'
+        value={author}
+        placeholder='Recipe author'
+        onChange={val => handleEdit(val)}  />
+      <button className={`${baseClass}__field`}
+        type='button'
 				onClick={onCancel}
 				className='btn btn-primary'
 				id='cancel-edit' >
@@ -35,10 +50,11 @@ let RecipeForm = ({
 				Update Recipe
 			</button>
 		</form>
-	</div>
-)
+  </Modal>
+}
 
 RecipeForm.propTypes = {
 	onSubmit: PropTypes.func.isRequired
 }
+
 export { RecipeForm }

@@ -1,0 +1,42 @@
+@import '../css/colors';
+.modal-dialog {
+	position: fixed;
+	top: -2em;;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 3;
+	opacity: 0;
+	-webkit-transition: opacity 150ms ease-in;
+	-moz-transition: opacity 150ms ease-in;
+	transition: opacity 150ms ease-in;
+	pointer-events: none;
+	&__title {
+		color: white;
+	}
+  &--closed {
+    display: none;
+    opacity: 0;
+  }
+  &--opened {
+    opacity: 1;
+    pointer-events: auto;
+    display: auto;
+  }
+  &__content-wrapper {
+    width: 500px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: $white;
+    background: -moz-linear-gradient($white, #999);
+    background: -webkit-linear-gradient($white, #999);
+    background: -o-linear-gradient($white, #999);
+  }
+}
+
+
+
+

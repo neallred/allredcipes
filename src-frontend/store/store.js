@@ -10,7 +10,6 @@ import { header } from '../header/ducks'
 import recipes from '../recipe-list/ducks'
 
 
-import { recipeFormReducer as recipeForm } from '../recipe-form/ducks'
 import { searchReducer as search } from '../search/ducks'
 
 //CONSTANTS
@@ -83,7 +82,6 @@ const setSearchTerms = (state = [], action) => {
 
 
 const reducers = combineReducers({
-	recipeForm,
 	recipes,
 	header,
 	search,
@@ -94,21 +92,7 @@ const reducers = combineReducers({
 })
 
 
-const initialState = {
-  recipes: {
-    list: []
-  },
-	recipeForm: {
-		id: '',
-		name: '',
-		author: '',
-		recipes: '',
-		ingredients: '',
-		isVisible: false,
-		isNewRecipe: true
-	},
-}
-
+const initialState = {} 
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(
 	reducers,
