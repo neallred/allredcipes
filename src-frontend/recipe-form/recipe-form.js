@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import { updateRecipe } from '../actions'
 import { addModifier } from '../utils/string-utils'
 import Modal from '../modal/modal'
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import {shallow} from 'enzyme'
 import tape from 'tape'
+import td from 'testdouble'
 
 import register from 'ignore-styles'
 register(['css', '.scss'])
@@ -94,4 +95,19 @@ test('<Header/>', (t) => {
       });
     });
   })
+
+  t.test('componentDidUpdate', t => {
+    t.plan(1)
+    const wrapper = shallow(<Header {...props} />)
+    const comp = wrapper.instance()
+    comp.measureHeight = td.function()
+
+    comp.componentDidMount()
+    t.equal(
+      td.explain(comp.measureHeight).callCount,
+      1,
+      'calls component measureHeight method'
+    );
+    td.reset()
+  });
 })

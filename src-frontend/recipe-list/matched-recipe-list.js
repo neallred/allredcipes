@@ -1,6 +1,4 @@
 import { connect } from 'react-redux'
-import { toggleRecipe, fetchRecipes } from '../actions'
-import { RECIPES_REQUEST } from '../actions'
 import { RecipeList } from './recipe-list'
 import { sessionCheckStatus } from '../session/ducks'
 
@@ -89,12 +87,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		onRecipeClick: (id) => {
-			dispatch(toggleRecipe(id))
-		},
-		fetchRecipes: () => {
-			dispatch(fetchRecipes())
-		},
 		sessionCheckStatus: () => {
 			dispatch(sessionCheckStatus())
 		}
