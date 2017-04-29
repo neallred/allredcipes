@@ -4,3 +4,4 @@ rethinkdb_data/
 npm-debug.log
 .environment
 src-server/config.js
+.nyc_output/

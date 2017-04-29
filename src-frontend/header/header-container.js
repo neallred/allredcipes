@@ -3,7 +3,7 @@ import { Header } from './header'
 import { headerButtonSelect, headerHandleInput, headerMeasureHeight } from './ducks'
 import { sessionLogin, sessionLogout } from '../session/ducks'
 
-function mapStateToProps(state, ownProps) {
+export function mapStateToProps(state, ownProps) {
 	const {session, header} = state
 	const { buttonSelected, email, username, password, passwordConfirm } = header
 
@@ -25,7 +25,7 @@ function mapStateToProps(state, ownProps) {
 	}
 }
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   return {
     headerHandleInput: (field, value) => {
       dispatch(headerHandleInput({inputField: field, input: value}))
