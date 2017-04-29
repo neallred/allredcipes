@@ -1,0 +1,97 @@
+import React from 'react'
+import {shallow} from 'enzyme'
+import tape from 'tape'
+
+import register from 'ignore-styles'
+register(['css', '.scss'])
+
+
+const test = tape
+const props = {
+}
+
+
+import {Header} from './header'
+
+test('<Header/>', (t) => {
+
+  t.test('always shows a header', t => {
+    const wrapperLoggedIn = shallow(<Header {...props} session={{isLoggedIn: true}}/>)
+    const wrapperLoggedOut = shallow(<Header {...props} session={{isLoggedIn: false}}/>)
+    t.plan(2)
+    t.equal(
+      wrapperLoggedIn.find('header').length,
+      1,
+      'when logged in'
+    )
+    t.equal(
+      wrapperLoggedOut.find('header').length,
+      1,
+      'when not logged in'
+    )
+  })
+
+  t.test('appropriate inputs are shown for each button selection', t => {
+    const setup = [
+      {
+        button: 'login',
+        has: [
+          {placeholder: 'username'},
+          {placeholder: 'password'}
+        ],
+        hasNot: [
+          {type: 'email'},
+          {placeholder: 'confirm password'}
+        ]
+      },
+      {
+        button: 'forgot',
+        has: [
+          {type: 'email'}
+        ],
+        hasNot: [
+          {placeholder: 'username'},
+          {placeholder: 'password'},
+          {placeholder: 'confirm password'}
+        ]
+      },
+      {
+        button: 'signup',
+        has: [
+          {placeholder: 'username'},
+          {placeholder: 'password'},
+          {type: 'email'},
+          {placeholder: 'confirm password'}
+        ],
+        hasNot: []
+      },
+    ];
+    const formatPropToFind = (key, value) => `[${key}="${value}"]`;
+    t.plan(setup.length * 4) //# of inputs for each run
+    setup.forEach(testData => {
+      const wrapper = shallow(<Header {...props} buttonSelected={testData.button}/>)
+      const inputs = wrapper.find('.header__input')
+      testData.has.forEach(hasItem => {
+        const hasItemKey = Object.keys(hasItem)[0]
+        const hasItemValue = hasItem[hasItemKey]
+        const doesHave = inputs.some(formatPropToFind(hasItemKey, hasItemValue))
+        t.equal(
+          doesHave,
+          true,
+          `${testData.button} button has input with key ${hasItemKey} of value ${hasItemValue}`
+        )
+      });
+
+      testData.hasNot.forEach(hasNotItem => {
+        const hasNotItemKey = Object.keys(hasNotItem)[0]
+        const hasNotItemValue = hasNotItem[hasNotItemKey]
+        const doesHave = inputs.some(formatPropToFind(hasNotItemKey, hasNotItemValue))
+        t.equal(
+          doesHave,
+          false,
+          `${testData.button} button does not have input with key ${hasNotItemKey} of value ${hasNotItemValue}`
+        )
+      });
+    });
+  })
+})

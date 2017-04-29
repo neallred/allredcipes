@@ -1,9 +1,21 @@
 import React from 'react'
 import './header.scss'
 
+const baseClass = 'header';
 export class Header extends React.Component {
+  constructor(props) {
+    super(props);
+
+    const methods = [
+      'measureHeight',
+      'getButtonClass',
+    ];
+    methods.map(method => this[method] = this[method].bind(this))
+  }
+
 	componentWillMount() {
-		window.addEventListener('resize', this.measureHeight.bind(this))
+    let window = window || {addEventListener: ()=>{}} //overcome limitations of non browser environments (i.e. Node and Tape)
+    window.addEventListener('resize', this.measureHeight)
 	}
 
 	componentDidMount() {
@@ -21,7 +33,7 @@ export class Header extends React.Component {
 
 			//store
 			dispatch,
-			session,
+			session={},
 			buttonSelected,
 			username,
 			password,
@@ -49,44 +61,44 @@ export class Header extends React.Component {
 
 		const loggedOutHeader = <header className='header__wrapper' ref='header'>
 			<div className="header__button-group">
-				<button className={`header__item header__button header__button__login header__button__login${buttonSelected === 'login' ? '--selected' : ''}` }
-					onClick={() => {dispatch(headerButtonSelect('login'))}}>Login</button>
-				<button className={`header__item header__button header__button__forgot header__button__forgot${buttonSelected === 'forgot' ? '--selected' : ''}`}
-					onClick={() => {dispatch(headerButtonSelect('forgot'))}}>Lost User/Pass?</button>
-				<button className={`header__item header__button header__button__signup header__button__signup${buttonSelected === 'signup' ? '--selected' : ''}`}
-					onClick={() => {dispatch(headerButtonSelect('signup'))}}>Sign up</button>
+				<button className={this.getButtonClass('login')}
+					onClick={() => {headerButtonSelect('login')}}>Login</button>
+				<button className={this.getButtonClass('forgot')}
+					onClick={() => {headerButtonSelect('forgot')}}>Lost User/Pass?</button>
+				<button className={this.getButtonClass('signup')}
+					onClick={() => {headerButtonSelect('signup')}}>Sign up</button>
 			</div><span></span>
 			<form className="header__form">
-				{buttonSelected !== 'login' && <input className="header__item header__input header__input__email"
+				{buttonSelected !== 'login' && <input className="header__input"
 					placeholder={buttonSelected === 'forgot' ? 'email' : 'email (optional)'}
 					type="email"
 					value={email}
-					onChange={(e) => {dispatch(headerHandleInput({input: e.target.value, inputField: 'email'}))}} />}
-				{buttonSelected !== 'forgot' && <input className="header__item header__input header__input__username"
+					onChange={e => headerHandleInput('email', e.target.value)} />}
+				{buttonSelected !== 'forgot' && <input className="header__input"
 					placeholder="username"
-					onChange={(e) => {dispatch(headerHandleInput({input: e.target.value, inputField: 'username'}))}}
+					onChange={e => headerHandleInput('username', e.target.value)}
 					value={username} />}
-				{buttonSelected !== 'forgot' && <input className="header__item header__input header__input__password"
+				{buttonSelected !== 'forgot' && <input className="header__input"
 					placeholder="password"
 					type="password"
 					value={password}
-					onChange={(e) => {dispatch(headerHandleInput({input: e.target.value, inputField: 'password'}))}} />}
-				{buttonSelected === 'signup' && <input className="header__item header__input header__input__password-confirm"
+					onChange={e => headerHandleInput('password', e.target.value)} />}
+				{buttonSelected === 'signup' && <input className="header__input"
 					placeholder="confirm password"
 					type="password"
 					value={passwordConfirm}
-					onChange={(e) => {dispatch(headerHandleInput({input: e.target.value, inputField: 'passwordConfirm'}))}} />}
-				<input className={`header__item header__input header__input__do header__input__do${enableSubmit() ? '' : '--disabled'}`}
+					onChange={e => headerHandleInput('passwordConfirm', e.target.value)} />}
+				<input className={`header__input header__input__do header__input__do${enableSubmit() ? '' : '--disabled'}`}
 					disabled={!enableSubmit()}
 					type="submit"
 					value="Enter"
-					onClick={(e) => {e.preventDefault(); dispatch(sessionLogin({username, email, password, requestType: buttonSelected}))}}/>
+					onClick={(e) => {e.preventDefault(); sessionLogin({username, email, password, requestType: buttonSelected})}}/>
 			</form>
 		</header>
 
 			const loggedInHeader =  <header className='header__wrapper' ref='header'>
-				<button className="header__item header__button" onClick={() => {dispatch(sessionLogout())}}>Logout</button>
-				<button className="header__item header__button header__button__new-recipe">New Recipe</button>
+				<button className="header__button" onClick={() => {sessionLogout()}}>Logout</button>
+				<button className="header__button">New Recipe</button>
 			</header>
 
 			return session.isLoggedIn ? loggedInHeader : loggedOutHeader
@@ -97,12 +109,20 @@ export class Header extends React.Component {
 	}
 
 	measureHeight() {
-		const { dispatch, headerMeasureHeight } = this.props;
 		const height = this.refs.header.offsetHeight;
-		dispatch(headerMeasureHeight(height));
+		this.props.headerMeasureHeight(height);
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener('resize', this.measureHeight.bind(this))
+      let window = window || {removeEventListener: ()=>{}} //overcome limitations of non browser environments (i.e. Node and Tape)
+      window.removeEventListener('resize', this.measureHeight)
 	}
+
+  getButtonClass(buttonName) {
+    let buttonClass = `${baseClass}__button ${baseClass}__button--${buttonName}`
+    if (this.props.buttonSelected === buttonName) {
+      buttonClass = buttonClass + ' ' + `${baseClass}__button--selected`
+    }
+    return buttonClass
+  }
 }

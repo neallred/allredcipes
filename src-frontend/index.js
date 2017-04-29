@@ -1,4 +1,4 @@
-import './css/reset.css'
+import './css/reset.scss'
 import './css/background.scss'
 import React from 'react'
 import ReactDOM from 'react-dom'
