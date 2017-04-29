@@ -17,7 +17,7 @@ export const defaultStateHeader = {
 	passwordConfirm: ''
 }
 
-export const header = (state = defaultStateHeader, action) => {
+export function header(state = defaultStateHeader, action) {
 	switch (action.type) {
 		case HEADER_BUTTON_SELECT:
 			return Object.assign({}, state, {buttonSelected: action.value})
@@ -42,21 +42,21 @@ export const header = (state = defaultStateHeader, action) => {
 	}
 }
 
-export const headerButtonSelect = value => {
+export function headerButtonSelect(value) {
 	return {
 		type: HEADER_BUTTON_SELECT,
 		value
 	}
 }
 
-export const headerHandleInput = dataObject => {
+export function headerHandleInput(dataObject) {
 	return {
 		type: HEADER_HANDLE_INPUT,
 		value: dataObject
 	}
 }
 
-export const headerMeasureHeight = value => {
+export function headerMeasureHeight(value) {
 	return {
 		type: HEADER_MEASURE_HEIGHT,
 		value

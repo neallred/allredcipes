@@ -17,7 +17,7 @@ export const HomeComponent = ({
 	updateFields,
 	session
 }) => {
-  console.log(cookie.load('token'))
+  //console.log(cookie.load('token'))
   return(
 	<div>
 		<HeaderContainer />

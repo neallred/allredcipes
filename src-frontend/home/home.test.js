@@ -1,29 +1,25 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import tape from 'tape';
-import addAssertions from 'extend-tape';
-import jsxEquals from 'tape-jsx-equals';
 
 import 'ignore-styles'
 import register from 'ignore-styles'
 register(['.sass', '.scss'])
 
 
-const test = addAssertions(tape, {jsxEquals});
-
-import {HomeComponent} from './home';
-import RecipeList from '../recipe-list/recipe-list'
-import { HeaderContainer } from '../header/header-container'
-import { SearchContainer } from '../search/search-container'
-
-test('test of stuff', (t) => {
+const test = tape;
 	const props = {
 		session: true,
 		updateFields: {}
 	};
 
-    const wrapper2 = shallow(<HomeComponent {...props} />);
-    console.log(wrapper2);
+import {HomeComponent} from './home';
+import RecipeList from '../recipe-list/recipe-list'
+import { HeaderContainer } from '../header/header-container'
+import { SearchContainer } from '../search/search-container'
+import { RecipeFormContainer } from '../recipe-form/recipe-form-container'
+
+test('Home component', (t) => {
 
   t.test('should have a HeaderContainer, SearchContainer, and RecipeList', t => {
     const wrapper = shallow(<HomeComponent {...props} />);
@@ -42,5 +38,12 @@ test('test of stuff', (t) => {
     );
   })
 
-  //t.end();
+  t.test('displays form container when logged in', t => {
+    const wrapper = shallow(<HomeComponent {...props} session={{isLoggedIn: true}}/>);
+    t.plan(1);
+    t.equal(
+      wrapper.find(RecipeFormContainer).length,
+      1
+    );
+  })
 });
