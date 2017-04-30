@@ -9,13 +9,13 @@ import {
 import { Search } from './search'
 import debounce from '../utils/debounce';
 
-const mapStateToProps = (state) => {
+export const mapStateToProps = (state) => {
 	return {
 		search: state.search,
 		headerHeight: state.header && state.header.headerHeight
 	}
 }
-const mapDispatchToProps = (dispatch) => {
+export const mapDispatchToProps = (dispatch) => {
 	return {
 		searchToggleType: key => dispatch(searchToggleType(key)),
 		searchUpdateTerms: (key, terms) => dispatch(searchUpdateTerms(key, terms))

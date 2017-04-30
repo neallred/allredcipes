@@ -27,9 +27,9 @@ export const searchReducer = (state = defaultState, action) => {
 	switch (action.type) {
 		case SEARCH_UPDATE_TERMS:
       const updatedTerms = Object.assign({}, state[action.value.key], {terms: action.value.terms})
-      return Object.assign({}, state, {[action.value.key]: updatedTerms});
+      return Object.assign({}, state, {[action.value.key]: updatedTerms})
 		case SEARCH_TOGGLE:
-      const toggledTerm = Object.assign({}, state[action.value], {enabled: !state[action.value].enabled});
+      const toggledTerm = Object.assign({}, state[action.value], {enabled: !state[action.value].enabled})
       return Object.assign({}, state, {[action.value]: toggledTerm})
 
 		default:
@@ -37,15 +37,19 @@ export const searchReducer = (state = defaultState, action) => {
 	}
 }
 
-export const searchToggleType = key => ({
-  type: SEARCH_TOGGLE,
-  value: key
-})
-
-export const searchUpdateTerms = (key, terms) => ({
-  type: SEARCH_UPDATE_TERMS,
-  value: {
-    key,
-    terms
+export function searchToggleType(key) {
+  return {
+    type: SEARCH_TOGGLE,
+    value: key
   }
-})
+}
+
+export function searchUpdateTerms(key, terms) {
+  return {
+    type: SEARCH_UPDATE_TERMS,
+    value: {
+      key,
+      terms
+    }
+  }
+}

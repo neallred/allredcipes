@@ -19,7 +19,7 @@ export const Search = ({
 							<label className={`${cB}__label`}>{type}
 								<input className={`${cB}__checkbox`}
 									type="checkbox"
-									onChange={() => {searchToggleType(type)}}
+									onClick={() => {searchToggleType(type)}}
 									name="search-by"
 									checked={search[type].enabled} />
 							</label>

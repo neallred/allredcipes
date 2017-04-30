@@ -1,6 +1,7 @@
 import React from 'react'
 import {shallow} from 'enzyme'
 import tape from 'tape'
+import td from 'testdouble'
 
 import register from 'ignore-styles'
 register(['css', '.scss'])
@@ -63,6 +64,16 @@ test('<Search/>', (t) => {
     t.equal(
       wrapper.find(`.${cB}__line`).length,
       Object.keys(localProps.search).length,
+    )
+  })
+
+  t.test('renders no search line when there is no search object passed', t => {
+    t.plan(1)
+    const wrapper = shallow(<Search />)
+
+    t.equal(
+      wrapper.find(`.${cB}__line`).length,
+      0,
     )
   })
 
@@ -130,5 +141,37 @@ test('<Search/>', (t) => {
       wrapper.find(`.${cB}__text`).at(1).prop('value'),
       'hamsters',
     )
+  })
+
+  t.test('search type checkmark toggles search type when clicked', t => {
+    const localProps = { search: { a: {enabled: false, terms: ''}}, searchToggleType: td.function()}
+    t.plan(1)
+    const wrapper = shallow(<Search {...props} {...localProps}/>)
+    const checkbox = wrapper.find(`.${cB}__checkbox`).at(0);
+
+    checkbox.simulate('click')
+    const searchToggleCalls = td.explain(localProps.searchToggleType).calls
+
+    t.deepEqual(
+      searchToggleCalls[0].args,
+      ['a'],
+    )
+    td.reset()
+  })
+
+  t.test('search text box calls searchUpdateTerms with search type and new search type text when changed', t => {
+    const localProps = { search: { a: {enabled: true, terms: ''}}, searchUpdateTerms: td.function()}
+    t.plan(1)
+    const wrapper = shallow(<Search {...props} {...localProps}/>)
+    const input = wrapper.find(`.${cB}__text`).at(0);
+
+    input.simulate('change', {target: {value: 'bob'}})
+    const searchUpdateCalls = td.explain(localProps.searchUpdateTerms).calls
+
+    t.deepEqual(
+      searchUpdateCalls[0].args,
+      ['a', 'bob'],
+    )
+    td.reset()
   })
 })
