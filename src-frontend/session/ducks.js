@@ -12,39 +12,39 @@ import {
 	SESSION_LOGOUT_FAILURE
 } from '../constants/action-types'
 
-const defaultState = {
+export const sessionDefaultState = {
 	isLoggedIn: false,
 	buttonSelected: 'login'
 };
 
-export const session = (state = defaultState, action) => {
+export const session = (state = sessionDefaultState, action) => {
 	switch (action.type) {
 		case SESSION_LOGIN_SUCCESS:
 			return Object.assign({}, state, {isLoggedIn: true})
 		case SESSION_LOGOUT_SUCCESS:
 			return Object.assign({}, state, {isLoggedIn: false})
 		case SESSION_CHECK_STATUS_SUCCESS:
-			return Object.assign({}, state, {isLoggedIn: true})
+			return Object.assign({}, state, {isLoggedIn: action.value})
 
 		default:
 			return state
 	}
 }
 
-export const sessionCheckStatus = () => {
+export function sessionCheckStatus() {
 	return {
 		type: SESSION_CHECK_STATUS_REQUEST
 	}
 }
 
-export const sessionLogin = (requestObj) => {
+export function sessionLogin(requestObj) {
 	return {
 		type: SESSION_LOGIN_REQUEST,
 		value: requestObj
 	}
 }
 
-export const sessionLogout = () => {
+export function sessionLogout() {
 	return {
 		type: SESSION_LOGOUT_REQUEST
 	}

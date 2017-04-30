@@ -8,7 +8,7 @@ export const Search = ({
 	search={},
 	headerHeight
 }) => {
-	return <div className={cB} style={{marginTop: headerHeight + 15}}>
+	return <div className={cB} style={{marginTop: Math.floor(15 + parseFloat(headerHeight, 10)) || 15}}>
 		<h1 className={`${cB}__title`}>Allred Recipe Box</h1>
 		<h4 className={`${cB}__sub-title`}>Search recipes by:</h4>
 		<form className={`${cB}__form`}>
