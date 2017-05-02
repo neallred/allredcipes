@@ -31,11 +31,11 @@ test('Header ducks reducer', (t) => {
     )
   })
 
-  t.test('reducer has default state with "contributor", "ingredients", "instructions", and "name" keys', t => {
+  t.test('reducer has default state with "author", "ingredients", "instructions", and "name" keys', t => {
     t.plan(1)
     const reducerResult = searchReducer(undefined, {type: 'NONSENSE', value: {keyA: 'asdf'}})
     const actualKeys = Object.keys(reducerResult).sort()
-    const expectedInitialKeys = ["contributor", "ingredients", "instructions", "name"] 
+    const expectedInitialKeys = ["author", "ingredients", "instructions", "name"] 
     t.deepEqual(
       actualKeys,
       expectedInitialKeys

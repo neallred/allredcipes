@@ -16,7 +16,7 @@ export const Search = ({
 				Object.keys(search).map(type => {
 					return <div className={`${cB}__line`} key={type}>
 						<div className={`${cB}__term`}>
-							<label className={`${cB}__label`}>{type}
+							<label className={`${cB}__label`}>{search[type].displayField}
 								<input className={`${cB}__checkbox`}
 									type="checkbox"
 									onClick={() => {searchToggleType(type)}}

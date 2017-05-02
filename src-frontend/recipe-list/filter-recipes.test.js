@@ -2,9 +2,12 @@ import tape from 'tape'
 const test = tape
 
 import {
-  filterRecipes,
   checkAllEnabledEmpty,
+  checkRecipeForMatch,
+  filterRecipes,
+  fuzzyMatch,
   getEnabledSearches,
+  wordMatch,
 } from './filter-recipes'
 
 const recipesOne = [
@@ -55,42 +58,19 @@ const recipesFive = [
   },
 ]
 
+
 const searchDisabled = {
-  author: {
-    enabled: false,
-    terms: '',
-  },
-  ingredients: {
-    enabled: false,
-    terms: '',
-  },
-  instructions: {
-    enabled: false,
-    terms: '',
-  },
-  name: {
-    enabled: false,
-    terms: '',
-  },
+  author: {enabled: false, terms: ''},
+  ingredients: {enabled: false, terms: ''},
+  instructions: {enabled: false, terms: ''},
+  name: {enabled: false, terms: ''}
 }
 
 const searchEnabledEmpty = {
-  author: {
-    enabled: true,
-    terms: '',
-  },
-  ingredients: {
-    enabled: true,
-    terms: '',
-  },
-  instructions: {
-    enabled: false,
-    terms: '12asdf3',
-  },
-  name: {
-    enabled: true,
-    terms: '',
-  },
+  author: {enabled: true, terms: ''},
+  ingredients: {enabled: true, terms: ''},
+  instructions: {enabled: false, terms: '12asdf3'},
+  name: {enabled: true, terms: ''},
 }
 
 const searchEnabledAuthor = {
@@ -141,21 +121,62 @@ test('filterRecipes', (t) => {
     )
   })
 
-  //  t.test('does appropriate thing in following circumstances', t => {
-  //    const setup = [
-  //      'a'
-  //    ]
-  //
-  //    t.plan(setup.length)
-  //    setup.map(testData => {
-  //
-  //      t.equal(
-  //        'expected',
-  //        'actual',
-  //        `test of ${testData} condition` 
-  //      )
-  //    })
-  //  })
+  t.test('finds correctNumber', t => {
+    const searches = [
+      {
+        author: {enabled: false, terms: ''},
+        ingredients: {enabled: true, terms: ''},
+        instructions: {enabled: true, terms: ''},
+        name: {enabled: true, terms: 'cs'}
+      },
+      {
+        author: {enabled: false, terms: ''},
+        ingredients: {enabled: true, terms: 'react'},
+        instructions: {enabled: false, terms: ''},
+        name: {enabled: false, terms: 'cs'}
+      },
+      {
+        author: {enabled: true, terms: 'i'},
+        ingredients: {enabled: true, terms: ''},
+        instructions: {enabled: true, terms: 'mix'},
+        name: {enabled: false, terms: ''}
+      },
+      {
+        author: {enabled: true, terms: 'asdf'},
+        ingredients: {enabled: true, terms: 'lkjasddf}kljio2j34'},
+        instructions: {enabled: true, terms: '!@#$AFDKLJLASJFLK'},
+        name: {enabled: true, terms: 'cs'}
+      },
+      {
+        author: {enabled: false, terms: 'asdf'},
+        ingredients: {enabled: true, terms: 'milk    flour   eggs'},
+        instructions: {enabled: true, terms: 'mix'},
+        name: {enabled: false, terms: 'cs'}
+      },
+    ]
+
+    const numberFound = [
+      3,
+      1,
+      2,
+      0,
+      2
+    ]
+
+    t.plan(searches.length)
+    searches.map((search, i) => {
+      const results = filterRecipes(recipesFive, search)
+      t.equal(
+        results.length,
+        numberFound[i]
+      )
+    })
+
+  })
+
+
+
+
 })
 
 test('getEnabledSearches', (t) => {
@@ -202,5 +223,106 @@ test('getEnabledSearches', (t) => {
         )
       })
     })
+  })
+})
+
+test('fuzzyMatch', (t) => {
+
+  const setup = [
+    ['Can!You!Do!20!Tricks!?', 'canyou', true],
+    ['Can!You!Do!20!Tricks!?', 'c!t', true],
+    ['Can!You!Do!20!Tricks!?', '!!!?', true],
+    ['Can!You!Do!20!Tricks!?', '   y ti  ', true],
+    ['Can!You!Do!20!Tricks!?', '   !CAN!YOU', false],
+    ['The quick brown fox jumped over the lazy dogs.', 'Q B F J O ', true],
+    ['The quick brown fox jumped over the lazy dogs.', 'xbrown', false],
+    ['The quick brown fox jumped over the lazy dogs.', 'jzyq', false],
+  ]
+
+  t.plan(setup.length)
+
+  setup.forEach(testData => {
+
+    const matched = fuzzyMatch(testData[0], testData[1])
+    t.equal(
+      matched,
+      testData[2]
+    )
+  })
+})
+
+test('wordMatch', (t) => {
+  const setup = [
+    ['Molten chocolate lava cake', 'ten cola', true],
+    ['Molten chocolate lava cake', 'chocolatey', false],
+    ['ice cream sandwiches are really tasty', 'cream sand real really', true],
+    ['ice cream sandwiches are really tasty', 'real really tasty nasty', false],
+    ['asparagus chicken potatoes brussel sprouts more healthy vegetables', 'heal table ore SpRouTs', true],
+    ['asparagus chicken potatoes brussel sprouts more healthy vegetables', 'aparag', false],
+    ['Can You Do 20 Tricks?', '   y tri  ', true],
+    ['Can You Do 20 Tricks?', '   y tix  ', false],
+    ['The quick brown fox jumped over the lazy dogs.', 'lazy ', true],
+    ['The quick brown fox jumped over the lazy dogs.', 'quick quickly', false],
+  ]
+
+  t.plan(setup.length)
+
+  setup.forEach(testData => {
+
+    const matched = wordMatch(testData[0], testData[1])
+    t.equal(
+      matched,
+      testData[2]
+    )
+  })
+})
+
+
+test('checkRecipeForMatch', (t) => {
+
+  const searches = [
+    {
+      author: {enabled: true, terms: 'a'},
+      ingredients: {enabled: true, terms: 'i'},
+      instructions: {enabled: true, terms: 'i'},
+      name: {enabled: true, terms: 'z'}
+    },
+    {
+      author: {enabled: true, terms: 'a'},
+      ingredients: {enabled: true, terms: 'i'},
+      instructions: {enabled: true, terms: 'i'},
+      name: {enabled: false, terms: 'z'}
+    },
+    {
+      author: {enabled: true, terms: 'a'},
+      ingredients: {enabled: true, terms: 'i'},
+      instructions: {enabled: true, terms: 'i'},
+      name: {enabled: true, terms: 'a E'}
+    },
+  ]
+
+  const testSetup = [
+    [false, 'returns false when not all search terms match'],
+    [true, 'returns true when all enabled search terms match'],
+    [true, 'returns true when all enabled search terms match'],
+  ]
+
+  //_id: '_id',
+  //name: 'name',
+  //ingredients: 'ingredients',
+  //instructions: 'instructions',
+  //author: 'author',
+
+  const recipeToMatch = recipesOne[0]
+
+  t.plan(testSetup.length)
+
+  searches.forEach((search, i) => {
+    const matched = checkRecipeForMatch(recipeToMatch, getEnabledSearches(search))
+    t.equal(
+      matched,
+      testSetup[i][0],
+      testSetup[i][1],
+    )
   })
 })

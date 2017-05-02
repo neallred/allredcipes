@@ -4,21 +4,25 @@ import {
 } from '../constants/action-types'
 
 export const defaultState = {
-  contributor: {
+  author: {
     enabled: false,
     terms: '',
+    displayField: 'Author',
   },
   ingredients: {
     enabled: false,
     terms: '',
+    displayField: 'Ingredients',
   },
   instructions: {
     enabled: false,
     terms: '',
+    displayField: 'Instructions',
   },
   name: {
     enabled: false,
     terms: '',
+    displayField: 'Recipe name',
   },
 }
 
