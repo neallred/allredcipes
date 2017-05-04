@@ -31,24 +31,6 @@ $recipe-width: calc(100% - 4em);
 		padding: 1em 0 0.5em;
 	}
 
-	&__button {
-		padding: 0.6em;
-		border-radius: $button-radius;
-		border-width: 0;
-		color: $white;
-		min-width: 4em;
-		font-weight: 600;
-
-		&--red {
-			background-color: $red-danger;
-		}
-		&--yellow {
-			background-color: $yellow-warning;
-		}
-		&--green {
-			background-color: $green-success;
-		}
-	}
 
 	&__bottom {
 		&--hide, &--hide * {
@@ -86,4 +68,23 @@ $recipe-width: calc(100% - 4em);
 			border-bottom: 0;
 		}
 	}
+}
+
+.recipe-button {
+  padding: 0.6em;
+  border-radius: $button-radius;
+  border-width: 0;
+  color: $white;
+  min-width: 4em;
+  font-weight: 600;
+
+  &--delete {
+    background-color: $red-danger;
+  }
+  &--edit {
+    background-color: $yellow-warning;
+  }
+  &--view {
+    background-color: $green-success;
+  }
 }

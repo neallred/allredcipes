@@ -1,13 +1,13 @@
 import React from 'react'
 
+const cB = 'recipe-button'
 export const RecipeButton = ({
-	recipeId,
-	columnSize,
-	buttonLabel,
-  buttonClass,
-  onClick
+	recipeId='',
+	buttonLabel='',
+  buttonClass='',
+  onClick=()=>console.warn('onClick not passed down from parent'),
 }) => {
-	return <button className={'recipe__button recipe__button--'+buttonClass}
+	return <button className={`${cB} ${cB}--${buttonClass}`}
 		           type='submit' 
 		           onClick={() => onClick(recipeId) } >
 		{buttonLabel}

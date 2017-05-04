@@ -67,10 +67,18 @@ test('Header ducks reducer', (t) => {
 
       reducerKeys.map(key => {
         if (key === testAction.value.key) {
-          t.equal(reducerResult[key].terms, testAction.value.terms, `"${key}" terms are updated when it is the key`)
+          t.equal(
+            reducerResult[key].terms,
+            testAction.value.terms,
+            `"${key}" terms are updated when "${key}" is the key`
+          )
         }
         else {
-          t.equal(reducerResult[key].terms, stateIterations[key].terms, `"${key}" terms are preserved when it is not key`)
+          t.equal(
+            reducerResult[key].terms,
+            stateIterations[key].terms,
+            `"${key}" terms are preserved when "${key}" is not the key`
+          )
         }
       })
       

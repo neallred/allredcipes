@@ -1,6 +1,8 @@
 import React from 'react'
 import { RecipeSubsection } from './recipe-subsection'
-const RecipeCardBottom = ({
+
+const cE = 'recipe__bottom';
+export const RecipeCardBottom = ({
   showIngredients=false,
   ingredients='',
   instructions='',
@@ -13,4 +15,4 @@ const RecipeCardBottom = ({
 
 export default RecipeCardBottom
 
-const getClassName = showIngredients => showIngredients ? 'recipe__bottom recipe__bottom--show' : 'recipe__bottom recipe__bottom--hide';
+const getClassName = showIngredients => showIngredients ? `${cE} ${cE}--show` : `${cE} ${cE}--hide`;
