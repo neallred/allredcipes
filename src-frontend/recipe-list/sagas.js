@@ -1,6 +1,10 @@
 import 'babel-polyfill';
-import { takeLatest, delay } from 'redux-saga';
-import { call, put } from 'redux-saga/effects';
+import {
+  call,
+  put,
+  takeLatest,
+  takeEvery,
+} from 'redux-saga/effects';
 import axiosInstance from '../axiosInstance';
 import {
 	RECIPES_GET,
@@ -12,13 +16,14 @@ import {
 	RECIPES_DELETE_FAILURE,
 } from '../constants/action-types';
 
-function *recipesGet() {
-	const recipes = yield call(axiosInstance.get, '/recipes');
-	yield put({type: RECIPES_GET_SUCCESS, value: recipes.data});
-}
-
 export function *watchRecipesGet() {
 	yield takeLatest(RECIPES_GET, recipesGet)
+}
+
+function *recipesGet() {
+  console.log('trying to get recipes')
+	const recipes = yield call(axiosInstance.get, '/recipes');
+	yield put({type: RECIPES_GET_SUCCESS, value: recipes.data});
 }
 
 function *recipesDelete(action) {

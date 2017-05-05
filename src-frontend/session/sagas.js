@@ -1,6 +1,9 @@
 import 'babel-polyfill'
-import { takeEvery, delay } from 'redux-saga'
-import { call, put } from 'redux-saga/effects'
+import {
+  call,
+  put,
+  takeEvery,
+} from 'redux-saga/effects';
 import { axiosInstance } from '../axiosInstance'
 import {
 	SESSION_LOGIN_REQUEST,

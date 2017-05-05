@@ -1,6 +1,6 @@
-var path = require('path');
-var webpack = require('webpack');
-var CompressionPlugin = require("compression-webpack-plugin");
+const path = require('path');
+const webpack = require('webpack');
+const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
   devtool: 'source-map',

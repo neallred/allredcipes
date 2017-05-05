@@ -1,6 +1,7 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux'
-import createSagaMiddleware from 'redux-saga'
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
+import createSagaMiddleware, { END } from 'redux-saga'
 import { rootSaga } from './sagas'
+import DevTools from '../redux-dev-tools';
 
 import union from 'lodash.union'
 
@@ -94,12 +95,25 @@ const reducers = combineReducers({
 
 const initialState = {} 
 const sagaMiddleware = createSagaMiddleware()
+const enhancer = compose(
+	applyMiddleware(sagaMiddleware),
+  DevTools.instrument(),
+)
+const storeDev = createStore(
+	reducers,
+  initialState,
+  enhancer
+)
+
 const store = createStore(
 	reducers,
   initialState,
-	applyMiddleware(sagaMiddleware)
+	applyMiddleware(sagaMiddleware),
 )
 
 sagaMiddleware.run(rootSaga)
+store.runSaga = sagaMiddleware.run
+store.close = () => store.dispatch(END)
 
 export { store }
+export { storeDev }

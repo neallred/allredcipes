@@ -1,11 +1,12 @@
 'use strict';
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 
 const PATHS = {
   src: path.join(__dirname, 'src-frontend')
 };
 
-var config = {
+const config = {
 	context: __dirname,
 	entry: {
 		app: './src-frontend/index.js',
@@ -20,6 +21,11 @@ var config = {
 	resolve: {
 		extensions: ['.webpack.js', '.web.js', '.js', '.jsx'],
 	},
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"development"'
+    }),
+  ],
 	module: {
 		rules: [
 			{ test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ },
