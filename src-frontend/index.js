@@ -13,7 +13,9 @@ import { store } from './store/store'
 import { storeDev } from './store/store'
 import DevTools from './redux-dev-tools';
 
-const isDevelopment = process.env.NODE_ENV === 'development'
+//Dev tools not working right with redux sagas
+//const isDevelopment = process.env.NODE_ENV === 'development'
+const isDevelopment = false
 
 const devToolsComponent = isDevelopment ? <DevTools/> : null 
 ReactDOM.render((

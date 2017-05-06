@@ -3,8 +3,6 @@ import createSagaMiddleware, { END } from 'redux-saga'
 import { rootSaga } from './sagas'
 import DevTools from '../redux-dev-tools';
 
-import union from 'lodash.union'
-
 //DUCKS
 import { session } from '../session/ducks'
 import { header } from '../header/ducks'

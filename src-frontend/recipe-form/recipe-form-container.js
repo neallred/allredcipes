@@ -5,7 +5,7 @@ import {
 } from '../constants/action-types'
 import { RecipeForm } from './recipe-form'
 import {
-  recipesUpdateRequest,
+  recipesUpdate,
   recipesHandleEdit 
 } from '../recipe-list/ducks'
 

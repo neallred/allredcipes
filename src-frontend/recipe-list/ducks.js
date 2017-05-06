@@ -1,6 +1,5 @@
 import {badWords} from '../constants/badwords'
 import {abbreviations} from '../constants/abbreviations'
-import union from 'lodash.union'
 import {
   RECIPES_GET,
   RECIPES_GET_SUCCESS,
@@ -26,7 +25,7 @@ import {
   stringPropertySort
 } from '../utils/array-sorting'
 
-const initialEditState = {
+export const initialEditState = {
   author: '',
   instructions: '',
   ingredients: '',
@@ -50,7 +49,7 @@ const findRecipeIndex = (recipes, id) => recipes.findIndex(recipe => recipe._id 
 export default function recipes(state = recipesInitialState, action) {
 	switch (action.type) {
 		case RECIPES_GET_SUCCESS:
-      return Object.assign({}, state, {list: union(...state.list, action.value), errorGet: null})
+      return Object.assign({}, state, {list: mergeRecipesBy(state.list, action.value, '_id'), errorGet: null})
 
 		case RECIPES_GET_FAILURE:
       return Object.assign({}, state, {errorGet: action.value})
@@ -76,20 +75,20 @@ export default function recipes(state = recipesInitialState, action) {
       return Object.assign({}, state, {errorUpdate: action.value})
 
 		case RECIPES_DELETE_SUCCESS:
-      const listWithoutRecipe = state.list.slice();
+      const listWithoutRecipe = state.list.slice()
 			const deletedRecipeIndex = findRecipeIndex(state.list, actionValue)
 			if (deletedRecipeIndex === -1) { return state }
 			return Object.assign({}, state, {list: [
 				...state.slice(0, deletedRecipeIndex),
 				...state.slice(deletedRecipeIndex + 1)
-			]});
+			]})
 
 		case RECIPES_TOGGLE_VIEW:
-      const listWithToggledView = state.list.slice();
-      const recipeWithToggledView = findRecipe(state.list, action.value);
-      recipeWithToggledView.showIngredients = !recipeWithToggledView.showIngredients;
+      const listWithToggledView = state.list.slice()
+      const recipeWithToggledView = findRecipe(state.list, action.value)
+      recipeWithToggledView.showIngredients = !recipeWithToggledView.showIngredients
 
-      return Object.assign({}, state, {list: listWithToggledView});
+      return Object.assign({}, state, {list: listWithToggledView})
 
 		case RECIPES_TOGGLE_EDIT:
       if (state.recipeEdit._id) {
@@ -101,7 +100,7 @@ export default function recipes(state = recipesInitialState, action) {
       }
 
 		case RECIPES_HANDLE_EDIT:
-        return Object.assign({}, state, {recipeEdit: {...action.value}});
+        return Object.assign({}, state, {recipeEdit: {...action.value}})
 
 		case RECIPES_TOGGLE_CREATE:
       if (action.value.isStartingCreate) {
@@ -118,7 +117,7 @@ export default function recipes(state = recipesInitialState, action) {
       }
 
 		case RECIPES_HANDLE_CREATE:
-        return Object.assign({}, state, {recipeCreate: {...action.value}});
+        return Object.assign({}, state, {recipeCreate: {...action.value}})
 
 		default:
 			return state
@@ -127,6 +126,29 @@ export default function recipes(state = recipesInitialState, action) {
 
 const regexer = function(pattern){
 	return new RegExp(pattern, "gi")
+}
+
+export function mergeRecipesBy(oldRecipes, fetchedRecipes, byTerm='_id') {
+  const oldIds = oldRecipes.map(recipe => recipe[byTerm])
+  const fetchedIds = fetchedRecipes.map(recipe => recipe[byTerm])
+  let mergedRecipes = oldRecipes.slice()
+  let matchedRecipesIds = []
+
+  for (let i = 0; i < fetchedIds.length ; i = i + 1) {
+    const matchedIdLocation = oldIds.indexOf(fetchedIds[i])
+    if(matchedIdLocation !== -1) {
+      mergedRecipes[matchedIdLocation] = fetchedRecipes[i]
+      //mergedRecipes.splice(matchedIdLocation, 1, fetchedRecipes[fetchedIds[i]])
+      matchedRecipesIds.push(fetchedIds[i])
+    }
+  }
+
+  for (let i = 0; i < matchedRecipesIds.length ; i = i + 1) {
+    fetchedRecipes.splice(matchedRecipesIds[i], 1)
+  }
+  mergedRecipes = [...mergedRecipes, ...fetchedRecipes]
+  return mergedRecipes
+
 }
 
 const filterInput = function(recipePiece, filterObject, replacementPattern){
@@ -144,7 +166,7 @@ const filterInput = function(recipePiece, filterObject, replacementPattern){
 	return newString
 }
 
-export const recipesUpdate = (recipeId, hideIngredients, name, ingredients, instructions, author) => {
+export const recipesScrubbing = (recipeId, hideIngredients, name, ingredients, instructions, author) => {
 	var nameFiltered = filterInput(name, badWords, '***')
 	var ingredientsFiltered = filterInput(filterInput(ingredients, abbreviations), badWords, '***')
 	var instructionsFiltered = filterInput(instructions, badWords, '***')
@@ -161,42 +183,59 @@ export const recipesUpdate = (recipeId, hideIngredients, name, ingredients, inst
 	}
 }
 
-export const recipesDelete = id => ({
-  type: RECIPES_DELETE,
-  value: id
-})
+export function recipesDelete(id) {
+  return {
+    type: RECIPES_DELETE,
+    value: id
+  }
+}
 
-export const recipesToggleView = id => ({
-  type: RECIPES_TOGGLE_VIEW,
-  value: id
-})
+export function recipesToggleView(id) {
+  return {
+    type: RECIPES_TOGGLE_VIEW,
+    value: id
+  }
+}
 
-export const recipesToggleEdit = id  => ({
-  type: RECIPES_TOGGLE_EDIT,
-  value: id
-})
+export function recipesToggleEdit(id) {
+  return {
+    type: RECIPES_TOGGLE_EDIT,
+    value: id
+  }
+}
 
-export const recipesHandleEdit = formFields => ({
-  type: RECIPES_HANDLE_EDIT,
-  value: formFields
-})
+export function recipesHandleEdit(formFields) {
+  return {
+    type: RECIPES_HANDLE_EDIT,
+    value: formFields
+  }
+}
 
-export const recipesToggleCreate = isStartingCreate => ({
-  type: RECIPES_TOGGLE_CREATE,
-  value: isStartingCreate
-})
+export function recipesToggleCreate(isStartingCreate) {
+  return {
+    type: RECIPES_TOGGLE_CREATE,
+    value: isStartingCreate
+  }
+}
 
-export const recipesHandleCreate = formFields => ({
-  type: RECIPES_HANDLE_EDIT,
-  value: formFields
-})
+export function recipesHandleCreate(formFields) {
+  return {
+    type: RECIPES_HANDLE_EDIT,
+    value: formFields
+  }
+}
 
-export const recipesGet = page => ({
-  type: RECIPES_GET,
-  value: page
-})
+export function recipesGet(page) {
+  return {
+    type: RECIPES_GET,
+    value: page
+  }
+}
 
-export const recipesUpdateRequest = (recipeToEdit) => ({
-  type: RECIPES_UPDATE_REQUEST,
-  value: recipeToEdit
-});
+export function recipesUpdate(recipeToEdit) {
+  return {
+    type: RECIPES_UPDATE,
+    value: recipeToEdit
+  }
+}
+

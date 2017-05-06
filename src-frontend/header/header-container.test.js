@@ -30,4 +30,42 @@ test('<HeaderContainer />', (t) => {
       )
     });
   })
+
+  t.test('', t => {
+    const setup = [
+      'sessionLogin',
+      'sessionLogout',
+      'headerButtonSelect',
+
+      //state
+      'session',
+
+      //form values
+      'buttonSelected',
+      'email',
+      'username',
+      'password',
+      'passwordConfirm',
+    ]
+    t.plan(setup.length)
+
+    const stateObj = {
+      session: '',
+      header: {
+        buttonSelected: '',
+        email: '',
+        username: '',
+        password: '',
+        passwordConfirm: '',
+      }
+    }
+    const mappedState = mapStateToProps(stateObj)
+    setup.forEach(testData => {
+      t.equal(
+        Object.keys(mappedState).some(key => key === testData),
+        true,
+        `mapped state contains ${testData} key`
+      )
+    });
+  })
 })
