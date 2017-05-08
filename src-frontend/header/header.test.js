@@ -96,6 +96,28 @@ test('<Header/>', (t) => {
     });
   })
 
+  t.test('input fields call headerHandleInput when they receive input', t => {
+    const mockHandleInput = td.function()
+    const wrapper = shallow(<Header {...props} 
+      buttonSelected='signup'
+      headerHandleInput={mockHandleInput}
+      />)
+    const inputs = wrapper.find('input')
+    t.plan(inputs.length - 1)
+
+    let expectedCallCount = td.explain(mockHandleInput).calls.length
+    for (let i = 0 ; i < (inputs.length - 1) ; i = i + 1) {
+      inputs.at(i).simulate('change', {target: {value: 'bob'}})
+      expectedCallCount = expectedCallCount + 1
+      t.equal(
+        expectedCallCount,
+        td.explain(mockHandleInput).calls.length,
+        `${inputs.at(i).prop('placeholder')} input calls headerHandleInput when it receives input`
+      )
+    }
+    td.reset()
+  })
+
   t.test('componentDidUpdate', t => {
     t.plan(1)
     const wrapper = shallow(<Header {...props} />)

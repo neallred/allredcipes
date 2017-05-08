@@ -9,14 +9,14 @@ import {
   recipesHandleEdit 
 } from '../recipe-list/ducks'
 
-const mapStateToProps = (state, ownProps) => {
+export function mapStateToProps(state, ownProps) {
 
 	return {
 		recipeEdit: state && state.recipes && state.recipes.recipeEdit,
 	}
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+export function mapDispatchToProps(dispatch, ownProps) {
 	return {
 		onSubmit: () => {
 			if(!values.name || !values.name.trim() || values.recipeId === undefined){return}

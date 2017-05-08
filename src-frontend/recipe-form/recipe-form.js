@@ -8,6 +8,7 @@ let RecipeForm = ({
   recipeEdit={},
 	onCancel,
 	onSubmit,
+  handleEdit,
 }) => {
   const {
     author,
@@ -38,7 +39,7 @@ let RecipeForm = ({
         value={author}
         placeholder='Recipe author'
         onChange={val => handleEdit(val)}  />
-      <button className={`${baseClass}__field`}
+      <button className={`${baseClass}__cancel`}
         type='button'
 				onClick={onCancel}
 				className='btn btn-primary'
