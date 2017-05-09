@@ -6,7 +6,8 @@ import {
 import { RecipeForm } from './recipe-form'
 import {
   recipesUpdate,
-  recipesHandleEdit 
+  recipesHandleEdit,
+  recipesToggleEdit,
 } from '../recipe-list/ducks'
 
 export function mapStateToProps(state, ownProps) {
@@ -23,11 +24,11 @@ export function mapDispatchToProps(dispatch, ownProps) {
 			dispatch({type: RECIPE_UPDATE_REQUEST, value: values});
 		},
 		onCancel: (values) => {
-			//dispatch(isEditing())
+			dispatch(recipesToggleEdit())
 		},
-		handleEdit: (e) => {
-      const newField = (e && e.target && e.target.value) ? e.target.value : e
-			dispatch(recipesHandleEdit(newField))
+		handleEdit: (e, key) => {
+      const newField = (e && e.target && e.target.value !== undefined) ? e.target.value : e
+      dispatch(recipesHandleEdit({[key]: newField}))
 		}
 	}
 }

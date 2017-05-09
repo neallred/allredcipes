@@ -10,8 +10,8 @@ export const Modal = ({
   ...props
 }) => (
 	<div className={`${cB} ${cB}${isOpen ? '--open' : '--closed'}`} >
-		<h2 className={`${cB}__title`}>{title}</h2>
     <div className={`${cB}__content-wrapper`}>
+      <h2 className={`${cB}__title`}>{title}</h2>
       {children}
     </div>
 	</div>

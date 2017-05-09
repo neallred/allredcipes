@@ -23,22 +23,22 @@ let RecipeForm = ({
 		<form className={baseClass} onSubmit={onSubmit}>
       <input className={`${baseClass}__field`}
         type='text'
-        value={name}
+        value={name || ''}
         placeholder='Recipe name'
-        onChange={val => handleEdit(val)} />
+        onChange={val => handleEdit(val, 'name')} />
       <textarea className={`${baseClass}__field`}
-        value={ingredients}
+        value={ingredients || ''}
         placeholder='Ingredients'
-        onChange={val => handleEdit(val)} />
+        onChange={val => handleEdit(val, 'ingredients')} />
       <textarea className={`${baseClass}__field`}
-        value={instructions}
+        value={instructions || ''}
         placeholder='Instructions'
-        onChange={val => handleEdit(val)} />
+        onChange={val => handleEdit(val, 'instructions')} />
       <input className={`${baseClass}__field`}
         type='text'
-        value={author}
+        value={author || ''}
         placeholder='Recipe author'
-        onChange={val => handleEdit(val)}  />
+        onChange={val => handleEdit(val, 'author')}  />
       <button className={`${baseClass}__cancel`}
         type='button'
 				onClick={onCancel}

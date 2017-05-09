@@ -1,4 +1,3 @@
-import {badWords} from '../constants/badwords'
 import {abbreviations} from '../constants/abbreviations'
 import {
   RECIPES_GET,
@@ -22,7 +21,6 @@ import {
 } from '../constants/action-types'
 
 import {
-  stringPropertySort
 } from '../utils/array-sorting'
 
 export const initialEditState = {
@@ -56,15 +54,17 @@ export default function recipes(state = recipesInitialState, action) {
 
 		case RECIPES_CREATE_SUCCESS:
 			const newlyCreatedRecipe = action && action.value || {}
-			const newRecipeList = [...state.list, newCreatedRecipe].sort(stringPropertySort('name'))
-      Object.assign({}, state, {list: newRecipeList, errorCreate: null})
+      return Object.assign({}, state, {list: [...state.list, newlyCreatedRecipe], errorCreate: null})
 
 		case RECIPES_CREATE_FAILURE:
       return Object.assign({}, state, {errorCreate: action.value})
 
 		case RECIPES_UPDATE_SUCCESS:
       const listWithUpdatedRecipe = state.list.slice()
-      const updatedRecipe = findRecipe(listWithUpdatedRecipe.list, action.value._id)
+      const updatedRecipe = findRecipe(listWithUpdatedRecipe, action.value._id)
+      if (!updatedRecipe) {
+        return Object.assign({}, state, errorUpdate: null)
+      }
       updatedRecipe.author = action.value.author
       updatedRecipe.ingredients = action.value.ingredients
       updatedRecipe.instructions = action.value.instructions
@@ -76,12 +76,22 @@ export default function recipes(state = recipesInitialState, action) {
 
 		case RECIPES_DELETE_SUCCESS:
       const listWithoutRecipe = state.list.slice()
-			const deletedRecipeIndex = findRecipeIndex(state.list, actionValue)
+			const deletedRecipeIndex = findRecipeIndex(state.list, action.value)
 			if (deletedRecipeIndex === -1) { return state }
-			return Object.assign({}, state, {list: [
-				...state.slice(0, deletedRecipeIndex),
-				...state.slice(deletedRecipeIndex + 1)
-			]})
+			return Object.assign(
+        {},
+        state,
+        {
+          list: [
+            ...state.list.slice(0, deletedRecipeIndex),
+            ...state.list.slice(deletedRecipeIndex + 1)
+          ],
+          errorDelete: null,
+        }
+			)
+
+		case RECIPES_DELETE_FAILURE:
+      return Object.assign({}, state, {errorDelete: action.value})
 
 		case RECIPES_TOGGLE_VIEW:
       const listWithToggledView = state.list.slice()
@@ -100,7 +110,7 @@ export default function recipes(state = recipesInitialState, action) {
       }
 
 		case RECIPES_HANDLE_EDIT:
-        return Object.assign({}, state, {recipeEdit: {...action.value}})
+        return Object.assign({}, state, {recipeEdit: {...state.recipeEdit, ...action.value}})
 
 		case RECIPES_TOGGLE_CREATE:
       if (action.value.isStartingCreate) {
@@ -149,38 +159,6 @@ export function mergeRecipesBy(oldRecipes, fetchedRecipes, byTerm='_id') {
   mergedRecipes = [...mergedRecipes, ...fetchedRecipes]
   return mergedRecipes
 
-}
-
-const filterInput = function(recipePiece, filterObject, replacementPattern){
-	let newString = recipePiece
-	if(Array.isArray(filterObject)){
-		for(let i=0;i<filterObject.length;i++){
-			newString = newString ? newString.replace(regexer(filterObject[i]),replacementPattern): ''
-		}
-	} else if (typeof filterObject === 'object'){
-		const hashKeys = Object.keys(filterObject)
-		for(let i=0;i<hashKeys.length;i++){
-			newString = newString ? newString.replace(regexer(hashKeys[i]), filterObject[hashKeys[i]]): ''
-		}
-	}
-	return newString
-}
-
-export const recipesScrubbing = (recipeId, hideIngredients, name, ingredients, instructions, author) => {
-	var nameFiltered = filterInput(name, badWords, '***')
-	var ingredientsFiltered = filterInput(filterInput(ingredients, abbreviations), badWords, '***')
-	var instructionsFiltered = filterInput(instructions, badWords, '***')
-	var authorFiltered = filterInput(author, badWords, '***')
-	return {
-		type: RECIPES_UPDATE,
-    value: {
-      recipeId,
-      name: nameFiltered,
-      ingredients: ingredientsFiltered,
-      instructions: instructionsFiltered,
-      author: authorFiltered
-    }
-	}
 }
 
 export function recipesDelete(id) {

@@ -12,14 +12,17 @@
 	-moz-transition: opacity 150ms ease-in;
 	transition: opacity 150ms ease-in;
 	pointer-events: none;
+
 	&__title {
 		color: white;
+    text-align: center;
+    font-size: 2em;
 	}
   &--closed {
     display: none;
     opacity: 0;
   }
-  &--opened {
+  &--open {
     opacity: 1;
     pointer-events: auto;
     display: auto;

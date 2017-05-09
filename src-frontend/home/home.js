@@ -13,7 +13,6 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 export const HomeComponent = ({
-	updateFields,
 	session
 }) => {
   //console.log(cookie.load('token'))
@@ -22,7 +21,7 @@ export const HomeComponent = ({
 		<HeaderContainer />
 		<SearchContainer />
 		<RecipeList />
-		{session.isLoggedIn && <RecipeFormContainer updateFields={updateFields}/>}
+		{session.isLoggedIn && <RecipeFormContainer />}
 		<br/>
 	</div>
 )
