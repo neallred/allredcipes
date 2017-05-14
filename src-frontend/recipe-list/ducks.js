@@ -6,9 +6,9 @@ import {
   RECIPES_CREATE,
   RECIPES_CREATE_SUCCESS,
   RECIPES_CREATE_FAILURE,
-  RECIPES_UPDATE,
-  RECIPES_UPDATE_SUCCESS,
-  RECIPES_UPDATE_FAILURE,
+  RECIPES_EDIT,
+  RECIPES_EDIT_SUCCESS,
+  RECIPES_EDIT_FAILURE,
   RECIPES_DELETE,
   RECIPES_DELETE_SUCCESS,
   RECIPES_DELETE_FAILURE,
@@ -31,14 +31,21 @@ export const initialEditState = {
   _id: null,
 }
 
+export const initialCreateState = {
+  author: '',
+  instructions: '',
+  ingredients: '',
+  name: '',
+}
+
 export const recipesInitialState = {
   list: [],
-  recipeCreate: null, //is an object with the 4 recipe keys when in create mode.
+  recipeCreate: initialCreateState, //is an object with the 4 recipe keys when in create mode.
   recipeEdit: initialEditState,
   errorGet: null,
   errorCreate: null,
   errorDelete: null,
-  errorUpdate: null,
+  errorEdit: null,
 }
 
 const findRecipe = (recipes, id) => recipes.find(recipe => recipe._id === id)
@@ -59,20 +66,20 @@ export default function recipes(state = recipesInitialState, action) {
 		case RECIPES_CREATE_FAILURE:
       return Object.assign({}, state, {errorCreate: action.value})
 
-		case RECIPES_UPDATE_SUCCESS:
-      const listWithUpdatedRecipe = state.list.slice()
-      const updatedRecipe = findRecipe(listWithUpdatedRecipe, action.value._id)
-      if (!updatedRecipe) {
-        return Object.assign({}, state, errorUpdate: null)
+		case RECIPES_EDIT_SUCCESS:
+      const listWithEdittedRecipe = state.list.slice()
+      const edittedRecipe = findRecipe(listWithEdittedRecipe, action.value._id)
+      if (!edittedRecipe) {
+        return Object.assign({}, state, errorEdit: null)
       }
-      updatedRecipe.author = action.value.author
-      updatedRecipe.ingredients = action.value.ingredients
-      updatedRecipe.instructions = action.value.instructions
-      updatedRecipe.name = action.value.name
-      return Object.assign({}, state, {list: listWithUpdatedRecipe, errorUpdate: null})
+      edittedRecipe.author = action.value.author
+      edittedRecipe.ingredients = action.value.ingredients
+      edittedRecipe.instructions = action.value.instructions
+      edittedRecipe.name = action.value.name
+      return Object.assign({}, state, {list: listWithEdittedRecipe, errorEdit: null})
 
-		case RECIPES_UPDATE_FAILURE:
-      return Object.assign({}, state, {errorUpdate: action.value})
+		case RECIPES_EDIT_FAILURE:
+      return Object.assign({}, state, {errorEdit: action.value})
 
 		case RECIPES_DELETE_SUCCESS:
       const listWithoutRecipe = state.list.slice()
@@ -210,10 +217,17 @@ export function recipesGet(page) {
   }
 }
 
-export function recipesUpdate(recipeToEdit) {
+export function recipesEdit(recipeToEdit) {
   return {
-    type: RECIPES_UPDATE,
+    type: RECIPES_EDIT,
     value: recipeToEdit
+  }
+}
+
+export function recipesCreate(recipeToCreate) {
+  return {
+    type: RECIPES_CREATE,
+    value: recipeToCreate
   }
 }
 

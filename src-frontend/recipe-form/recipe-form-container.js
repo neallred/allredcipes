@@ -1,11 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {
-  RECIPE_UPDATE_REQUEST
-} from '../constants/action-types'
 import { RecipeForm } from './recipe-form'
 import {
-  recipesUpdate,
+  recipesEdit,
   recipesHandleEdit,
   recipesToggleEdit,
 } from '../recipe-list/ducks'
@@ -14,19 +11,24 @@ export function mapStateToProps(state, ownProps) {
 
 	return {
 		recipeEdit: state && state.recipes && state.recipes.recipeEdit,
+		recipeCreate: state && state.recipes && state.recipes.recipeCreate,
 	}
 }
 
 export function mapDispatchToProps(dispatch, ownProps) {
 	return {
-		onSubmit: () => {
-			if(!values.name || !values.name.trim() || values.recipeId === undefined){return}
-			dispatch({type: RECIPE_UPDATE_REQUEST, value: values});
+		recipesSubmitEdit(recipe) {
+			if(!recipe.name || !recipe.name.trim() || recipe._id === undefined){return}
+			dispatch(recipesEdit(recipe));
 		},
-		onCancel: (values) => {
+		recipesSubmitCreate(recipe) {
+			if(!recipe.name || !recipe.name.trim() || recipe._id === undefined){return}
+			dispatch(recipesCreate(recipe));
+		},
+		onCancel(values) {
 			dispatch(recipesToggleEdit())
 		},
-		handleEdit: (e, key) => {
+		handleEdit(e, key) {
       const newField = (e && e.target && e.target.value !== undefined) ? e.target.value : e
       dispatch(recipesHandleEdit({[key]: newField}))
 		}

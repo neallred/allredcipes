@@ -14,6 +14,10 @@ import {
 	RECIPES_DELETE_REQUEST,
 	RECIPES_DELETE_SUCCESS,
 	RECIPES_DELETE_FAILURE,
+
+	RECIPES_EDIT,
+	RECIPES_EDIT_SUCCESS,
+	RECIPES_EDIT_FAILURE,
 } from '../constants/action-types';
 
 export function *watchRecipesGet() {
@@ -36,4 +40,14 @@ function *recipesDelete(action) {
 
 export function *watchRecipesDelete() {
 	yield takeEvery(RECIPE_DELETE_REQUEST, recipesDelete);
+}
+
+export function *watchRecipesEdit() {
+	yield takeEvery(RECIPES_EDIT, recipesEdit);
+}
+
+function *recipesEdit(action) {
+	if (!action.value) { return }
+	const recipeEditted = yield call(axiosInstance.put, `/recipes/${action.value._id}`, action.value);
+	yield put({type: RECIPES_EDIT_SUCCESS, recipeEditted});
 }

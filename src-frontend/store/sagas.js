@@ -1,7 +1,14 @@
 import 'babel-polyfill'
 
-import { watchRecipesGet/*, watchDeleteRecipe*/ } from '../recipe-list/sagas'
-import { watchUpdateRecipe, watchCreateRecipe } from '../recipe-form/sagas'
+import {
+  watchRecipesGet,
+  watchRecipesEdit,
+  /*, watchDeleteRecipe*/
+} from '../recipe-list/sagas'
+import {
+  watchUpdateRecipe,
+  watchCreateRecipe,
+} from '../recipe-form/sagas'
 import {
   watchSessionLoginRequest,
   watchSessionLogoutRequest,
@@ -11,9 +18,9 @@ import {
 export function *rootSaga() {
 	yield [
 		watchRecipesGet(),
+		watchRecipesEdit(),
     //		watchCreateRecipe(),
     //		watchDeleteRecipe(),
-    //		watchUpdateRecipe(),
 		watchSessionLoginRequest(),
 		watchSessionLogoutRequest(),
 		watchSessionCheckStatusRequest()

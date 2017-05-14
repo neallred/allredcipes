@@ -7,9 +7,9 @@ import {
   RECIPES_CREATE,
   RECIPES_CREATE_SUCCESS,
   RECIPES_CREATE_FAILURE,
-  RECIPES_UPDATE,
-  RECIPES_UPDATE_SUCCESS,
-  RECIPES_UPDATE_FAILURE,
+  RECIPES_EDIT,
+  RECIPES_EDIT_SUCCESS,
+  RECIPES_EDIT_FAILURE,
   RECIPES_DELETE,
   RECIPES_DELETE_SUCCESS,
   RECIPES_DELETE_FAILURE,
@@ -30,7 +30,7 @@ import {
   recipesToggleCreate,
   recipesHandleCreate,
   recipesGet,
-  recipesUpdate,
+  recipesEdit,
 
   //initialState
   recipesInitialState,
@@ -176,7 +176,7 @@ test('Recipe List ducks reducer', (t) => {
       errorGet: preserved,
       errorCreate: notPreserved,
       errorDelete: preserved,
-      errorUpdate: preserved,
+      errorEdit: preserved,
     }
 
     const localAction = {type: RECIPES_CREATE_FAILURE, value: 'new value'}
@@ -202,17 +202,17 @@ test('Recipe List ducks reducer', (t) => {
     })
   })
 
-  t.test('RECIPES_UPDATE_SUCCESS case', t => {
+  t.test('RECIPES_EDIT_SUCCESS case', t => {
     const localState = {
       list: [
         { _id: '0', name: '0', },
         { _id: '1', name: '1', author: 'author', ingredients: 'ingredients', instructions: 'instructions'},
         { _id: '2', name: '2', },
       ],
-      errorUpdate: true
+      errorEdit: true
     }
     const localAction = {
-      type: RECIPES_UPDATE_SUCCESS,
+      type: RECIPES_EDIT_SUCCESS,
       value: {
         _id: '1',
         name: 'bob cakes',
@@ -233,13 +233,13 @@ test('Recipe List ducks reducer', (t) => {
     t.deepEqual(
       reducerResult.list[0],
       localState.list[0],
-      'does not edit recipes not in the update'
+      'does not edit recipes not in the edit'
     )
 
     t.deepEqual(
       reducerResult.list[2],
       localState.list[2],
-      'does not edit recipes not in the update'
+      'does not edit recipes not in the edit'
     )
 
     t.deepEqual(
@@ -251,17 +251,17 @@ test('Recipe List ducks reducer', (t) => {
         ingredients: undefined,
         instructions: undefined,
       },
-      'sets updated recipe to new data, setting fields not in new response to undefined'
+      'sets editted recipe to new data, setting fields not in new response to undefined'
     )
 
     t.equal(
-      reducerResult.errorUpdate,
+      reducerResult.errorEdit,
       null,
-      'sets error update to null'
+      'sets error edit to null'
     )
   })
 
-  t.test('RECIPES_UPDATE_FAILURE case', t => {
+  t.test('RECIPES_EDIT_FAILURE case', t => {
 
     const initialStateSetup = {
       list: preserved,
@@ -269,10 +269,10 @@ test('Recipe List ducks reducer', (t) => {
       errorGet: preserved,
       errorCreate: preserved,
       errorDelete: preserved,
-      errorUpdate: notPreserved,
+      errorEdit: notPreserved,
     }
 
-    const localAction = {type: RECIPES_UPDATE_FAILURE, value: 'new value'}
+    const localAction = {type: RECIPES_EDIT_FAILURE, value: 'new value'}
     const reducerResult = recipesReducer(initialStateSetup, localAction)
     const stateKeys = Object.keys(initialStateSetup)
     t.plan(stateKeys.length)
@@ -329,7 +329,7 @@ test('Recipe List ducks reducer', (t) => {
       errorGet: preserved,
       errorCreate: preserved,
       errorDelete: notPreserved,
-      errorUpdate: preserved,
+      errorEdit: preserved,
     }
 
     const localAction = {type: RECIPES_DELETE_FAILURE, value: 'new value'}
@@ -465,7 +465,7 @@ test('RecipeList ducks action creators', (t) => {
     {actionCreator: recipesToggleCreate, type: RECIPES_TOGGLE_CREATE},
     {actionCreator: recipesHandleCreate, type: RECIPES_HANDLE_EDIT},
     {actionCreator: recipesGet, type: RECIPES_GET},
-    {actionCreator: recipesUpdate, type: RECIPES_UPDATE},
+    {actionCreator: recipesEdit, type: RECIPES_EDIT},
   ]
 
   setup.map(testData => {

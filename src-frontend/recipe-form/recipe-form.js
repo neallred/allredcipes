@@ -6,21 +6,31 @@ import Modal from '../modal/modal'
 const baseClass = 'recipe-form'
 let RecipeForm = ({
   recipeEdit={},
+  recipeCreate={},
 	onCancel,
-	onSubmit,
+	recipesSubmitEdit,
   handleEdit,
 }) => {
+  const temporaryRecipe = recipeEdit._id ? recipeEdit : recipeCreate;
   const {
     author,
     ingredients,
     instructions,
     name,
     _id,
-  } = recipeEdit;
+  } = temporaryRecipe;
 
   const isEditing = !!recipeEdit && !!recipeEdit._id
+
+  function onSubmit(e) {
+    if (e && e.preventDefault) {
+      e.preventDefault();
+    }
+    recipesSubmitEdit(recipeEdit)
+  }
+
   return <Modal title={`Edit ${name}`} isOpen={isEditing} >
-		<form className={baseClass} onSubmit={onSubmit}>
+    <form className={baseClass} onSubmit={(e) => onSubmit(e)}>
       <input className={`${baseClass}__field`}
         type='text'
         value={name || ''}
@@ -46,15 +56,17 @@ let RecipeForm = ({
 				id='cancel-edit' >
 				Cancel edit
 			</button><br/>
-			<button type='submit' className='btn btn-success' onClick={onSubmit}>
+      <button type='submit' className='btn btn-success' onClick={e => onSubmit(e)}>
 				Update Recipe
 			</button>
 		</form>
   </Modal>
 }
 
+
 RecipeForm.propTypes = {
-	onSubmit: PropTypes.func.isRequired
+	recipesSubmitEdit: PropTypes.func,
+	recipesSubmitCreate: PropTypes.func,
 }
 
 export { RecipeForm }

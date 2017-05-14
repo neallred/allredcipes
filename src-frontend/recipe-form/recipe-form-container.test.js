@@ -13,7 +13,8 @@ test('<SearchContainer />', (t) => {
 
   t.test('mapped dispatches ', t => {
     const setup = [
-      'onSubmit',
+      'recipesSubmitEdit',
+      'recipesSubmitCreate',
       'onCancel',
       'handleEdit',
     ]
