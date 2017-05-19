@@ -40,7 +40,7 @@ export const initialCreateState = {
 
 export const recipesInitialState = {
   list: [],
-  recipeCreate: initialCreateState, //is an object with the 4 recipe keys when in create mode.
+  recipeCreate: null, //is an object with the 4 recipe keys when in create mode.
   recipeEdit: initialEditState,
   errorGet: null,
   errorCreate: null,
@@ -70,7 +70,7 @@ export default function recipes(state = recipesInitialState, action) {
       const listWithEdittedRecipe = state.list.slice()
       const edittedRecipe = findRecipe(listWithEdittedRecipe, action.value._id)
       if (!edittedRecipe) {
-        return Object.assign({}, state, errorEdit: null)
+        return Object.assign({}, state, {errorEdit: null})
       }
       edittedRecipe.author = action.value.author
       edittedRecipe.ingredients = action.value.ingredients
@@ -120,7 +120,7 @@ export default function recipes(state = recipesInitialState, action) {
         return Object.assign({}, state, {recipeEdit: {...state.recipeEdit, ...action.value}})
 
 		case RECIPES_TOGGLE_CREATE:
-      if (action.value.isStartingCreate) {
+      if (!state.recipeCreate) {
         const recipeCreate = {
           author: '',
           ingredients: '',
@@ -134,7 +134,8 @@ export default function recipes(state = recipesInitialState, action) {
       }
 
 		case RECIPES_HANDLE_CREATE:
-        return Object.assign({}, state, {recipeCreate: {...action.value}})
+      const newRecipeCreate = Object.assign({}, state.recipeCreate, {...action.value})
+      return Object.assign({}, state, {recipeCreate: newRecipeCreate})
 
 		default:
 			return state
@@ -196,16 +197,15 @@ export function recipesHandleEdit(formFields) {
   }
 }
 
-export function recipesToggleCreate(isStartingCreate) {
+export function recipesToggleCreate() {
   return {
     type: RECIPES_TOGGLE_CREATE,
-    value: isStartingCreate
   }
 }
 
 export function recipesHandleCreate(formFields) {
   return {
-    type: RECIPES_HANDLE_EDIT,
+    type: RECIPES_HANDLE_CREATE,
     value: formFields
   }
 }
@@ -225,6 +225,7 @@ export function recipesEdit(recipeToEdit) {
 }
 
 export function recipesCreate(recipeToCreate) {
+  console.log('recipeToCreate', recipeToCreate)
   return {
     type: RECIPES_CREATE,
     value: recipeToCreate

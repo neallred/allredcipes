@@ -7,6 +7,10 @@ import {
 } from 'redux-saga/effects';
 import axiosInstance from '../axiosInstance';
 import {
+	RECIPES_CREATE,
+	RECIPES_CREATE_SUCCESS,
+	RECIPES_CREATE_FAILURE,
+
 	RECIPES_GET,
 	RECIPES_GET_SUCCESS,
 	RECIPES_GET_FAILURE,
@@ -49,5 +53,16 @@ export function *watchRecipesEdit() {
 function *recipesEdit(action) {
 	if (!action.value) { return }
 	const recipeEditted = yield call(axiosInstance.put, `/recipes/${action.value._id}`, action.value);
-	yield put({type: RECIPES_EDIT_SUCCESS, recipeEditted});
+	yield put({type: RECIPES_EDIT_SUCCESS, value: recipeEditted});
+}
+
+export function *watchRecipesCreate() {
+  console.log('found create request')
+	yield takeEvery(RECIPES_CREATE, recipesCreate);
+}
+
+function *recipesCreate(action) {
+	if (!action.value) { return }
+	const newRecipe = yield call(axiosInstance.post, '/recipes', action.value);
+	yield put({type: RECIPES_CREATE_SUCCESS, value: newRecipe});
 }

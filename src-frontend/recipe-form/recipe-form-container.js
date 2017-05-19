@@ -3,8 +3,11 @@ import { connect } from 'react-redux'
 import { RecipeForm } from './recipe-form'
 import {
   recipesEdit,
+  recipesCreate,
   recipesHandleEdit,
   recipesToggleEdit,
+  recipesToggleCreate,
+  recipesHandleCreate,
 } from '../recipe-list/ducks'
 
 export function mapStateToProps(state, ownProps) {
@@ -22,16 +25,23 @@ export function mapDispatchToProps(dispatch, ownProps) {
 			dispatch(recipesEdit(recipe));
 		},
 		recipesSubmitCreate(recipe) {
-			if(!recipe.name || !recipe.name.trim() || recipe._id === undefined){return}
+			if(!recipe.name || !recipe.name.trim()){return}
 			dispatch(recipesCreate(recipe));
 		},
-		onCancel(values) {
+		recipesToggleEdit(values) {
 			dispatch(recipesToggleEdit())
+		},
+		recipesToggleCreate(values) {
+			dispatch(recipesToggleCreate())
 		},
 		handleEdit(e, key) {
       const newField = (e && e.target && e.target.value !== undefined) ? e.target.value : e
       dispatch(recipesHandleEdit({[key]: newField}))
-		}
+		},
+    handleRecipeCreateChange(e, key) {
+      const newField = (e && e.target && e.target.value !== undefined) ? e.target.value : e
+      dispatch(recipesHandleCreate({[key]: newField}))
+    }
 	}
 }
 

@@ -18,7 +18,3 @@ export const Modal = ({
 )
 
 export default Modal;
-
-Modal.propTypes = {
-	isOpen: PropTypes.bool.isRequired
-}

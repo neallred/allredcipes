@@ -30,6 +30,7 @@ export class Header extends React.Component {
 			headerButtonSelect,
 			headerHandleInput,
 			headerMeasureHeight,
+      recipesToggleCreate,
 
 			//store
 			dispatch,
@@ -98,7 +99,7 @@ export class Header extends React.Component {
 
 			const loggedInHeader =  <header className='header__wrapper' ref='header'>
 				<button className="header__button" onClick={() => {sessionLogout()}}>Logout</button>
-				<button className="header__button">New Recipe</button>
+        <button className="header__button" onClick={() => {recipesToggleCreate()}} >New Recipe</button>
 			</header>
 
 			return session.isLoggedIn ? loggedInHeader : loggedOutHeader

@@ -1,7 +1,17 @@
 import { connect } from 'react-redux'
 import { Header } from './header'
-import { headerButtonSelect, headerHandleInput, headerMeasureHeight } from './ducks'
-import { sessionLogin, sessionLogout } from '../session/ducks'
+import {
+  headerButtonSelect,
+  headerHandleInput,
+  headerMeasureHeight
+} from './ducks'
+import {
+  sessionLogin,
+  sessionLogout
+} from '../session/ducks'
+import {
+  recipesToggleCreate
+} from '../recipe-list/ducks'
 
 export function mapStateToProps(state, ownProps) {
 	const {session, header} = state
@@ -32,6 +42,8 @@ export function mapDispatchToProps(dispatch) {
     },
     headerMeasureHeight: height => dispatch(headerMeasureHeight(height)),
     headerButtonSelect: button => dispatch(headerButtonSelect(button)),
+
+    recipesToggleCreate: () => dispatch(recipesToggleCreate()),
 
     sessionLogin: loginRequest => dispatch(sessionLogin(loginRequest)),
     sessionLogout: () => dispatch(sessionLogout()),

@@ -3,6 +3,7 @@ import 'babel-polyfill'
 import {
   watchRecipesGet,
   watchRecipesEdit,
+  watchRecipesCreate,
   /*, watchDeleteRecipe*/
 } from '../recipe-list/sagas'
 import {
@@ -19,7 +20,7 @@ export function *rootSaga() {
 	yield [
 		watchRecipesGet(),
 		watchRecipesEdit(),
-    //		watchCreateRecipe(),
+		watchRecipesCreate(),
     //		watchDeleteRecipe(),
 		watchSessionLoginRequest(),
 		watchSessionLogoutRequest(),

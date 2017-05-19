@@ -48,20 +48,26 @@ function loadRecipes(req, res, next) {
 }
 
 function createRecipe(req, res, next) {
-  const { params={} } = req;
-  const { author, name, ingredients, instructions } = params;
+  const { body={} } = req;
+  const { author, name, ingredients, instructions } = body;
   const newRecipe = {
     author,
     name,
     ingredients,
     instructions
   }
+  const expectedFields = [
+    'author',
+    'name',
+    'ingredients',
+    'instructions'
+  ]
 
   const missingFieldsTemplate = 'Unable to add recipe, these fields are missing:'
-  const missingFieldsError = checkFieldsMissing(newRecipe, missingFieldsTemplate);
+  const missingFieldsError = checkFieldsMissing(newRecipe, expectedFields, missingFieldsTemplate);
   if (missingFieldsError) { res.send(missingFieldsError); return null }
 
-  Recipe.create(newRecipes, function(err, result) {
+  Recipe.create(newRecipe, function(err, result) {
     if (err) { throw err; }
     else {
       res.send(result)
@@ -92,9 +98,57 @@ author: ${author}
     author
   }
 
-  console.log('updateRecipe to be implemented\n');
+  Recipe.find({_id: id})
+    .limit(1)
+    .exec(function(err, recipeToEdit) {
+      if (err) {
+        return next(err);
+      }
+      if (!recipeToEdit) {
+        return res.status(404).send('Not found\n')
+      }
+      console.log(requestLogTemplate)
+      console.log(`matched recipe is: ${JSON.stringify(recipeToEdit)}`)
+
+
+      res.send(recipeToEdit);
+      //next();
+
+    })
   return null;
 }
+//function find(conditions, projection, options, callback) {
+//  if (typeof conditions === 'function') {
+//    callback = conditions;
+//    conditions = {};
+//    projection = null;
+//    options = null;
+//  } else if (typeof projection === 'function') {
+//    callback = projection;
+//    projection = null;
+//    options = null;
+//  } else if (typeof options === 'function') {
+//    callback = options;
+//    options = null;
+//  }
+//
+//  var mq = new this.Query({}, {}, this, this.collection);
+//  mq.select(projection);
+//  mq.setOptions(options);
+//  if (this.schema.discriminatorMapping && mq.selectedInclusively()) {
+//    mq.select(this.schema.options.discriminatorKey);
+//  }
+//
+//  if (callback) {
+//    callback = this.$wrapCallback(callback);
+//  }
+//
+//  return mq.find(conditions, callback);
+//}
+//function update(conditions, doc, options, callback) {
+//  return _update(this, 'update', conditions, doc, options, callback);
+//}
+
 
 function deleteRecipe(err, req, res, next) {
   const { params = {} } = req
@@ -129,8 +183,8 @@ function seedRecipes(req, res, next) {
   res.send('')
 }
 
-function checkFieldsMissing(fields, errorTemplate) {
-  const missingFields = Object.keys(fields).filter(fieldName => !newRecipe[field] && fieldName)
+function checkFieldsMissing(requestObject, expectedFields, errorTemplate) {
+  const missingFields = Object.keys(requestObject).filter(fieldName => !requestObject[fieldName])
   if ( missingFields.length ) {
     return missingFields.reduce((accumulator, field) => accumulator + ' ' + field, errorTemplate) + '\n'
   }

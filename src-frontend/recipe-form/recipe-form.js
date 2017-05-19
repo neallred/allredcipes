@@ -7,59 +7,63 @@ const baseClass = 'recipe-form'
 let RecipeForm = ({
   recipeEdit={},
   recipeCreate={},
-	onCancel,
+	recipesToggleCreate,
+	recipesToggleEdit,
 	recipesSubmitEdit,
+	recipesSubmitCreate,
   handleEdit,
+  handleRecipeCreateChange,
 }) => {
   const temporaryRecipe = recipeEdit._id ? recipeEdit : recipeCreate;
-  const {
-    author,
-    ingredients,
-    instructions,
-    name,
-    _id,
-  } = temporaryRecipe;
-
-  const isEditing = !!recipeEdit && !!recipeEdit._id
+  const isEditing = (temporaryRecipe && temporaryRecipe._id)
+  const isCreating = (temporaryRecipe && (!temporaryRecipe._id && recipeCreate.name !== undefined))
+  const showModal = isEditing || isCreating
+  const changeFunction = isEditing ? handleEdit : handleRecipeCreateChange;
+  const cancelFunction = isEditing ? recipesToggleEdit : recipesToggleCreate
 
   function onSubmit(e) {
     if (e && e.preventDefault) {
       e.preventDefault();
     }
-    recipesSubmitEdit(recipeEdit)
+    if (isEditing) {
+      recipesSubmitEdit(temporaryRecipe)
+    }
+    else {
+      recipesSubmitCreate(temporaryRecipe)
+    }
   }
 
-  return <Modal title={`Edit ${name}`} isOpen={isEditing} >
-    <form className={baseClass} onSubmit={(e) => onSubmit(e)}>
+  return <Modal title={`Edit ${name}`} isOpen={showModal} >
+    {temporaryRecipe && <form className={baseClass} onSubmit={(e) => onSubmit(e)}>
       <input className={`${baseClass}__field`}
         type='text'
-        value={name || ''}
+        value={temporaryRecipe.name || ''}
         placeholder='Recipe name'
-        onChange={val => handleEdit(val, 'name')} />
+        onChange={val => changeFunction(val, 'name')} />
       <textarea className={`${baseClass}__field`}
-        value={ingredients || ''}
+        value={temporaryRecipe.ingredients || ''}
         placeholder='Ingredients'
-        onChange={val => handleEdit(val, 'ingredients')} />
+        onChange={val => changeFunction(val, 'ingredients')} />
       <textarea className={`${baseClass}__field`}
-        value={instructions || ''}
+        value={temporaryRecipe.instructions || ''}
         placeholder='Instructions'
-        onChange={val => handleEdit(val, 'instructions')} />
+        onChange={val => changeFunction(val, 'instructions')} />
       <input className={`${baseClass}__field`}
         type='text'
-        value={author || ''}
+        value={temporaryRecipe.author || ''}
         placeholder='Recipe author'
-        onChange={val => handleEdit(val, 'author')}  />
+        onChange={val => changeFunction(val, 'author')}  />
       <button className={`${baseClass}__cancel`}
         type='button'
-				onClick={onCancel}
+				onClick={cancelFunction}
 				className='btn btn-primary'
 				id='cancel-edit' >
-				Cancel edit
+				Cancel
 			</button><br/>
       <button type='submit' className='btn btn-success' onClick={e => onSubmit(e)}>
-				Update Recipe
+        {isEditing ? 'Edit' : 'Create' } Recipe
 			</button>
-		</form>
+		</form>}
   </Modal>
 }
 
